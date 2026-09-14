@@ -2,6 +2,8 @@
 
 Selected self-contained research reports published with GitHub Pages.
 
+## City Council
+
 - [Chicago City Council ideal points](https://bshor.github.io/reports/chicago-city-council/chicago-report.html)
   - [Technical appendix](https://bshor.github.io/reports/chicago-city-council/chicago-technical-appendix.html)
 
@@ -13,6 +15,8 @@ Selected self-contained research reports published with GitHub Pages.
 
 - [Houston City Council ideal points](https://bshor.github.io/reports/houston-city-council/houston-report.html)
   - [Technical appendix](https://bshor.github.io/reports/houston-city-council/houston-technical-appendix.html)
+
+## LLM
 
 - [LLM respondent-information arms (CCES extension)](https://bshor.github.io/reports/llm-cces-extension/paper-comparisons.html)
   - [PDF version](https://bshor.github.io/reports/llm-cces-extension/paper-comparisons.pdf)
