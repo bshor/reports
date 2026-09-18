@@ -2222,6 +2222,12 @@ vertical-align: -.125em;
   </ul></li>
   <li><a href="#member-estimates" id="toc-member-estimates" class="nav-link" data-scroll-target="#member-estimates">Member estimates</a></li>
   <li><a href="#validation-construction" id="toc-validation-construction" class="nav-link" data-scroll-target="#validation-construction">Validation construction</a></li>
+  <li><a href="#bridging-to-the-state-common-space" id="toc-bridging-to-the-state-common-space" class="nav-link" data-scroll-target="#bridging-to-the-state-common-space">Bridging to the state common space</a>
+  <ul class="collapse">
+  <li><a href="#the-mapping" id="toc-the-mapping" class="nav-link" data-scroll-target="#the-mapping">The mapping</a></li>
+  <li><a href="#matching-and-why-it-is-the-weak-point" id="toc-matching-and-why-it-is-the-weak-point" class="nav-link" data-scroll-target="#matching-and-why-it-is-the-weak-point">Matching, and why it is the weak point</a></li>
+  <li><a href="#state-legislators-representing-the-city" id="toc-state-legislators-representing-the-city" class="nav-link" data-scroll-target="#state-legislators-representing-the-city">State legislators representing the city</a></li>
+  </ul></li>
   <li><a href="#limits" id="toc-limits" class="nav-link" data-scroll-target="#limits">Limits</a></li>
   <li><a href="#reproduction" id="toc-reproduction" class="nav-link" data-scroll-target="#reproduction">Reproduction</a></li>
   </ul>
@@ -3593,6 +3599,230 @@ vertical-align: -.125em;
 <p>Every external indicator is assembled by <code>Code/24_nyc_validation_data.r</code> into source-backed tables and joined on <code>person_id</code>, not on names. Organizational records carry validity intervals, and several rosters are snapshots rather than continuous memberships, so the pooled indicator is “ever recorded in this group”. The official party labels cover the 51 seats of the current council only; earlier members are left unlabelled rather than assumed. Ballot-line labels come from Board of Elections results for 2017, 2021, 2023, and 2025 and reflect New York’s fusion lines — the lines a candidate ran on, not a registration.</p>
 <p>District comparisons: 2024 presidential results aggregate the published precinct polygons to council boundaries; council-election shares use candidate totals, because per-line splits are unavailable for 2023; and the 2025 mayoral figures aggregate Board of Elections election-district returns to all 51 districts using that same election’s council result files as the crosswalk, with all 4,117 in-play election districts matching exactly one district. None of these quantities enters estimation.</p>
 </section>
+<section id="bridging-to-the-state-common-space" class="level2">
+<h2 class="anchored" data-anchor-id="bridging-to-the-state-common-space">Bridging to the state common space</h2>
+<section id="the-mapping" class="level3">
+<h3 class="anchored" data-anchor-id="the-mapping">The mapping</h3>
+<p>Sixteen people in the analysis also served in the New York State Assembly or Senate, where the Shor–McCarty common space measures legislators on a scale shared across states. The bridge follows the core of <code>linear_map_states()</code> in the state-legislature project: regress the common-space score on the council coordinate over the members observed in both bodies, then apply those two coefficients to every council member.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Term</th>
+<th style="text-align: right;">Estimate</th>
+<th style="text-align: right;">Std. error</th>
+<th style="text-align: right;">t</th>
+<th style="text-align: left;">p</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Intercept</td>
+<td style="text-align: right;">-1.493</td>
+<td style="text-align: right;">0.108</td>
+<td style="text-align: right;">-13.86</td>
+<td style="text-align: left;">1.4e-09</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Slope (council ideal point)</td>
+<td style="text-align: right;">0.431</td>
+<td style="text-align: right;">0.090</td>
+<td style="text-align: right;">4.80</td>
+<td style="text-align: left;">0.00028</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>R² is 0.62 on 16 bridges, Pearson 0.79, residual standard error 0.43. The simulation-based standard errors, party-indicator variants, and leave-one-out consistency checks in the original function are not reproduced here, so the mapping’s own uncertainty is not propagated into member positions: the mapped scores are point estimates of a transform.</p>
+<p>Because the transform is linear, it changes no member’s rank. What it fixes is the council’s location and spread in state units. The SD ratio is 0.55, so a standard deviation on the council scale is worth about half of one in the common space.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 32%">
+<col style="width: 4%">
+<col style="width: 6%">
+<col style="width: 16%">
+<col style="width: 10%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Council name</th>
+<th style="text-align: left;">State name</th>
+<th style="text-align: left;">Party</th>
+<th style="text-align: left;">Chamber</th>
+<th style="text-align: right;">Council ideal point</th>
+<th style="text-align: right;">Common space</th>
+<th style="text-align: right;">Common-space SE</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Charles Barron</td>
+<td style="text-align: left;">Barron, Charles</td>
+<td style="text-align: left;">D</td>
+<td style="text-align: left;">H</td>
+<td style="text-align: right;">-2.930</td>
+<td style="text-align: right;">-1.856</td>
+<td style="text-align: right;">0.105</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Vanessa L. Gibson</td>
+<td style="text-align: left;">Gibson, Vanessa</td>
+<td style="text-align: left;">D</td>
+<td style="text-align: left;">H</td>
+<td style="text-align: right;">-0.512</td>
+<td style="text-align: right;">-2.125</td>
+<td style="text-align: right;">0.110</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Carmen N. De La Rosa</td>
+<td style="text-align: left;">De La Rosa, Carmen</td>
+<td style="text-align: left;">D</td>
+<td style="text-align: left;">H</td>
+<td style="text-align: right;">-0.419</td>
+<td style="text-align: right;">-1.947</td>
+<td style="text-align: right;">0.097</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Harvey D. Epstein</td>
+<td style="text-align: left;">Epstein, Harvey</td>
+<td style="text-align: left;">D</td>
+<td style="text-align: left;">H</td>
+<td style="text-align: right;">-0.354</td>
+<td style="text-align: right;">-1.819</td>
+<td style="text-align: right;">0.110</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Erik D. Bottcher</td>
+<td style="text-align: left;">Bottcher, Erik</td>
+<td style="text-align: left;">D</td>
+<td style="text-align: left;">S</td>
+<td style="text-align: right;">-0.307</td>
+<td style="text-align: right;">-2.047</td>
+<td style="text-align: right;">0.306</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Keith Powers</td>
+<td style="text-align: left;">Powers, Keith</td>
+<td style="text-align: left;">D</td>
+<td style="text-align: left;">H</td>
+<td style="text-align: right;">-0.289</td>
+<td style="text-align: right;">-1.502</td>
+<td style="text-align: right;">0.144</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Francisco P. Moya</td>
+<td style="text-align: left;">Moya, Francisco P.</td>
+<td style="text-align: left;">D</td>
+<td style="text-align: left;">H</td>
+<td style="text-align: right;">-0.158</td>
+<td style="text-align: right;">-1.780</td>
+<td style="text-align: right;">0.089</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Alan N. Maisel</td>
+<td style="text-align: left;">Maisel, Alan</td>
+<td style="text-align: left;">D</td>
+<td style="text-align: left;">H</td>
+<td style="text-align: right;">-0.063</td>
+<td style="text-align: right;">-1.504</td>
+<td style="text-align: right;">0.090</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bill Perkins</td>
+<td style="text-align: left;">Perkins, Bill</td>
+<td style="text-align: left;">D</td>
+<td style="text-align: left;">S</td>
+<td style="text-align: right;">-0.054</td>
+<td style="text-align: right;">-2.390</td>
+<td style="text-align: right;">0.144</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Rory I. Lancman</td>
+<td style="text-align: left;">Lancman, Rory</td>
+<td style="text-align: left;">D</td>
+<td style="text-align: left;">H</td>
+<td style="text-align: right;">-0.047</td>
+<td style="text-align: right;">-1.419</td>
+<td style="text-align: right;">0.087</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Inez E. Dickens</td>
+<td style="text-align: left;">Dickens, Inez</td>
+<td style="text-align: left;">D</td>
+<td style="text-align: left;">H</td>
+<td style="text-align: right;">0.226</td>
+<td style="text-align: right;">-1.361</td>
+<td style="text-align: right;">0.089</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Inez D. Barron</td>
+<td style="text-align: left;">Barron, Inez (listed as Charles; AD-40)</td>
+<td style="text-align: left;">D</td>
+<td style="text-align: left;">H</td>
+<td style="text-align: right;">0.438</td>
+<td style="text-align: right;">-1.451</td>
+<td style="text-align: right;">0.089</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Simcha Felder</td>
+<td style="text-align: left;">Felder, Simcha</td>
+<td style="text-align: left;">D</td>
+<td style="text-align: left;">S</td>
+<td style="text-align: right;">0.722</td>
+<td style="text-align: right;">-0.811</td>
+<td style="text-align: right;">0.068</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mark Gjonaj</td>
+<td style="text-align: left;">Gjonaj, Mark</td>
+<td style="text-align: left;">D</td>
+<td style="text-align: left;">H</td>
+<td style="text-align: right;">0.831</td>
+<td style="text-align: right;">-0.835</td>
+<td style="text-align: right;">0.074</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Kalman Yeger</td>
+<td style="text-align: left;">Yeger, Kalman</td>
+<td style="text-align: left;">D</td>
+<td style="text-align: left;">H</td>
+<td style="text-align: right;">1.450</td>
+<td style="text-align: right;">-0.543</td>
+<td style="text-align: right;">0.076</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Joseph C. Borelli</td>
+<td style="text-align: left;">Borelli, Joseph</td>
+<td style="text-align: left;">R</td>
+<td style="text-align: left;">H</td>
+<td style="text-align: right;">3.188</td>
+<td style="text-align: right;">0.240</td>
+<td style="text-align: right;">0.111</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="matching-and-why-it-is-the-weak-point" class="level3">
+<h3 class="anchored" data-anchor-id="matching-and-why-it-is-the-weak-point">Matching, and why it is the weak point</h3>
+<p>There is no identifier shared end to end. The bridge table carries modern OCD person ids (<code>ocd-person/…</code>); the state project’s id file carries legacy OpenStates ids (<code>NYL000342</code>); and the published common-scores file carries no id at all. The join is therefore on normalized names — first name plus full surname, accents and generational suffixes stripped — with no chamber or district check. Thirteen of the sixteen are unambiguous. Adding a person id to the scores export would make this durable, and would serve any future city-to-state bridge.</p>
+<p>One case had to be resolved by hand. The scores file contains two records named <strong>“Barron, Charles”</strong>, for assembly districts 40 and 60. They are two different people: the state id file places Charles in AD-60 from 2015 and <strong>Inez Barron</strong> in AD-40 from 2009. Both Barrons served on the council and in the assembly, so both are genuine bridges, and the AD-40 record is Inez’s score carrying Charles’s name. Averaging the two records — the obvious automatic fix — merges a married couple into one observation and costs accuracy: 15 bridges, slope 0.406, R² 0.56 merged, against 16 bridges, slope 0.431, R² 0.62 separated. <strong>The mislabeling is upstream, in the state project’s output, not in this analysis.</strong></p>
+<p>Charles Barron is also the most influential observation in the regression, sitting far to the left of the other fifteen. The slope should be read with that in mind.</p>
+</section>
+<section id="state-legislators-representing-the-city" class="level3">
+<h3 class="anchored" data-anchor-id="state-legislators-representing-the-city">State legislators representing the city</h3>
+<p>Comparing the council with every legislator in Albany mixes constituencies. Census TIGER 2024 state legislative boundaries were intersected with the city, taken as the union of the 51 council districts, keeping districts with a majority of their area inside: <strong>65 of 150 assembly districts and 28 of 63 senate districts</strong>. Only 2 districts straddle the line meaningfully, and they are reported rather than dropped silently.</p>
+<p>Party comparisons are made party by party — council Democrats against state Democrats, council Republicans against state Republicans. An overall council median mixes the parties and is comparable with neither.</p>
+<p>Benchmarks are also period-matched. The state project publishes per-chamber, per-year common scores, so each council class is compared with the legislators sitting during that class’s own years rather than with a pool spanning 1994–2026; the pooled file would flatter the comparison, since the state Democratic median itself moves left over the period.</p>
+</section>
+</section>
 <section id="limits" class="level2">
 <h2 class="anchored" data-anchor-id="limits">Limits</h2>
 <ul>
@@ -3600,7 +3830,8 @@ vertical-align: -.125em;
 <li><strong>Cross-era identification is thin at one seam</strong>, as above.</li>
 <li><strong>Recorded divisions are selected.</strong> 737 of 5,842 items were contested enough to scale; which matters reach a divided vote is itself a political choice, so this is a small and non-random slice of council business.</li>
 <li><strong>One dimension is imposed, not tested.</strong> No higher-dimensional comparison or item-level fit assessment has been run.</li>
-<li><strong>Scores are city-specific.</strong> They share no units with the Chicago, Denver, or Houston scales and cannot be compared numerically with them.</li>
+<li><strong>Scores are city-specific.</strong> On their own scale they share no units with the Chicago, Denver, or Houston fits. The state mapping expresses them in common-space units, but only for New York, and only through sixteen people.</li>
+<li><strong>The bridge is thin and name-matched.</strong> Sixteen observations, one of them influential, joined without a shared identifier.</li>
 </ul>
 </section>
 <section id="reproduction" class="level2">
@@ -3613,8 +3844,13 @@ vertical-align: -.125em;
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> Code/21_nyc_full_validation.r</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> Code/22_nyc_mayoral_districts.r</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> Code/23_nyc_council_series.r</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render nyc-report.qmd</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render nyc-technical-appendix.qmd</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> Code/28_nyc_state_bridge.r</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> Code/29_nyc_common_space_plots.r</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> Code/30_nyc_common_space_series.r</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> Code/31_nyc_state_districts.r     <span class="co"># downloads Census TIGER boundaries once</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> Code/32_nyc_city_state_compare.r</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render nyc-report.qmd</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render nyc-technical-appendix.qmd</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Seeds and session information are saved with the results in <code>Results/NYC-full/</code>.</p>
 </section>
 
