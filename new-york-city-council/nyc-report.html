@@ -2196,7 +2196,7 @@ vertical-align: -.125em;
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">New York City Council: a first look at local ideal points</h1>
-<p class="subtitle lead">Pooled stated-meeting roll calls, 2022–2026 · Preliminary R analysis</p>
+<p class="subtitle lead">Pooled stated-meeting roll calls, 2022–2026 · Preliminary analysis</p>
 </div>
 
 
@@ -2222,7 +2222,7 @@ vertical-align: -.125em;
 <p>New York’s Council roll calls reveal a recognizable political spectrum. The DSA-endorsed members and much of the Progressive Caucus cluster at one end; the five Republicans form a sharply separated endpoint, with the bipartisan Common-Sense Caucus between them and the rest of the chamber. The same ordering appears in major disputes over policing, jail confinement, and rental broker fees, and it is strongly associated with 2024 presidential voting across the 51 council districts.</p>
 <section id="dataset" class="level2">
 <h2 class="anchored" data-anchor-id="dataset">Dataset</h2>
-<p>The roll calls come from Jacob Greene (2026), <em>MyTown: an open corpus of US and Canadian local-government meetings, decisions, and roll-call votes</em>, CC BY 4.0, <a href="https://doi.org/10.57967/hf/9676">DOI 10.57967/hf/9676</a>. The analysis uses the <code>member_votes</code>, <code>municipalities</code>, <code>meetings</code>, <code>people</code>, and <code>people_aliases</code> Parquet tables from the Hugging Face <a href="https://huggingface.co/datasets/jazzypajamas/mytown-local-gov-meetings"><code>main</code> dataset</a>, downloaded September 14, 2026. Preserved local extracts define this analysis; no repository commit was pinned.</p>
+<p>The roll calls come from the <em>MyTown</em> corpus of local-government meetings and votes (Jacob Greene, 2026, CC BY 4.0, <a href="https://doi.org/10.57967/hf/9676">DOI 10.57967/hf/9676</a>), downloaded September 14, 2026. Preserved local extracts, rather than later downloads, define this analysis.</p>
 <section id="coverage-and-construction" class="level3">
 <h3 class="anchored" data-anchor-id="coverage-and-construction">Coverage and construction</h3>
 <p>The extract contains <strong>127,142 member-vote records</strong> from <strong>94 stated meetings</strong> between January 5, 2022 and August 13, 2026. It covers 67 people because the period crosses council terms and includes replacements as well as current members. The main figure below marks the 51 members on the <a href="https://council.nyc.gov/districts/">current official roster</a>; former members remain in the pooled model so that overlapping service connects the scale across time.</p>
@@ -2288,7 +2288,6 @@ vertical-align: -.125em;
 <section id="council-ideal-points" class="level3">
 <h3 class="anchored" data-anchor-id="council-ideal-points">Council ideal points</h3>
 <p>An <strong>ideal point</strong> is a one-dimensional summary of voting similarity. Members placed near one another tend to take the same side on contested roll calls; members far apart tend to oppose one another. The units are relative to this New York sample and are not directly comparable to the numerical Chicago or Denver scores. The left-to-right labels describe the observed coalitions rather than imposing an ideological definition on the model.</p>
-<p>Model specification, initialization, identification, diagnostics, and a repeated-pattern sensitivity check are in the self-contained <a href="nyc-technical-appendix.html">technical appendix</a>.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
