@@ -2783,12 +2783,12 @@ vertical-align: -.125em;
 <section id="reproduction" class="level2">
 <h2 class="anchored" data-anchor-id="reproduction">Reproduction</h2>
 <p>From the project root, the reported R results can be rebuilt and the two documents rendered with:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> Code/01_fit_chicago.R</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> Code/02_face_validity.R</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> Code/04_presidential_validation.R</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> Code/01_fit_chicago.r</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> Code/02_face_validity.r</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> Code/04_presidential_validation.r</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render chicago-report.qmd</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render chicago-technical-appendix.qmd</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The saved fit environment used R 4.6.1 on macOS, with <code>pscl</code> 1.5.9, <code>coda</code> 0.19-4.1, and <code>arrow</code> 25.0.0. Exact session information is preserved in <code>Results/R/sessionInfo.txt</code>. The fit scripts set their random-number seeds; reproducing the analysis also requires the saved local Parquet extracts and presidential precinct file described in the project documentation.</p>
+<p>The saved fit environment used R 4.6.1 on macOS, with <code>pscl</code> 1.5.9, <code>coda</code> 0.19-4.1, and <code>arrow</code> 25.0.0. Exact session information is preserved in <code>Results/Chicago/sessioninfo.txt</code>. The fit scripts set their random-number seeds; reproducing the analysis also requires the saved local Parquet extracts and presidential precinct file described in the project documentation.</p>
 </section>
 
 </main>
