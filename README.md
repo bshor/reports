@@ -13,8 +13,10 @@ Selected self-contained research reports published with GitHub Pages.
 - [New York City Council ideal points](https://bshor.github.io/reports/new-york-city-council/nyc-report.html)
   - [Technical appendix](https://bshor.github.io/reports/new-york-city-council/nyc-technical-appendix.html)
 
-- [Houston City Council ideal points](https://bshor.github.io/reports/houston-city-council/houston-report.html)
+- [Houston City Council ideal points, 2021–2025](https://bshor.github.io/reports/houston-city-council/houston-report.html)
   - [Technical appendix](https://bshor.github.io/reports/houston-city-council/houston-technical-appendix.html)
+
+- [Houston City Council expanded roll calls, 2003–2026](https://bshor.github.io/reports/houston-city-council/houston-expanded-report.html) — separate preliminary analysis; only the 2021–2026 ideal-point fit is presented as a stable within-period scale.
 
 ## LLM
 
