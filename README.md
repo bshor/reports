@@ -17,6 +17,7 @@ Selected self-contained research reports published with GitHub Pages.
   - [Technical appendix](https://bshor.github.io/reports/houston-city-council/houston-technical-appendix.html)
 
 - [Houston City Council expanded roll calls, 2003–2026](https://bshor.github.io/reports/houston-city-council/houston-expanded-report.html) — separate preliminary analysis; only the 2021–2026 ideal-point fit is presented as a stable within-period scale.
+  - [Technical appendix](https://bshor.github.io/reports/houston-city-council/houston-expanded-technical-appendix.html)
 
 ## LLM
 
