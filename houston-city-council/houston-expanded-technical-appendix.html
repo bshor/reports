@@ -3036,19 +3036,20 @@ vertical-align: -.125em;
 </section>
 <section id="validation-and-remaining-limits" class="level2">
 <h2 class="anchored" data-anchor-id="validation-and-remaining-limits">Validation and remaining limits</h2>
-<p>Party affiliation was researched separately from Jacob’s roll-call package. <code>Code/16_houston_face_validity.r</code> maintains the 25-person <a href="houston-technical-appendix.html">baseline evidence</a>; <code>Code/30_houston_pooled_party_evidence.r</code> adds evidence for the other 42 fitted officials and produces <code>Results/Houston-full/party_evidence.csv</code> and <code>scores_with_party.csv</code>. Each record has a source and tier. The “party record” tier means a documented partisan candidacy or party office, not voter registration or a council ballot line; a GOP endorsement in a nonpartisan council race is instead marked “party endorsement.” An explicit contemporary news characterization is acceptable, while a vote pattern or district is never used to assign party. Further review supports Carol M. Galloway as Democratic-affiliated from self-reported Democratic-club membership and Richard Nguyen from a reported county Democratic Party slate; neither reaches the party-record tier. Kubosh has conflicting party signals and explicitly rejects a label, so he is coded “Mixed evidence” and excluded from Democratic-versus-Republican comparisons. Party labels do not enter estimation. The affiliation count table in the report describes all <strong>67</strong> pooled officials; its group-mean comparison uses the <strong>66</strong> Democratic- or Republican-affiliated officials. The separate modern-subset comparison and presidential-vote relationship use pooled positions for the modern officials to whom those external data apply. Neither validates historical alignment. The 2024 district overlay still allocates precinct votes to districts in proportion to intersecting area; the districts number only eleven. The council’s many unanimous actions are excluded from scaling, so the fitted dimension pertains to a selected subset of business.</p>
+<p>Party affiliation was researched separately from Jacob’s roll-call package. <code>Code/16_houston_face_validity.r</code> maintains the 25-person <a href="houston-technical-appendix.html">baseline evidence</a>; <code>Code/30_houston_pooled_party_evidence.r</code> adds evidence for the other 42 fitted officials and produces <code>Results/Houston-full/party_evidence.csv</code> and <code>scores_with_party.csv</code>. Each record has a source and tier. The “party record” tier means a documented partisan candidacy or party office, not voter registration or a council ballot line; a GOP endorsement in a nonpartisan council race is instead marked “party endorsement.” An explicit contemporary news characterization is acceptable, while a vote pattern or district is never used to assign party. Further review supports Carol M. Galloway as Democratic-affiliated from self-reported Democratic-club membership and Richard Nguyen from a reported county Democratic Party slate; neither reaches the party-record tier. Contemporaneous Texas Monthly and Houston Chronicle reporting supports Kubosh’s Republican affiliation despite his tactical 2006 Democratic candidacy and present rejection of labels. He is included in two-party comparisons at the <strong>reporting-only</strong> tier; the only documented partisan candidacy for him was Democratic, so he is not assigned a Republican party-record tier. Party labels do not enter estimation. Both the affiliation count and group-mean tables in the report describe all <strong>67</strong> pooled officials. The separate modern-subset comparison and presidential-vote relationship use pooled positions for the modern officials to whom those external data apply. Neither validates historical alignment. The 2024 district overlay still allocates precinct votes to districts in proportion to intersecting area; the districts number only eleven. The council’s many unanimous actions are excluded from scaling, so the fitted dimension pertains to a selected subset of business.</p>
+<p>The report’s aggregate density curves smooth the 67 posterior <strong>means</strong>, giving each official equal weight; they do not integrate posterior uncertainty or service duration. Its elected-council separation series is calculated directly from the 549 retained roll calls, not from the fixed pooled coordinates: for each action with at least two observed yea/nay votes in each party group, take the absolute difference in group yea shares, then average within the elected council. All 549 retained actions meet that minimum under the current affiliation coding, although the first council contributes only two. The series describes selected contested actions and is sensitive to agenda composition, missing votes, changing membership, and unequal or partial term coverage. It is not a time-varying ideal-point model.</p>
 <section id="individual-party-evidence" class="level3">
 <h3 class="anchored" data-anchor-id="individual-party-evidence">Individual party evidence</h3>
-<p>The source links below identify the particular record or report used for each label. “Mixed evidence” is retained as a distinct category when external party signals conflict. “Reporting only” and “secondary guide/roster” are weaker than a partisan candidacy, party office, or self-identification. A few affiliations are inferred from a documented party process rather than an explicit self-description, as detailed in the basis column.</p>
+<p>The source links below identify the particular record or report used for each label. “Reporting only” and “secondary guide/roster” are weaker than a partisan candidacy, party office, or self-identification. A few affiliations are inferred from a documented party process rather than an explicit self-description, as detailed in the basis column.</p>
 <div class="cell">
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <colgroup>
-<col style="width: 5%">
-<col style="width: 2%">
-<col style="width: 6%">
-<col style="width: 34%">
-<col style="width: 50%">
+<col style="width: 4%">
+<col style="width: 1%">
+<col style="width: 4%">
+<col style="width: 27%">
+<col style="width: 62%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -3377,10 +3378,10 @@ vertical-align: -.125em;
 </tr>
 <tr class="even">
 <td style="text-align: left;">Michael Kubosh</td>
-<td style="text-align: left;">Mixed evidence</td>
-<td style="text-align: left;">conflicting reporting</td>
-<td style="text-align: left;"><a href="https://www.houstonchronicle.com/news/houston-texas/houston/article/Houston-council-runoff-foes-are-opposites-in-14867953.php">source</a></td>
-<td style="text-align: left;">GOP-endorsed and chose Republican ballots in eight of nine primaries in 2004-2012, but ran as a Democrat in 2006 and explicitly rejects party labels; excluded from two-party validation.</td>
+<td style="text-align: left;">Republican</td>
+<td style="text-align: left;">reporting only</td>
+<td style="text-align: left;"><a href="https://web.archive.org/web/20210513000446/https://www.texasmonthly.com/news-politics/here-comes-trouble/">source</a></td>
+<td style="text-align: left;">Contemporaneous Texas Monthly profile identifies him as Republican and explains his strategic 2006 Democratic Senate candidacy. A 2019 Houston Chronicle profile reports eight of nine Republican primary ballots in 2004-2012 and GOP endorsement, while noting that he rejects party labels. No Republican candidacy or party office is documented; see Data/Houston/party_evidence/party_research_kubosh_2026-09-25.md.</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Mike Knox</td>
