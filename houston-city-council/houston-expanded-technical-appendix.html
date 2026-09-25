@@ -2218,6 +2218,7 @@ vertical-align: -.125em;
   <li><a href="#elected-councils-and-bridging" id="toc-elected-councils-and-bridging" class="nav-link" data-scroll-target="#elected-councils-and-bridging">Elected councils and bridging</a></li>
   <li><a href="#validation-and-remaining-limits" id="toc-validation-and-remaining-limits" class="nav-link" data-scroll-target="#validation-and-remaining-limits">Validation and remaining limits</a>
   <ul class="collapse">
+  <li><a href="#candidate-endorsement-indicators" id="toc-candidate-endorsement-indicators" class="nav-link" data-scroll-target="#candidate-endorsement-indicators">Candidate endorsement indicators</a></li>
   <li><a href="#individual-party-evidence" id="toc-individual-party-evidence" class="nav-link" data-scroll-target="#individual-party-evidence">Individual party evidence</a></li>
   </ul></li>
   <li><a href="#reproduction" id="toc-reproduction" class="nav-link" data-scroll-target="#reproduction">Reproduction</a></li>
@@ -3037,7 +3038,192 @@ vertical-align: -.125em;
 <section id="validation-and-remaining-limits" class="level2">
 <h2 class="anchored" data-anchor-id="validation-and-remaining-limits">Validation and remaining limits</h2>
 <p>Party affiliation was researched separately from Jacob’s roll-call package. <code>Code/16_houston_face_validity.r</code> maintains the 25-person <a href="houston-technical-appendix.html">baseline evidence</a>; <code>Code/30_houston_pooled_party_evidence.r</code> adds evidence for the other 42 fitted officials and produces <code>Results/Houston-full/party_evidence.csv</code> and <code>scores_with_party.csv</code>. Each record has a source and tier. The “party record” tier means a documented partisan candidacy or party office, not voter registration or a council ballot line; a GOP endorsement in a nonpartisan council race is instead marked “party endorsement.” An explicit contemporary news characterization is acceptable, while a vote pattern or district is never used to assign party. Further review supports Carol M. Galloway as Democratic-affiliated from self-reported Democratic-club membership and Richard Nguyen from a reported county Democratic Party slate; neither reaches the party-record tier. Contemporaneous Texas Monthly and Houston Chronicle reporting supports Kubosh’s Republican affiliation despite his tactical 2006 Democratic candidacy and present rejection of labels. He is included in two-party comparisons at the <strong>reporting-only</strong> tier; the only documented partisan candidacy for him was Democratic, so he is not assigned a Republican party-record tier. Party labels do not enter estimation. Both the affiliation count and group-mean tables in the report describe all <strong>67</strong> pooled officials. The separate modern-subset comparison and presidential-vote relationship use pooled positions for the modern officials to whom those external data apply. Neither validates historical alignment. The 2024 district overlay still allocates precinct votes to districts in proportion to intersecting area; the districts number only eleven. The council’s many unanimous actions are excluded from scaling, so the fitted dimension pertains to a selected subset of business.</p>
+<section id="candidate-endorsement-indicators" class="level3">
+<h3 class="anchored" data-anchor-id="candidate-endorsement-indicators">Candidate endorsement indicators</h3>
+<p><code>Code/31_houston_endorsement_validity.r</code> joins four <strong>separate</strong> organizational indicators to the 67 fitted people using a normalized first-and-last-name key, with one reviewed Ed/Edward Gonzalez alias. The source ledger preserves the original candidate name, office, election date, general/runoff distinction, URL, note, fitted local ID when matched, and all 26 unmatched candidate-election rows. Nonmatches include challengers and a controller, not just identity failures; Alejandra Salinas won the 2025 special election but has no qualifying votes in this fit. The ledger has 69 positive rows. Duplicate general/runoff endorsements remain distinct rows; the “ever endorsed” inventory counts distinct fitted people. <a href="https://www.outsmartmagazine.com/2013/08/houston-glbt-political-caucus-pac-issues-endorsements-in-2013-races/">2013</a>, <a href="https://www.outsmartmagazine.com/2019/08/houston-glbt-political-caucus-announces-endorsements/">2019</a>, and <a href="https://www.thecaucus.org/wp-content/uploads/2023/08/Houston-LGBTQ-Political-Caucus-PAC-Endorses-in-the-2023-Municipal-Election-FINAL.pdf">2023</a> Caucus general slates are complete; the federation’s <a href="https://www.gcaflcio.org/endorsements">2023 general slate</a> is complete. TOP’s <a href="https://organizetexas.org/2023/08/top-announces-endorsed-candidates-for-houston-city-council/">2023 announcement</a> names three council candidates and references its mayoral choice, but is not assumed to exhaust all possible endorsements. No verifiable Our Revolution Harris County Houston municipal candidate slate was recovered. Other cycles have positive evidence only or no recovered slate; unlisted people are <strong>unknown</strong>, never coded zero across all 67.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 35%">
+<col style="width: 30%">
+<col style="width: 34%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Organization</th>
+<th style="text-align: right;">Verified candidate-election rows</th>
+<th style="text-align: right;">Distinct fitted officials ever listed</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Texas Gulf Coast Area Labor Federation</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Houston LGBTQ+ Political Caucus</td>
+<td style="text-align: right;">43</td>
+<td style="text-align: right;">22</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Texas Organizing Project / TOP PAC</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Our Revolution Harris County</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>The within-election comparison uses the 17 fitted officials with a recorded qualifying vote in <strong>2024</strong>, the first year after the 2023 election. Only the <strong>November 2023 general</strong> slates define these flags. “Outside” means a member of this 17-person cohort <em>not listed on that recovered slate</em>, not someone from an undocumented historical cycle. The point-biserial column is the correlation of the binary listed flag with the pooled score; a negative value means listed officials lean toward the negative end. The ordered-pair share is the fraction of listed–not-listed pairs in which the listed official has the <strong>lower</strong> score. Group means and differences use posterior mean point estimates, not posterior-draw uncertainty. For TOP, the not-listed comparison is especially provisional because the short announcement may not be a complete slate. The Our Revolution row is not estimable. None of these endorsements entered the fit.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 5%">
+<col style="width: 7%">
+<col style="width: 9%">
+<col style="width: 13%">
+<col style="width: 12%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Organization</th>
+<th style="text-align: left;">Listed / outside</th>
+<th style="text-align: left;">D / R listed</th>
+<th style="text-align: right;">Mean listed</th>
+<th style="text-align: right;">Mean outside</th>
+<th style="text-align: right;">Difference</th>
+<th style="text-align: right;">Point-biserial</th>
+<th style="text-align: right;">Ordered-pair share</th>
+<th style="text-align: left;">Within-D listed / outside</th>
+<th style="text-align: right;">Within-D mean difference</th>
+<th style="text-align: right;">Within-D ordered-pair share</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Labor federation</td>
+<td style="text-align: left;">7 / 10</td>
+<td style="text-align: left;">7 / 0</td>
+<td style="text-align: right;">-0.48</td>
+<td style="text-align: right;">0.37</td>
+<td style="text-align: right;">-0.85</td>
+<td style="text-align: right;">-0.47</td>
+<td style="text-align: right;">0.77</td>
+<td style="text-align: left;">7 / 4</td>
+<td style="text-align: right;">0.08</td>
+<td style="text-align: right;">0.43</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">LGBTQ+ Caucus</td>
+<td style="text-align: left;">7 / 10</td>
+<td style="text-align: left;">7 / 0</td>
+<td style="text-align: right;">-0.52</td>
+<td style="text-align: right;">0.39</td>
+<td style="text-align: right;">-0.91</td>
+<td style="text-align: right;">-0.50</td>
+<td style="text-align: right;">0.79</td>
+<td style="text-align: left;">7 / 4</td>
+<td style="text-align: right;">-0.01</td>
+<td style="text-align: right;">0.46</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TOP PAC</td>
+<td style="text-align: left;">2 / 15</td>
+<td style="text-align: left;">2 / 0</td>
+<td style="text-align: right;">-1.02</td>
+<td style="text-align: right;">0.16</td>
+<td style="text-align: right;">-1.18</td>
+<td style="text-align: right;">-0.43</td>
+<td style="text-align: right;">0.97</td>
+<td style="text-align: left;">2 / 9</td>
+<td style="text-align: right;">-0.62</td>
+<td style="text-align: right;">0.94</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Our Revolution</td>
+<td style="text-align: left;">0 / unknown</td>
+<td style="text-align: left;">0 / 0</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: left;">0 / unknown</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>All 2023-listed fitted officials in these three recovered slates are Democratic-affiliated; the 2024 cohort has eleven Democrats and six Republicans. This explains much of the all-party separation for labor and the Caucus. Among Democrats alone, their listed and unlisted members have nearly identical mean scores and pair orderings near one-half. TOP lists only two fitted winners, both Democrats; their lower scores among Democrats are suggestive, but the tiny group and partial-slate issue prevent a strong inference. The <code>endorsement_2023_cohort.csv</code> file records each member’s indicator status and coverage qualifier so the denominator can be inspected.</p>
+<p>The Caucus’s complete 2013 and 2019 general slates also permit <strong>within-election</strong> checks against first-year observed council members, without pretending every unlisted 2003–2026 official was unendorsed. The 2019–2020 comparison excludes Jerry Davis, a holdover in District B while its 2019 election awaited the delayed December 2020 runoff; Tarsha Jackson entered only afterward. These older comparisons are descriptive because historical pooled scale alignment is provisional.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 5%">
+<col style="width: 12%">
+<col style="width: 9%">
+<col style="width: 11%">
+<col style="width: 10%">
+<col style="width: 13%">
+<col style="width: 18%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Election → observed year</th>
+<th style="text-align: right;">Cohort</th>
+<th style="text-align: left;">Listed / outside</th>
+<th style="text-align: left;">D / R listed</th>
+<th style="text-align: right;">Mean difference</th>
+<th style="text-align: right;">Point-biserial</th>
+<th style="text-align: right;">Ordered-pair share</th>
+<th style="text-align: right;">Within-D mean difference</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">2013 → 2014</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: left;">10 / 7</td>
+<td style="text-align: left;">8 / 2</td>
+<td style="text-align: right;">-0.53</td>
+<td style="text-align: right;">-0.60</td>
+<td style="text-align: right;">0.84</td>
+<td style="text-align: right;">-0.15</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2019 → 2020</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: left;">6 / 10</td>
+<td style="text-align: left;">6 / 0</td>
+<td style="text-align: right;">-0.48</td>
+<td style="text-align: right;">-0.31</td>
+<td style="text-align: right;">0.60</td>
+<td style="text-align: right;">0.34</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>The report’s aggregate density curves smooth the 67 posterior <strong>means</strong>, giving each official equal weight; they do not integrate posterior uncertainty or service duration. Both groups use a Gaussian kernel with bandwidth 0.18 ideal-point units. Each curve begins at its group’s observed minimum, with a one-bandwidth smooth taper factor <code>1 − exp(−distance² / (2 × 0.18²))</code> that makes its endpoint zero. This is a display convention, not a boundary-corrected population density. Scores beyond +2.5 still enter the kernel estimate. The elected-council plot, starting in 2004–2005, computes each party’s median fixed pooled score among members who cast at least one qualifying vote in that council. The fragmentary 2002–2003 term is excluded from this aggregate plot; a light dashed linear regression overlays each party’s observed-median line. The two-panel 2004–2005 versus 2020–2023 comparison shows each member as a point, with conventional median/interquartile boxes and a common −1.5 to +4.5 axis retaining the early positive outlier. Members serving multiple councils recur at the same coordinate; changes in the party distributions and median lines reflect membership composition, not within-person movement or a time-varying ideal-point model. The current council is partially observed, and historical cross-era alignment remains provisional.</p>
+</section>
 <section id="individual-party-evidence" class="level3">
 <h3 class="anchored" data-anchor-id="individual-party-evidence">Individual party evidence</h3>
 <p>The source links below identify the particular record or report used for each label. “Reporting only” and “secondary guide/roster” are weaker than a partisan candidacy, party office, or self-identification. A few affiliations are inferred from a documented party process rather than an explicit self-description, as detailed in the basis column.</p>
