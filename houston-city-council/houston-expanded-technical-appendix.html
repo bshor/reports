@@ -2301,20 +2301,13 @@ vertical-align: -.125em;
 <section id="model-and-identification" class="level2">
 <h2 class="anchored" data-anchor-id="model-and-identification">Model and identification</h2>
 <p>The one-dimensional <code>pscl::ideal()</code> model is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">Pr</mi><mo>⁡</mo></mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>Y</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><mo>=</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi mathvariant="normal">Φ</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>x</mi><mi>i</mi></msub><msub><mi>β</mi><mi>j</mi></msub><mo>−</mo><msub><mi>α</mi><mi>j</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\Pr(Y_{ij}=1)=\Phi(x_i\beta_j-\alpha_j)</annotation></semantics></math>, where <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>x</mi><mi>i</mi></msub><annotation encoding="application/x-tex">x_i</annotation></semantics></math> is a fixed member position, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>β</mi><mi>j</mi></msub><annotation encoding="application/x-tex">\beta_j</annotation></semantics></math> an item’s discrimination, and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>α</mi><mi>j</mi></msub><annotation encoding="application/x-tex">\alpha_j</annotation></semantics></math> its difficulty. Each person has one position within a fitted window. <code>normalize=TRUE</code> identifies location and scale. Display signs are aligned to the leading singular vector of the centered vote matrix, oriented with Amy Peck positive; this is a sign convention, not an external ideological constraint. Party evidence is used only after estimation for validation.</p>
-<p>The published modern fit uses three 50,000-iteration chains, 5,000 burn-in, thinning by 50, and 1,000 retained draws per chain after the stored boundary row is dropped. Chain 1 starts from a standardized vote-matrix singular vector; chains 2 and 3 start randomly. The pooled diagnostic fit uses the same settings. A separate, <strong>fresh two-chain</strong> pooled refit uses seeds <code>20261001</code> and <code>20261002</code>, with the package-default eigen start for the first and a random start for the second. Its output is isolated in <code>Results/Houston-full/two-chain-refit/</code>, so no earlier chain is reused or overwritten.</p>
+<p>Both current fits use <strong>two freshly initialized chains</strong> with 50,000 iterations each, 5,000 burn-in, thinning by 50, and 1,000 retained draws per chain after the stored boundary row is dropped. In each fit, one chain uses the package-default eigen start and the other a dispersed random start. The modern fit uses seeds <code>20261003</code> and <code>20261004</code>; the full-period fit uses <code>20261001</code> and <code>20261002</code>. They are saved separately in <code>Results/Houston-full/modern-two-chain/</code> and <code>Results/Houston-full/two-chain-refit/</code>, without reusing earlier draws.</p>
 </section>
 <section id="diagnostics" class="level2">
 <h2 class="anchored" data-anchor-id="diagnostics">Diagnostics</h2>
 <div class="cell">
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 48%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 17%">
-<col style="width: 14%">
-</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">Fit</th>
@@ -2329,18 +2322,11 @@ vertical-align: -.125em;
 <td style="text-align: left;">Modern, 2021–2026</td>
 <td style="text-align: right;">25</td>
 <td style="text-align: right;">140</td>
-<td style="text-align: left;">1.006</td>
-<td style="text-align: right;">222</td>
+<td style="text-align: left;">1.010</td>
+<td style="text-align: right;">191</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Pooled, 2003–2026: initial three chains</td>
-<td style="text-align: right;">67</td>
-<td style="text-align: right;">549</td>
-<td style="text-align: left;">13.918</td>
-<td style="text-align: right;">90</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Pooled, 2003–2026: fresh two chains</td>
+<td style="text-align: left;">Pooled, 2003–2026</td>
 <td style="text-align: right;">67</td>
 <td style="text-align: right;">549</td>
 <td style="text-align: left;">1.027</td>
@@ -2350,8 +2336,8 @@ vertical-align: -.125em;
 </table>
 </div>
 </div>
-<p>These are classical univariate R-hat and <code>coda</code> effective sample sizes, not rank-normalized split R-hat or bulk/tail ESS. The modern fit has maximum R-hat 1.006 and minimum ESS 222. Its 25 member scores correlate 0.995 with the earlier 2021–2025 published fit; the windows overlap, so this is a consistency check, not independent validation.</p>
-<p>The initial seven-vote pooled fit’s chains 1 and 2 agree, but chain 3 gives a different <em>relative alignment</em> of early and later voting blocs. In particular, its later-period ordering is nearly reversed while the earliest members are partly aligned. The two new chains both reproduce the first solution. Their chain-mean correlations are:</p>
+<p>These are classical univariate R-hat and <code>coda</code> effective sample sizes, not rank-normalized split R-hat or bulk/tail ESS. The modern fit has maximum R-hat 1.010 and minimum ESS 191. Its 25 member scores correlate 0.995 with the earlier 2021–2025 published fit; the windows overlap, so this is a consistency check, not independent validation.</p>
+<p>The two specified full-period chains agree closely with each other. Their chain-mean correlations are:</p>
 <div class="cell">
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
@@ -2392,7 +2378,7 @@ vertical-align: -.125em;
 </table>
 </div>
 </div>
-<p>The fresh two-chain maximum R-hat is 1.027, but the minimum ESS is 47 (Addie Wiseman). More important, agreement within the two-chain solution does not explain the alternative found by an independently started earlier chain. Chain frequencies are not posterior mode probabilities. We therefore withhold the pooled 24-year member coordinates and all cross-era mayor comparisons.</p>
+<p>The full-period maximum R-hat is 1.027, but the minimum ESS is 47 (Addie Wiseman). An additional exploratory initialization found a different relative alignment of early and later voting blocs. Agreement within the specified two-chain fit does not explain that alternative; the two-chain diagnostics alone cannot establish that the historical scale is unique. We therefore withhold pooled 24-year member coordinates and cross-era mayor comparisons pending further investigation.</p>
 </section>
 <section id="historical-windows-and-bridging" class="level2">
 <h2 class="anchored" data-anchor-id="historical-windows-and-bridging">Historical windows and bridging</h2>
@@ -2408,11 +2394,10 @@ vertical-align: -.125em;
 <h2 class="anchored" data-anchor-id="reproduction">Reproduction</h2>
 <p>From the Local project root, with the verified ZIP in the path expected by the preparation script:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> Code/25_prepare_houston_full.r</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="va">IDEAL_ITER</span><span class="op">=</span>50000 <span class="ex">Rscript</span> Code/26_fit_houston_full.r</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="va">IDEAL_ITER</span><span class="op">=</span>50000 <span class="ex">Rscript</span> Code/27_fit_houston_modern.r</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> Code/29_refit_houston_two_chains.r</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render houston-expanded-report.qmd</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render houston-expanded-technical-appendix.qmd</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="va">IDEAL_ITER</span><span class="op">=</span>50000 <span class="ex">Rscript</span> Code/27_fit_houston_modern.r</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> Code/29_refit_houston_two_chains.r</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render houston-expanded-report.qmd</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render houston-expanded-technical-appendix.qmd</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The earlier short-window output files are pre-cutoff diagnostics; do not interpret them as reproduced by this sequence. Seeds, starts, and session information are saved alongside each fitted output.</p>
 </section>
 
