@@ -16,7 +16,7 @@ Selected self-contained research reports published with GitHub Pages.
 - [Houston City Council ideal points, 2021–2025](https://bshor.github.io/reports/houston-city-council/houston-report.html)
   - [Technical appendix](https://bshor.github.io/reports/houston-city-council/houston-technical-appendix.html)
 
-- [Houston City Council pooled ideal points, 2003–2026](https://bshor.github.io/reports/houston-city-council/houston-expanded-report.html) — provisional common-axis estimates for 67 officials, shown in period tabs; cross-era alignment remains unsettled.
+- [Houston City Council pooled ideal points, 2003–2026](https://bshor.github.io/reports/houston-city-council/houston-expanded-report.html) — provisional common-axis estimates for 67 officials, shown by elected council; cross-era alignment remains unsettled.
   - [Technical appendix](https://bshor.github.io/reports/houston-city-council/houston-expanded-technical-appendix.html)
 
 ## LLM

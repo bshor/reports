@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2026-09-24">
+<meta name="dcterms.date" content="2026-09-25">
 
 <title>Houston City Council: expanded roll calls</title>
 <style>
@@ -2215,7 +2215,7 @@ vertical-align: -.125em;
   <li><a href="#model-and-identification" id="toc-model-and-identification" class="nav-link" data-scroll-target="#model-and-identification">Model and identification</a></li>
   <li><a href="#diagnostics" id="toc-diagnostics" class="nav-link" data-scroll-target="#diagnostics">Diagnostics</a></li>
   <li><a href="#pooled-member-estimates" id="toc-pooled-member-estimates" class="nav-link" data-scroll-target="#pooled-member-estimates">Pooled member estimates</a></li>
-  <li><a href="#historical-windows-and-bridging" id="toc-historical-windows-and-bridging" class="nav-link" data-scroll-target="#historical-windows-and-bridging">Historical windows and bridging</a></li>
+  <li><a href="#elected-councils-and-bridging" id="toc-elected-councils-and-bridging" class="nav-link" data-scroll-target="#elected-councils-and-bridging">Elected councils and bridging</a></li>
   <li><a href="#validation-and-remaining-limits" id="toc-validation-and-remaining-limits" class="nav-link" data-scroll-target="#validation-and-remaining-limits">Validation and remaining limits</a></li>
   <li><a href="#reproduction" id="toc-reproduction" class="nav-link" data-scroll-target="#reproduction">Reproduction</a></li>
   </ul>
@@ -2237,7 +2237,7 @@ vertical-align: -.125em;
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 24, 2026</p>
+      <p class="date">September 25, 2026</p>
     </div>
   </div>
   
@@ -2249,7 +2249,7 @@ vertical-align: -.125em;
 </header>
 
 
-<p>This appendix documents the estimation behind the <a href="houston-expanded-report.html">expanded Houston report</a>. The report presents the <strong>2003–2026 pooled positions</strong> from the specified two-chain fit, with period tabs on a common axis. Their cross-era alignment is provisional: the conditional intervals do not incorporate an alternative alignment found during exploratory estimation. The 2021–2026 positions from a separate two-chain fit provide a more stable within-period check. The earlier <a href="houston-technical-appendix.html">2021–2025 technical appendix</a> remains separate and describes the baseline report.</p>
+<p>This appendix documents the estimation behind the <a href="houston-expanded-report.html">expanded Houston report</a>. The report presents the <strong>2003–2026 pooled positions</strong> from the specified two-chain fit, with tabs for each <strong>elected council</strong> on a common axis. Their cross-era alignment is provisional: the conditional intervals do not incorporate an alternative alignment found during exploratory estimation. The 2021–2026 positions from a separate two-chain fit provide a more stable within-period check. The earlier <a href="houston-technical-appendix.html">2021–2025 technical appendix</a> remains separate and describes the baseline report.</p>
 <section id="source-and-analysis-matrix" class="level2">
 <h2 class="anchored" data-anchor-id="source-and-analysis-matrix">Source and analysis matrix</h2>
 <p>The input is Jacob Greene’s <code>houston_rollcalls_2003_2026.zip</code> at shared-repository commit <code>8840cca</code>, also saved in the shared Drive folder (SHA-256 <code>89294d18539fdccfeada276cd810f8120e82bf5e6f6b45e0966e1acee92ea0fd</code>). It contains 29,384 actions and 475,292 member rows. The source flags 549 actions with at least two yeas and two nays as scaling-eligible. <code>Code/25_prepare_houston_full.r</code> reads those actions, uses 1 for yea and 0 for nay, and treats absences, departures, and omissions from explicit roll calls as missing. It neither recodes missing votes as nays nor merges the superseded <code>houston_balance_votes.csv</code>.</p>
@@ -2356,9 +2356,29 @@ vertical-align: -.125em;
 <td style="text-align: left;">0.9998</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">2003-2011</td>
-<td style="text-align: right;">31</td>
-<td style="text-align: left;">0.9999</td>
+<td style="text-align: left;">2002-2003</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: left;">1.0000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2004-2005</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: left;">1.0000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2006-2007</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: left;">1.0000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2008-2009</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: left;">0.9996</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2010-2011</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: left;">0.9997</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">2012-2013</td>
@@ -2366,13 +2386,23 @@ vertical-align: -.125em;
 <td style="text-align: left;">0.9997</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">2014-2020</td>
-<td style="text-align: right;">31</td>
-<td style="text-align: left;">0.9999</td>
+<td style="text-align: left;">2014-2015</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: left;">0.9998</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">2021-2026</td>
-<td style="text-align: right;">25</td>
+<td style="text-align: left;">2016-2019</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: left;">0.9999</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2020-2023</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: left;">1.0000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2024-2027</td>
+<td style="text-align: right;">17</td>
 <td style="text-align: left;">1.0000</td>
 </tr>
 </tbody>
@@ -2878,10 +2908,128 @@ vertical-align: -.125em;
 </div>
 </div>
 </section>
-<section id="historical-windows-and-bridging" class="level2">
-<h2 class="anchored" data-anchor-id="historical-windows-and-bridging">Historical windows and bridging</h2>
-<p>Before the seven-vote cutoff, separate fits were attempted for 2003–2011, 2012–2013, 2014–2020, 2016–2020, 2012–2015, and 2012–2020. The shorter windows generally mixed more closely; the broader 2012–2015 and 2012–2020 joins did not. These window results have <strong>not</strong> been rerun under the current seven-vote rule and are not current report estimates. Their signs and units are arbitrary across windows in any case.</p>
-<p>There are 10 members with qualifying votes in both 2003–2011 and 2012–2013, 11 in both 2012–2013 and 2014–2020, and 16 in both 2014–2020 and 2021–2026. This establishes roster overlap, not necessarily enough <em>discriminating</em> votes to align the entire scale. The next tests should audit names and vote coding near the transitions, examine cross-boundary co-voting among shared members, and explore defensible identification or starting choices <strong>within the fixed-person model</strong>. Longer runs or selecting only agreeing chains would not by themselves settle the issue.</p>
+<section id="elected-councils-and-bridging" class="level2">
+<h2 class="anchored" data-anchor-id="elected-councils-and-bridging">Elected councils and bridging</h2>
+<p>Houston’s regular terms were two years through the council elected in 2013 and seated in 2014–2015, then four years beginning with the 2015 election and January 2016 seating (<a href="https://www.houstontx.gov/planning/Publications/2003_almanac.pdf">2003 city almanac</a>; <a href="https://houstontx.gov/controller/cafr/cafr2016printerfriendly.pdf">2016 financial report</a>). The <a href="https://www.houstontx.gov/council/">city’s council page</a> specifies January 2 term starts, and the <a href="https://www.houstontx.gov/citysec/elections/electionsindex.html">City Secretary’s election index</a> supplies the election years. The report assigns actions by those term boundaries, not by equal-sized analytical windows. A special election changes who serves within an existing council term.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 17%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Council</th>
+<th style="text-align: right;">Elected in</th>
+<th style="text-align: right;">Term years</th>
+<th style="text-align: right;">Members</th>
+<th style="text-align: right;">Actions</th>
+<th style="text-align: right;">Observed votes</th>
+<th style="text-align: right;">Continuing from prior</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">2002–2003</td>
+<td style="text-align: right;">2001</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2004–2005</td>
+<td style="text-align: right;">2003</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">82</td>
+<td style="text-align: right;">1168</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2006–2007</td>
+<td style="text-align: right;">2005</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">97</td>
+<td style="text-align: right;">1375</td>
+<td style="text-align: right;">11</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2008–2009</td>
+<td style="text-align: right;">2007</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">346</td>
+<td style="text-align: right;">11</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2010–2011</td>
+<td style="text-align: right;">2009</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">29</td>
+<td style="text-align: right;">410</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2012–2013</td>
+<td style="text-align: right;">2011</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">37</td>
+<td style="text-align: right;">595</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2014–2015</td>
+<td style="text-align: right;">2013</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">1092</td>
+<td style="text-align: right;">11</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2016–2019</td>
+<td style="text-align: right;">2015</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">49</td>
+<td style="text-align: right;">767</td>
+<td style="text-align: right;">11</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2020–2023</td>
+<td style="text-align: right;">2019</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: right;">116</td>
+<td style="text-align: right;">1878</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2024–2027</td>
+<td style="text-align: right;">2023</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">42</td>
+<td style="text-align: right;">617</td>
+<td style="text-align: right;">10</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>The 2002–2003 term is observed only in two September 2003 qualifying actions, and the 2024–2027 term only through May 2026. Adjacent councils share 9–11 observed members, but roster overlap alone does not guarantee enough <em>discriminating</em> votes to align the full scale. The next tests should audit names and vote coding near election boundaries, examine cross-boundary co-voting, and explore defensible identification or starting choices <strong>within the fixed-person model</strong>. Longer runs or selecting only agreeing chains would not by themselves settle the issue. Earlier ad hoc window fits were exploratory diagnostics and are not used as report periods or current estimates.</p>
 </section>
 <section id="validation-and-remaining-limits" class="level2">
 <h2 class="anchored" data-anchor-id="validation-and-remaining-limits">Validation and remaining limits</h2>
