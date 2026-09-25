@@ -2216,7 +2216,10 @@ vertical-align: -.125em;
   <li><a href="#diagnostics" id="toc-diagnostics" class="nav-link" data-scroll-target="#diagnostics">Diagnostics</a></li>
   <li><a href="#pooled-member-estimates" id="toc-pooled-member-estimates" class="nav-link" data-scroll-target="#pooled-member-estimates">Pooled member estimates</a></li>
   <li><a href="#elected-councils-and-bridging" id="toc-elected-councils-and-bridging" class="nav-link" data-scroll-target="#elected-councils-and-bridging">Elected councils and bridging</a></li>
-  <li><a href="#validation-and-remaining-limits" id="toc-validation-and-remaining-limits" class="nav-link" data-scroll-target="#validation-and-remaining-limits">Validation and remaining limits</a></li>
+  <li><a href="#validation-and-remaining-limits" id="toc-validation-and-remaining-limits" class="nav-link" data-scroll-target="#validation-and-remaining-limits">Validation and remaining limits</a>
+  <ul class="collapse">
+  <li><a href="#individual-party-evidence" id="toc-individual-party-evidence" class="nav-link" data-scroll-target="#individual-party-evidence">Individual party evidence</a></li>
+  </ul></li>
   <li><a href="#reproduction" id="toc-reproduction" class="nav-link" data-scroll-target="#reproduction">Reproduction</a></li>
   </ul>
 </nav>
@@ -3033,8 +3036,505 @@ vertical-align: -.125em;
 </section>
 <section id="validation-and-remaining-limits" class="level2">
 <h2 class="anchored" data-anchor-id="validation-and-remaining-limits">Validation and remaining limits</h2>
-<p>The report reuses the party-evidence tiers we coded separately from Jacob’s roll-call package, as documented in the <a href="houston-technical-appendix.html">baseline appendix</a>, and computes the partisan comparisons and presidential-vote relationship using <strong>pooled</strong> positions for the modern officials to whom those external data apply. Party labels do not enter estimation. These checks validate the modern end, not the historical alignment. The 2024 district overlay still allocates precinct votes to districts in proportion to intersecting area; the districts number only eleven. The council’s many unanimous actions are excluded from scaling, so the fitted dimension pertains to a selected subset of business.</p>
+<p>Party affiliation was researched separately from Jacob’s roll-call package. <code>Code/16_houston_face_validity.r</code> maintains the 25-person <a href="houston-technical-appendix.html">baseline evidence</a>; <code>Code/30_houston_pooled_party_evidence.r</code> adds evidence for the other 42 fitted officials and produces <code>Results/Houston-full/party_evidence.csv</code> and <code>scores_with_party.csv</code>. Each record has a source and tier; an explicit contemporary news characterization is acceptable, while a vote pattern, district, or endorsement that conflicts with direct identity evidence is not treated as party membership. The focused follow-up left Carol M. Galloway and Richard Nguyen unclassified. Party labels do not enter estimation. The partisan comparisons and presidential-vote relationship use <strong>pooled</strong> positions for the modern officials to whom those external data apply; they validate the modern end, not the historical alignment. The 2024 district overlay still allocates precinct votes to districts in proportion to intersecting area; the districts number only eleven. The council’s many unanimous actions are excluded from scaling, so the fitted dimension pertains to a selected subset of business.</p>
+<section id="individual-party-evidence" class="level3">
+<h3 class="anchored" data-anchor-id="individual-party-evidence">Individual party evidence</h3>
+<p>The source links below identify the particular record or report used for each label; “none” means that targeted research did not establish a defensible affiliation. “Reporting only” and “secondary guide/roster” are weaker than a partisan candidacy, party office, or self-identification. A few affiliations are inferred from a documented party process rather than an explicit self-description, as detailed in the basis column.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 3%">
+<col style="width: 4%">
+<col style="width: 40%">
+<col style="width: 45%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Official</th>
+<th style="text-align: left;">Affiliation</th>
+<th style="text-align: left;">Tier</th>
+<th style="text-align: left;">Source</th>
+<th style="text-align: left;">Basis</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Abbie Kamin</td>
+<td style="text-align: left;">Democratic</td>
+<td style="text-align: left;">party record</td>
+<td style="text-align: left;"><a href="https://ballotpedia.org/Abbie_Kamin">source</a></td>
+<td style="text-align: left;">2026 Democratic candidate for Harris County Attorney.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ada Edwards</td>
+<td style="text-align: left;">Democratic</td>
+<td style="text-align: left;">party record</td>
+<td style="text-align: left;"><a href="https://capitol.texas.gov/tlodocs/88R/billtext/pdf/HR00897I.PDF">source</a></td>
+<td style="text-align: left;">Texas House resolution identifies her as a Harris County Democratic Party field coordinator.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Addie Wiseman</td>
+<td style="text-align: left;">Republican</td>
+<td style="text-align: left;">party record</td>
+<td style="text-align: left;"><a href="https://elections.sos.state.tx.us/elchist148_state.htm">source</a></td>
+<td style="text-align: left;">Texas Secretary of State lists her in the 2010 Republican primary for state House District 127; council election was nonpartisan.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Adrian Garcia</td>
+<td style="text-align: left;">Democratic</td>
+<td style="text-align: left;">party record</td>
+<td style="text-align: left;"><a href="https://www.chron.com/news/houston-texas/article/councilman-garcia-joins-democratic-race-for-1754542.php">source</a></td>
+<td style="text-align: left;">Ran in Democratic primary for Harris County sheriff in 2008.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Al Hoang</td>
+<td style="text-align: left;">Republican</td>
+<td style="text-align: left;">party record</td>
+<td style="text-align: left;"><a href="https://www.sos.texas.gov/elections/forms/enrrpts/2014-rep-primary.pdf">source</a></td>
+<td style="text-align: left;">Texas Secretary of State lists him in the 2014 Republican state House primary; stronger than his earlier GOP council endorsement.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Amanda Edwards</td>
+<td style="text-align: left;">Democratic</td>
+<td style="text-align: left;">party record</td>
+<td style="text-align: left;"><a href="https://www.fec.gov/data/candidate/S0TX00258/">source</a></td>
+<td style="text-align: left;">FEC identifies her 2020 U.S. Senate candidacy as Democratic.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Amy Peck</td>
+<td style="text-align: left;">Republican</td>
+<td style="text-align: left;">secondary roster</td>
+<td style="text-align: left;"><a href="https://en.wikipedia.org/wiki/Houston_City_Council">source</a></td>
+<td style="text-align: left;">Listed as Republican on the current council roster; described as the ‘incumbent Republican District A Councilwoman’ in local commentary.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Andrew C. Burks, Jr.</td>
+<td style="text-align: left;">Democratic</td>
+<td style="text-align: left;">reporting only</td>
+<td style="text-align: left;"><a href="https://www.chron.com/politics/article/ex-lawmaker-preacher-tangle-in-council-runoff-2339272.php">source</a></td>
+<td style="text-align: left;">Chronicle calls him a lifelong Democrat and former county-party-chair candidate, despite GOP endorsement in nonpartisan 2011 council runoff.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Anne Clutterbuck</td>
+<td style="text-align: left;">Republican</td>
+<td style="text-align: left;">party record</td>
+<td style="text-align: left;"><a href="https://www.chron.com/news/politics/article/HOUSTON-CITY-COUNCIL-DISTRICT-C-1934498.php">source</a></td>
+<td style="text-align: left;">Candidate profile identifies service as a Republican state-convention delegate.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Annise Parker</td>
+<td style="text-align: left;">Democratic</td>
+<td style="text-align: left;">self-identification</td>
+<td style="text-align: left;"><a href="https://www.anniseparker.com/">source</a></td>
+<td style="text-align: left;">Her campaign identifies her as a Democrat; she ran in the 2026 Democratic county-judge primary.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bill White</td>
+<td style="text-align: left;">Democratic</td>
+<td style="text-align: left;">party record</td>
+<td style="text-align: left;"><a href="https://elections.texastribune.org/texas-election-results/texas-2010-election-general/5318/">source</a></td>
+<td style="text-align: left;">Democratic nominee for Texas governor in 2010.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Brenda Stardig</td>
+<td style="text-align: left;">Republican</td>
+<td style="text-align: left;">party record</td>
+<td style="text-align: left;"><a href="https://www.houstonchronicle.com/news/houston-texas/houston/article/Stardig-files-for-Precinct-3-Commissioners-Court-14835061.php">source</a></td>
+<td style="text-align: left;">Filed as a Republican for Harris County commissioner in 2020.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">C. O. “Brad” Bradford</td>
+<td style="text-align: left;">Democratic</td>
+<td style="text-align: left;">party record</td>
+<td style="text-align: left;"><a href="https://lrl.texas.gov/scanned/HouseJournals/80/04262007_63_2487.PDF">source</a></td>
+<td style="text-align: left;">Texas House journal records Clarence Bradford as Democratic precinct chair; he later was Democratic nominee for Harris County DA.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Carol Alvarado</td>
+<td style="text-align: left;">Democratic</td>
+<td style="text-align: left;">party record</td>
+<td style="text-align: left;"><a href="https://lrl.texas.gov/legeleaders/members/memberDisplay.cfm?memberID=5670">source</a></td>
+<td style="text-align: left;">Texas Legislative Reference Library records her state legislative service as Democrat.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Carol M. Galloway</td>
+<td style="text-align: left;">None documented</td>
+<td style="text-align: left;">none</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">Houston District B member Carol Mims Galloway; do not confuse with Dallas Republican legislator Carolyn K. Galloway.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Carolyn Evans-Shabazz</td>
+<td style="text-align: left;">Democratic</td>
+<td style="text-align: left;">secondary roster</td>
+<td style="text-align: left;"><a href="https://en.wikipedia.org/wiki/Houston_City_Council">source</a></td>
+<td style="text-align: left;">Listed as Democratic on the current council roster.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Dave Martin</td>
+<td style="text-align: left;">Republican</td>
+<td style="text-align: left;">reporting only</td>
+<td style="text-align: left;"><a href="https://www.houstonchronicle.com/opinion/editorials/article/Martin-the-best-candidate-for-District-E-14499420.php">source</a></td>
+<td style="text-align: left;">Characterized as a Republican/conservative in local reporting; no party-record source located.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">David W. Robinson</td>
+<td style="text-align: left;">Democratic</td>
+<td style="text-align: left;">reporting only</td>
+<td style="text-align: left;"><a href="https://www.govtech.com/em/disaster/City-Council-Adopts-Stricter-Development-Rules-for-Houstons-Floodplains.html">source</a></td>
+<td style="text-align: left;">Houston Chronicle 2018 floodplain-vote report explicitly identifies Robinson among Democratic council members; no party-primary record located.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Dwight Boykins</td>
+<td style="text-align: left;">Democratic</td>
+<td style="text-align: left;">reporting only</td>
+<td style="text-align: left;"><a href="https://www.govtech.com/em/disaster/City-Council-Adopts-Stricter-Development-Rules-for-Houstons-Floodplains.html">source</a></td>
+<td style="text-align: left;">Contemporaneous Houston Chronicle report calls him a Democratic council member; Republican primary voting and GOP donations are mixed signals.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Edward Gonzalez</td>
+<td style="text-align: left;">Democratic</td>
+<td style="text-align: left;">party record</td>
+<td style="text-align: left;"><a href="https://www.houstonchronicle.com/news/houston-texas/houston/article/Councilman-Gonzalez-to-run-for-Harris-sheriff-6684932.php">source</a></td>
+<td style="text-align: left;">Ran for Harris County sheriff as a Democrat in 2016.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Edward Pollard</td>
+<td style="text-align: left;">Democratic</td>
+<td style="text-align: left;">party record</td>
+<td style="text-align: left;"><a href="https://en.wikipedia.org/wiki/Edward_Pollard_(politician)">source</a></td>
+<td style="text-align: left;">2016 Democratic primary candidate, Texas House District 137.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ellen Cohen</td>
+<td style="text-align: left;">Democratic</td>
+<td style="text-align: left;">party record</td>
+<td style="text-align: left;"><a href="https://www.lrl.texas.gov/legeLeaders/members/memberDisplay.cfm?memberID=5633">source</a></td>
+<td style="text-align: left;">Texas Legislative Reference Library records her state House service as Democrat.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Fred Flickinger</td>
+<td style="text-align: left;">Republican</td>
+<td style="text-align: left;">party record</td>
+<td style="text-align: left;"><a href="https://www.harriscountygop.com/wp-content/uploads/2023/10/November-2023-Election-Harris-County-GOP-Endorsed-Candidates-3.pdf">source</a></td>
+<td style="text-align: left;">Harris County GOP endorsement, District E, November 2023.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Gordon Quan</td>
+<td style="text-align: left;">Democratic</td>
+<td style="text-align: left;">party record</td>
+<td style="text-align: left;"><a href="https://www.chron.com/news/houston-texas/article/Democrats-Quan-Hassan-vie-for-Harris-County-judge-1717357.php">source</a></td>
+<td style="text-align: left;">Sought 2010 Democratic nomination for Harris County judge. Opponent Ahmad Hassan, not Quan, had run in both party primaries.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Greg Travis</td>
+<td style="text-align: left;">Republican</td>
+<td style="text-align: left;">party record</td>
+<td style="text-align: left;"><a href="https://www.houstonpublicmedia.org/articles/news/politics/2021/10/28/411995/houston-city-councilmember-greg-travis-resigns-announces-run-for-texas-house-seat/">source</a></td>
+<td style="text-align: left;">Resigned to run in the Republican primary for Texas House District 133.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Helena Brown</td>
+<td style="text-align: left;">Republican</td>
+<td style="text-align: left;">party record</td>
+<td style="text-align: left;"><a href="https://legiscan.com/TX/text/HR88/2013/X1">source</a></td>
+<td style="text-align: left;">Texas House resolution commends her service as Republican Party precinct chair.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Jack Christie D.C.</td>
+<td style="text-align: left;">Republican</td>
+<td style="text-align: left;">reporting only</td>
+<td style="text-align: left;"><a href="https://www.govtech.com/em/disaster/City-Council-Adopts-Stricter-Development-Rules-for-Houstons-Floodplains.html">source</a></td>
+<td style="text-align: left;">Contemporaneous Houston Chronicle report calls him a Republican council member.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">James G. Rodriguez</td>
+<td style="text-align: left;">Democratic</td>
+<td style="text-align: left;">secondary guide</td>
+<td style="text-align: left;"><a href="https://www.uh.edu/registertovote/localelections.html">source</a></td>
+<td style="text-align: left;">University of Houston 2009 nonpartisan election guide lists incumbent James Rodriguez as D.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Jarvis Johnson</td>
+<td style="text-align: left;">Democratic</td>
+<td style="text-align: left;">party record</td>
+<td style="text-align: left;"><a href="https://www.lrl.texas.gov/legeLeaders/members/memberdisplay.cfm?memberID=5795">source</a></td>
+<td style="text-align: left;">Texas Legislative Reference Library records his state House service as Democrat.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Jerry Davis</td>
+<td style="text-align: left;">Democratic</td>
+<td style="text-align: left;">party record</td>
+<td style="text-align: left;"><a href="https://files.harrisvotes.com/harrisvotes/prd/HISTORY/20200303/DemocraticCumulative.pdf">source</a></td>
+<td style="text-align: left;">Harris County official 2020 Democratic primary results list him as a candidate.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Joaquin Martinez</td>
+<td style="text-align: left;">Democratic</td>
+<td style="text-align: left;">secondary roster</td>
+<td style="text-align: left;"><a href="https://en.wikipedia.org/wiki/Houston_City_Council">source</a></td>
+<td style="text-align: left;">Listed as Democratic on the current council roster.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">John Whitmire</td>
+<td style="text-align: left;">Democratic</td>
+<td style="text-align: left;">party record</td>
+<td style="text-align: left;"><a href="https://www.nbcnews.com/politics/elections/democrat-john-whitmire-wins-houston-mayoral-race-rcna127278">source</a></td>
+<td style="text-align: left;">Long-time Democratic state senator.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Jolanda “Jo” Jones</td>
+<td style="text-align: left;">Democratic</td>
+<td style="text-align: left;">party record</td>
+<td style="text-align: left;"><a href="https://lrl.texas.gov/legeLeaders/members/memberDisplay.cfm?memberID=5877">source</a></td>
+<td style="text-align: left;">Texas Legislative Reference Library records her state House service as Democrat.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Julian Ramirez</td>
+<td style="text-align: left;">Republican</td>
+<td style="text-align: left;">party record</td>
+<td style="text-align: left;"><a href="https://www.harriscountygop.com/wp-content/uploads/2023/10/November-2023-Election-Harris-County-GOP-Endorsed-Candidates-3.pdf">source</a></td>
+<td style="text-align: left;">Harris County GOP endorsement, At-Large 1, November and December 2023.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Karla Cisneros</td>
+<td style="text-align: left;">Democratic</td>
+<td style="text-align: left;">reporting only</td>
+<td style="text-align: left;"><a href="https://www.govtech.com/em/disaster/City-Council-Adopts-Stricter-Development-Rules-for-Houstons-Floodplains.html">source</a></td>
+<td style="text-align: left;">Houston Chronicle 2018 floodplain-vote report explicitly identifies Cisneros among Democratic council members; no party-primary record located.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Larry V. Green</td>
+<td style="text-align: left;">Democratic</td>
+<td style="text-align: left;">reporting only</td>
+<td style="text-align: left;"><a href="https://www.houstonchronicle.com/politics/houston/article/Resign-to-run-law-now-applies-to-elected-city-6787701.php">source</a></td>
+<td style="text-align: left;">Reportedly sought the 2016 Democratic precinct-chair nomination for Harris County commissioner. This is party-process evidence, not a formal primary filing; do not confuse with Ronald C. Green.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Letitia Plummer</td>
+<td style="text-align: left;">Democratic</td>
+<td style="text-align: left;">party record</td>
+<td style="text-align: left;"><a href="https://www.texastribune.org/2026/05/29/harris-county-judge-election-upset-runoff/">source</a></td>
+<td style="text-align: left;">2018 Democratic primary candidate for U.S. House; 2026 Democratic nominee for Harris County Judge.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">M. J. Khan, P. E.</td>
+<td style="text-align: left;">Republican</td>
+<td style="text-align: left;">reporting only</td>
+<td style="text-align: left;"><a href="https://www.houstonchronicle.com/politics/houston/article/houston-mayor-candidates-gun-buybacks-bike-lanes-18395207.php">source</a></td>
+<td style="text-align: left;">Chronicle directly identifies former council member MJ Khan as a Republican contender in the 2023 nonpartisan mayoral race.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Mario Castillo</td>
+<td style="text-align: left;">Democratic</td>
+<td style="text-align: left;">secondary roster</td>
+<td style="text-align: left;"><a href="https://en.wikipedia.org/wiki/Houston_City_Council">source</a></td>
+<td style="text-align: left;">Listed as Democratic on the current council roster.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mark Ellis</td>
+<td style="text-align: left;">Republican</td>
+<td style="text-align: left;">party record</td>
+<td style="text-align: left;"><a href="https://www.chron.com/news/politics/article/TX-SEN-District-7-1668998.php">source</a></td>
+<td style="text-align: left;">Chronicle candidate profile records Republican primary candidacy for justice of the peace; later Republican state Senate primary candidate.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Mark Goldberg</td>
+<td style="text-align: left;">Republican</td>
+<td style="text-align: left;">reporting only</td>
+<td style="text-align: left;"><a href="https://www.chron.com/neighborhood/article/Berry-s-bipartisan-breakfast-of-champions-9828733.php">source</a></td>
+<td style="text-align: left;">Contemporaneous Chronicle item directly calls former District C council member Goldberg a Republican; not inferred from a later namesake primary candidate.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Martha Castex-Tatum</td>
+<td style="text-align: left;">Democratic</td>
+<td style="text-align: left;">secondary roster</td>
+<td style="text-align: left;"><a href="https://en.wikipedia.org/wiki/Houston_City_Council">source</a></td>
+<td style="text-align: left;">Listed as Democratic on the current council roster.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Mary Nan Huffman</td>
+<td style="text-align: left;">Republican</td>
+<td style="text-align: left;">party record</td>
+<td style="text-align: left;"><a href="https://www.harriscountygop.com/wp-content/uploads/2023/10/November-2023-Election-Harris-County-GOP-Endorsed-Candidates-3.pdf">source</a></td>
+<td style="text-align: left;">Harris County GOP endorsement, District G, November 2023; 2020 Republican nominee for Harris County DA.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Melissa Noriega</td>
+<td style="text-align: left;">Democratic</td>
+<td style="text-align: left;">party record</td>
+<td style="text-align: left;"><a href="https://www.lrl.texas.gov/legeLeaders/members/memberdisplay.cfm?memberID=5614">source</a></td>
+<td style="text-align: left;">Texas Legislative Reference Library records her state House service as Democrat.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Michael Berry</td>
+<td style="text-align: left;">Republican</td>
+<td style="text-align: left;">reporting only</td>
+<td style="text-align: left;"><a href="https://www.houstonpress.com/news/running-mates-6555122/">source</a></td>
+<td style="text-align: left;">Contemporaneous Houston Press account identifies him as Republican but notes he avoided partisan labels in a council campaign.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Michael Kubosh</td>
+<td style="text-align: left;">Republican</td>
+<td style="text-align: left;">reporting only</td>
+<td style="text-align: left;"><a href="https://www.houstonchronicle.com/news/houston-texas/houston/article/Houston-council-runoff-foes-are-opposites-in-14867953.php">source</a></td>
+<td style="text-align: left;">Mostly Republican primary voter and GOP-endorsed in council races, but publicly rejects party labels and ran as a Democrat in 2006.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Mike Knox</td>
+<td style="text-align: left;">Republican</td>
+<td style="text-align: left;">party record</td>
+<td style="text-align: left;"><a href="https://en.wikipedia.org/wiki/Mike_Knox_(politician)">source</a></td>
+<td style="text-align: left;">Republican precinct chair; 2024 Republican primary candidate for Harris County Sheriff.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mike Laster</td>
+<td style="text-align: left;">Democratic</td>
+<td style="text-align: left;">reporting only</td>
+<td style="text-align: left;"><a href="https://www.govtech.com/em/disaster/City-Council-Adopts-Stricter-Development-Rules-for-Houstons-Floodplains.html">source</a></td>
+<td style="text-align: left;">Contemporaneous Houston Chronicle report explicitly calls him a Democrat; UH 2009 election guide also lists D.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Mike Sullivan</td>
+<td style="text-align: left;">Republican</td>
+<td style="text-align: left;">party record</td>
+<td style="text-align: left;"><a href="https://www.southbeltleader.com/Leader12-8-11.pdf">source</a></td>
+<td style="text-align: left;">Filed in Republican primary for Harris County tax assessor-collector.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Oliver Pennington</td>
+<td style="text-align: left;">Republican</td>
+<td style="text-align: left;">secondary guide</td>
+<td style="text-align: left;"><a href="https://www.uh.edu/registertovote/localelections.html">source</a></td>
+<td style="text-align: left;">University of Houston 2009 nonpartisan election guide lists him as R; later reporting calls him Republican.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Pam Holm</td>
+<td style="text-align: left;">Republican</td>
+<td style="text-align: left;">secondary guide</td>
+<td style="text-align: left;"><a href="https://www.uh.edu/registertovote/localelections.html">source</a></td>
+<td style="text-align: left;">University of Houston 2009 nonpartisan election guide lists her as R; contribution to Republican women is only corroborative.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Peter Brown</td>
+<td style="text-align: left;">Democratic</td>
+<td style="text-align: left;">reporting only</td>
+<td style="text-align: left;"><a href="https://www.chron.com/news/houston-texas/article/Mayoral-race-remains-uncertain-in-final-stretch-1732471.php">source</a></td>
+<td style="text-align: left;">Chronicle calls him a progressive Democrat; UH 2009 election guide lists D.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Richard Nguyen</td>
+<td style="text-align: left;">None documented</td>
+<td style="text-align: left;">none</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">No dependable party affiliation located; do not infer from policy positions or a possible later namesake candidate.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Robert Gallegos</td>
+<td style="text-align: left;">Democratic</td>
+<td style="text-align: left;">reporting only</td>
+<td style="text-align: left;"><a href="https://en.wikipedia.org/wiki/Robert_Gallegos">source</a></td>
+<td style="text-align: left;">Biography lists Democratic affiliation; no party-record source located.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ronald C. Green</td>
+<td style="text-align: left;">Democratic</td>
+<td style="text-align: left;">self-identification</td>
+<td style="text-align: left;"><a href="https://www.houstonpress.com/news/political-identity-crisis-6555184">source</a></td>
+<td style="text-align: left;">Identified himself as a loyal Democrat and received Harris County Democratic Party backing, despite a conservative-radio endorsement.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sallie Alcorn</td>
+<td style="text-align: left;">Democratic</td>
+<td style="text-align: left;">secondary roster</td>
+<td style="text-align: left;"><a href="https://en.wikipedia.org/wiki/Houston_City_Council">source</a></td>
+<td style="text-align: left;">Listed as Democratic on the current council roster.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Shelley Sekula-Gibbs, M.D.</td>
+<td style="text-align: left;">Republican</td>
+<td style="text-align: left;">party record</td>
+<td style="text-align: left;"><a href="https://www.fec.gov/data/candidate/H6TX22184/">source</a></td>
+<td style="text-align: left;">FEC identifies her congressional candidacy as Republican.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Stephen C. Costello</td>
+<td style="text-align: left;">Republican</td>
+<td style="text-align: left;">reporting only</td>
+<td style="text-align: left;"><a href="https://www.uhd.edu/documents/academics/humanities/about/departments/english/dateline/issue54-4.pdf">source</a></td>
+<td style="text-align: left;">Contemporaneous University of Houston-Downtown article describes him as Republican in 2015 mayoral field; UH 2009 guide lists R. A payment to Harris County Democrats is not counterevidence of identity.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Steve Le</td>
+<td style="text-align: left;">Republican</td>
+<td style="text-align: left;">reporting only</td>
+<td style="text-align: left;"><a href="https://www.govtech.com/em/disaster/City-Council-Adopts-Stricter-Development-Rules-for-Houstons-Floodplains.html">source</a></td>
+<td style="text-align: left;">Contemporaneous Houston Chronicle report directly calls him a Republican council member.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sue Lovell</td>
+<td style="text-align: left;">Democratic</td>
+<td style="text-align: left;">party record</td>
+<td style="text-align: left;"><a href="https://www.houstonlgbthistory.org/Houston80s/OutSmart/2010/OS-10-030110.pdf">source</a></td>
+<td style="text-align: left;">Elected by Texas Democrats to the Democratic National Committee; UH 2009 guide lists D.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sylvester Turner</td>
+<td style="text-align: left;">Democratic</td>
+<td style="text-align: left;">party record</td>
+<td style="text-align: left;"><a href="https://en.wikipedia.org/wiki/Sylvester_Turner">source</a></td>
+<td style="text-align: left;">Long-time Democratic state representative; later Democratic member of Congress.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Tarsha Jackson</td>
+<td style="text-align: left;">Democratic</td>
+<td style="text-align: left;">secondary roster</td>
+<td style="text-align: left;"><a href="https://en.wikipedia.org/wiki/Houston_City_Council">source</a></td>
+<td style="text-align: left;">Listed as Democratic on the current council roster.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Tiffany D. Thomas</td>
+<td style="text-align: left;">Democratic</td>
+<td style="text-align: left;">secondary roster</td>
+<td style="text-align: left;"><a href="https://en.wikipedia.org/wiki/Houston_City_Council">source</a></td>
+<td style="text-align: left;">Listed as Democratic on the current council roster.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Toni Lawrence</td>
+<td style="text-align: left;">Republican</td>
+<td style="text-align: left;">reporting only</td>
+<td style="text-align: left;"><a href="https://www.chron.com/news/politics/article/Houston-mayor-council-discuss-pro-tem-1862946.php">source</a></td>
+<td style="text-align: left;">Chronicle explicitly identifies her as Republican despite nonpartisan council ballot.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Twila Carter</td>
+<td style="text-align: left;">Republican</td>
+<td style="text-align: left;">party record</td>
+<td style="text-align: left;"><a href="https://www.harriscountygop.com/wp-content/uploads/2023/11/Harris-County-GOP-Endorsed-Candidates-1.pdf">source</a></td>
+<td style="text-align: left;">Harris County GOP endorsement, At-Large 3, December 2023 runoff.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Wanda Adams</td>
+<td style="text-align: left;">Democratic</td>
+<td style="text-align: left;">secondary guide</td>
+<td style="text-align: left;"><a href="https://www.uh.edu/registertovote/localelections.html">source</a></td>
+<td style="text-align: left;">University of Houston 2009 nonpartisan election guide lists her as D.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Willie Davis</td>
+<td style="text-align: left;">Republican</td>
+<td style="text-align: left;">party record</td>
+<td style="text-align: left;"><a href="https://www.harriscountygop.com/wp-content/uploads/2023/10/November-2023-Election-Harris-County-GOP-Endorsed-Candidates-3.pdf">source</a></td>
+<td style="text-align: left;">Harris County GOP endorsement, At-Large 2, November and December 2023.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>Jacob’s <a href="https://github.com/MyTownRepo/council-votes/blob/main/docs/ASSESSMENT_HOUSTON.md">Houston assessment</a> calls this candidate review-ready, not research-reviewed. Original-page spot checks, independent service-date verification, and two-build reproduction remain open upstream. The three local corrections need reconciliation with his parser.</p>
+</section>
 </section>
 <section id="reproduction" class="level2">
 <h2 class="anchored" data-anchor-id="reproduction">Reproduction</h2>
