@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2026-09-18">
+<meta name="dcterms.date" content="2026-09-27">
 
 <title>New York City Council ideal points</title>
 <style>
@@ -2249,7 +2249,7 @@ vertical-align: -.125em;
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 18, 2026</p>
+      <p class="date">September 27, 2026</p>
     </div>
   </div>
   
@@ -3596,7 +3596,8 @@ vertical-align: -.125em;
 </section>
 <section id="validation-construction" class="level2">
 <h2 class="anchored" data-anchor-id="validation-construction">Validation construction</h2>
-<p>Every external indicator is assembled by <code>Code/24_nyc_validation_data.r</code> into source-backed tables and joined on <code>person_id</code>, not on names. Organizational records carry validity intervals, and several rosters are snapshots rather than continuous memberships, so the pooled indicator is “ever recorded in this group”. The official party labels cover the 51 seats of the current council only; earlier members are left unlabelled rather than assumed. Ballot-line labels come from Board of Elections results for 2017, 2021, 2023, and 2025 and reflect New York’s fusion lines — the lines a candidate ran on, not a registration.</p>
+<p>Organizational indicators are assembled by <code>Code/24_nyc_validation_data.r</code> into source-backed tables and joined on <code>person_id</code>, not on names. Records carry validity intervals, and several rosters are snapshots rather than continuous memberships, so the pooled indicator is “ever recorded in this group”. Party affiliation is a separate 124-row research ledger produced by <code>Code/41_nyc_party_primary_audit.r</code> and <code>Code/42_nyc_party_affiliation_research.r</code>, covering all 123 fitted people. Its sources are the Council’s captured 2026 roster, official partisan primary returns, and candidate-supplied enrollment statements. These prove dated affiliations, not an uninterrupted enrollment history. One person, Ari Kagan, has both Democratic and Republican rows because the Council documented his switch on December 5, 2022; his single pooled ideal point is excluded from static party comparisons. Board of Elections general-election ballot lines remain a separate fusion-line measure and are never treated as registration.</p>
+<p>The local ledger joins 122 fitted <code>person_id</code>s to the published <code>local-id-v1</code> crosswalk. I. Daneek Miller is the one missing registry entry, retained with his legacy ID and a blank <code>local_id</code> pending upstream allocation. The proposed upstream evidence vocabulary has no explicit official-legislative-roster type; its 51 Council-roster rows are provisionally coded <code>reported</code>, with the official source and local capture named in the row. Neither issue changes the local person-ID join, but both matter before a release-ready <code>party_affiliation.csv</code> is published.</p>
 <p>District comparisons: 2024 presidential results aggregate the published precinct polygons to council boundaries; council-election shares use candidate totals, because per-line splits are unavailable for 2023; and the 2025 mayoral figures aggregate Board of Elections election-district returns to all 51 districts using that same election’s council result files as the crosswalk, with all 4,117 in-play election districts matching exactly one district. None of these quantities enters estimation.</p>
 </section>
 <section id="bridging-to-the-state-common-space" class="level2">
@@ -3619,24 +3620,24 @@ vertical-align: -.125em;
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Intercept</td>
-<td style="text-align: right;">-1.493</td>
+<td style="text-align: right;">-1.465</td>
 <td style="text-align: right;">0.108</td>
-<td style="text-align: right;">-13.86</td>
-<td style="text-align: left;">1.4e-09</td>
+<td style="text-align: right;">-13.55</td>
+<td style="text-align: left;">1.9e-09</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Slope (council ideal point)</td>
-<td style="text-align: right;">0.431</td>
+<td style="text-align: right;">0.422</td>
 <td style="text-align: right;">0.090</td>
-<td style="text-align: right;">4.80</td>
-<td style="text-align: left;">0.00028</td>
+<td style="text-align: right;">4.69</td>
+<td style="text-align: left;">0.00035</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-<p>R² is 0.62 on 16 bridges, Pearson 0.79, residual standard error 0.43. The simulation-based standard errors, party-indicator variants, and leave-one-out consistency checks in the original function are not reproduced here, so the mapping’s own uncertainty is not propagated into member positions: the mapped scores are point estimates of a transform.</p>
-<p>Because the transform is linear, it changes no member’s rank. What it fixes is the council’s location and spread in state units. The SD ratio is 0.55, so a standard deviation on the council scale is worth about half of one in the common space.</p>
+<p>R² is 0.61 on 16 bridges, Pearson 0.78, residual standard error 0.43. The simulation-based standard errors, party-indicator variants, and leave-one-out consistency checks in the original function are not reproduced here, so the mapping’s own uncertainty is not propagated into member positions: the mapped scores are point estimates of a transform.</p>
+<p>Because the transform is linear, it changes no member’s rank. What it fixes is the council’s location and spread in state units. The SD ratio is 0.54, so a standard deviation on the council scale is worth about half of one in the common space.</p>
 <div class="cell">
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
@@ -3667,8 +3668,8 @@ vertical-align: -.125em;
 <td style="text-align: left;">D</td>
 <td style="text-align: left;">H</td>
 <td style="text-align: right;">-2.930</td>
-<td style="text-align: right;">-1.856</td>
-<td style="text-align: right;">0.105</td>
+<td style="text-align: right;">-1.805</td>
+<td style="text-align: right;">0.095</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Vanessa L. Gibson</td>
@@ -3676,8 +3677,8 @@ vertical-align: -.125em;
 <td style="text-align: left;">D</td>
 <td style="text-align: left;">H</td>
 <td style="text-align: right;">-0.512</td>
-<td style="text-align: right;">-2.125</td>
-<td style="text-align: right;">0.110</td>
+<td style="text-align: right;">-2.135</td>
+<td style="text-align: right;">0.132</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Carmen N. De La Rosa</td>
@@ -3685,8 +3686,8 @@ vertical-align: -.125em;
 <td style="text-align: left;">D</td>
 <td style="text-align: left;">H</td>
 <td style="text-align: right;">-0.419</td>
-<td style="text-align: right;">-1.947</td>
-<td style="text-align: right;">0.097</td>
+<td style="text-align: right;">-1.946</td>
+<td style="text-align: right;">0.113</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Harvey D. Epstein</td>
@@ -3694,8 +3695,8 @@ vertical-align: -.125em;
 <td style="text-align: left;">D</td>
 <td style="text-align: left;">H</td>
 <td style="text-align: right;">-0.354</td>
-<td style="text-align: right;">-1.819</td>
-<td style="text-align: right;">0.110</td>
+<td style="text-align: right;">-1.790</td>
+<td style="text-align: right;">0.124</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Erik D. Bottcher</td>
@@ -3703,8 +3704,8 @@ vertical-align: -.125em;
 <td style="text-align: left;">D</td>
 <td style="text-align: left;">S</td>
 <td style="text-align: right;">-0.307</td>
-<td style="text-align: right;">-2.047</td>
-<td style="text-align: right;">0.306</td>
+<td style="text-align: right;">-1.781</td>
+<td style="text-align: right;">0.206</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Keith Powers</td>
@@ -3712,8 +3713,8 @@ vertical-align: -.125em;
 <td style="text-align: left;">D</td>
 <td style="text-align: left;">H</td>
 <td style="text-align: right;">-0.289</td>
-<td style="text-align: right;">-1.502</td>
-<td style="text-align: right;">0.144</td>
+<td style="text-align: right;">-1.477</td>
+<td style="text-align: right;">0.182</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Francisco P. Moya</td>
@@ -3721,8 +3722,8 @@ vertical-align: -.125em;
 <td style="text-align: left;">D</td>
 <td style="text-align: left;">H</td>
 <td style="text-align: right;">-0.158</td>
-<td style="text-align: right;">-1.780</td>
-<td style="text-align: right;">0.089</td>
+<td style="text-align: right;">-1.774</td>
+<td style="text-align: right;">0.088</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Alan N. Maisel</td>
@@ -3730,8 +3731,8 @@ vertical-align: -.125em;
 <td style="text-align: left;">D</td>
 <td style="text-align: left;">H</td>
 <td style="text-align: right;">-0.063</td>
-<td style="text-align: right;">-1.504</td>
-<td style="text-align: right;">0.090</td>
+<td style="text-align: right;">-1.499</td>
+<td style="text-align: right;">0.091</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Bill Perkins</td>
@@ -3739,8 +3740,8 @@ vertical-align: -.125em;
 <td style="text-align: left;">D</td>
 <td style="text-align: left;">S</td>
 <td style="text-align: right;">-0.054</td>
-<td style="text-align: right;">-2.390</td>
-<td style="text-align: right;">0.144</td>
+<td style="text-align: right;">-2.408</td>
+<td style="text-align: right;">0.165</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Rory I. Lancman</td>
@@ -3748,8 +3749,8 @@ vertical-align: -.125em;
 <td style="text-align: left;">D</td>
 <td style="text-align: left;">H</td>
 <td style="text-align: right;">-0.047</td>
-<td style="text-align: right;">-1.419</td>
-<td style="text-align: right;">0.087</td>
+<td style="text-align: right;">-1.414</td>
+<td style="text-align: right;">0.092</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Inez E. Dickens</td>
@@ -3757,8 +3758,8 @@ vertical-align: -.125em;
 <td style="text-align: left;">D</td>
 <td style="text-align: left;">H</td>
 <td style="text-align: right;">0.226</td>
-<td style="text-align: right;">-1.361</td>
-<td style="text-align: right;">0.089</td>
+<td style="text-align: right;">-1.333</td>
+<td style="text-align: right;">0.088</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Inez D. Barron</td>
@@ -3766,8 +3767,8 @@ vertical-align: -.125em;
 <td style="text-align: left;">D</td>
 <td style="text-align: left;">H</td>
 <td style="text-align: right;">0.438</td>
-<td style="text-align: right;">-1.451</td>
-<td style="text-align: right;">0.089</td>
+<td style="text-align: right;">-1.463</td>
+<td style="text-align: right;">0.105</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Simcha Felder</td>
@@ -3775,7 +3776,7 @@ vertical-align: -.125em;
 <td style="text-align: left;">D</td>
 <td style="text-align: left;">S</td>
 <td style="text-align: right;">0.722</td>
-<td style="text-align: right;">-0.811</td>
+<td style="text-align: right;">-0.816</td>
 <td style="text-align: right;">0.068</td>
 </tr>
 <tr class="even">
@@ -3785,7 +3786,7 @@ vertical-align: -.125em;
 <td style="text-align: left;">H</td>
 <td style="text-align: right;">0.831</td>
 <td style="text-align: right;">-0.835</td>
-<td style="text-align: right;">0.074</td>
+<td style="text-align: right;">0.068</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Kalman Yeger</td>
@@ -3793,8 +3794,8 @@ vertical-align: -.125em;
 <td style="text-align: left;">D</td>
 <td style="text-align: left;">H</td>
 <td style="text-align: right;">1.450</td>
-<td style="text-align: right;">-0.543</td>
-<td style="text-align: right;">0.076</td>
+<td style="text-align: right;">-0.464</td>
+<td style="text-align: right;">0.070</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Joseph C. Borelli</td>
@@ -3802,8 +3803,8 @@ vertical-align: -.125em;
 <td style="text-align: left;">R</td>
 <td style="text-align: left;">H</td>
 <td style="text-align: right;">3.188</td>
-<td style="text-align: right;">0.240</td>
-<td style="text-align: right;">0.111</td>
+<td style="text-align: right;">0.231</td>
+<td style="text-align: right;">0.106</td>
 </tr>
 </tbody>
 </table>
@@ -3813,7 +3814,7 @@ vertical-align: -.125em;
 <section id="matching-and-why-it-is-the-weak-point" class="level3">
 <h3 class="anchored" data-anchor-id="matching-and-why-it-is-the-weak-point">Matching, and why it is the weak point</h3>
 <p>There is no identifier shared end to end. The bridge table carries modern OCD person ids (<code>ocd-person/…</code>); the state project’s id file carries legacy OpenStates ids (<code>NYL000342</code>); and the published common-scores file carries no id at all. The join is therefore on normalized names — first name plus full surname, accents and generational suffixes stripped — with no chamber or district check. Thirteen of the sixteen are unambiguous. Adding a person id to the scores export would make this durable, and would serve any future city-to-state bridge.</p>
-<p>One case had to be resolved by hand. The scores file contains two records named <strong>“Barron, Charles”</strong>, for assembly districts 40 and 60. They are two different people: the state id file places Charles in AD-60 from 2015 and <strong>Inez Barron</strong> in AD-40 from 2009. Both Barrons served on the council and in the assembly, so both are genuine bridges, and the AD-40 record is Inez’s score carrying Charles’s name. Averaging the two records — the obvious automatic fix — merges a married couple into one observation and costs accuracy: 15 bridges, slope 0.406, R² 0.56 merged, against 16 bridges, slope 0.431, R² 0.62 separated. <strong>The mislabeling is upstream, in the state project’s output, not in this analysis.</strong></p>
+<p>One case had to be resolved by hand. The scores file contains two records named <strong>“Barron, Charles”</strong>, for assembly districts 40 and 60. They are two different people: the state id file places Charles in AD-60 from 2015 and <strong>Inez Barron</strong> in AD-40 from 2009. Both Barrons served on the council and in the assembly, so both are genuine bridges, and the AD-40 record is Inez’s score carrying Charles’s name. Averaging the two records — the obvious automatic fix — merges a married couple into one observation and costs accuracy: 15 bridges, slope 0.406, R² 0.56 merged, against 16 bridges, slope 0.422, R² 0.61 separated. <strong>The mislabeling is upstream, in the state project’s output, not in this analysis.</strong></p>
 <p>Charles Barron is also the most influential observation in the regression, sitting far to the left of the other fifteen. The slope should be read with that in mind.</p>
 </section>
 <section id="state-legislators-representing-the-city" class="level3">
@@ -3840,17 +3841,21 @@ vertical-align: -.125em;
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> Code/18_prepare_nyc_full.r   <span class="co"># SOURCE_DIR must hold the release parquet files</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> Code/19_fit_nyc_full.r       <span class="co"># IDEAL_ITER, IDEAL_CORES, IDEAL_FITS</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> Code/24_nyc_validation_data.r</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> Code/20_nyc_full_face_validity.r</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> Code/21_nyc_full_validation.r</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> Code/22_nyc_mayoral_districts.r</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> Code/23_nyc_council_series.r</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> Code/28_nyc_state_bridge.r</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> Code/29_nyc_common_space_plots.r</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> Code/30_nyc_common_space_series.r</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> Code/31_nyc_state_districts.r     <span class="co"># downloads Census TIGER boundaries once</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> Code/32_nyc_city_state_compare.r</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render nyc-report.qmd</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render nyc-technical-appendix.qmd</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> Code/41_nyc_party_primary_audit.r</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> Code/42_nyc_party_affiliation_research.r</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> Code/20_nyc_full_face_validity.r</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> Code/21_nyc_full_validation.r</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> Code/22_nyc_mayoral_districts.r</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> Code/25_nyc_mayoral_series.r</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> Code/27_nyc_presidential_series.r</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> Code/23_nyc_council_series.r</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> Code/28_nyc_state_bridge.r</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> Code/29_nyc_common_space_plots.r</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> Code/30_nyc_common_space_series.r</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> Code/31_nyc_state_districts.r     <span class="co"># downloads Census TIGER boundaries once</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> Code/32_nyc_city_state_compare.r</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render nyc-report.qmd</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render nyc-technical-appendix.qmd</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Seeds and session information are saved with the results in <code>Results/NYC-full/</code>.</p>
 </section>
 
