@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2026-09-27">
+<meta name="dcterms.date" content="2026-09-28">
 
 <title>New York City Council ideal points</title>
 <style>
@@ -2249,7 +2249,7 @@ vertical-align: -.125em;
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 27, 2026</p>
+      <p class="date">September 28, 2026</p>
     </div>
   </div>
   
@@ -3597,6 +3597,7 @@ vertical-align: -.125em;
 <section id="validation-construction" class="level2">
 <h2 class="anchored" data-anchor-id="validation-construction">Validation construction</h2>
 <p>Organizational indicators are assembled by <code>Code/24_nyc_validation_data.r</code> into source-backed tables and joined on <code>person_id</code>, not on names. Records carry validity intervals, and several rosters are snapshots rather than continuous memberships, so the pooled indicator is “ever recorded in this group”. Party affiliation is a separate 124-row research ledger produced by <code>Code/41_nyc_party_primary_audit.r</code> and <code>Code/42_nyc_party_affiliation_research.r</code>, covering all 123 fitted people. Its sources are the Council’s captured 2026 roster, official partisan primary returns, and candidate-supplied enrollment statements. These prove dated affiliations, not an uninterrupted enrollment history. One person, Ari Kagan, has both Democratic and Republican rows because the Council documented his switch on December 5, 2022; his single pooled ideal point is excluded from static party comparisons. Board of Elections general-election ballot lines remain a separate fusion-line measure and are never treated as registration.</p>
+<p><code>Code/43_nyc_dated_groups.r</code> adds a contemporaneous check rather than extrapolating those snapshots across the pooled period. The September 18 Progressive comparison uses that day’s complete 51-person Council directory and official caucus page. The June 11 Common-Sense comparison uses the 51 people named in that day’s Council roll call, including the one absent voter, and the six-person official caucus roster with June 11 membership start dates (observed September 28). The two Council cohorts contain the same 51 people. Within each dated cohort, absence from an exhaustive caucus roster can be coded unlisted; it cannot be generalized to other dates. The script also stratifies by researched Democratic affiliation, omitting Kagan’s switch from the fixed-party comparison. Four DSA endorsement episodes are retained as positive evidence only because the available announcements do not establish an exhaustive candidate slate. The dated detail, four-row summary, and positive-only DSA ledger are under <code>Results/NYC-full/</code>.</p>
 <p>The local ledger joins 122 fitted <code>person_id</code>s to the published <code>local-id-v1</code> crosswalk. I. Daneek Miller is the one missing registry entry, retained with his legacy ID and a blank <code>local_id</code> pending upstream allocation. The proposed upstream evidence vocabulary has no explicit official-legislative-roster type; its 51 Council-roster rows are provisionally coded <code>reported</code>, with the official source and local capture named in the row. Neither issue changes the local person-ID join, but both matter before a release-ready <code>party_affiliation.csv</code> is published.</p>
 <p>District comparisons: 2024 presidential results aggregate the published precinct polygons to council boundaries; council-election shares use candidate totals, because per-line splits are unavailable for 2023; and the 2025 mayoral figures aggregate Board of Elections election-district returns to all 51 districts using that same election’s council result files as the crosswalk, with all 4,117 in-play election districts matching exactly one district. None of these quantities enters estimation.</p>
 </section>
