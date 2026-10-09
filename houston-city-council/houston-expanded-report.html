@@ -2186,8 +2186,9 @@ table { font-size: .97rem; }
 table th { color: var(--report-ink); }
 table td, table th { padding: .6rem .7rem !important; }
 .table-nowrap { overflow-x: auto; margin: 1rem 0; }
+.table-nowrap table { table-layout: auto !important; }
 .table-nowrap table td, .table-nowrap table th {
-white-space: nowrap;
+white-space: nowrap !important;
 padding: .55rem .45rem !important;
 }
 #TOC { font-size: .95rem; }
@@ -2375,28 +2376,20 @@ Recorded yeas and nays</p>
 <div class="cell">
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 19%">
-<col style="width: 11%">
-<col style="width: 17%">
-<col style="width: 17%">
-<col style="width: 17%">
-<col style="width: 16%">
-</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Mayor</th>
-<th style="text-align: left;">Council</th>
-<th style="text-align: left;">Mayor position</th>
-<th style="text-align: left;">Council median</th>
-<th style="text-align: left;">Mayor − median</th>
-<th style="text-align: right;">Other members</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Mayor</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Council</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Mayor position</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Council median</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Mayor − median</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Other members</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Lee P. Brown</td>
-<td style="text-align: left;">2000–2001</td>
+<td style="text-align: left;">2000⁠–⁠2001</td>
 <td style="text-align: left;">-1.19</td>
 <td style="text-align: left;">0.43</td>
 <td style="text-align: left;">-1.62</td>
@@ -2404,7 +2397,7 @@ Recorded yeas and nays</p>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Lee P. Brown</td>
-<td style="text-align: left;">2002–2003</td>
+<td style="text-align: left;">2002⁠–⁠2003</td>
 <td style="text-align: left;">-1.19</td>
 <td style="text-align: left;">0.43</td>
 <td style="text-align: left;">-1.62</td>
@@ -2412,7 +2405,7 @@ Recorded yeas and nays</p>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Bill White</td>
-<td style="text-align: left;">2004–2005</td>
+<td style="text-align: left;">2004⁠–⁠2005</td>
 <td style="text-align: left;">-0.43</td>
 <td style="text-align: left;">-0.12</td>
 <td style="text-align: left;">-0.30</td>
@@ -2420,7 +2413,7 @@ Recorded yeas and nays</p>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Bill White</td>
-<td style="text-align: left;">2006–2007</td>
+<td style="text-align: left;">2006⁠–⁠2007</td>
 <td style="text-align: left;">-0.43</td>
 <td style="text-align: left;">-0.36</td>
 <td style="text-align: left;">-0.06</td>
@@ -2428,7 +2421,7 @@ Recorded yeas and nays</p>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Bill White</td>
-<td style="text-align: left;">2008–2009</td>
+<td style="text-align: left;">2008⁠–⁠2009</td>
 <td style="text-align: left;">-0.43</td>
 <td style="text-align: left;">-0.45</td>
 <td style="text-align: left;">+0.02</td>
@@ -2436,7 +2429,7 @@ Recorded yeas and nays</p>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Annise Parker</td>
-<td style="text-align: left;">2010–2011</td>
+<td style="text-align: left;">2010⁠–⁠2011</td>
 <td style="text-align: left;">-0.59</td>
 <td style="text-align: left;">-0.34</td>
 <td style="text-align: left;">-0.25</td>
@@ -2444,7 +2437,7 @@ Recorded yeas and nays</p>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Annise Parker</td>
-<td style="text-align: left;">2012–2013</td>
+<td style="text-align: left;">2012⁠–⁠2013</td>
 <td style="text-align: left;">-0.59</td>
 <td style="text-align: left;">-0.33</td>
 <td style="text-align: left;">-0.25</td>
@@ -2452,7 +2445,7 @@ Recorded yeas and nays</p>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Annise Parker</td>
-<td style="text-align: left;">2014–2015</td>
+<td style="text-align: left;">2014⁠–⁠2015</td>
 <td style="text-align: left;">-0.59</td>
 <td style="text-align: left;">-0.26</td>
 <td style="text-align: left;">-0.33</td>
@@ -2460,7 +2453,7 @@ Recorded yeas and nays</p>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Sylvester Turner</td>
-<td style="text-align: left;">2016–2019</td>
+<td style="text-align: left;">2016⁠–⁠2019</td>
 <td style="text-align: left;">-0.68</td>
 <td style="text-align: left;">-0.17</td>
 <td style="text-align: left;">-0.51</td>
@@ -2468,7 +2461,7 @@ Recorded yeas and nays</p>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Sylvester Turner</td>
-<td style="text-align: left;">2020–2023</td>
+<td style="text-align: left;">2020⁠–⁠2023</td>
 <td style="text-align: left;">-0.68</td>
 <td style="text-align: left;">-0.39</td>
 <td style="text-align: left;">-0.29</td>
@@ -2476,7 +2469,7 @@ Recorded yeas and nays</p>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">John Whitmire</td>
-<td style="text-align: left;">2024–2027</td>
+<td style="text-align: left;">2024⁠–⁠2027</td>
 <td style="text-align: left;">0.30</td>
 <td style="text-align: left;">-0.24</td>
 <td style="text-align: left;">+0.54</td>
@@ -2630,22 +2623,14 @@ Recorded yeas and nays</p>
 <div class="cell">
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 14%">
-<col style="width: 15%">
-<col style="width: 15%">
-<col style="width: 11%">
-<col style="width: 22%">
-<col style="width: 21%">
-</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Council</th>
-<th style="text-align: right;">Elected in</th>
-<th style="text-align: right;">Term years</th>
-<th style="text-align: right;">Members</th>
-<th style="text-align: right;">Divided actions</th>
-<th style="text-align: left;">Observed votes</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Council</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Elected in</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Term years</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Members</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Divided actions</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Observed votes</th>
 </tr>
 </thead>
 <tbody>
