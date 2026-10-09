@@ -2220,6 +2220,19 @@ figcaption, .figure-caption { font-size: 1rem; line-height: 1.5; color: var(--re
 table { font-size: .97rem; }
 table th { color: var(--report-ink); }
 table td, table th { padding: .6rem .7rem !important; }
+.report-table-wrap { overflow-x: auto; max-width: 100%; margin: 1rem 0; }
+.report-table-wrap table { table-layout: auto !important; width: 100%; }
+.report-table-wrap table td, .report-table-wrap table th {
+padding: .55rem .45rem !important;
+vertical-align: top;
+}
+.report-table-wrap td[style*="right"] { white-space: nowrap; }
+.table-nowrap { overflow-x: auto; margin: 1rem 0; }
+.table-nowrap table { table-layout: auto !important; }
+.table-nowrap table td, .table-nowrap table th {
+white-space: nowrap !important;
+padding: .55rem .45rem !important;
+}
 #TOC { font-size: .95rem; }
 @media (max-width: 767px) {
 body { font-size: 1rem; }
@@ -2302,21 +2315,16 @@ table { font-size: .88rem; }
 <h3 class="anchored" data-anchor-id="chain-behavior">Chain behavior</h3>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 42%">
-<col style="width: 9%">
-<col style="width: 5%">
-<col style="width: 13%">
-<col style="width: 28%">
-</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Fit</th>
-<th style="text-align: right;">Officials</th>
-<th style="text-align: right;">Items</th>
-<th style="text-align: left;">Maximum R-hat</th>
-<th style="text-align: right;">Minimum effective sample size</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Fit</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Officials</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Items</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Maximum R-hat</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Minimum effective sample size</th>
 </tr>
 </thead>
 <tbody>
@@ -2335,14 +2343,14 @@ table { font-size: .88rem; }
 <td style="text-align: right;">281</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">2020–2024 term actions only</td>
+<td style="text-align: left;">2020⁠–⁠2024 term actions only</td>
 <td style="text-align: right;">18</td>
 <td style="text-align: right;">84</td>
 <td style="text-align: left;">1.029</td>
 <td style="text-align: right;">275</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">2024–2028 term actions only</td>
+<td style="text-align: left;">2024⁠–⁠2028 term actions only</td>
 <td style="text-align: right;">17</td>
 <td style="text-align: right;">35</td>
 <td style="text-align: left;">1.006</td>
@@ -2350,6 +2358,8 @@ table { font-size: .88rem; }
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>These are classical univariate R-hat and <code>coda</code> effective sample sizes, not rank-normalized split R-hat or bulk/tail ESS. The primary and pattern-collapsed fits meet an R-hat-below-1.01 benchmark. The first-term-only fit reaches 1.029 for Letitia Plummer, which is acceptable for a sensitivity check but not for primary inference. Convergence does not test source accuracy, one-dimensionality, or substantive interpretation.</p>
@@ -2367,19 +2377,15 @@ table { font-size: .88rem; }
 <p>Pooling assumes each official’s position is the same in both terms and that the ten members who served in both link the two councils onto one scale. To check this, the model was refitted separately on 2021–2023 actions (18 officials, 84 actions) and 2024–2025 actions (17 officials, 35 actions). Each separate fit has its own arbitrary scale, so correlations are the appropriate comparison.</p>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 63%">
-<col style="width: 13%">
-<col style="width: 10%">
-<col style="width: 12%">
-</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Comparison</th>
-<th style="text-align: right;">Officials</th>
-<th style="text-align: left;">Pearson</th>
-<th style="text-align: left;">Spearman</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Comparison</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Officials</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Pearson</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Spearman</th>
 </tr>
 </thead>
 <tbody>
@@ -2390,13 +2396,13 @@ table { font-size: .88rem; }
 <td style="text-align: left;">0.997</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">2020-2024 term actions only</td>
+<td style="text-align: left;">2020⁠-⁠2024 term actions only</td>
 <td style="text-align: right;">18</td>
 <td style="text-align: left;">0.993</td>
 <td style="text-align: left;">0.983</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">2024-2028 term actions only</td>
+<td style="text-align: left;">2024⁠-⁠2028 term actions only</td>
 <td style="text-align: right;">17</td>
 <td style="text-align: left;">0.989</td>
 <td style="text-align: left;">0.980</td>
@@ -2409,6 +2415,8 @@ table { font-size: .88rem; }
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>The first three rows compare each alternative fit with the pooled estimates. The last row compares the two term-specific fits for the ten members who served in both. Their positions are highly correlated across terms, which supports pooling, though ten members cannot rule out modest individual movement.</p>
@@ -2428,32 +2436,24 @@ table { font-size: .88rem; }
 <h2 class="anchored" data-anchor-id="member-estimates">Member estimates</h2>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 9%">
-<col style="width: 17%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 7%">
-<col style="width: 9%">
-<col style="width: 7%">
-</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Official</th>
-<th style="text-align: left;">Role</th>
-<th style="text-align: right;">Posterior mean</th>
-<th style="text-align: right;">95% lower</th>
-<th style="text-align: right;">95% upper</th>
-<th style="text-align: right;">R-hat</th>
-<th style="text-align: right;">ESS</th>
-<th style="text-align: right;">Votes</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Official</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Role</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Posterior mean</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">95% lower</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">95% upper</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">R-hat</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">ESS</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Votes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Letitia Plummer</td>
+<td style="text-align: left;">Letitia Plummer</td>
 <td style="text-align: left;">Council</td>
 <td style="text-align: right;">-1.373</td>
 <td style="text-align: right;">-1.937</td>
@@ -2463,7 +2463,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">104</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Edward Pollard</td>
+<td style="text-align: left;">Edward Pollard</td>
 <td style="text-align: left;">Council</td>
 <td style="text-align: right;">-1.314</td>
 <td style="text-align: right;">-1.840</td>
@@ -2473,7 +2473,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">114</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Tarsha Jackson</td>
+<td style="text-align: left;">Tarsha Jackson</td>
 <td style="text-align: left;">Council</td>
 <td style="text-align: right;">-1.025</td>
 <td style="text-align: right;">-1.504</td>
@@ -2483,7 +2483,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">107</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Tiffany D. Thomas</td>
+<td style="text-align: left;">Tiffany D. Thomas</td>
 <td style="text-align: left;">Council</td>
 <td style="text-align: right;">-0.913</td>
 <td style="text-align: right;">-1.360</td>
@@ -2493,7 +2493,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">108</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Abbie Kamin</td>
+<td style="text-align: left;">Abbie Kamin</td>
 <td style="text-align: left;">Council</td>
 <td style="text-align: right;">-0.762</td>
 <td style="text-align: right;">-1.195</td>
@@ -2503,7 +2503,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">104</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Carolyn Evans-Shabazz</td>
+<td style="text-align: left;">Carolyn Evans-Shabazz</td>
 <td style="text-align: left;">Council</td>
 <td style="text-align: right;">-0.680</td>
 <td style="text-align: right;">-1.098</td>
@@ -2513,7 +2513,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">115</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Sylvester Turner</td>
+<td style="text-align: left;">Sylvester Turner</td>
 <td style="text-align: left;">Mayor</td>
 <td style="text-align: right;">-0.637</td>
 <td style="text-align: right;">-1.086</td>
@@ -2523,7 +2523,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">79</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Karla Cisneros</td>
+<td style="text-align: left;">Karla Cisneros</td>
 <td style="text-align: left;">Council</td>
 <td style="text-align: right;">-0.625</td>
 <td style="text-align: right;">-1.076</td>
@@ -2533,7 +2533,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">78</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Martha Castex-Tatum</td>
+<td style="text-align: left;">Martha Castex-Tatum</td>
 <td style="text-align: left;">Council</td>
 <td style="text-align: right;">-0.566</td>
 <td style="text-align: right;">-0.958</td>
@@ -2543,7 +2543,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">111</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">David W. Robinson</td>
+<td style="text-align: left;">David W. Robinson</td>
 <td style="text-align: left;">Council</td>
 <td style="text-align: right;">-0.456</td>
 <td style="text-align: right;">-0.895</td>
@@ -2553,7 +2553,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">81</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Mario Castillo</td>
+<td style="text-align: left;">Mario Castillo</td>
 <td style="text-align: left;">Council</td>
 <td style="text-align: right;">-0.443</td>
 <td style="text-align: right;">-0.915</td>
@@ -2563,7 +2563,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">32</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Dave Martin</td>
+<td style="text-align: left;">Dave Martin</td>
 <td style="text-align: left;">Council</td>
 <td style="text-align: right;">-0.427</td>
 <td style="text-align: right;">-0.887</td>
@@ -2573,7 +2573,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">72</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Joaquin Martinez</td>
+<td style="text-align: left;">Joaquin Martinez</td>
 <td style="text-align: left;">Council</td>
 <td style="text-align: right;">-0.366</td>
 <td style="text-align: right;">-0.855</td>
@@ -2583,7 +2583,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">33</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Sallie Alcorn</td>
+<td style="text-align: left;">Sallie Alcorn</td>
 <td style="text-align: left;">Council</td>
 <td style="text-align: right;">-0.286</td>
 <td style="text-align: right;">-0.687</td>
@@ -2593,7 +2593,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">117</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Robert Gallegos</td>
+<td style="text-align: left;">Robert Gallegos</td>
 <td style="text-align: left;">Council</td>
 <td style="text-align: right;">-0.264</td>
 <td style="text-align: right;">-0.697</td>
@@ -2603,7 +2603,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">77</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">John Whitmire</td>
+<td style="text-align: left;">John Whitmire</td>
 <td style="text-align: left;">Mayor</td>
 <td style="text-align: right;">0.113</td>
 <td style="text-align: right;">-0.420</td>
@@ -2613,7 +2613,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">35</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Willie Davis</td>
+<td style="text-align: left;">Willie Davis</td>
 <td style="text-align: left;">Council</td>
 <td style="text-align: right;">0.157</td>
 <td style="text-align: right;">-0.400</td>
@@ -2623,7 +2623,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">31</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Julian Ramirez</td>
+<td style="text-align: left;">Julian Ramirez</td>
 <td style="text-align: left;">Council</td>
 <td style="text-align: right;">0.405</td>
 <td style="text-align: right;">-0.139</td>
@@ -2633,7 +2633,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">32</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Twila Carter</td>
+<td style="text-align: left;">Twila Carter</td>
 <td style="text-align: left;">Council</td>
 <td style="text-align: right;">0.440</td>
 <td style="text-align: right;">-0.214</td>
@@ -2643,7 +2643,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">28</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Michael Kubosh</td>
+<td style="text-align: left;">Michael Kubosh</td>
 <td style="text-align: left;">Council</td>
 <td style="text-align: right;">0.870</td>
 <td style="text-align: right;">0.432</td>
@@ -2653,7 +2653,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">74</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Amy Peck</td>
+<td style="text-align: left;">Amy Peck</td>
 <td style="text-align: left;">Council</td>
 <td style="text-align: right;">0.870</td>
 <td style="text-align: right;">0.460</td>
@@ -2663,7 +2663,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">116</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Mary Nan Huffman</td>
+<td style="text-align: left;">Mary Nan Huffman</td>
 <td style="text-align: left;">Council</td>
 <td style="text-align: right;">1.395</td>
 <td style="text-align: right;">0.838</td>
@@ -2673,7 +2673,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">75</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Mike Knox</td>
+<td style="text-align: left;">Mike Knox</td>
 <td style="text-align: left;">Council</td>
 <td style="text-align: right;">1.803</td>
 <td style="text-align: right;">1.166</td>
@@ -2683,7 +2683,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">79</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Greg Travis</td>
+<td style="text-align: left;">Greg Travis</td>
 <td style="text-align: left;">Council</td>
 <td style="text-align: right;">1.937</td>
 <td style="text-align: right;">1.105</td>
@@ -2693,7 +2693,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">33</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Fred Flickinger</td>
+<td style="text-align: left;">Fred Flickinger</td>
 <td style="text-align: left;">Council</td>
 <td style="text-align: right;">2.147</td>
 <td style="text-align: right;">0.981</td>
@@ -2704,6 +2704,8 @@ table { font-size: .88rem; }
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>Intervals are marginal equal-tail intervals under the fitted model. Officials who served only one term have fewer votes and wider intervals. Endpoint members also have long outer tails, because few actions distinguish among the most extreme positions. Extensive overlap in the middle means exact middle rankings are not reliable.</p>

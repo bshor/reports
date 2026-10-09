@@ -2220,6 +2220,19 @@ figcaption, .figure-caption { font-size: 1rem; line-height: 1.5; color: var(--re
 table { font-size: .97rem; }
 table th { color: var(--report-ink); }
 table td, table th { padding: .6rem .7rem !important; }
+.report-table-wrap { overflow-x: auto; max-width: 100%; margin: 1rem 0; }
+.report-table-wrap table { table-layout: auto !important; width: 100%; }
+.report-table-wrap table td, .report-table-wrap table th {
+padding: .55rem .45rem !important;
+vertical-align: top;
+}
+.report-table-wrap td[style*="right"] { white-space: nowrap; }
+.table-nowrap { overflow-x: auto; margin: 1rem 0; }
+.table-nowrap table { table-layout: auto !important; }
+.table-nowrap table td, .table-nowrap table th {
+white-space: nowrap !important;
+padding: .55rem .45rem !important;
+}
 #TOC { font-size: .95rem; }
 @media (max-width: 767px) {
 body { font-size: 1rem; }
@@ -2300,21 +2313,16 @@ table { font-size: .88rem; }
 <h3 class="anchored" data-anchor-id="chain-behavior">Chain behavior</h3>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 43%">
-<col style="width: 7%">
-<col style="width: 5%">
-<col style="width: 13%">
-<col style="width: 29%">
-</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Fit</th>
-<th style="text-align: right;">Members</th>
-<th style="text-align: right;">Items</th>
-<th style="text-align: left;">Maximum R-hat</th>
-<th style="text-align: right;">Minimum effective sample size</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Fit</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Members</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Items</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Maximum R-hat</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Minimum effective sample size</th>
 </tr>
 </thead>
 <tbody>
@@ -2334,6 +2342,8 @@ table { font-size: .88rem; }
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>R-hat is the classical univariate between-chain diagnostic; ESS comes from <code>coda</code>. Primary maximum R-hat is 1.025, with minimum ESS 108; the corresponding reduced-pattern values are 1.017 and 137. Not every member meets the demanding R-hat-below-1.01 target. These diagnostics do not test source accuracy, dimensionality or substantive interpretation.</p>
@@ -2361,23 +2371,17 @@ table { font-size: .88rem; }
 <h2 class="anchored" data-anchor-id="member-estimates">Member estimates</h2>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 34%">
-<col style="width: 20%">
-<col style="width: 13%">
-<col style="width: 13%">
-<col style="width: 8%">
-<col style="width: 10%">
-</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Council member</th>
-<th style="text-align: right;">Posterior mean</th>
-<th style="text-align: right;">95% lower</th>
-<th style="text-align: right;">95% upper</th>
-<th style="text-align: right;">R-hat</th>
-<th style="text-align: right;">ESS</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Council member</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Posterior mean</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">95% lower</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">95% upper</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">R-hat</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">ESS</th>
 </tr>
 </thead>
 <tbody>
@@ -2390,7 +2394,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">139.881</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Carlos Ramirez-Rosa</td>
+<td style="text-align: left;">Carlos Ramirez-Rosa</td>
 <td style="text-align: right;">-1.918</td>
 <td style="text-align: right;">-3.020</td>
 <td style="text-align: right;">-1.088</td>
@@ -2398,7 +2402,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">279.385</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Daniel La Spata</td>
+<td style="text-align: left;">Daniel La Spata</td>
 <td style="text-align: right;">-1.882</td>
 <td style="text-align: right;">-2.998</td>
 <td style="text-align: right;">-0.967</td>
@@ -2406,7 +2410,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">115.876</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Byron Sigcho-Lopez</td>
+<td style="text-align: left;">Byron Sigcho-Lopez</td>
 <td style="text-align: right;">-1.665</td>
 <td style="text-align: right;">-2.537</td>
 <td style="text-align: right;">-0.940</td>
@@ -2414,7 +2418,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">246.377</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Julia M. Ramirez</td>
+<td style="text-align: left;">Julia M. Ramirez</td>
 <td style="text-align: right;">-1.659</td>
 <td style="text-align: right;">-2.519</td>
 <td style="text-align: right;">-0.939</td>
@@ -2422,7 +2426,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">227.481</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Jessica L. Fuentes</td>
+<td style="text-align: left;">Jessica L. Fuentes</td>
 <td style="text-align: right;">-1.564</td>
 <td style="text-align: right;">-2.351</td>
 <td style="text-align: right;">-0.862</td>
@@ -2430,7 +2434,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">190.657</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Michael D. Rodriguez</td>
+<td style="text-align: left;">Michael D. Rodriguez</td>
 <td style="text-align: right;">-1.221</td>
 <td style="text-align: right;">-2.000</td>
 <td style="text-align: right;">-0.593</td>
@@ -2438,7 +2442,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">200.352</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Maria E. Hadden</td>
+<td style="text-align: left;">Maria E. Hadden</td>
 <td style="text-align: right;">-1.082</td>
 <td style="text-align: right;">-1.729</td>
 <td style="text-align: right;">-0.528</td>
@@ -2446,7 +2450,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">269.527</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Leni Manaa-Hoppenworth</td>
+<td style="text-align: left;">Leni Manaa-Hoppenworth</td>
 <td style="text-align: right;">-1.074</td>
 <td style="text-align: right;">-1.783</td>
 <td style="text-align: right;">-0.528</td>
@@ -2454,7 +2458,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">239.747</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Angela Clay</td>
+<td style="text-align: left;">Angela Clay</td>
 <td style="text-align: right;">-1.062</td>
 <td style="text-align: right;">-1.775</td>
 <td style="text-align: right;">-0.504</td>
@@ -2462,7 +2466,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">197.901</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Anthony J. Quezada</td>
+<td style="text-align: left;">Anthony J. Quezada</td>
 <td style="text-align: right;">-0.962</td>
 <td style="text-align: right;">-1.927</td>
 <td style="text-align: right;">-0.281</td>
@@ -2470,7 +2474,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">541.993</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Andre Vasquez Jr.</td>
+<td style="text-align: left;">Andre Vasquez Jr.</td>
 <td style="text-align: right;">-0.828</td>
 <td style="text-align: right;">-1.423</td>
 <td style="text-align: right;">-0.298</td>
@@ -2478,7 +2482,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">184.520</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">William E. Hall</td>
+<td style="text-align: left;">William E. Hall</td>
 <td style="text-align: right;">-0.828</td>
 <td style="text-align: right;">-1.398</td>
 <td style="text-align: right;">-0.318</td>
@@ -2486,7 +2490,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">324.585</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Matthew J. Martin</td>
+<td style="text-align: left;">Matthew J. Martin</td>
 <td style="text-align: right;">-0.818</td>
 <td style="text-align: right;">-1.435</td>
 <td style="text-align: right;">-0.294</td>
@@ -2494,7 +2498,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">166.384</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Lamont J. Robinson</td>
+<td style="text-align: left;">Lamont J. Robinson</td>
 <td style="text-align: right;">-0.628</td>
 <td style="text-align: right;">-1.130</td>
 <td style="text-align: right;">-0.196</td>
@@ -2502,7 +2506,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">233.963</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Jeanette B. Taylor</td>
+<td style="text-align: left;">Jeanette B. Taylor</td>
 <td style="text-align: right;">-0.626</td>
 <td style="text-align: right;">-1.217</td>
 <td style="text-align: right;">-0.145</td>
@@ -2510,7 +2514,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">536.943</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Jeylu B. Gutierrez</td>
+<td style="text-align: left;">Jeylu B. Gutierrez</td>
 <td style="text-align: right;">-0.583</td>
 <td style="text-align: right;">-1.042</td>
 <td style="text-align: right;">-0.156</td>
@@ -2518,7 +2522,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">224.150</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Jason C. Ervin</td>
+<td style="text-align: left;">Jason C. Ervin</td>
 <td style="text-align: right;">-0.537</td>
 <td style="text-align: right;">-1.016</td>
 <td style="text-align: right;">-0.116</td>
@@ -2526,7 +2530,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">183.014</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Walter Redmond Burnett</td>
+<td style="text-align: left;">Walter Redmond Burnett</td>
 <td style="text-align: right;">-0.462</td>
 <td style="text-align: right;">-1.008</td>
 <td style="text-align: right;">0.002</td>
@@ -2534,7 +2538,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">322.815</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Walter Burnett Jr.</td>
+<td style="text-align: left;">Walter Burnett Jr.</td>
 <td style="text-align: right;">-0.240</td>
 <td style="text-align: right;">-0.736</td>
 <td style="text-align: right;">0.193</td>
@@ -2542,7 +2546,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">229.693</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Chris Taliaferro</td>
+<td style="text-align: left;">Chris Taliaferro</td>
 <td style="text-align: right;">-0.087</td>
 <td style="text-align: right;">-0.436</td>
 <td style="text-align: right;">0.257</td>
@@ -2550,7 +2554,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">166.416</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Desmon C. Yancy</td>
+<td style="text-align: left;">Desmon C. Yancy</td>
 <td style="text-align: right;">-0.083</td>
 <td style="text-align: right;">-0.435</td>
 <td style="text-align: right;">0.247</td>
@@ -2558,7 +2562,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">145.695</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Ronnie L. Mosley</td>
+<td style="text-align: left;">Ronnie L. Mosley</td>
 <td style="text-align: right;">-0.038</td>
 <td style="text-align: right;">-0.382</td>
 <td style="text-align: right;">0.295</td>
@@ -2566,7 +2570,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">130.154</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Ruth Cruz</td>
+<td style="text-align: left;">Ruth Cruz</td>
 <td style="text-align: right;">0.013</td>
 <td style="text-align: right;">-0.329</td>
 <td style="text-align: right;">0.344</td>
@@ -2574,7 +2578,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">155.084</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Emma Mitts</td>
+<td style="text-align: left;">Emma Mitts</td>
 <td style="text-align: right;">0.117</td>
 <td style="text-align: right;">-0.218</td>
 <td style="text-align: right;">0.449</td>
@@ -2582,7 +2586,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">151.850</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Michelle A. Harris</td>
+<td style="text-align: left;">Michelle A. Harris</td>
 <td style="text-align: right;">0.118</td>
 <td style="text-align: right;">-0.193</td>
 <td style="text-align: right;">0.433</td>
@@ -2590,7 +2594,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">124.959</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Stephanie D. Coleman</td>
+<td style="text-align: left;">Stephanie D. Coleman</td>
 <td style="text-align: right;">0.191</td>
 <td style="text-align: right;">-0.128</td>
 <td style="text-align: right;">0.491</td>
@@ -2598,7 +2602,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">135.165</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Timothy R. Knudsen</td>
+<td style="text-align: left;">Timothy R. Knudsen</td>
 <td style="text-align: right;">0.232</td>
 <td style="text-align: right;">-0.085</td>
 <td style="text-align: right;">0.538</td>
@@ -2606,7 +2610,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">139.030</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Gregory I. Mitchell</td>
+<td style="text-align: left;">Gregory I. Mitchell</td>
 <td style="text-align: right;">0.349</td>
 <td style="text-align: right;">0.046</td>
 <td style="text-align: right;">0.650</td>
@@ -2614,7 +2618,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">143.811</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Bennett R. Lawson</td>
+<td style="text-align: left;">Bennett R. Lawson</td>
 <td style="text-align: right;">0.410</td>
 <td style="text-align: right;">0.133</td>
 <td style="text-align: right;">0.711</td>
@@ -2622,7 +2626,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">137.022</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Nicole T. Lee</td>
+<td style="text-align: left;">Nicole T. Lee</td>
 <td style="text-align: right;">0.421</td>
 <td style="text-align: right;">0.141</td>
 <td style="text-align: right;">0.711</td>
@@ -2630,7 +2634,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">120.114</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Pat Dowell</td>
+<td style="text-align: left;">Pat Dowell</td>
 <td style="text-align: right;">0.480</td>
 <td style="text-align: right;">0.193</td>
 <td style="text-align: right;">0.783</td>
@@ -2638,7 +2642,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">144.246</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">David H. Moore</td>
+<td style="text-align: left;">David H. Moore</td>
 <td style="text-align: right;">0.556</td>
 <td style="text-align: right;">0.270</td>
 <td style="text-align: right;">0.854</td>
@@ -2646,7 +2650,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">144.212</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Gilbert Villegas</td>
+<td style="text-align: left;">Gilbert Villegas</td>
 <td style="text-align: right;">0.623</td>
 <td style="text-align: right;">0.355</td>
 <td style="text-align: right;">0.912</td>
@@ -2654,7 +2658,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">133.124</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">William Conway</td>
+<td style="text-align: left;">William Conway</td>
 <td style="text-align: right;">0.625</td>
 <td style="text-align: right;">0.357</td>
 <td style="text-align: right;">0.911</td>
@@ -2662,7 +2666,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">108.243</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Monique L. Scott</td>
+<td style="text-align: left;">Monique L. Scott</td>
 <td style="text-align: right;">0.652</td>
 <td style="text-align: right;">0.393</td>
 <td style="text-align: right;">0.930</td>
@@ -2670,7 +2674,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">116.043</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Derrick G. Curtis</td>
+<td style="text-align: left;">Derrick G. Curtis</td>
 <td style="text-align: right;">0.656</td>
 <td style="text-align: right;">0.392</td>
 <td style="text-align: right;">0.936</td>
@@ -2678,7 +2682,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">125.260</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Samantha Nugent</td>
+<td style="text-align: left;">Samantha Nugent</td>
 <td style="text-align: right;">0.671</td>
 <td style="text-align: right;">0.414</td>
 <td style="text-align: right;">0.961</td>
@@ -2686,7 +2690,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">116.492</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Brian Hopkins</td>
+<td style="text-align: left;">Brian Hopkins</td>
 <td style="text-align: right;">0.739</td>
 <td style="text-align: right;">0.486</td>
 <td style="text-align: right;">1.015</td>
@@ -2694,7 +2698,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">135.298</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Scott Waguespack</td>
+<td style="text-align: left;">Scott Waguespack</td>
 <td style="text-align: right;">0.816</td>
 <td style="text-align: right;">0.554</td>
 <td style="text-align: right;">1.098</td>
@@ -2702,7 +2706,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">137.055</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Matthew J. O’Shea</td>
+<td style="text-align: left;">Matthew J. O&#39;Shea</td>
 <td style="text-align: right;">0.818</td>
 <td style="text-align: right;">0.564</td>
 <td style="text-align: right;">1.092</td>
@@ -2710,7 +2714,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">126.255</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Debra L. Silverstein</td>
+<td style="text-align: left;">Debra L. Silverstein</td>
 <td style="text-align: right;">0.857</td>
 <td style="text-align: right;">0.595</td>
 <td style="text-align: right;">1.144</td>
@@ -2718,7 +2722,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">137.872</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Peter Chico</td>
+<td style="text-align: left;">Peter Chico</td>
 <td style="text-align: right;">0.863</td>
 <td style="text-align: right;">0.609</td>
 <td style="text-align: right;">1.151</td>
@@ -2726,7 +2730,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">139.744</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Nicholas Sposato</td>
+<td style="text-align: left;">Nicholas Sposato</td>
 <td style="text-align: right;">0.934</td>
 <td style="text-align: right;">0.665</td>
 <td style="text-align: right;">1.217</td>
@@ -2734,7 +2738,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">141.883</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Felix Cardona Jr.</td>
+<td style="text-align: left;">Felix Cardona Jr.</td>
 <td style="text-align: right;">1.092</td>
 <td style="text-align: right;">0.830</td>
 <td style="text-align: right;">1.374</td>
@@ -2742,7 +2746,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">107.991</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Brendan Reilly</td>
+<td style="text-align: left;">Brendan Reilly</td>
 <td style="text-align: right;">1.173</td>
 <td style="text-align: right;">0.914</td>
 <td style="text-align: right;">1.464</td>
@@ -2750,7 +2754,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">112.643</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Anthony Beale</td>
+<td style="text-align: left;">Anthony Beale</td>
 <td style="text-align: right;">1.198</td>
 <td style="text-align: right;">0.935</td>
 <td style="text-align: right;">1.490</td>
@@ -2758,7 +2762,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">136.346</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Anthony V. Napolitano</td>
+<td style="text-align: left;">Anthony V. Napolitano</td>
 <td style="text-align: right;">1.205</td>
 <td style="text-align: right;">0.947</td>
 <td style="text-align: right;">1.501</td>
@@ -2766,7 +2770,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">156.523</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Silvana Tabares</td>
+<td style="text-align: left;">Silvana Tabares</td>
 <td style="text-align: right;">1.259</td>
 <td style="text-align: right;">0.998</td>
 <td style="text-align: right;">1.549</td>
@@ -2774,7 +2778,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">160.211</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">James M. Gardiner</td>
+<td style="text-align: left;">James M. Gardiner</td>
 <td style="text-align: right;">1.295</td>
 <td style="text-align: right;">1.034</td>
 <td style="text-align: right;">1.593</td>
@@ -2782,7 +2786,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">171.727</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Marty Quinn</td>
+<td style="text-align: left;">Marty Quinn</td>
 <td style="text-align: right;">1.549</td>
 <td style="text-align: right;">1.274</td>
 <td style="text-align: right;">1.867</td>
@@ -2790,7 +2794,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">124.453</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Raymond A. Lopez</td>
+<td style="text-align: left;">Raymond A. Lopez</td>
 <td style="text-align: right;">1.920</td>
 <td style="text-align: right;">1.619</td>
 <td style="text-align: right;">2.277</td>
@@ -2799,6 +2803,8 @@ table { font-size: .88rem; }
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>The table reports the primary 189-item fit. Intervals are marginal equal-tail posterior intervals under the fitted model; overlapping intervals should not be used to assert precise pairwise rankings.</p>

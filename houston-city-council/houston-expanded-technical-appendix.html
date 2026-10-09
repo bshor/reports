@@ -2220,6 +2220,19 @@ figcaption, .figure-caption { font-size: 1rem; line-height: 1.5; color: var(--re
 table { font-size: .97rem; }
 table th { color: var(--report-ink); }
 table td, table th { padding: .6rem .7rem !important; }
+.report-table-wrap { overflow-x: auto; max-width: 100%; margin: 1rem 0; }
+.report-table-wrap table { table-layout: auto !important; width: 100%; }
+.report-table-wrap table td, .report-table-wrap table th {
+padding: .55rem .45rem !important;
+vertical-align: top;
+}
+.report-table-wrap td[style*="right"] { white-space: nowrap; }
+.table-nowrap { overflow-x: auto; margin: 1rem 0; }
+.table-nowrap table { table-layout: auto !important; }
+.table-nowrap table td, .table-nowrap table th {
+white-space: nowrap !important;
+padding: .55rem .45rem !important;
+}
 #TOC { font-size: .95rem; }
 @media (max-width: 767px) {
 body { font-size: 1rem; }
@@ -2288,24 +2301,28 @@ table { font-size: .88rem; }
 <p>Following the minimum-observation rule in the State Ideal workflow, the matrix requires seven qualifying yea/nay votes per person. Only two one-vote name variants fall below it. Lee P. Brown now has 368 votes and is included. All 939 actions remain eligible after the cutoff. The matrix has <strong>77 members and 13,785 observed binary votes</strong>.</p>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th style="text-align: left;">Excluded name</th>
-<th style="text-align: right;">Qualifying votes</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Excluded name</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Qualifying votes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Carolyn EvansShabazz</td>
+<td style="text-align: left;">Carolyn EvansShabazz</td>
 <td style="text-align: right;">1</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">M. J. Kahn</td>
+<td style="text-align: left;">M. J. Kahn</td>
 <td style="text-align: right;">1</td>
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>The separate modern subset covers 2021–2026 and contains 25 members, 140 actions, and 2,198 observed votes. It includes Mayors Sylvester Turner and John Whitmire and the ten council members who served across their terms.</p>
@@ -2320,33 +2337,28 @@ table { font-size: .88rem; }
 <h2 class="anchored" data-anchor-id="diagnostics">Diagnostics</h2>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 42%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 19%">
-<col style="width: 16%">
-</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Fit</th>
-<th style="text-align: right;">Members</th>
-<th style="text-align: right;">Actions</th>
-<th style="text-align: left;">Maximum R-hat</th>
-<th style="text-align: right;">Minimum ESS</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Fit</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Members</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Actions</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Maximum R-hat</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Minimum ESS</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Modern, 2021–2026</td>
+<td style="text-align: left;">Modern, 2021⁠–⁠2026</td>
 <td style="text-align: right;">25</td>
 <td style="text-align: right;">140</td>
 <td style="text-align: left;">1.010</td>
 <td style="text-align: right;">191</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Pooled reported fit, 2000–2026</td>
+<td style="text-align: left;">Pooled reported fit, 2000⁠–⁠2026</td>
 <td style="text-align: right;">77</td>
 <td style="text-align: right;">939</td>
 <td style="text-align: left;">1.025</td>
@@ -2354,18 +2366,22 @@ table { font-size: .88rem; }
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>These are classical univariate R-hat and <code>coda</code> effective sample sizes, not rank-normalized split R-hat or bulk/tail ESS. The modern fit has maximum R-hat 1.010 and minimum ESS 191. The reported pooled pair has maximum R-hat 1.025 and minimum ESS 141. Its scores correlate 0.981 with the independent modern fit on shared members. These checks describe <strong>within-mode</strong> stability; they do not prove global identification.</p>
 <p>A third chain from a dispersed random start reached a substantially different mode. Correlations of its chain means with the eigen-start chain by period are:</p>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th style="text-align: left;">Period</th>
-<th style="text-align: right;">Members</th>
-<th style="text-align: left;">Correlation between two chain means</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Period</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Members</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Correlation between two chain means</th>
 </tr>
 </thead>
 <tbody>
@@ -2375,104 +2391,104 @@ table { font-size: .88rem; }
 <td style="text-align: left;">0.2614</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">2000-2001</td>
+<td style="text-align: left;">2000⁠-⁠2001</td>
 <td style="text-align: right;">15</td>
 <td style="text-align: left;">0.9985</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">2002-2003</td>
+<td style="text-align: left;">2002⁠-⁠2003</td>
 <td style="text-align: right;">15</td>
 <td style="text-align: left;">0.9988</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">2004-2005</td>
+<td style="text-align: left;">2004⁠-⁠2005</td>
 <td style="text-align: right;">15</td>
 <td style="text-align: left;">0.9993</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">2006-2007</td>
+<td style="text-align: left;">2006⁠-⁠2007</td>
 <td style="text-align: right;">16</td>
 <td style="text-align: left;">0.9987</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">2008-2009</td>
+<td style="text-align: left;">2008⁠-⁠2009</td>
 <td style="text-align: right;">16</td>
 <td style="text-align: left;">0.9548</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">2010-2011</td>
+<td style="text-align: left;">2010⁠-⁠2011</td>
 <td style="text-align: right;">15</td>
 <td style="text-align: left;">0.7962</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">2012-2013</td>
+<td style="text-align: left;">2012⁠-⁠2013</td>
 <td style="text-align: right;">18</td>
 <td style="text-align: left;">0.9064</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">2014-2015</td>
+<td style="text-align: left;">2014⁠-⁠2015</td>
 <td style="text-align: right;">17</td>
 <td style="text-align: left;">-0.9000</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">2016-2019</td>
+<td style="text-align: left;">2016⁠-⁠2019</td>
 <td style="text-align: right;">18</td>
 <td style="text-align: left;">-0.9831</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">2020-2023</td>
+<td style="text-align: left;">2020⁠-⁠2023</td>
 <td style="text-align: right;">19</td>
 <td style="text-align: left;">-0.9933</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">2024-2027</td>
+<td style="text-align: left;">2024⁠-⁠2027</td>
 <td style="text-align: right;">17</td>
 <td style="text-align: left;">-0.9990</td>
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>Pooling the eigen and random chains yields maximum R-hat 20.43, so that combination is <strong>not used</strong> for reported scores. The disagreement concentrates in later councils: the early 2000–2007 ranks agree closely, but the modern end reverses.</p>
 <p>Two checks favor the reported solution over the random-start alternative. The stronger one is agreement with the independently fitted 2021–2026 window, 0.981 on the 25 shared officials, against 0.261 between the reported and alternative solutions overall. The weaker one is held-out vote prediction in three fixed-seed splits, where the reported solution’s mean log loss is lower by a small margin:</p>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 11%">
-<col style="width: 21%">
-<col style="width: 30%">
-<col style="width: 36%">
-</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Split</th>
-<th style="text-align: right;">Held-out votes</th>
-<th style="text-align: left;">Reported fit log loss</th>
-<th style="text-align: left;">Alternative mode log loss</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Split</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Held-out votes</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Reported fit log loss</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Alternative mode log loss</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Split 1</td>
+<td style="text-align: left;">Split 1</td>
 <td style="text-align: right;">2156</td>
 <td style="text-align: left;">0.4343</td>
 <td style="text-align: left;">0.4445</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Split 2</td>
+<td style="text-align: left;">Split 2</td>
 <td style="text-align: right;">2175</td>
 <td style="text-align: left;">0.4211</td>
 <td style="text-align: left;">0.4275</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Split 3</td>
+<td style="text-align: left;">Split 3</td>
 <td style="text-align: right;">2158</td>
 <td style="text-align: left;">0.4229</td>
 <td style="text-align: left;">0.4283</td>
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>Margins of 0.005–0.010 in log loss are real but thin, and neither check eliminates the alternative orientation. The historical ordering should therefore be read as the solution recovered from the vote matrix and corroborated by the modern window, not as a uniquely identified scale.</p>
@@ -2482,488 +2498,483 @@ table { font-size: .88rem; }
 <p>These are the 77 reported estimates plotted in the report. The five mayors are identified by name because the source’s <code>role</code> field labels some earlier mayors as council members. Values are specific to this pooled Houston fit.</p>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 38%">
-<col style="width: 8%">
-<col style="width: 14%">
-<col style="width: 14%">
-<col style="width: 24%">
-</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Official</th>
-<th style="text-align: right;">Mean</th>
-<th style="text-align: right;">95% lower</th>
-<th style="text-align: right;">95% upper</th>
-<th style="text-align: right;">Qualifying votes</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Official</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Mean</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">95% lower</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">95% upper</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Qualifying votes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Jew Don Boney, Jr.</td>
+<td style="text-align: left;">Jew Don Boney, Jr.</td>
 <td style="text-align: right;">-1.65</td>
 <td style="text-align: right;">-2.70</td>
 <td style="text-align: right;">-0.99</td>
 <td style="text-align: right;">151</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">John E. Castillo</td>
+<td style="text-align: left;">John E. Castillo</td>
 <td style="text-align: right;">-1.34</td>
 <td style="text-align: right;">-2.00</td>
 <td style="text-align: right;">-0.85</td>
 <td style="text-align: right;">157</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Carol M. Galloway</td>
+<td style="text-align: left;">Carol M. Galloway</td>
 <td style="text-align: right;">-1.32</td>
 <td style="text-align: right;">-1.75</td>
 <td style="text-align: right;">-0.96</td>
 <td style="text-align: right;">438</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Letitia Plummer</td>
+<td style="text-align: left;">Letitia Plummer</td>
 <td style="text-align: right;">-1.31</td>
 <td style="text-align: right;">-1.81</td>
 <td style="text-align: right;">-0.88</td>
 <td style="text-align: right;">137</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Jarvis Johnson</td>
+<td style="text-align: left;">Jarvis Johnson</td>
 <td style="text-align: right;">-1.21</td>
 <td style="text-align: right;">-1.91</td>
 <td style="text-align: right;">-0.65</td>
 <td style="text-align: right;">142</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Lee P. Brown</td>
+<td style="text-align: left;">Lee P. Brown</td>
 <td style="text-align: right;">-1.19</td>
 <td style="text-align: right;">-1.61</td>
 <td style="text-align: right;">-0.84</td>
 <td style="text-align: right;">368</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Jolanda “Jo” Jones</td>
+<td style="text-align: left;">Jolanda “Jo” Jones</td>
 <td style="text-align: right;">-1.15</td>
 <td style="text-align: right;">-1.96</td>
 <td style="text-align: right;">-0.60</td>
 <td style="text-align: right;">48</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Edward Pollard</td>
+<td style="text-align: left;">Edward Pollard</td>
 <td style="text-align: right;">-1.09</td>
 <td style="text-align: right;">-1.53</td>
 <td style="text-align: right;">-0.71</td>
 <td style="text-align: right;">148</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Amanda Edwards</td>
+<td style="text-align: left;">Amanda Edwards</td>
 <td style="text-align: right;">-1.05</td>
 <td style="text-align: right;">-2.90</td>
 <td style="text-align: right;">-0.22</td>
 <td style="text-align: right;">43</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Tarsha Jackson</td>
+<td style="text-align: left;">Tarsha Jackson</td>
 <td style="text-align: right;">-1.01</td>
 <td style="text-align: right;">-1.41</td>
 <td style="text-align: right;">-0.65</td>
 <td style="text-align: right;">127</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Ada Edwards</td>
+<td style="text-align: left;">Ada Edwards</td>
 <td style="text-align: right;">-0.96</td>
 <td style="text-align: right;">-1.30</td>
 <td style="text-align: right;">-0.66</td>
 <td style="text-align: right;">396</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Wanda Adams</td>
+<td style="text-align: left;">Wanda Adams</td>
 <td style="text-align: right;">-0.96</td>
 <td style="text-align: right;">-1.45</td>
 <td style="text-align: right;">-0.55</td>
 <td style="text-align: right;">83</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Ellen Cohen</td>
+<td style="text-align: left;">Ellen Cohen</td>
 <td style="text-align: right;">-0.91</td>
 <td style="text-align: right;">-1.43</td>
 <td style="text-align: right;">-0.51</td>
 <td style="text-align: right;">149</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Tiffany D. Thomas</td>
+<td style="text-align: left;">Tiffany D. Thomas</td>
 <td style="text-align: right;">-0.82</td>
 <td style="text-align: right;">-1.17</td>
 <td style="text-align: right;">-0.48</td>
 <td style="text-align: right;">145</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Edward Gonzalez</td>
+<td style="text-align: left;">Edward Gonzalez</td>
 <td style="text-align: right;">-0.76</td>
 <td style="text-align: right;">-1.12</td>
 <td style="text-align: right;">-0.45</td>
 <td style="text-align: right;">137</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Abbie Kamin</td>
+<td style="text-align: left;">Abbie Kamin</td>
 <td style="text-align: right;">-0.75</td>
 <td style="text-align: right;">-1.13</td>
 <td style="text-align: right;">-0.42</td>
 <td style="text-align: right;">144</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Adrian Garcia</td>
+<td style="text-align: left;">Adrian Garcia</td>
 <td style="text-align: right;">-0.75</td>
 <td style="text-align: right;">-1.14</td>
 <td style="text-align: right;">-0.39</td>
 <td style="text-align: right;">185</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Sylvester Turner</td>
+<td style="text-align: left;">Sylvester Turner</td>
 <td style="text-align: right;">-0.68</td>
 <td style="text-align: right;">-1.06</td>
 <td style="text-align: right;">-0.32</td>
 <td style="text-align: right;">159</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Richard Nguyen</td>
+<td style="text-align: left;">Richard Nguyen</td>
 <td style="text-align: right;">-0.66</td>
 <td style="text-align: right;">-1.11</td>
 <td style="text-align: right;">-0.30</td>
 <td style="text-align: right;">69</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Karla Cisneros</td>
+<td style="text-align: left;">Karla Cisneros</td>
 <td style="text-align: right;">-0.61</td>
 <td style="text-align: right;">-0.98</td>
 <td style="text-align: right;">-0.26</td>
 <td style="text-align: right;">161</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Peter Brown</td>
+<td style="text-align: left;">Peter Brown</td>
 <td style="text-align: right;">-0.60</td>
 <td style="text-align: right;">-1.06</td>
 <td style="text-align: right;">-0.21</td>
 <td style="text-align: right;">111</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Annise Parker</td>
+<td style="text-align: left;">Annise Parker</td>
 <td style="text-align: right;">-0.59</td>
 <td style="text-align: right;">-0.81</td>
 <td style="text-align: right;">-0.38</td>
 <td style="text-align: right;">510</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">David W. Robinson</td>
+<td style="text-align: left;">David W. Robinson</td>
 <td style="text-align: right;">-0.57</td>
 <td style="text-align: right;">-0.86</td>
 <td style="text-align: right;">-0.30</td>
 <td style="text-align: right;">220</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Carolyn Evans-Shabazz</td>
+<td style="text-align: left;">Carolyn Evans-Shabazz</td>
 <td style="text-align: right;">-0.50</td>
 <td style="text-align: right;">-0.86</td>
 <td style="text-align: right;">-0.17</td>
 <td style="text-align: right;">152</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">James G. Rodriguez</td>
+<td style="text-align: left;">James G. Rodriguez</td>
 <td style="text-align: right;">-0.49</td>
 <td style="text-align: right;">-0.85</td>
 <td style="text-align: right;">-0.16</td>
 <td style="text-align: right;">88</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Melissa Noriega</td>
+<td style="text-align: left;">Melissa Noriega</td>
 <td style="text-align: right;">-0.45</td>
 <td style="text-align: right;">-0.83</td>
 <td style="text-align: right;">-0.11</td>
 <td style="text-align: right;">91</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Bill White</td>
+<td style="text-align: left;">Bill White</td>
 <td style="text-align: right;">-0.43</td>
 <td style="text-align: right;">-0.71</td>
 <td style="text-align: right;">-0.16</td>
 <td style="text-align: right;">203</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Ronald C. Green</td>
+<td style="text-align: left;">Ronald C. Green</td>
 <td style="text-align: right;">-0.42</td>
 <td style="text-align: right;">-0.74</td>
 <td style="text-align: right;">-0.12</td>
 <td style="text-align: right;">194</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Martha Castex-Tatum</td>
+<td style="text-align: left;">Martha Castex-Tatum</td>
 <td style="text-align: right;">-0.41</td>
 <td style="text-align: right;">-0.76</td>
 <td style="text-align: right;">-0.09</td>
 <td style="text-align: right;">161</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Carol Alvarado</td>
+<td style="text-align: left;">Carol Alvarado</td>
 <td style="text-align: right;">-0.41</td>
 <td style="text-align: right;">-0.62</td>
 <td style="text-align: right;">-0.20</td>
 <td style="text-align: right;">400</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Larry V. Green</td>
+<td style="text-align: left;">Larry V. Green</td>
 <td style="text-align: right;">-0.40</td>
 <td style="text-align: right;">-0.73</td>
 <td style="text-align: right;">-0.09</td>
 <td style="text-align: right;">129</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Gordon Quan</td>
+<td style="text-align: left;">Gordon Quan</td>
 <td style="text-align: right;">-0.39</td>
 <td style="text-align: right;">-0.61</td>
 <td style="text-align: right;">-0.17</td>
 <td style="text-align: right;">453</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">M. J. Khan, P. E.</td>
+<td style="text-align: left;">M. J. Khan, P. E.</td>
 <td style="text-align: right;">-0.36</td>
 <td style="text-align: right;">-0.65</td>
 <td style="text-align: right;">-0.09</td>
 <td style="text-align: right;">194</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Jerry Davis</td>
+<td style="text-align: left;">Jerry Davis</td>
 <td style="text-align: right;">-0.36</td>
 <td style="text-align: right;">-0.69</td>
 <td style="text-align: right;">-0.07</td>
 <td style="text-align: right;">152</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">C. O. “Brad” Bradford</td>
+<td style="text-align: left;">C. O. “Brad” Bradford</td>
 <td style="text-align: right;">-0.34</td>
 <td style="text-align: right;">-0.81</td>
 <td style="text-align: right;">0.04</td>
 <td style="text-align: right;">130</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Sue Lovell</td>
+<td style="text-align: left;">Sue Lovell</td>
 <td style="text-align: right;">-0.34</td>
 <td style="text-align: right;">-0.64</td>
 <td style="text-align: right;">-0.07</td>
 <td style="text-align: right;">143</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Andrew C. Burks, Jr.</td>
+<td style="text-align: left;">Andrew C. Burks, Jr.</td>
 <td style="text-align: right;">-0.33</td>
 <td style="text-align: right;">-1.22</td>
 <td style="text-align: right;">0.29</td>
 <td style="text-align: right;">36</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Al Hoang</td>
+<td style="text-align: left;">Al Hoang</td>
 <td style="text-align: right;">-0.31</td>
 <td style="text-align: right;">-0.78</td>
 <td style="text-align: right;">0.15</td>
 <td style="text-align: right;">59</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Stephen C. Costello</td>
+<td style="text-align: left;">Stephen C. Costello</td>
 <td style="text-align: right;">-0.29</td>
 <td style="text-align: right;">-0.60</td>
 <td style="text-align: right;">0.00</td>
 <td style="text-align: right;">120</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Mario Castillo</td>
+<td style="text-align: left;">Mario Castillo</td>
 <td style="text-align: right;">-0.26</td>
 <td style="text-align: right;">-0.67</td>
 <td style="text-align: right;">0.17</td>
 <td style="text-align: right;">39</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Joaquin Martinez</td>
+<td style="text-align: left;">Joaquin Martinez</td>
 <td style="text-align: right;">-0.23</td>
 <td style="text-align: right;">-0.69</td>
 <td style="text-align: right;">0.25</td>
 <td style="text-align: right;">36</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Dwight Boykins</td>
+<td style="text-align: left;">Dwight Boykins</td>
 <td style="text-align: right;">-0.23</td>
 <td style="text-align: right;">-0.49</td>
 <td style="text-align: right;">0.03</td>
 <td style="text-align: right;">107</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Mike Laster</td>
+<td style="text-align: left;">Mike Laster</td>
 <td style="text-align: right;">-0.17</td>
 <td style="text-align: right;">-0.44</td>
 <td style="text-align: right;">0.09</td>
 <td style="text-align: right;">141</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Robert Gallegos</td>
+<td style="text-align: left;">Robert Gallegos</td>
 <td style="text-align: right;">-0.12</td>
 <td style="text-align: right;">-0.39</td>
 <td style="text-align: right;">0.13</td>
 <td style="text-align: right;">211</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Sallie Alcorn</td>
+<td style="text-align: left;">Sallie Alcorn</td>
 <td style="text-align: right;">-0.11</td>
 <td style="text-align: right;">-0.47</td>
 <td style="text-align: right;">0.20</td>
 <td style="text-align: right;">152</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Gabriel Vasquez</td>
+<td style="text-align: left;">Gabriel Vasquez</td>
 <td style="text-align: right;">-0.04</td>
 <td style="text-align: right;">-0.26</td>
 <td style="text-align: right;">0.16</td>
 <td style="text-align: right;">352</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Jack Christie D.C.</td>
+<td style="text-align: left;">Jack Christie D.C.</td>
 <td style="text-align: right;">-0.01</td>
 <td style="text-align: right;">-0.27</td>
 <td style="text-align: right;">0.26</td>
 <td style="text-align: right;">143</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Toni Lawrence</td>
+<td style="text-align: left;">Toni Lawrence</td>
 <td style="text-align: right;">0.12</td>
 <td style="text-align: right;">-0.10</td>
 <td style="text-align: right;">0.36</td>
 <td style="text-align: right;">202</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Carroll Robinson</td>
+<td style="text-align: left;">Carroll Robinson</td>
 <td style="text-align: right;">0.13</td>
 <td style="text-align: right;">-0.07</td>
 <td style="text-align: right;">0.33</td>
 <td style="text-align: right;">346</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Dave Martin</td>
+<td style="text-align: left;">Dave Martin</td>
 <td style="text-align: right;">0.23</td>
 <td style="text-align: right;">-0.01</td>
 <td style="text-align: right;">0.44</td>
 <td style="text-align: right;">233</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">John Whitmire</td>
+<td style="text-align: left;">John Whitmire</td>
 <td style="text-align: right;">0.30</td>
 <td style="text-align: right;">-0.20</td>
 <td style="text-align: right;">0.77</td>
 <td style="text-align: right;">41</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Anne Clutterbuck</td>
+<td style="text-align: left;">Anne Clutterbuck</td>
 <td style="text-align: right;">0.34</td>
 <td style="text-align: right;">0.11</td>
 <td style="text-align: right;">0.56</td>
 <td style="text-align: right;">146</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Willie Davis</td>
+<td style="text-align: left;">Willie Davis</td>
 <td style="text-align: right;">0.38</td>
 <td style="text-align: right;">-0.16</td>
 <td style="text-align: right;">0.95</td>
 <td style="text-align: right;">35</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Pam Holm</td>
+<td style="text-align: left;">Pam Holm</td>
 <td style="text-align: right;">0.41</td>
 <td style="text-align: right;">0.20</td>
 <td style="text-align: right;">0.64</td>
 <td style="text-align: right;">200</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Oliver Pennington</td>
+<td style="text-align: left;">Oliver Pennington</td>
 <td style="text-align: right;">0.43</td>
 <td style="text-align: right;">0.15</td>
 <td style="text-align: right;">0.71</td>
 <td style="text-align: right;">128</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Mark Goldberg</td>
+<td style="text-align: left;">Mark Goldberg</td>
 <td style="text-align: right;">0.43</td>
 <td style="text-align: right;">0.24</td>
 <td style="text-align: right;">0.62</td>
 <td style="text-align: right;">441</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Chris Bell</td>
+<td style="text-align: left;">Chris Bell</td>
 <td style="text-align: right;">0.44</td>
 <td style="text-align: right;">0.22</td>
 <td style="text-align: right;">0.66</td>
 <td style="text-align: right;">155</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Brenda Stardig</td>
+<td style="text-align: left;">Brenda Stardig</td>
 <td style="text-align: right;">0.45</td>
 <td style="text-align: right;">0.19</td>
 <td style="text-align: right;">0.71</td>
 <td style="text-align: right;">147</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Julian Ramirez</td>
+<td style="text-align: left;">Julian Ramirez</td>
 <td style="text-align: right;">0.66</td>
 <td style="text-align: right;">0.12</td>
 <td style="text-align: right;">1.19</td>
 <td style="text-align: right;">35</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Twila Carter</td>
+<td style="text-align: left;">Twila Carter</td>
 <td style="text-align: right;">0.69</td>
 <td style="text-align: right;">0.06</td>
 <td style="text-align: right;">1.39</td>
 <td style="text-align: right;">31</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Steve Le</td>
+<td style="text-align: left;">Steve Le</td>
 <td style="text-align: right;">0.70</td>
 <td style="text-align: right;">0.33</td>
 <td style="text-align: right;">1.10</td>
 <td style="text-align: right;">44</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Mark Ellis</td>
+<td style="text-align: left;">Mark Ellis</td>
 <td style="text-align: right;">0.74</td>
 <td style="text-align: right;">0.54</td>
 <td style="text-align: right;">0.93</td>
 <td style="text-align: right;">453</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Rob Todd</td>
+<td style="text-align: left;">Rob Todd</td>
 <td style="text-align: right;">0.75</td>
 <td style="text-align: right;">0.52</td>
 <td style="text-align: right;">0.98</td>
 <td style="text-align: right;">137</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Bert Keller</td>
+<td style="text-align: left;">Bert Keller</td>
 <td style="text-align: right;">0.75</td>
 <td style="text-align: right;">0.55</td>
 <td style="text-align: right;">0.96</td>
 <td style="text-align: right;">366</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Orlando Sanchez</td>
+<td style="text-align: left;">Orlando Sanchez</td>
 <td style="text-align: right;">0.80</td>
 <td style="text-align: right;">0.56</td>
 <td style="text-align: right;">1.04</td>
 <td style="text-align: right;">149</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Michael Berry</td>
+<td style="text-align: left;">Michael Berry</td>
 <td style="text-align: right;">0.88</td>
 <td style="text-align: right;">0.69</td>
 <td style="text-align: right;">1.09</td>
 <td style="text-align: right;">379</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Amy Peck</td>
+<td style="text-align: left;">Amy Peck</td>
 <td style="text-align: right;">1.00</td>
 <td style="text-align: right;">0.70</td>
 <td style="text-align: right;">1.31</td>
@@ -2977,63 +2988,63 @@ table { font-size: .88rem; }
 <td style="text-align: right;">358</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Michael Kubosh</td>
+<td style="text-align: left;">Michael Kubosh</td>
 <td style="text-align: right;">1.15</td>
 <td style="text-align: right;">0.86</td>
 <td style="text-align: right;">1.47</td>
 <td style="text-align: right;">217</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Addie Wiseman</td>
+<td style="text-align: left;">Addie Wiseman</td>
 <td style="text-align: right;">1.23</td>
 <td style="text-align: right;">1.02</td>
 <td style="text-align: right;">1.47</td>
 <td style="text-align: right;">392</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Greg Travis</td>
+<td style="text-align: left;">Greg Travis</td>
 <td style="text-align: right;">1.41</td>
 <td style="text-align: right;">1.04</td>
 <td style="text-align: right;">1.81</td>
 <td style="text-align: right;">101</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Mike Knox</td>
+<td style="text-align: left;">Mike Knox</td>
 <td style="text-align: right;">1.55</td>
 <td style="text-align: right;">1.19</td>
 <td style="text-align: right;">1.96</td>
 <td style="text-align: right;">157</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Mary Nan Huffman</td>
+<td style="text-align: left;">Mary Nan Huffman</td>
 <td style="text-align: right;">1.63</td>
 <td style="text-align: right;">1.17</td>
 <td style="text-align: right;">2.21</td>
 <td style="text-align: right;">92</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Bruce Tatro</td>
+<td style="text-align: left;">Bruce Tatro</td>
 <td style="text-align: right;">1.71</td>
 <td style="text-align: right;">1.39</td>
 <td style="text-align: right;">2.07</td>
 <td style="text-align: right;">387</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Mike Sullivan</td>
+<td style="text-align: left;">Mike Sullivan</td>
 <td style="text-align: right;">1.97</td>
 <td style="text-align: right;">1.12</td>
 <td style="text-align: right;">3.29</td>
 <td style="text-align: right;">66</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Fred Flickinger</td>
+<td style="text-align: left;">Fred Flickinger</td>
 <td style="text-align: right;">2.74</td>
 <td style="text-align: right;">1.36</td>
 <td style="text-align: right;">4.95</td>
 <td style="text-align: right;">41</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Helena Brown</td>
+<td style="text-align: left;">Helena Brown</td>
 <td style="text-align: right;">4.27</td>
 <td style="text-align: right;">2.34</td>
 <td style="text-align: right;">6.81</td>
@@ -3041,6 +3052,8 @@ table { font-size: .88rem; }
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 </section>
@@ -3049,30 +3062,23 @@ table { font-size: .88rem; }
 <p>Houston’s regular terms were two years through the council elected in 2013 and seated in 2014–2015, then four years beginning with the 2015 election and January 2016 seating (<a href="https://www.houstontx.gov/planning/Publications/2003_almanac.pdf">2003 city almanac</a>; <a href="https://houstontx.gov/controller/cafr/cafr2016printerfriendly.pdf">2016 financial report</a>). The <a href="https://www.houstontx.gov/council/">city’s council page</a> specifies January 2 term starts, and the <a href="https://www.houstontx.gov/citysec/elections/electionsindex.html">City Secretary’s election index</a> supplies the election years. The report assigns actions by those term boundaries, not by equal-sized analytical windows. A special election changes who serves within an existing council term.</p>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 11%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 17%">
-<col style="width: 25%">
-</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Council</th>
-<th style="text-align: right;">Elected in</th>
-<th style="text-align: right;">Term years</th>
-<th style="text-align: right;">Members</th>
-<th style="text-align: right;">Actions</th>
-<th style="text-align: right;">Observed votes</th>
-<th style="text-align: right;">Continuing from prior</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Council</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Elected in</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Term years</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Members</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Actions</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Observed votes</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Continuing from prior</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">2000–2001</td>
+<td style="text-align: left;">2000⁠–⁠2001</td>
 <td style="text-align: right;">1999</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">15</td>
@@ -3081,7 +3087,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">NA</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">2002–2003</td>
+<td style="text-align: left;">2002⁠–⁠2003</td>
 <td style="text-align: right;">2001</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">15</td>
@@ -3090,7 +3096,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">10</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">2004–2005</td>
+<td style="text-align: left;">2004⁠–⁠2005</td>
 <td style="text-align: right;">2003</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">15</td>
@@ -3099,7 +3105,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">9</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">2006–2007</td>
+<td style="text-align: left;">2006⁠–⁠2007</td>
 <td style="text-align: right;">2005</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">16</td>
@@ -3108,7 +3114,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">11</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">2008–2009</td>
+<td style="text-align: left;">2008⁠–⁠2009</td>
 <td style="text-align: right;">2007</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">16</td>
@@ -3117,7 +3123,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">11</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">2010–2011</td>
+<td style="text-align: left;">2010⁠–⁠2011</td>
 <td style="text-align: right;">2009</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">15</td>
@@ -3126,7 +3132,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">9</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">2012–2013</td>
+<td style="text-align: left;">2012⁠–⁠2013</td>
 <td style="text-align: right;">2011</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">18</td>
@@ -3135,7 +3141,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">10</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">2014–2015</td>
+<td style="text-align: left;">2014⁠–⁠2015</td>
 <td style="text-align: right;">2013</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">17</td>
@@ -3144,7 +3150,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">11</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">2016–2019</td>
+<td style="text-align: left;">2016⁠–⁠2019</td>
 <td style="text-align: right;">2015</td>
 <td style="text-align: right;">4</td>
 <td style="text-align: right;">18</td>
@@ -3153,7 +3159,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">11</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">2020–2023</td>
+<td style="text-align: left;">2020⁠–⁠2023</td>
 <td style="text-align: right;">2019</td>
 <td style="text-align: right;">4</td>
 <td style="text-align: right;">19</td>
@@ -3162,7 +3168,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">10</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">2024–2027</td>
+<td style="text-align: left;">2024⁠–⁠2027</td>
 <td style="text-align: right;">2023</td>
 <td style="text-align: right;">4</td>
 <td style="text-align: right;">17</td>
@@ -3172,6 +3178,8 @@ table { font-size: .88rem; }
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>The new source contains substantial 2000–2003 coverage; the 2024–2027 term is observed only through May 2026. Adjacent councils share 9–11 observed members, but roster overlap alone does not guarantee enough <em>discriminating</em> votes to align the full scale. The alternative random-start mode shows that this alignment remains sensitive to initialization. Earlier ad hoc window fits were exploratory diagnostics and are not used as report periods or current estimates.</p>
@@ -3185,17 +3193,14 @@ table { font-size: .88rem; }
 <p><code>Code/31_houston_endorsement_validity.r</code> joins four <strong>separate</strong> organizational indicators to the 77 fitted people using a normalized first-and-last-name key, with one reviewed Ed/Edward Gonzalez alias. The source ledger preserves the original candidate name, office, election date, general/runoff distinction, URL, note, fitted local ID when matched, and all 31 unmatched candidate-election rows. Nonmatches include challengers and a controller, not just identity failures. The ledger has 82 positive rows. Duplicate general/runoff endorsements remain distinct; “ever endorsed” counts distinct fitted people. <a href="https://www.outsmartmagazine.com/2013/08/houston-glbt-political-caucus-pac-issues-endorsements-in-2013-races/">2013</a>, <a href="https://www.offthekuff.com/wp/?p=68966">2015</a>, <a href="https://www.outsmartmagazine.com/2019/08/houston-glbt-political-caucus-announces-endorsements/">2019</a>, and <a href="https://www.thecaucus.org/wp-content/uploads/2023/08/Houston-LGBTQ-Political-Caucus-PAC-Endorses-in-the-2023-Municipal-Election-FINAL.pdf">2023</a> Caucus general slates are complete; the federation’s <a href="https://www.gcaflcio.org/endorsements">2023 general slate</a> is complete. The 2015 list is a contemporaneous reproduction, not the official list itself. TOP’s <a href="https://organizetexas.org/2023/08/top-announces-endorsed-candidates-for-houston-city-council/">2023 announcement</a> names three council candidates and references its mayoral choice, but is not assumed to exhaust all possible endorsements. No verifiable Our Revolution Harris County Houston municipal candidate slate was recovered. Other cycles have positive evidence only or no recovered slate; unlisted people are <strong>unknown</strong>, never coded zero across all 77.</p>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 35%">
-<col style="width: 30%">
-<col style="width: 34%">
-</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Organization</th>
-<th style="text-align: right;">Verified candidate-election rows</th>
-<th style="text-align: right;">Distinct fitted officials ever listed</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Organization</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Verified candidate-election rows</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Distinct fitted officials ever listed</th>
 </tr>
 </thead>
 <tbody>
@@ -3221,150 +3226,135 @@ table { font-size: .88rem; }
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>The within-election comparison uses the 17 fitted officials with a recorded qualifying vote in <strong>2024</strong>, the first year after the 2023 election. Only the <strong>November 2023 general</strong> slates define these flags. “Outside” means a member of this 17-person cohort <em>not listed on that recovered slate</em>, not someone from an undocumented historical cycle. The point-biserial column is the correlation of the binary listed flag with the pooled score; a negative value means listed officials lean toward the negative end. The ordered-pair share is the fraction of listed–not-listed pairs in which the listed official has the <strong>lower</strong> score. Group means and differences use posterior mean point estimates, not posterior-draw uncertainty. For TOP, the not-listed comparison is especially weak because the short announcement may not be a complete slate. The Our Revolution row is not estimable. None of these endorsements entered the fit.</p>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 6%">
-<col style="width: 6%">
-<col style="width: 6%">
-<col style="width: 5%">
-<col style="width: 7%">
-<col style="width: 9%">
-<col style="width: 13%">
-<col style="width: 12%">
-<col style="width: 14%">
-</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Organization</th>
-<th style="text-align: left;">Listed / outside</th>
-<th style="text-align: left;">D / R listed</th>
-<th style="text-align: right;">Mean listed</th>
-<th style="text-align: right;">Mean outside</th>
-<th style="text-align: right;">Difference</th>
-<th style="text-align: right;">Point-biserial</th>
-<th style="text-align: right;">Ordered-pair share</th>
-<th style="text-align: left;">Within-D listed / outside</th>
-<th style="text-align: right;">Within-D mean difference</th>
-<th style="text-align: right;">Within-D ordered-pair share</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Organization</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Listed / outside</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">D / R listed</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Mean listed</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Mean outside</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Difference</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Point-biserial</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Ordered-pair share</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Within-D listed / outside</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Within-D mean difference</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Within-D ordered-pair share</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Labor federation</td>
-<td style="text-align: left;">7 / 10</td>
-<td style="text-align: left;">7 / 0</td>
+<td style="text-align: left;">Labor federation</td>
+<td style="text-align: left;">7 / 10</td>
+<td style="text-align: left;">7 / 0</td>
 <td style="text-align: right;">-0.53</td>
 <td style="text-align: right;">0.46</td>
 <td style="text-align: right;">-0.99</td>
 <td style="text-align: right;">-0.47</td>
 <td style="text-align: right;">0.77</td>
-<td style="text-align: left;">7 / 4</td>
+<td style="text-align: left;">7 / 4</td>
 <td style="text-align: right;">0.10</td>
 <td style="text-align: right;">0.43</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">LGBTQ+ Caucus</td>
-<td style="text-align: left;">7 / 10</td>
-<td style="text-align: left;">7 / 0</td>
+<td style="text-align: left;">LGBTQ+ Caucus</td>
+<td style="text-align: left;">7 / 10</td>
+<td style="text-align: left;">7 / 0</td>
 <td style="text-align: right;">-0.57</td>
 <td style="text-align: right;">0.49</td>
 <td style="text-align: right;">-1.06</td>
 <td style="text-align: right;">-0.51</td>
 <td style="text-align: right;">0.79</td>
-<td style="text-align: left;">7 / 4</td>
+<td style="text-align: left;">7 / 4</td>
 <td style="text-align: right;">-0.01</td>
 <td style="text-align: right;">0.46</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">TOP PAC</td>
-<td style="text-align: left;">2 / 15</td>
-<td style="text-align: left;">2 / 0</td>
+<td style="text-align: left;">TOP PAC</td>
+<td style="text-align: left;">2 / 15</td>
+<td style="text-align: left;">2 / 0</td>
 <td style="text-align: right;">-1.16</td>
 <td style="text-align: right;">0.22</td>
 <td style="text-align: right;">-1.37</td>
 <td style="text-align: right;">-0.43</td>
 <td style="text-align: right;">0.97</td>
-<td style="text-align: left;">2 / 9</td>
+<td style="text-align: left;">2 / 9</td>
 <td style="text-align: right;">-0.73</td>
 <td style="text-align: right;">0.94</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Our Revolution</td>
-<td style="text-align: left;">0 / unknown</td>
-<td style="text-align: left;">0 / 0</td>
+<td style="text-align: left;">Our Revolution</td>
+<td style="text-align: left;">0 / unknown</td>
+<td style="text-align: left;">0 / 0</td>
 <td style="text-align: right;">NA</td>
 <td style="text-align: right;">NA</td>
 <td style="text-align: right;">NA</td>
 <td style="text-align: right;">NA</td>
 <td style="text-align: right;">NA</td>
-<td style="text-align: left;">0 / unknown</td>
+<td style="text-align: left;">0 / unknown</td>
 <td style="text-align: right;">NA</td>
 <td style="text-align: right;">NA</td>
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>All 2023-listed fitted officials in these three recovered slates are Democratic-affiliated; the 2024 cohort has eleven Democrats and six Republicans. This explains much of the all-party separation for labor and the Caucus. Among Democrats alone, their listed and unlisted members have nearly identical mean scores and pair orderings near one-half. TOP lists only two fitted winners, both Democrats; their lower scores among Democrats are suggestive, but the tiny group and partial-slate issue prevent a strong inference. The <code>endorsement_2023_cohort.csv</code> file records each member’s indicator status and coverage qualifier so the denominator can be inspected.</p>
 <p>The Caucus’s complete 2013, 2015, and 2019 general slates also permit <strong>within-election</strong> checks against first-year observed council members, without pretending every unlisted 2000–2026 official was unendorsed. The 2019–2020 comparison excludes Jerry Davis, a holdover in District B while its 2019 election awaited the delayed December 2020 runoff; Tarsha Jackson entered only afterward. These older comparisons are descriptive: each uses a small within-election cohort.</p>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 18%">
-<col style="width: 5%">
-<col style="width: 12%">
-<col style="width: 9%">
-<col style="width: 11%">
-<col style="width: 10%">
-<col style="width: 13%">
-<col style="width: 18%">
-</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Election → observed year</th>
-<th style="text-align: right;">Cohort</th>
-<th style="text-align: left;">Listed / outside</th>
-<th style="text-align: left;">D / R listed</th>
-<th style="text-align: right;">Mean difference</th>
-<th style="text-align: right;">Point-biserial</th>
-<th style="text-align: right;">Ordered-pair share</th>
-<th style="text-align: right;">Within-D mean difference</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Election → observed year</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Cohort</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Listed / outside</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">D / R listed</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Mean difference</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Point-biserial</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Ordered-pair share</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Within-D mean difference</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">2013 → 2014</td>
+<td style="text-align: left;">2013 → 2014</td>
 <td style="text-align: right;">17</td>
-<td style="text-align: left;">10 / 7</td>
-<td style="text-align: left;">8 / 2</td>
+<td style="text-align: left;">10 / 7</td>
+<td style="text-align: left;">8 / 2</td>
 <td style="text-align: right;">-0.62</td>
 <td style="text-align: right;">-0.60</td>
 <td style="text-align: right;">0.84</td>
 <td style="text-align: right;">-0.17</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">2015 → 2016</td>
+<td style="text-align: left;">2015 → 2016</td>
 <td style="text-align: right;">17</td>
-<td style="text-align: left;">8 / 9</td>
-<td style="text-align: left;">8 / 0</td>
+<td style="text-align: left;">8 / 9</td>
+<td style="text-align: left;">8 / 0</td>
 <td style="text-align: right;">-1.05</td>
 <td style="text-align: right;">-0.68</td>
 <td style="text-align: right;">0.90</td>
 <td style="text-align: right;">-0.11</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">2019 → 2020</td>
+<td style="text-align: left;">2019 → 2020</td>
 <td style="text-align: right;">16</td>
-<td style="text-align: left;">6 / 10</td>
-<td style="text-align: left;">6 / 0</td>
+<td style="text-align: left;">6 / 10</td>
+<td style="text-align: left;">6 / 0</td>
 <td style="text-align: right;">-0.56</td>
 <td style="text-align: right;">-0.31</td>
 <td style="text-align: right;">0.60</td>
@@ -3372,6 +3362,8 @@ table { font-size: .88rem; }
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>The report’s aggregate density curves smooth the 76 fixed-party posterior <strong>means</strong>, giving each official equal weight; they do not integrate posterior uncertainty or service duration. Both groups use a Gaussian kernel with bandwidth 0.18 ideal-point units. Each aggregate curve begins at its group’s observed minimum, with a smooth taper to zero. Scores beyond +2.5 still enter the kernel estimate. The elected-council plot, starting in 2000–2001, computes each party’s median fixed pooled score among members who cast at least one qualifying vote in that council; a light dashed linear regression overlays each party’s observed-median line. The two-panel <strong>2000–2001 versus 2020–2023 density comparison</strong> uses the same bandwidth and axes in both councils. Each party’s curve is restricted to its observed score range, tapered to zero at both endpoints, and renormalized to unit area; bottom ticks show the individual scores. Gabriel Vasquez is excluded because his affiliation changed during service. These are display conventions for small samples, not boundary-corrected population-density estimates. Members serving multiple councils recur at the same coordinate; changes in the party distributions and median lines reflect membership composition, not within-person movement or a time-varying ideal-point model. The current council is partially observed.</p>
@@ -3381,481 +3373,476 @@ table { font-size: .88rem; }
 <p>The source links below identify the particular record or report used for each label. “Reporting only” and “secondary guide/roster” are weaker than a partisan candidacy, party office, or self-identification. A few affiliations are inferred from a documented party process rather than an explicit self-description, as detailed in the basis column.</p>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 4%">
-<col style="width: 1%">
-<col style="width: 2%">
-<col style="width: 27%">
-<col style="width: 63%">
-</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Official</th>
-<th style="text-align: left;">Affiliation</th>
-<th style="text-align: left;">Evidence type</th>
-<th style="text-align: left;">Source</th>
-<th style="text-align: left;">Basis</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Official</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Affiliation</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Evidence type</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Source</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Basis</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Abbie Kamin</td>
+<td style="text-align: left;">Abbie Kamin</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: left;">party_record</td>
 <td style="text-align: left;"><a href="https://ballotpedia.org/Abbie_Kamin">source</a></td>
 <td style="text-align: left;">2026 Democratic candidate for Harris County Attorney.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Ada Edwards</td>
+<td style="text-align: left;">Ada Edwards</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: left;">party_record</td>
 <td style="text-align: left;"><a href="https://capitol.texas.gov/tlodocs/88R/billtext/pdf/HR00897I.PDF">source</a></td>
 <td style="text-align: left;">Texas House resolution identifies her as a Harris County Democratic Party field coordinator.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Addie Wiseman</td>
+<td style="text-align: left;">Addie Wiseman</td>
 <td style="text-align: left;">Republican</td>
 <td style="text-align: left;">party_record</td>
 <td style="text-align: left;"><a href="https://elections.sos.state.tx.us/elchist148_state.htm">source</a></td>
 <td style="text-align: left;">Texas Secretary of State lists her in the 2010 Republican primary for state House District 127; council election was nonpartisan.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Adrian Garcia</td>
+<td style="text-align: left;">Adrian Garcia</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: left;">party_record</td>
 <td style="text-align: left;"><a href="https://www.chron.com/news/houston-texas/article/councilman-garcia-joins-democratic-race-for-1754542.php">source</a></td>
 <td style="text-align: left;">Ran in Democratic primary for Harris County sheriff in 2008.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Al Hoang</td>
+<td style="text-align: left;">Al Hoang</td>
 <td style="text-align: left;">Republican</td>
 <td style="text-align: left;">party_record</td>
 <td style="text-align: left;"><a href="https://www.sos.texas.gov/elections/forms/enrrpts/2014-rep-primary.pdf">source</a></td>
 <td style="text-align: left;">Texas Secretary of State lists him in the 2014 Republican state House primary; stronger than his earlier GOP council endorsement.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Amanda Edwards</td>
+<td style="text-align: left;">Amanda Edwards</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: left;">party_record</td>
 <td style="text-align: left;"><a href="https://www.fec.gov/data/candidate/S0TX00258/">source</a></td>
 <td style="text-align: left;">FEC identifies her 2020 U.S. Senate candidacy as Democratic.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Amy Peck</td>
+<td style="text-align: left;">Amy Peck</td>
 <td style="text-align: left;">Republican</td>
 <td style="text-align: left;">reported</td>
 <td style="text-align: left;"><a href="https://en.wikipedia.org/wiki/Houston_City_Council">source</a></td>
-<td style="text-align: left;">Listed as Republican on the current council roster; described as the ‘incumbent Republican District A Councilwoman’ in local commentary.</td>
+<td style="text-align: left;">Listed as Republican on the current council roster; described as the &#39;incumbent Republican District A Councilwoman&#39; in local commentary.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Andrew C. Burks, Jr.</td>
+<td style="text-align: left;">Andrew C. Burks, Jr.</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: left;">reported</td>
 <td style="text-align: left;"><a href="https://www.chron.com/politics/article/ex-lawmaker-preacher-tangle-in-council-runoff-2339272.php">source</a></td>
 <td style="text-align: left;">Chronicle calls him a lifelong Democrat and former county-party-chair candidate, despite GOP endorsement in nonpartisan 2011 council runoff.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Anne Clutterbuck</td>
+<td style="text-align: left;">Anne Clutterbuck</td>
 <td style="text-align: left;">Republican</td>
 <td style="text-align: left;">party_record</td>
 <td style="text-align: left;"><a href="https://www.chron.com/news/politics/article/HOUSTON-CITY-COUNCIL-DISTRICT-C-1934498.php">source</a></td>
 <td style="text-align: left;">Candidate profile identifies service as a Republican state-convention delegate.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Annise Parker</td>
+<td style="text-align: left;">Annise Parker</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: left;">self_identified</td>
 <td style="text-align: left;"><a href="https://www.anniseparker.com/">source</a></td>
 <td style="text-align: left;">Her campaign identifies her as a Democrat; she ran in the 2026 Democratic county-judge primary.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Bert Keller</td>
+<td style="text-align: left;">Bert Keller</td>
 <td style="text-align: left;">Republican</td>
 <td style="text-align: left;">party_record</td>
 <td style="text-align: left;"><a href="https://ivoterguide.com/candidate/60884/race/288/election/871">source</a></td>
 <td style="text-align: left;">2022 Republican state-house primary candidate profile identifies former Houston council member Bert Keller and his GOP party roles.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Bill White</td>
+<td style="text-align: left;">Bill White</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: left;">party_record</td>
 <td style="text-align: left;"><a href="https://elections.texastribune.org/texas-election-results/texas-2010-election-general/5318/">source</a></td>
 <td style="text-align: left;">Democratic nominee for Texas governor in 2010.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Brenda Stardig</td>
+<td style="text-align: left;">Brenda Stardig</td>
 <td style="text-align: left;">Republican</td>
 <td style="text-align: left;">party_record</td>
 <td style="text-align: left;"><a href="https://www.houstonchronicle.com/news/houston-texas/houston/article/Stardig-files-for-Precinct-3-Commissioners-Court-14835061.php">source</a></td>
 <td style="text-align: left;">Filed as a Republican for Harris County commissioner in 2020.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Bruce Tatro</td>
+<td style="text-align: left;">Bruce Tatro</td>
 <td style="text-align: left;">Republican</td>
 <td style="text-align: left;">reported</td>
 <td style="text-align: left;"><a href="https://www.houstonpress.com/news/a-little-jump-to-the-right-6554218/">source</a></td>
 <td style="text-align: left;">Contemporaneous Houston Press identifies district council member Bruce Tatro as the principal GOP candidate for controller in 2003.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">C. O. “Brad” Bradford</td>
+<td style="text-align: left;">C. O. “Brad” Bradford</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: left;">party_record</td>
 <td style="text-align: left;"><a href="https://lrl.texas.gov/scanned/HouseJournals/80/04262007_63_2487.PDF">source</a></td>
 <td style="text-align: left;">Texas House journal records Clarence Bradford as Democratic precinct chair; he later was Democratic nominee for Harris County DA.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Carol Alvarado</td>
+<td style="text-align: left;">Carol Alvarado</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: left;">party_record</td>
 <td style="text-align: left;"><a href="https://lrl.texas.gov/legeleaders/members/memberDisplay.cfm?memberID=5670">source</a></td>
 <td style="text-align: left;">Texas Legislative Reference Library records her state legislative service as Democrat.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Carol M. Galloway</td>
+<td style="text-align: left;">Carol M. Galloway</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: left;">self_identified</td>
 <td style="text-align: left;"><a href="https://web.archive.org/web/20250917114837/https://texas.comcast.com/carol-mims-galloway/">source</a></td>
 <td style="text-align: left;">Archived Carol Mims Galloway biography lists her as a member of Harris County Black Democrats. Democratic affiliation is supported; no party candidacy or office is documented here. Do not confuse with Dallas Republican Carolyn K. Galloway.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Carolyn Evans-Shabazz</td>
+<td style="text-align: left;">Carolyn Evans-Shabazz</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: left;">reported</td>
 <td style="text-align: left;"><a href="https://en.wikipedia.org/wiki/Houston_City_Council">source</a></td>
 <td style="text-align: left;">Listed as Democratic on the current council roster.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Carroll Robinson</td>
+<td style="text-align: left;">Carroll Robinson</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: left;">party_record</td>
 <td style="text-align: left;"><a href="https://rollcall.com/2004/03/02/wringing-a-bell-in-houston-district/">source</a></td>
 <td style="text-align: left;">Roll Call reports a 2002 Democratic congressional primary runoff between council members Carroll Robinson and Chris Bell.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Chris Bell</td>
+<td style="text-align: left;">Chris Bell</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: left;">party_record</td>
 <td style="text-align: left;"><a href="https://history.house.gov/People/Listing/B/BELL%2C-Chris-%28B001241%29/">source</a></td>
 <td style="text-align: left;">U.S. House official history: elected as a Democrat in 2002, after Houston council service.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Dave Martin</td>
+<td style="text-align: left;">Dave Martin</td>
 <td style="text-align: left;">Republican</td>
 <td style="text-align: left;">reported</td>
 <td style="text-align: left;"><a href="https://www.houstonchronicle.com/opinion/editorials/article/Martin-the-best-candidate-for-District-E-14499420.php">source</a></td>
 <td style="text-align: left;">Characterized as a Republican/conservative in local reporting; no party-record source located.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">David W. Robinson</td>
+<td style="text-align: left;">David W. Robinson</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: left;">reported</td>
 <td style="text-align: left;"><a href="https://www.govtech.com/em/disaster/City-Council-Adopts-Stricter-Development-Rules-for-Houstons-Floodplains.html">source</a></td>
 <td style="text-align: left;">Houston Chronicle 2018 floodplain-vote report explicitly identifies Robinson among Democratic council members; no party-primary record located.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Dwight Boykins</td>
+<td style="text-align: left;">Dwight Boykins</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: left;">reported</td>
 <td style="text-align: left;"><a href="https://www.govtech.com/em/disaster/City-Council-Adopts-Stricter-Development-Rules-for-Houstons-Floodplains.html">source</a></td>
 <td style="text-align: left;">Contemporaneous Houston Chronicle report calls him a Democratic council member; Republican primary voting and GOP donations are mixed signals.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Edward Gonzalez</td>
+<td style="text-align: left;">Edward Gonzalez</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: left;">party_record</td>
 <td style="text-align: left;"><a href="https://www.houstonchronicle.com/news/houston-texas/houston/article/Councilman-Gonzalez-to-run-for-Harris-sheriff-6684932.php">source</a></td>
 <td style="text-align: left;">Ran for Harris County sheriff as a Democrat in 2016.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Edward Pollard</td>
+<td style="text-align: left;">Edward Pollard</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: left;">party_record</td>
 <td style="text-align: left;"><a href="https://en.wikipedia.org/wiki/Edward_Pollard_(politician)">source</a></td>
 <td style="text-align: left;">2016 Democratic primary candidate, Texas House District 137.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Ellen Cohen</td>
+<td style="text-align: left;">Ellen Cohen</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: left;">party_record</td>
 <td style="text-align: left;"><a href="https://www.lrl.texas.gov/legeLeaders/members/memberDisplay.cfm?memberID=5633">source</a></td>
 <td style="text-align: left;">Texas Legislative Reference Library records her state House service as Democrat.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Fred Flickinger</td>
+<td style="text-align: left;">Fred Flickinger</td>
 <td style="text-align: left;">Republican</td>
 <td style="text-align: left;">party_organization</td>
 <td style="text-align: left;"><a href="https://www.harriscountygop.com/wp-content/uploads/2023/10/November-2023-Election-Harris-County-GOP-Endorsed-Candidates-3.pdf">source</a></td>
 <td style="text-align: left;">Harris County GOP endorsement, District E, November 2023.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Gabriel Vasquez</td>
+<td style="text-align: left;">Gabriel Vasquez</td>
 <td style="text-align: left;">Mixed</td>
 <td style="text-align: left;">reported</td>
 <td style="text-align: left;"><a href="https://www.houstonpress.com/news/a-little-jump-to-the-right-6554218/">source</a></td>
 <td style="text-align: left;">Houston Press reports council member Gabe Vasquez changed his affiliation from Democratic to Republican in 2003. Both affiliations occurred within his service; exclude from fixed two-party comparison.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Gordon Quan</td>
+<td style="text-align: left;">Gordon Quan</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: left;">party_record</td>
 <td style="text-align: left;"><a href="https://www.chron.com/news/houston-texas/article/Democrats-Quan-Hassan-vie-for-Harris-County-judge-1717357.php">source</a></td>
 <td style="text-align: left;">Sought 2010 Democratic nomination for Harris County judge. Opponent Ahmad Hassan, not Quan, had run in both party primaries.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Greg Travis</td>
+<td style="text-align: left;">Greg Travis</td>
 <td style="text-align: left;">Republican</td>
 <td style="text-align: left;">party_record</td>
 <td style="text-align: left;"><a href="https://www.houstonpublicmedia.org/articles/news/politics/2021/10/28/411995/houston-city-councilmember-greg-travis-resigns-announces-run-for-texas-house-seat/">source</a></td>
 <td style="text-align: left;">Resigned to run in the Republican primary for Texas House District 133.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Helena Brown</td>
+<td style="text-align: left;">Helena Brown</td>
 <td style="text-align: left;">Republican</td>
 <td style="text-align: left;">party_record</td>
 <td style="text-align: left;"><a href="https://legiscan.com/TX/text/HR88/2013/X1">source</a></td>
 <td style="text-align: left;">Texas House resolution commends her service as Republican Party precinct chair.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Jack Christie D.C.</td>
+<td style="text-align: left;">Jack Christie D.C.</td>
 <td style="text-align: left;">Republican</td>
 <td style="text-align: left;">reported</td>
 <td style="text-align: left;"><a href="https://www.govtech.com/em/disaster/City-Council-Adopts-Stricter-Development-Rules-for-Houstons-Floodplains.html">source</a></td>
 <td style="text-align: left;">Contemporaneous Houston Chronicle report calls him a Republican council member.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">James G. Rodriguez</td>
+<td style="text-align: left;">James G. Rodriguez</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: left;">reported</td>
 <td style="text-align: left;"><a href="https://www.uh.edu/registertovote/localelections.html">source</a></td>
 <td style="text-align: left;">University of Houston 2009 nonpartisan election guide lists incumbent James Rodriguez as D.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Jarvis Johnson</td>
+<td style="text-align: left;">Jarvis Johnson</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: left;">party_record</td>
 <td style="text-align: left;"><a href="https://www.lrl.texas.gov/legeLeaders/members/memberdisplay.cfm?memberID=5795">source</a></td>
 <td style="text-align: left;">Texas Legislative Reference Library records his state House service as Democrat.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Jerry Davis</td>
+<td style="text-align: left;">Jerry Davis</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: left;">party_record</td>
 <td style="text-align: left;"><a href="https://files.harrisvotes.com/harrisvotes/prd/HISTORY/20200303/DemocraticCumulative.pdf">source</a></td>
 <td style="text-align: left;">Harris County official 2020 Democratic primary results list him as a candidate.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Jew Don Boney, Jr.</td>
+<td style="text-align: left;">Jew Don Boney, Jr.</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: left;">party_organization</td>
-<td style="text-align: left;"><a href="https://www.houstonlgbthistory.org/Houston80s/GPC/Newsletters/GPC-9709-10.pdf">source</a></td>
-<td style="text-align: left;">Boney’s contemporary re-election advertisement lists endorsements by Harris County Democrats and Tejano Democrats; this is party-organization support, not a partisan ballot filing.</td>
+<td style="text-align: left;"><a href="https://www.houstonlgbthistory.org/Houston80s/GPC/Newsletters/GPC-9709⁠-⁠10.pdf">source</a></td>
+<td style="text-align: left;">Boney&#39;s contemporary re-election advertisement lists endorsements by Harris County Democrats and Tejano Democrats; this is party-organization support, not a partisan ballot filing.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Joaquin Martinez</td>
+<td style="text-align: left;">Joaquin Martinez</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: left;">reported</td>
 <td style="text-align: left;"><a href="https://en.wikipedia.org/wiki/Houston_City_Council">source</a></td>
 <td style="text-align: left;">Listed as Democratic on the current council roster.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">John E. Castillo</td>
+<td style="text-align: left;">John E. Castillo</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: left;">party_record</td>
 <td style="text-align: left;"><a href="https://www.chron.com/neighborhood/article/Isbell-Garcia-clear-first-hurdle-to-precinct-post-9911267.php">source</a></td>
 <td style="text-align: left;">Contemporaneous report of the March 2002 Democratic county-commissioner primary places former council member John Castillo against Sylvia Garcia.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">John Whitmire</td>
+<td style="text-align: left;">John Whitmire</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: left;">party_record</td>
 <td style="text-align: left;"><a href="https://www.nbcnews.com/politics/elections/democrat-john-whitmire-wins-houston-mayoral-race-rcna127278">source</a></td>
 <td style="text-align: left;">Long-time Democratic state senator.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Jolanda “Jo” Jones</td>
+<td style="text-align: left;">Jolanda “Jo” Jones</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: left;">party_record</td>
 <td style="text-align: left;"><a href="https://lrl.texas.gov/legeLeaders/members/memberDisplay.cfm?memberID=5877">source</a></td>
 <td style="text-align: left;">Texas Legislative Reference Library records her state House service as Democrat.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Julian Ramirez</td>
+<td style="text-align: left;">Julian Ramirez</td>
 <td style="text-align: left;">Republican</td>
 <td style="text-align: left;">party_organization</td>
 <td style="text-align: left;"><a href="https://www.harriscountygop.com/wp-content/uploads/2023/10/November-2023-Election-Harris-County-GOP-Endorsed-Candidates-3.pdf">source</a></td>
 <td style="text-align: left;">Harris County GOP endorsement, At-Large 1, November and December 2023.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Karla Cisneros</td>
+<td style="text-align: left;">Karla Cisneros</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: left;">reported</td>
 <td style="text-align: left;"><a href="https://www.govtech.com/em/disaster/City-Council-Adopts-Stricter-Development-Rules-for-Houstons-Floodplains.html">source</a></td>
 <td style="text-align: left;">Houston Chronicle 2018 floodplain-vote report explicitly identifies Cisneros among Democratic council members; no party-primary record located.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Larry V. Green</td>
+<td style="text-align: left;">Larry V. Green</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: left;">reported</td>
 <td style="text-align: left;"><a href="https://www.houstonchronicle.com/politics/houston/article/Resign-to-run-law-now-applies-to-elected-city-6787701.php">source</a></td>
 <td style="text-align: left;">Reportedly sought the 2016 Democratic precinct-chair nomination for Harris County commissioner. This is party-process evidence, not a formal primary filing; do not confuse with Ronald C. Green.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Lee P. Brown</td>
+<td style="text-align: left;">Lee P. Brown</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: left;">reported</td>
 <td style="text-align: left;"><a href="https://www.chron.com/news/article/brown-leads-mayoral-vote-2039455.php">source</a></td>
 <td style="text-align: left;">Contemporaneous Houston Chronicle identifies Mayor Brown as a Democrat and notes his 2000 Democratic National Convention speech.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Letitia Plummer</td>
+<td style="text-align: left;">Letitia Plummer</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: left;">party_record</td>
 <td style="text-align: left;"><a href="https://www.texastribune.org/2026/05/29/harris-county-judge-election-upset-runoff/">source</a></td>
 <td style="text-align: left;">2018 Democratic primary candidate for U.S. House; 2026 Democratic nominee for Harris County Judge.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">M. J. Khan, P. E.</td>
+<td style="text-align: left;">M. J. Khan, P. E.</td>
 <td style="text-align: left;">Republican</td>
 <td style="text-align: left;">reported</td>
 <td style="text-align: left;"><a href="https://www.houstonchronicle.com/politics/houston/article/houston-mayor-candidates-gun-buybacks-bike-lanes-18395207.php">source</a></td>
 <td style="text-align: left;">Chronicle directly identifies former council member MJ Khan as a Republican contender in the 2023 nonpartisan mayoral race.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Mario Castillo</td>
+<td style="text-align: left;">Mario Castillo</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: left;">reported</td>
 <td style="text-align: left;"><a href="https://en.wikipedia.org/wiki/Houston_City_Council">source</a></td>
 <td style="text-align: left;">Listed as Democratic on the current council roster.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Mark Ellis</td>
+<td style="text-align: left;">Mark Ellis</td>
 <td style="text-align: left;">Republican</td>
 <td style="text-align: left;">party_record</td>
-<td style="text-align: left;"><a href="https://www.chron.com/news/politics/article/TX-SEN-District-7-1668998.php">source</a></td>
+<td style="text-align: left;"><a href="https://www.chron.com/news/politics/article/TX-SEN-District-7⁠-⁠1668998.php">source</a></td>
 <td style="text-align: left;">Chronicle candidate profile records Republican primary candidacy for justice of the peace; later Republican state Senate primary candidate.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Mark Goldberg</td>
+<td style="text-align: left;">Mark Goldberg</td>
 <td style="text-align: left;">Republican</td>
 <td style="text-align: left;">reported</td>
 <td style="text-align: left;"><a href="https://www.chron.com/neighborhood/article/Berry-s-bipartisan-breakfast-of-champions-9828733.php">source</a></td>
 <td style="text-align: left;">Contemporaneous Chronicle item directly calls former District C council member Goldberg a Republican; not inferred from a later namesake primary candidate.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Martha Castex-Tatum</td>
+<td style="text-align: left;">Martha Castex-Tatum</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: left;">reported</td>
 <td style="text-align: left;"><a href="https://en.wikipedia.org/wiki/Houston_City_Council">source</a></td>
 <td style="text-align: left;">Listed as Democratic on the current council roster.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Mary Nan Huffman</td>
+<td style="text-align: left;">Mary Nan Huffman</td>
 <td style="text-align: left;">Republican</td>
 <td style="text-align: left;">party_record</td>
 <td style="text-align: left;"><a href="https://files.harrisvotes.com/harrisvotes/prd/HISTORY/20200303/RepublicanCumulative.pdf">source</a></td>
 <td style="text-align: left;">Official results list her in the 2020 Republican primary for Harris County DA; also GOP-endorsed for council in 2023.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Melissa Noriega</td>
+<td style="text-align: left;">Melissa Noriega</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: left;">party_record</td>
 <td style="text-align: left;"><a href="https://www.lrl.texas.gov/legeLeaders/members/memberdisplay.cfm?memberID=5614">source</a></td>
 <td style="text-align: left;">Texas Legislative Reference Library records her state House service as Democrat.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Michael Berry</td>
+<td style="text-align: left;">Michael Berry</td>
 <td style="text-align: left;">Republican</td>
 <td style="text-align: left;">reported</td>
 <td style="text-align: left;"><a href="https://www.houstonpress.com/news/running-mates-6555122/">source</a></td>
 <td style="text-align: left;">Contemporaneous Houston Press account identifies him as Republican but notes he avoided partisan labels in a council campaign.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Michael Kubosh</td>
+<td style="text-align: left;">Michael Kubosh</td>
 <td style="text-align: left;">Republican</td>
 <td style="text-align: left;">reported</td>
 <td style="text-align: left;"><a href="https://web.archive.org/web/20210513000446/https://www.texasmonthly.com/news-politics/here-comes-trouble/">source</a></td>
-<td style="text-align: left;">Contemporaneous Texas Monthly profile identifies him as Republican and explains his strategic 2006 Democratic Senate candidacy. A 2019 Houston Chronicle profile reports eight of nine Republican primary ballots in 2004-2012 and GOP endorsement, while noting that he rejects party labels. No Republican candidacy or party office is documented; see Data/Houston/party_evidence/party_research_kubosh_2026-09-25.md.</td>
+<td style="text-align: left;">Contemporaneous Texas Monthly profile identifies him as Republican and explains his strategic 2006 Democratic Senate candidacy. A 2019 Houston Chronicle profile reports eight of nine Republican primary ballots in 2004⁠-⁠2012 and GOP endorsement, while noting that he rejects party labels. No Republican candidacy or party office is documented; see Data/Houston/party_evidence/party_research_kubosh_2026⁠-⁠09⁠-⁠25.md.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Mike Knox</td>
+<td style="text-align: left;">Mike Knox</td>
 <td style="text-align: left;">Republican</td>
 <td style="text-align: left;">party_record</td>
 <td style="text-align: left;"><a href="https://en.wikipedia.org/wiki/Mike_Knox_(politician)">source</a></td>
 <td style="text-align: left;">Republican precinct chair; 2024 Republican primary candidate for Harris County Sheriff.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Mike Laster</td>
+<td style="text-align: left;">Mike Laster</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: left;">reported</td>
 <td style="text-align: left;"><a href="https://www.govtech.com/em/disaster/City-Council-Adopts-Stricter-Development-Rules-for-Houstons-Floodplains.html">source</a></td>
 <td style="text-align: left;">Contemporaneous Houston Chronicle report explicitly calls him a Democrat; UH 2009 election guide also lists D.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Mike Sullivan</td>
+<td style="text-align: left;">Mike Sullivan</td>
 <td style="text-align: left;">Republican</td>
 <td style="text-align: left;">party_record</td>
-<td style="text-align: left;"><a href="https://www.southbeltleader.com/Leader12-8-11.pdf">source</a></td>
+<td style="text-align: left;"><a href="https://www.southbeltleader.com/Leader12⁠-⁠8-11.pdf">source</a></td>
 <td style="text-align: left;">Filed in Republican primary for Harris County tax assessor-collector.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Oliver Pennington</td>
+<td style="text-align: left;">Oliver Pennington</td>
 <td style="text-align: left;">Republican</td>
 <td style="text-align: left;">reported</td>
 <td style="text-align: left;"><a href="https://www.uh.edu/registertovote/localelections.html">source</a></td>
 <td style="text-align: left;">University of Houston 2009 nonpartisan election guide lists him as R; later reporting calls him Republican.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Orlando Sanchez</td>
+<td style="text-align: left;">Orlando Sanchez</td>
 <td style="text-align: left;">Republican</td>
 <td style="text-align: left;">party_record</td>
 <td style="text-align: left;"><a href="https://files.harrisvotes.com/harrisvotes/prd/HISTORY/20180306/cumulative/Rep/cumulative.pdf">source</a></td>
 <td style="text-align: left;">Harris County official 2018 Republican primary cumulative report lists Orlando Sanchez for county treasurer.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Pam Holm</td>
+<td style="text-align: left;">Pam Holm</td>
 <td style="text-align: left;">Republican</td>
 <td style="text-align: left;">reported</td>
 <td style="text-align: left;"><a href="https://www.uh.edu/registertovote/localelections.html">source</a></td>
 <td style="text-align: left;">University of Houston 2009 nonpartisan election guide lists her as R; contribution to Republican women is only corroborative.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Peter Brown</td>
+<td style="text-align: left;">Peter Brown</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: left;">reported</td>
 <td style="text-align: left;"><a href="https://www.chron.com/news/houston-texas/article/Mayoral-race-remains-uncertain-in-final-stretch-1732471.php">source</a></td>
 <td style="text-align: left;">Chronicle calls him a progressive Democrat; UH 2009 election guide lists D.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Richard Nguyen</td>
+<td style="text-align: left;">Richard Nguyen</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: left;">party_organization</td>
 <td style="text-align: left;"><a href="https://www.offthekuff.com/wp/?p=70979">source</a></td>
-<td style="text-align: left;">Contemporaneous report lists District F incumbent Nguyen on the Harris County Democratic Party’s 2015 slate of Democratic candidates and on the Meyerland Democrats slate. Party release not independently located; no reliance on a possible 2023 namesake candidacy.</td>
+<td style="text-align: left;">Contemporaneous report lists District F incumbent Nguyen on the Harris County Democratic Party&#39;s 2015 slate of Democratic candidates and on the Meyerland Democrats slate. Party release not independently located; no reliance on a possible 2023 namesake candidacy.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Rob Todd</td>
+<td style="text-align: left;">Rob Todd</td>
 <td style="text-align: left;">Republican</td>
 <td style="text-align: left;">reported</td>
 <td style="text-align: left;"><a href="https://www.offthekuff.com/wp/?p=8083">source</a></td>
 <td style="text-align: left;">Contemporaneous local election commentary explicitly identifies former Houston council member Rob Todd as a Republican; no partisan candidacy found.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Robert Gallegos</td>
+<td style="text-align: left;">Robert Gallegos</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: left;">reported</td>
 <td style="text-align: left;"><a href="https://en.wikipedia.org/wiki/Robert_Gallegos">source</a></td>
 <td style="text-align: left;">Biography lists Democratic affiliation; no party-record source located.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Ronald C. Green</td>
+<td style="text-align: left;">Ronald C. Green</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: left;">self_identified</td>
 <td style="text-align: left;"><a href="https://www.houstonpress.com/news/political-identity-crisis-6555184">source</a></td>
 <td style="text-align: left;">Identified himself as a loyal Democrat and received Harris County Democratic Party backing, despite a conservative-radio endorsement.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Sallie Alcorn</td>
+<td style="text-align: left;">Sallie Alcorn</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: left;">reported</td>
 <td style="text-align: left;"><a href="https://en.wikipedia.org/wiki/Houston_City_Council">source</a></td>
@@ -3869,70 +3856,70 @@ table { font-size: .88rem; }
 <td style="text-align: left;">FEC identifies her congressional candidacy as Republican.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Stephen C. Costello</td>
+<td style="text-align: left;">Stephen C. Costello</td>
 <td style="text-align: left;">Republican</td>
 <td style="text-align: left;">reported</td>
-<td style="text-align: left;"><a href="https://www.uhd.edu/documents/academics/humanities/about/departments/english/dateline/issue54-4.pdf">source</a></td>
+<td style="text-align: left;"><a href="https://www.uhd.edu/documents/academics/humanities/about/departments/english/dateline/issue54⁠-⁠4.pdf">source</a></td>
 <td style="text-align: left;">Contemporaneous University of Houston-Downtown article describes him as Republican in 2015 mayoral field; UH 2009 guide lists R. A payment to Harris County Democrats is not counterevidence of identity.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Steve Le</td>
+<td style="text-align: left;">Steve Le</td>
 <td style="text-align: left;">Republican</td>
 <td style="text-align: left;">reported</td>
 <td style="text-align: left;"><a href="https://www.govtech.com/em/disaster/City-Council-Adopts-Stricter-Development-Rules-for-Houstons-Floodplains.html">source</a></td>
 <td style="text-align: left;">Contemporaneous Houston Chronicle report directly calls him a Republican council member.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Sue Lovell</td>
+<td style="text-align: left;">Sue Lovell</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: left;">party_record</td>
-<td style="text-align: left;"><a href="https://www.houstonlgbthistory.org/Houston80s/OutSmart/2010/OS-10-030110.pdf">source</a></td>
+<td style="text-align: left;"><a href="https://www.houstonlgbthistory.org/Houston80s/OutSmart/2010/OS-10⁠-⁠030110.pdf">source</a></td>
 <td style="text-align: left;">Elected by Texas Democrats to the Democratic National Committee; UH 2009 guide lists D.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Sylvester Turner</td>
+<td style="text-align: left;">Sylvester Turner</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: left;">party_record</td>
 <td style="text-align: left;"><a href="https://en.wikipedia.org/wiki/Sylvester_Turner">source</a></td>
 <td style="text-align: left;">Long-time Democratic state representative; later Democratic member of Congress.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Tarsha Jackson</td>
+<td style="text-align: left;">Tarsha Jackson</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: left;">reported</td>
 <td style="text-align: left;"><a href="https://en.wikipedia.org/wiki/Houston_City_Council">source</a></td>
 <td style="text-align: left;">Listed as Democratic on the current council roster.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Tiffany D. Thomas</td>
+<td style="text-align: left;">Tiffany D. Thomas</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: left;">reported</td>
 <td style="text-align: left;"><a href="https://en.wikipedia.org/wiki/Houston_City_Council">source</a></td>
 <td style="text-align: left;">Listed as Democratic on the current council roster.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Toni Lawrence</td>
+<td style="text-align: left;">Toni Lawrence</td>
 <td style="text-align: left;">Republican</td>
 <td style="text-align: left;">reported</td>
 <td style="text-align: left;"><a href="https://www.chron.com/news/politics/article/Houston-mayor-council-discuss-pro-tem-1862946.php">source</a></td>
 <td style="text-align: left;">Chronicle explicitly identifies her as Republican despite nonpartisan council ballot.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Twila Carter</td>
+<td style="text-align: left;">Twila Carter</td>
 <td style="text-align: left;">Republican</td>
 <td style="text-align: left;">party_organization</td>
 <td style="text-align: left;"><a href="https://www.harriscountygop.com/wp-content/uploads/2023/11/Harris-County-GOP-Endorsed-Candidates-1.pdf">source</a></td>
 <td style="text-align: left;">Harris County GOP endorsement, At-Large 3, December 2023 runoff.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Wanda Adams</td>
+<td style="text-align: left;">Wanda Adams</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: left;">reported</td>
 <td style="text-align: left;"><a href="https://www.uh.edu/registertovote/localelections.html">source</a></td>
 <td style="text-align: left;">University of Houston 2009 nonpartisan election guide lists her as D.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Willie Davis</td>
+<td style="text-align: left;">Willie Davis</td>
 <td style="text-align: left;">Republican</td>
 <td style="text-align: left;">party_organization</td>
 <td style="text-align: left;"><a href="https://www.harriscountygop.com/wp-content/uploads/2023/10/November-2023-Election-Harris-County-GOP-Endorsed-Candidates-3.pdf">source</a></td>
@@ -3940,6 +3927,8 @@ table { font-size: .88rem; }
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>The <a href="https://github.com/MyTownRepo/council-votes/blob/main/docs/ASSESSMENT_HOUSTON.md">Houston assessment</a> calls this candidate review-ready, not research-reviewed. Original-page spot checks, independent service-date verification, and two-build reproduction remain open upstream. The three local corrections need reconciliation with the published parser.</p>

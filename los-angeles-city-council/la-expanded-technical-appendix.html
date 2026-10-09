@@ -2185,6 +2185,19 @@ figcaption, .figure-caption { font-size: 1rem; line-height: 1.5; color: var(--re
 table { font-size: .97rem; }
 table th { color: var(--report-ink); }
 table td, table th { padding: .6rem .7rem !important; }
+.report-table-wrap { overflow-x: auto; max-width: 100%; margin: 1rem 0; }
+.report-table-wrap table { table-layout: auto !important; width: 100%; }
+.report-table-wrap table td, .report-table-wrap table th {
+padding: .55rem .45rem !important;
+vertical-align: top;
+}
+.report-table-wrap td[style*="right"] { white-space: nowrap; }
+.table-nowrap { overflow-x: auto; margin: 1rem 0; }
+.table-nowrap table { table-layout: auto !important; }
+.table-nowrap table td, .table-nowrap table th {
+white-space: nowrap !important;
+padding: .55rem .45rem !important;
+}
 #TOC { font-size: .95rem; }
 @media (max-width: 767px) {
 body { font-size: 1rem; }
@@ -2247,11 +2260,13 @@ table { font-size: .88rem; }
 <p>The historical backfill ends before February 16, 2021, when the preserved published export begins. Only successfully reconciled contested historical actions enter the pooled matrix. The recent component is the already constructed 624-action matrix, so its cells and action keys are preserved exactly; the two sources cannot overlap in date. The recent raw-action denominator is not added to historical outcome-header counts as if the two were comparable measures of independent decisions.</p>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th style="text-align: left;">Recorded audit category</th>
-<th style="text-align: right;">Records</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Recorded audit category</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Records</th>
 </tr>
 </thead>
 <tbody>
@@ -2273,6 +2288,8 @@ table { font-size: .88rem; }
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>The issue table includes exclusions encountered during capture and parsing, not a census of missing historical votes. Documents outside the requested historical date boundary are also not used. Some rejected actions are unanimous and would not qualify anyway. Neither parser agreement with printed totals nor a bounded source sample constitutes corpus-wide accuracy certification.</p>
@@ -2280,19 +2297,15 @@ table { font-size: .88rem; }
 <h3 class="anchored" data-anchor-id="coverage-and-overlap">Coverage and overlap</h3>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 7%">
-<col style="width: 42%">
-<col style="width: 31%">
-<col style="width: 18%">
-</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: right;">Year</th>
-<th style="text-align: right;">Members with qualifying votes</th>
-<th style="text-align: right;">Qualifying roll calls</th>
-<th style="text-align: right;">Binary votes</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Year</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Members with qualifying votes</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Qualifying roll calls</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Binary votes</th>
 </tr>
 </thead>
 <tbody>
@@ -2436,14 +2449,18 @@ table { font-size: .88rem; }
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th style="text-align: right;">Year</th>
-<th style="text-align: right;">Next year</th>
-<th style="text-align: right;">Shared members</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Year</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Next year</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Shared members</th>
 </tr>
 </thead>
 <tbody>
@@ -2559,6 +2576,8 @@ table { font-size: .88rem; }
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>The adjacent-year overlap counts people, not shared roll calls or independently verified bridge observations. The pooled model assumes a constant member position across the observed service history.</p>
@@ -2576,25 +2595,18 @@ table { font-size: .88rem; }
 <p><code>Code/54_fit_la_expanded.r</code> runs exactly two independent-seed chains. Democratic initial positions are −1, Republican +1, and the switcher starts at 0. These are starting values, not party priors or fixed coordinates. Greuel and Park start as Democrats because their earlier Republican affiliations preceded their observed council votes. Organizational endorsements do not enter the model.</p>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 10%">
-<col style="width: 15%">
-<col style="width: 10%">
-<col style="width: 7%">
-<col style="width: 12%">
-<col style="width: 11%">
-<col style="width: 32%">
-</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: right;">chains</th>
-<th style="text-align: right;">iterations</th>
-<th style="text-align: right;">burnin</th>
-<th style="text-align: right;">thin</th>
-<th style="text-align: right;">max_rhat</th>
-<th style="text-align: right;">min_ess</th>
-<th style="text-align: right;">chain_mean_correlation</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">chains</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">iterations</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">burnin</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">thin</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">max_rhat</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">min_ess</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">chain_mean_correlation</th>
 </tr>
 </thead>
 <tbody>
@@ -2609,71 +2621,77 @@ table { font-size: .88rem; }
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>Each chain uses 605,000 iterations, discards 205,000 and retains every 200th draw. The first stored draw is omitted and draws are sign-aligned before the diagnostics and pooled summaries. An initial shorter run had lingering drift among several older members, so it was replaced with this longer run and burn-in. The longer run exposed a historical mixing problem rather than resolving it: chain 1 makes a temporary joint excursion among several early members, while chain 2 remains near their other placement. Maximum R-hat is 1.5, so this is <strong>not a clean convergence result</strong>. A chain-mean correlation near one does not establish member-level agreement.</p>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th style="text-align: left;"></th>
-<th style="text-align: left;">name</th>
-<th style="text-align: right;">rhat</th>
-<th style="text-align: right;">ess</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">name</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">rhat</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">ess</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">39</td>
-<td style="text-align: left;">Jack Weiss</td>
+<td style="text-align: left;">Jack Weiss</td>
 <td style="text-align: right;">1.500</td>
 <td style="text-align: right;">1316.237</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">41</td>
-<td style="text-align: left;">Antonio Villaraigosa</td>
+<td style="text-align: left;">Antonio Villaraigosa</td>
 <td style="text-align: right;">1.408</td>
 <td style="text-align: right;">1178.183</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">43</td>
-<td style="text-align: left;">Greig Smith</td>
+<td style="text-align: left;">Greig Smith</td>
 <td style="text-align: right;">1.297</td>
 <td style="text-align: right;">1015.706</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">40</td>
-<td style="text-align: left;">Jan C. Perry</td>
+<td style="text-align: left;">Jan C. Perry</td>
 <td style="text-align: right;">1.107</td>
 <td style="text-align: right;">996.535</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">18</td>
-<td style="text-align: left;">Cindy Miscikowski</td>
+<td style="text-align: left;">Cindy Miscikowski</td>
 <td style="text-align: right;">1.067</td>
 <td style="text-align: right;">1642.239</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">44</td>
-<td style="text-align: left;">Bernard C. Parks</td>
+<td style="text-align: left;">Bernard C. Parks</td>
 <td style="text-align: right;">1.054</td>
 <td style="text-align: right;">935.687</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">16</td>
-<td style="text-align: left;">Janice Hahn</td>
+<td style="text-align: left;">Janice Hahn</td>
 <td style="text-align: right;">1.036</td>
 <td style="text-align: right;">1064.976</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">25</td>
-<td style="text-align: left;">Tony Cardenas</td>
+<td style="text-align: left;">Tony Cardenas</td>
 <td style="text-align: right;">1.026</td>
 <td style="text-align: right;">1045.233</td>
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 <div class="cell-output-display">
 <div>
@@ -2695,11 +2713,13 @@ table { font-size: .88rem; }
 </div>
 </div>
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th style="text-align: right;">Shared_members</th>
-<th style="text-align: right;">Pearson_correlation</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Shared_members</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Pearson_correlation</th>
 </tr>
 </thead>
 <tbody>
@@ -2709,6 +2729,8 @@ table { font-size: .88rem; }
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>The two analyses have separate normalizations; this comparison checks relative placement of the shared members rather than asserting unchanged numerical units. No rank-correlation statistic is reported.</p>
@@ -2718,72 +2740,76 @@ table { font-size: .88rem; }
 <h2 class="anchored" data-anchor-id="council-windows-and-validation">Council windows and validation</h2>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th style="text-align: left;">period</th>
-<th style="text-align: left;">from</th>
-<th style="text-align: left;">until</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">period</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">from</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">until</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">2004–2005</td>
-<td style="text-align: left;">2004-01-01</td>
-<td style="text-align: left;">2005-07-01</td>
+<td style="text-align: left;">2004⁠–⁠2005</td>
+<td style="text-align: left;">2004⁠-⁠01⁠-⁠01</td>
+<td style="text-align: left;">2005⁠-⁠07⁠-⁠01</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">2005–2007</td>
-<td style="text-align: left;">2005-07-01</td>
-<td style="text-align: left;">2007-07-01</td>
+<td style="text-align: left;">2005⁠–⁠2007</td>
+<td style="text-align: left;">2005⁠-⁠07⁠-⁠01</td>
+<td style="text-align: left;">2007⁠-⁠07⁠-⁠01</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">2007–2009</td>
-<td style="text-align: left;">2007-07-01</td>
-<td style="text-align: left;">2009-07-01</td>
+<td style="text-align: left;">2007⁠–⁠2009</td>
+<td style="text-align: left;">2007⁠-⁠07⁠-⁠01</td>
+<td style="text-align: left;">2009⁠-⁠07⁠-⁠01</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">2009–2011</td>
-<td style="text-align: left;">2009-07-01</td>
-<td style="text-align: left;">2011-07-01</td>
+<td style="text-align: left;">2009⁠–⁠2011</td>
+<td style="text-align: left;">2009⁠-⁠07⁠-⁠01</td>
+<td style="text-align: left;">2011⁠-⁠07⁠-⁠01</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">2011–2013</td>
-<td style="text-align: left;">2011-07-01</td>
-<td style="text-align: left;">2013-07-01</td>
+<td style="text-align: left;">2011⁠–⁠2013</td>
+<td style="text-align: left;">2011⁠-⁠07⁠-⁠01</td>
+<td style="text-align: left;">2013⁠-⁠07⁠-⁠01</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">2013–2015</td>
-<td style="text-align: left;">2013-07-01</td>
-<td style="text-align: left;">2015-07-01</td>
+<td style="text-align: left;">2013⁠–⁠2015</td>
+<td style="text-align: left;">2013⁠-⁠07⁠-⁠01</td>
+<td style="text-align: left;">2015⁠-⁠07⁠-⁠01</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">2015–2017</td>
-<td style="text-align: left;">2015-07-01</td>
-<td style="text-align: left;">2017-07-01</td>
+<td style="text-align: left;">2015⁠–⁠2017</td>
+<td style="text-align: left;">2015⁠-⁠07⁠-⁠01</td>
+<td style="text-align: left;">2017⁠-⁠07⁠-⁠01</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">2017–2020</td>
-<td style="text-align: left;">2017-07-01</td>
-<td style="text-align: left;">2020-12-14</td>
+<td style="text-align: left;">2017⁠–⁠2020</td>
+<td style="text-align: left;">2017⁠-⁠07⁠-⁠01</td>
+<td style="text-align: left;">2020⁠-⁠12⁠-⁠14</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">2020–2022</td>
-<td style="text-align: left;">2020-12-14</td>
-<td style="text-align: left;">2022-12-12</td>
+<td style="text-align: left;">2020⁠–⁠2022</td>
+<td style="text-align: left;">2020⁠-⁠12⁠-⁠14</td>
+<td style="text-align: left;">2022⁠-⁠12⁠-⁠12</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">2022–2024</td>
-<td style="text-align: left;">2022-12-12</td>
-<td style="text-align: left;">2024-12-09</td>
+<td style="text-align: left;">2022⁠–⁠2024</td>
+<td style="text-align: left;">2022⁠-⁠12⁠-⁠12</td>
+<td style="text-align: left;">2024⁠-⁠12⁠-⁠09</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">2024–2026</td>
-<td style="text-align: left;">2024-12-09</td>
-<td style="text-align: left;">2026-10-01</td>
+<td style="text-align: left;">2024⁠–⁠2026</td>
+<td style="text-align: left;">2024⁠-⁠12⁠-⁠09</td>
+<td style="text-align: left;">2026⁠-⁠10⁠-⁠01</td>
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>Election turnovers follow July 1 in the earlier odd-year elections, then December 14, 2020; December 12, 2022; and December 9, 2024. The transition extended the 2015 and 2017 terms, so no 2019 turnover is invented. The initial 2004 window is left-truncated. Windows include interim officeholders with qualifying responses, and all reuse pooled scores.</p>
@@ -2795,35 +2821,26 @@ table { font-size: .88rem; }
 <p><code>Code/56_check_la_expanded.py</code> checks synthetic parser cases and all historical vote cells against action tallies. Root inspected the original cached journal text for a seeded selection of one contested action in each historical year (18 actions), checking dates, rosters and dissent/absence lists; the selection is reproducible with seed 20261008. The source review is bounded, not a statistical accuracy estimate. The original recent-only source checks remain applicable because its cells are reused unchanged.</p>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 20%">
-<col style="width: 16%">
-<col style="width: 5%">
-<col style="width: 5%">
-<col style="width: 5%">
-<col style="width: 6%">
-<col style="width: 26%">
-<col style="width: 5%">
-<col style="width: 7%">
-</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">name</th>
-<th style="text-align: left;">local_id</th>
-<th style="text-align: right;">mean</th>
-<th style="text-align: right;">lower</th>
-<th style="text-align: right;">upper</th>
-<th style="text-align: right;">n_votes</th>
-<th style="text-align: left;">party</th>
-<th style="text-align: right;">rhat</th>
-<th style="text-align: right;">ess</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">name</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">local_id</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">mean</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">lower</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">upper</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">n_votes</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">party</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">rhat</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">ess</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Eunisses Hernandez</td>
-<td style="text-align: left;">CA-LACITY-2022-0010</td>
+<td style="text-align: left;">Eunisses Hernandez</td>
+<td style="text-align: left;">CA-LACITY-2022⁠-⁠0010</td>
 <td style="text-align: right;">-5.185</td>
 <td style="text-align: right;">-6.177</td>
 <td style="text-align: right;">-4.246</td>
@@ -2833,8 +2850,8 @@ table { font-size: .88rem; }
 <td style="text-align: right;">139.569</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Hugo Soto-Martinez</td>
-<td style="text-align: left;">CA-LACITY-2023-0009</td>
+<td style="text-align: left;">Hugo Soto-Martinez</td>
+<td style="text-align: left;">CA-LACITY-2023⁠-⁠0009</td>
 <td style="text-align: right;">-2.452</td>
 <td style="text-align: right;">-3.033</td>
 <td style="text-align: right;">-1.935</td>
@@ -2844,8 +2861,8 @@ table { font-size: .88rem; }
 <td style="text-align: right;">781.024</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Ysabel J. Jurado</td>
-<td style="text-align: left;">CA-LACITY-2024-0020</td>
+<td style="text-align: left;">Ysabel J. Jurado</td>
+<td style="text-align: left;">CA-LACITY-2024⁠-⁠0020</td>
 <td style="text-align: right;">-1.412</td>
 <td style="text-align: right;">-1.748</td>
 <td style="text-align: right;">-1.116</td>
@@ -2855,8 +2872,8 @@ table { font-size: .88rem; }
 <td style="text-align: right;">1167.243</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Mike Bonin</td>
-<td style="text-align: left;">CA-LACITY-2022-0006</td>
+<td style="text-align: left;">Mike Bonin</td>
+<td style="text-align: left;">CA-LACITY-2022⁠-⁠0006</td>
 <td style="text-align: right;">-0.962</td>
 <td style="text-align: right;">-1.381</td>
 <td style="text-align: right;">-0.694</td>
@@ -2866,8 +2883,8 @@ table { font-size: .88rem; }
 <td style="text-align: right;">908.038</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Felipe Fuentes</td>
-<td style="text-align: left;">CA-LACITY-2013-0002</td>
+<td style="text-align: left;">Felipe Fuentes</td>
+<td style="text-align: left;">CA-LACITY-2013⁠-⁠0002</td>
 <td style="text-align: right;">-0.346</td>
 <td style="text-align: right;">-0.616</td>
 <td style="text-align: right;">-0.082</td>
@@ -2877,8 +2894,8 @@ table { font-size: .88rem; }
 <td style="text-align: right;">2820.868</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">David Ryu</td>
-<td style="text-align: left;">CA-LACITY-2015-0001</td>
+<td style="text-align: left;">David Ryu</td>
+<td style="text-align: left;">CA-LACITY-2015⁠-⁠0001</td>
 <td style="text-align: right;">-0.310</td>
 <td style="text-align: right;">-0.538</td>
 <td style="text-align: right;">-0.116</td>
@@ -2888,8 +2905,8 @@ table { font-size: .88rem; }
 <td style="text-align: right;">3035.268</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Nithya Raman</td>
-<td style="text-align: left;">CA-LACITY-2021-0006</td>
+<td style="text-align: left;">Nithya Raman</td>
+<td style="text-align: left;">CA-LACITY-2021⁠-⁠0006</td>
 <td style="text-align: right;">-0.294</td>
 <td style="text-align: right;">-0.387</td>
 <td style="text-align: right;">-0.203</td>
@@ -2899,8 +2916,8 @@ table { font-size: .88rem; }
 <td style="text-align: right;">1285.568</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Marqueece Harris-Dawson</td>
-<td style="text-align: left;">CA-LACITY-2021-0002</td>
+<td style="text-align: left;">Marqueece Harris-Dawson</td>
+<td style="text-align: left;">CA-LACITY-2021⁠-⁠0002</td>
 <td style="text-align: right;">-0.199</td>
 <td style="text-align: right;">-0.277</td>
 <td style="text-align: right;">-0.122</td>
@@ -2910,8 +2927,8 @@ table { font-size: .88rem; }
 <td style="text-align: right;">778.491</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Richard Alarcon</td>
-<td style="text-align: left;">CA-LACITY-1993-0001</td>
+<td style="text-align: left;">Richard Alarcon</td>
+<td style="text-align: left;">CA-LACITY-1993⁠-⁠0001</td>
 <td style="text-align: right;">-0.161</td>
 <td style="text-align: right;">-0.261</td>
 <td style="text-align: right;">-0.067</td>
@@ -2921,8 +2938,8 @@ table { font-size: .88rem; }
 <td style="text-align: right;">1615.491</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Katy Young-Yaroslavsky</td>
-<td style="text-align: left;">CA-LACITY-2022-0013</td>
+<td style="text-align: left;">Katy Young-Yaroslavsky</td>
+<td style="text-align: left;">CA-LACITY-2022⁠-⁠0013</td>
 <td style="text-align: right;">-0.148</td>
 <td style="text-align: right;">-0.251</td>
 <td style="text-align: right;">-0.047</td>
@@ -2932,8 +2949,8 @@ table { font-size: .88rem; }
 <td style="text-align: right;">1536.028</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Heather Hutt</td>
-<td style="text-align: left;">CA-LACITY-2023-0031</td>
+<td style="text-align: left;">Heather Hutt</td>
+<td style="text-align: left;">CA-LACITY-2023⁠-⁠0031</td>
 <td style="text-align: right;">-0.085</td>
 <td style="text-align: right;">-0.166</td>
 <td style="text-align: right;">-0.006</td>
@@ -2943,8 +2960,8 @@ table { font-size: .88rem; }
 <td style="text-align: right;">1269.112</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Kevin De Leon</td>
-<td style="text-align: left;">CA-LACITY-2021-0003</td>
+<td style="text-align: left;">Kevin De Leon</td>
+<td style="text-align: left;">CA-LACITY-2021⁠-⁠0003</td>
 <td style="text-align: right;">-0.066</td>
 <td style="text-align: right;">-0.146</td>
 <td style="text-align: right;">0.014</td>
@@ -2954,8 +2971,8 @@ table { font-size: .88rem; }
 <td style="text-align: right;">1238.009</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Mark Ridley-Thomas</td>
-<td style="text-align: left;">CA-LACITY-2021-0007</td>
+<td style="text-align: left;">Mark Ridley-Thomas</td>
+<td style="text-align: left;">CA-LACITY-2021⁠-⁠0007</td>
 <td style="text-align: right;">-0.065</td>
 <td style="text-align: right;">-0.341</td>
 <td style="text-align: right;">0.249</td>
@@ -2965,8 +2982,8 @@ table { font-size: .88rem; }
 <td style="text-align: right;">3842.050</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Bill Rosendahl</td>
-<td style="text-align: left;">CA-LACITY-2005-0002</td>
+<td style="text-align: left;">Bill Rosendahl</td>
+<td style="text-align: left;">CA-LACITY-2005⁠-⁠0002</td>
 <td style="text-align: right;">-0.040</td>
 <td style="text-align: right;">-0.127</td>
 <td style="text-align: right;">0.048</td>
@@ -2976,8 +2993,8 @@ table { font-size: .88rem; }
 <td style="text-align: right;">1679.336</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Dennis P. Zine</td>
-<td style="text-align: left;">CA-LACITY-2001-0007</td>
+<td style="text-align: left;">Dennis P. Zine</td>
+<td style="text-align: left;">CA-LACITY-2001⁠-⁠0007</td>
 <td style="text-align: right;">-0.037</td>
 <td style="text-align: right;">-0.129</td>
 <td style="text-align: right;">0.054</td>
@@ -2987,8 +3004,8 @@ table { font-size: .88rem; }
 <td style="text-align: right;">1973.374</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Janice Hahn</td>
-<td style="text-align: left;">CA-LACITY-2001-0002</td>
+<td style="text-align: left;">Janice Hahn</td>
+<td style="text-align: left;">CA-LACITY-2001⁠-⁠0002</td>
 <td style="text-align: right;">0.002</td>
 <td style="text-align: right;">-0.088</td>
 <td style="text-align: right;">0.096</td>
@@ -2998,8 +3015,8 @@ table { font-size: .88rem; }
 <td style="text-align: right;">1064.976</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Paul Koretz</td>
-<td style="text-align: left;">CA-LACITY-2022-0007</td>
+<td style="text-align: left;">Paul Koretz</td>
+<td style="text-align: left;">CA-LACITY-2022⁠-⁠0007</td>
 <td style="text-align: right;">0.024</td>
 <td style="text-align: right;">-0.054</td>
 <td style="text-align: right;">0.103</td>
@@ -3009,8 +3026,8 @@ table { font-size: .88rem; }
 <td style="text-align: right;">1308.752</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Cindy Miscikowski</td>
-<td style="text-align: left;">CA-LACITY-1997-0001</td>
+<td style="text-align: left;">Cindy Miscikowski</td>
+<td style="text-align: left;">CA-LACITY-1997⁠-⁠0001</td>
 <td style="text-align: right;">0.025</td>
 <td style="text-align: right;">-0.272</td>
 <td style="text-align: right;">0.341</td>
@@ -3020,8 +3037,8 @@ table { font-size: .88rem; }
 <td style="text-align: right;">1642.239</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Jose L. Huizar</td>
-<td style="text-align: left;">CA-LACITY-2005-0001</td>
+<td style="text-align: left;">Jose L. Huizar</td>
+<td style="text-align: left;">CA-LACITY-2005⁠-⁠0001</td>
 <td style="text-align: right;">0.109</td>
 <td style="text-align: right;">0.024</td>
 <td style="text-align: right;">0.195</td>
@@ -3031,8 +3048,8 @@ table { font-size: .88rem; }
 <td style="text-align: right;">1406.338</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Tom LaBonge</td>
-<td style="text-align: left;">CA-LACITY-2001-0003</td>
+<td style="text-align: left;">Tom LaBonge</td>
+<td style="text-align: left;">CA-LACITY-2001⁠-⁠0003</td>
 <td style="text-align: right;">0.131</td>
 <td style="text-align: right;">0.038</td>
 <td style="text-align: right;">0.222</td>
@@ -3042,8 +3059,8 @@ table { font-size: .88rem; }
 <td style="text-align: right;">1337.753</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Ed Reyes</td>
-<td style="text-align: left;">CA-LACITY-2001-0005</td>
+<td style="text-align: left;">Ed Reyes</td>
+<td style="text-align: left;">CA-LACITY-2001⁠-⁠0005</td>
 <td style="text-align: right;">0.137</td>
 <td style="text-align: right;">0.045</td>
 <td style="text-align: right;">0.232</td>
@@ -3053,8 +3070,8 @@ table { font-size: .88rem; }
 <td style="text-align: right;">1810.930</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Eric Garcetti</td>
-<td style="text-align: left;">CA-LACITY-2001-0001</td>
+<td style="text-align: left;">Eric Garcetti</td>
+<td style="text-align: left;">CA-LACITY-2001⁠-⁠0001</td>
 <td style="text-align: right;">0.157</td>
 <td style="text-align: right;">0.063</td>
 <td style="text-align: right;">0.249</td>
@@ -3064,8 +3081,8 @@ table { font-size: .88rem; }
 <td style="text-align: right;">1683.712</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Herb J. Wesson Jr.</td>
-<td style="text-align: left;">CA-LACITY-2005-0003</td>
+<td style="text-align: left;">Herb J. Wesson Jr.</td>
+<td style="text-align: left;">CA-LACITY-2005⁠-⁠0003</td>
 <td style="text-align: right;">0.158</td>
 <td style="text-align: right;">0.076</td>
 <td style="text-align: right;">0.241</td>
@@ -3075,8 +3092,8 @@ table { font-size: .88rem; }
 <td style="text-align: right;">1408.657</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Curren D Price Jr.</td>
-<td style="text-align: left;">CA-LACITY-2021-0005</td>
+<td style="text-align: left;">Curren D Price Jr.</td>
+<td style="text-align: left;">CA-LACITY-2021⁠-⁠0005</td>
 <td style="text-align: right;">0.161</td>
 <td style="text-align: right;">0.079</td>
 <td style="text-align: right;">0.241</td>
@@ -3086,8 +3103,8 @@ table { font-size: .88rem; }
 <td style="text-align: right;">1259.567</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Tony Cardenas</td>
-<td style="text-align: left;">CA-LACITY-2003-0001</td>
+<td style="text-align: left;">Tony Cardenas</td>
+<td style="text-align: left;">CA-LACITY-2003⁠-⁠0001</td>
 <td style="text-align: right;">0.180</td>
 <td style="text-align: right;">0.070</td>
 <td style="text-align: right;">0.302</td>
@@ -3097,8 +3114,8 @@ table { font-size: .88rem; }
 <td style="text-align: right;">1045.233</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Wendy Greuel</td>
-<td style="text-align: left;">CA-LACITY-2002-0001</td>
+<td style="text-align: left;">Wendy Greuel</td>
+<td style="text-align: left;">CA-LACITY-2002⁠-⁠0001</td>
 <td style="text-align: right;">0.188</td>
 <td style="text-align: right;">0.067</td>
 <td style="text-align: right;">0.315</td>
@@ -3108,8 +3125,8 @@ table { font-size: .88rem; }
 <td style="text-align: right;">2465.861</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Paul Krekorian</td>
-<td style="text-align: left;">CA-LACITY-2022-0001</td>
+<td style="text-align: left;">Paul Krekorian</td>
+<td style="text-align: left;">CA-LACITY-2022⁠-⁠0001</td>
 <td style="text-align: right;">0.215</td>
 <td style="text-align: right;">0.135</td>
 <td style="text-align: right;">0.296</td>
@@ -3119,8 +3136,8 @@ table { font-size: .88rem; }
 <td style="text-align: right;">948.131</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Nury Martinez</td>
-<td style="text-align: left;">CA-LACITY-2013-0003</td>
+<td style="text-align: left;">Nury Martinez</td>
+<td style="text-align: left;">CA-LACITY-2013⁠-⁠0003</td>
 <td style="text-align: right;">0.218</td>
 <td style="text-align: right;">0.122</td>
 <td style="text-align: right;">0.317</td>
@@ -3130,8 +3147,8 @@ table { font-size: .88rem; }
 <td style="text-align: right;">1447.054</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Bob Blumenfield</td>
-<td style="text-align: left;">CA-LACITY-2021-0001</td>
+<td style="text-align: left;">Bob Blumenfield</td>
+<td style="text-align: left;">CA-LACITY-2021⁠-⁠0001</td>
 <td style="text-align: right;">0.233</td>
 <td style="text-align: right;">0.154</td>
 <td style="text-align: right;">0.312</td>
@@ -3141,8 +3158,8 @@ table { font-size: .88rem; }
 <td style="text-align: right;">1171.341</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Mitch O’Farrell</td>
-<td style="text-align: left;">CA-LACITY-2013-0004</td>
+<td style="text-align: left;">Mitch O&#39;Farrell</td>
+<td style="text-align: left;">CA-LACITY-2013⁠-⁠0004</td>
 <td style="text-align: right;">0.263</td>
 <td style="text-align: right;">0.171</td>
 <td style="text-align: right;">0.357</td>
@@ -3152,8 +3169,8 @@ table { font-size: .88rem; }
 <td style="text-align: right;">1190.071</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Alex Padilla</td>
-<td style="text-align: left;">CA-LACITY-1999-0002</td>
+<td style="text-align: left;">Alex Padilla</td>
+<td style="text-align: left;">CA-LACITY-1999⁠-⁠0002</td>
 <td style="text-align: right;">0.271</td>
 <td style="text-align: right;">0.050</td>
 <td style="text-align: right;">0.500</td>
@@ -3163,8 +3180,8 @@ table { font-size: .88rem; }
 <td style="text-align: right;">3347.140</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Martin Ludlow</td>
-<td style="text-align: left;">CA-LACITY-2003-0002</td>
+<td style="text-align: left;">Martin Ludlow</td>
+<td style="text-align: left;">CA-LACITY-2003⁠-⁠0002</td>
 <td style="text-align: right;">0.273</td>
 <td style="text-align: right;">0.016</td>
 <td style="text-align: right;">0.534</td>
@@ -3174,8 +3191,8 @@ table { font-size: .88rem; }
 <td style="text-align: right;">2624.232</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Gilbert Cedillo</td>
-<td style="text-align: left;">CA-LACITY-2013-0001</td>
+<td style="text-align: left;">Gilbert Cedillo</td>
+<td style="text-align: left;">CA-LACITY-2013⁠-⁠0001</td>
 <td style="text-align: right;">0.333</td>
 <td style="text-align: right;">0.225</td>
 <td style="text-align: right;">0.444</td>
@@ -3185,8 +3202,8 @@ table { font-size: .88rem; }
 <td style="text-align: right;">1660.189</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Traci Park</td>
-<td style="text-align: left;">CA-LACITY-2022-0012</td>
+<td style="text-align: left;">Traci Park</td>
+<td style="text-align: left;">CA-LACITY-2022⁠-⁠0012</td>
 <td style="text-align: right;">0.366</td>
 <td style="text-align: right;">0.246</td>
 <td style="text-align: right;">0.488</td>
@@ -3196,8 +3213,8 @@ table { font-size: .88rem; }
 <td style="text-align: right;">1456.568</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Imelda Padilla</td>
-<td style="text-align: left;">CA-LACITY-2023-0026</td>
+<td style="text-align: left;">Imelda Padilla</td>
+<td style="text-align: left;">CA-LACITY-2023⁠-⁠0026</td>
 <td style="text-align: right;">0.406</td>
 <td style="text-align: right;">0.237</td>
 <td style="text-align: right;">0.570</td>
@@ -3207,8 +3224,8 @@ table { font-size: .88rem; }
 <td style="text-align: right;">1715.373</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Monica Rodriguez</td>
-<td style="text-align: left;">CA-LACITY-2025-0008</td>
+<td style="text-align: left;">Monica Rodriguez</td>
+<td style="text-align: left;">CA-LACITY-2025⁠-⁠0008</td>
 <td style="text-align: right;">0.475</td>
 <td style="text-align: right;">0.373</td>
 <td style="text-align: right;">0.578</td>
@@ -3218,8 +3235,8 @@ table { font-size: .88rem; }
 <td style="text-align: right;">1310.539</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Adrin Nazarian</td>
-<td style="text-align: left;">CA-LACITY-2024-0021</td>
+<td style="text-align: left;">Adrin Nazarian</td>
+<td style="text-align: left;">CA-LACITY-2024⁠-⁠0021</td>
 <td style="text-align: right;">0.516</td>
 <td style="text-align: right;">0.331</td>
 <td style="text-align: right;">0.708</td>
@@ -3229,8 +3246,8 @@ table { font-size: .88rem; }
 <td style="text-align: right;">958.802</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">John Lee</td>
-<td style="text-align: left;">CA-LACITY-2019-0001</td>
+<td style="text-align: left;">John Lee</td>
+<td style="text-align: left;">CA-LACITY-2019⁠-⁠0001</td>
 <td style="text-align: right;">0.628</td>
 <td style="text-align: right;">0.522</td>
 <td style="text-align: right;">0.744</td>
@@ -3240,8 +3257,8 @@ table { font-size: .88rem; }
 <td style="text-align: right;">1234.944</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Jack Weiss</td>
-<td style="text-align: left;">CA-LACITY-2001-0006</td>
+<td style="text-align: left;">Jack Weiss</td>
+<td style="text-align: left;">CA-LACITY-2001⁠-⁠0006</td>
 <td style="text-align: right;">0.702</td>
 <td style="text-align: right;">-0.029</td>
 <td style="text-align: right;">0.993</td>
@@ -3251,8 +3268,8 @@ table { font-size: .88rem; }
 <td style="text-align: right;">1316.237</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Jan C. Perry</td>
-<td style="text-align: left;">CA-LACITY-2001-0004</td>
+<td style="text-align: left;">Jan C. Perry</td>
+<td style="text-align: left;">CA-LACITY-2001⁠-⁠0004</td>
 <td style="text-align: right;">0.706</td>
 <td style="text-align: right;">0.572</td>
 <td style="text-align: right;">0.872</td>
@@ -3262,8 +3279,8 @@ table { font-size: .88rem; }
 <td style="text-align: right;">996.535</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Antonio Villaraigosa</td>
-<td style="text-align: left;">CA-LACITY-2003-0005</td>
+<td style="text-align: left;">Antonio Villaraigosa</td>
+<td style="text-align: left;">CA-LACITY-2003⁠-⁠0005</td>
 <td style="text-align: right;">0.777</td>
 <td style="text-align: right;">-0.051</td>
 <td style="text-align: right;">1.053</td>
@@ -3273,8 +3290,8 @@ table { font-size: .88rem; }
 <td style="text-align: right;">1178.183</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Joseph Buscaino</td>
-<td style="text-align: left;">CA-LACITY-2012-0001</td>
+<td style="text-align: left;">Joseph Buscaino</td>
+<td style="text-align: left;">CA-LACITY-2012⁠-⁠0001</td>
 <td style="text-align: right;">0.786</td>
 <td style="text-align: right;">0.678</td>
 <td style="text-align: right;">0.903</td>
@@ -3284,8 +3301,8 @@ table { font-size: .88rem; }
 <td style="text-align: right;">1342.120</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Greig Smith</td>
-<td style="text-align: left;">CA-LACITY-2003-0004</td>
+<td style="text-align: left;">Greig Smith</td>
+<td style="text-align: left;">CA-LACITY-2003⁠-⁠0004</td>
 <td style="text-align: right;">1.005</td>
 <td style="text-align: right;">0.817</td>
 <td style="text-align: right;">1.348</td>
@@ -3295,8 +3312,8 @@ table { font-size: .88rem; }
 <td style="text-align: right;">1015.706</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Bernard C. Parks</td>
-<td style="text-align: left;">CA-LACITY-2003-0003</td>
+<td style="text-align: left;">Bernard C. Parks</td>
+<td style="text-align: left;">CA-LACITY-2003⁠-⁠0003</td>
 <td style="text-align: right;">1.151</td>
 <td style="text-align: right;">0.996</td>
 <td style="text-align: right;">1.332</td>
@@ -3306,8 +3323,8 @@ table { font-size: .88rem; }
 <td style="text-align: right;">935.687</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Mitchell Englander</td>
-<td style="text-align: left;">CA-LACITY-2011-0001</td>
+<td style="text-align: left;">Mitchell Englander</td>
+<td style="text-align: left;">CA-LACITY-2011⁠-⁠0001</td>
 <td style="text-align: right;">1.164</td>
 <td style="text-align: right;">0.995</td>
 <td style="text-align: right;">1.352</td>
@@ -3318,6 +3335,8 @@ table { font-size: .88rem; }
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 </section>

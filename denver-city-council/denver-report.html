@@ -2185,6 +2185,19 @@ figcaption, .figure-caption { font-size: 1rem; line-height: 1.5; color: var(--re
 table { font-size: .97rem; }
 table th { color: var(--report-ink); }
 table td, table th { padding: .6rem .7rem !important; }
+.report-table-wrap { overflow-x: auto; max-width: 100%; margin: 1rem 0; }
+.report-table-wrap table { table-layout: auto !important; width: 100%; }
+.report-table-wrap table td, .report-table-wrap table th {
+padding: .55rem .45rem !important;
+vertical-align: top;
+}
+.report-table-wrap td[style*="right"] { white-space: nowrap; }
+.table-nowrap { overflow-x: auto; margin: 1rem 0; }
+.table-nowrap table { table-layout: auto !important; }
+.table-nowrap table td, .table-nowrap table th {
+white-space: nowrap !important;
+padding: .55rem .45rem !important;
+}
 #TOC { font-size: .95rem; }
 @media (max-width: 767px) {
 body { font-size: 1rem; }
@@ -2274,24 +2287,22 @@ Recorded yeas and nays</p>
 <p>The source extract contains <strong>96,899 Denver City Council member-vote records</strong>, <strong>152 meetings</strong>, and <strong>7,869 reconstructed vote events</strong> from July 17, 2023 through August 31, 2026. It covers the 13 people on the term’s elected roster: eleven district representatives and two at-large members. Denver’s official <a href="https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Denver-City-Council/Council-Members-Websites-Info">council directory</a> supplies the district assignments. Sarah Parady resigned on August 5, 2026, so this is a pooled roster over the period rather than a claim that all 13 held office on the final date.</p>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 60%">
-<col style="width: 39%">
-</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Measure</th>
-<th style="text-align: left;">Value</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Measure</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Value</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Member-vote records</td>
+<td style="text-align: left;">Member-vote records</td>
 <td style="text-align: left;">96,899</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Council meetings</td>
+<td style="text-align: left;">Council meetings</td>
 <td style="text-align: left;">152</td>
 </tr>
 <tr class="odd">
@@ -2303,7 +2314,7 @@ Recorded yeas and nays</p>
 <td style="text-align: left;">7,869</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Events with yea and nay</td>
+<td style="text-align: left;">Events with yea and nay</td>
 <td style="text-align: left;">301</td>
 </tr>
 <tr class="even">
@@ -2315,11 +2326,13 @@ Recorded yeas and nays</p>
 <td style="text-align: left;">300</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Council members</td>
+<td style="text-align: left;">Council members</td>
 <td style="text-align: left;">13</td>
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>Denver’s flattened data sometimes give several distinct roll-call events in one meeting the same generic motion text. The analysis separates those events by their order within each member’s preserved source records. Eighteen meeting–motion groups have inconsistent repetition counts across members and are excluded rather than aligned by guesswork. This is the principal Denver-specific construction decision.</p>
@@ -2378,17 +2391,14 @@ Recorded yeas and nays</p>
 <p>The following labels are dated external classifications, not inferred from the roll calls. Axios identified Lewis, Parady, and Gonzales-Gutierrez as the council’s progressive wing in 2025 and again in 2026. Denver DSA endorsed Lewis and Parady in the 2023 council election. Denver does not have a directly comparable formal caucus system to the Chicago groups used in the earlier report, so these are best read as face-validity checks on a small council rather than stable organizational memberships.</p>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 49%">
-<col style="width: 17%">
-<col style="width: 33%">
-</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Group</th>
-<th style="text-align: right;">Members (N)</th>
-<th style="text-align: right;">Median voting position</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Group</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Members (N)</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Median voting position</th>
 </tr>
 </thead>
 <tbody>
@@ -2404,6 +2414,8 @@ Recorded yeas and nays</p>
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>All three reported progressive-wing members appear at or below the center of the fitted scale, and the two DSA-endorsed members occupy its negative endpoint. The contrast is large and in the expected direction. Because it compares only three members with ten others—and because the grouping was itself recognized partly through public policy behavior—the result is corroborating description, not an independent test or a causal estimate.</p>

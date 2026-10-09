@@ -2185,6 +2185,19 @@ figcaption, .figure-caption { font-size: 1rem; line-height: 1.5; color: var(--re
 table { font-size: .97rem; }
 table th { color: var(--report-ink); }
 table td, table th { padding: .6rem .7rem !important; }
+.report-table-wrap { overflow-x: auto; max-width: 100%; margin: 1rem 0; }
+.report-table-wrap table { table-layout: auto !important; width: 100%; }
+.report-table-wrap table td, .report-table-wrap table th {
+padding: .55rem .45rem !important;
+vertical-align: top;
+}
+.report-table-wrap td[style*="right"] { white-space: nowrap; }
+.table-nowrap { overflow-x: auto; margin: 1rem 0; }
+.table-nowrap table { table-layout: auto !important; }
+.table-nowrap table td, .table-nowrap table th {
+white-space: nowrap !important;
+padding: .55rem .45rem !important;
+}
 #TOC { font-size: .95rem; }
 @media (max-width: 767px) {
 body { font-size: 1rem; }
@@ -2263,11 +2276,13 @@ Recorded yeas and nays</p>
 <p>The analysis uses published roll-call votes from the <a href="https://github.com/MyTownRepo/council-votes">MyTown council-votes corpus</a>, with links back to the city’s official action documents. The preserved national candidate export defines this sample; it is not a claim that every Los Angeles vote or member has been captured.</p>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th style="text-align: left;">Measure</th>
-<th style="text-align: left;">Value</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Measure</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Value</th>
 </tr>
 </thead>
 <tbody>
@@ -2288,15 +2303,17 @@ Recorded yeas and nays</p>
 <td style="text-align: left;">624</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Fitted people</td>
+<td style="text-align: left;">Fitted people</td>
 <td style="text-align: left;">24</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Observed yea/nay votes</td>
+<td style="text-align: left;">Observed yea/nay votes</td>
 <td style="text-align: left;">7,329</td>
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>We retain votes with at least one member on each side and at least ten recorded yea/nay responses. Members need at least seven such votes. This keeps lone-dissenter votes, which can reveal meaningful differences in a small council, while removing unanimous business and sparsely recorded actions. Absences and unrecorded responses are missing, not opposition. Spelling variants are consolidated; ambiguous name fragments and conflicting responses are excluded rather than guessed.</p>
@@ -2389,11 +2406,13 @@ Recorded yeas and nays</p>
 <h3 class="anchored" data-anchor-id="party-affiliation">Party affiliation</h3>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th style="text-align: left;">Evidence label</th>
-<th style="text-align: right;">People</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Evidence label</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">People</th>
 </tr>
 </thead>
 <tbody>
@@ -2402,11 +2421,13 @@ Recorded yeas and nays</p>
 <td style="text-align: right;">23</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Republican — 2019 report</td>
+<td style="text-align: left;">Republican — 2019 report</td>
 <td style="text-align: right;">1</td>
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>Party evidence comes from the researched affiliation ledger, including the <a href="https://github.com/MyTownRepo/council-votes/pull/21">five recent additions</a>. The fifth, Tim McOsker, is Democratic-affiliated but remains outside the fit because his vote records are missing; he is not included in the counts above. Jurado’s Democratic label reflects the county party’s endorsement, not independently verified registration. Park’s September 2022 source says she had already switched to Democratic; her retained council votes begin in January 2023, so she is shown as Democratic without inventing an exact switch date. Lee’s sole Republican claim is dated 2019. With that limited Republican evidence, a two-party comparison would tell us little.</p>
@@ -2417,31 +2438,24 @@ Recorded yeas and nays</p>
 <p>The comparisons below use these two documented council groups, not an assumed endorsement census of earlier members. “Other” means the other fitted members of that council window; it does not mean conservative or Republican. The within-Democrat rows ask whether the endorsement measure distinguishes members even after holding the broad party label constant.</p>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 15%">
-<col style="width: 28%">
-<col style="width: 9%">
-<col style="width: 10%">
-<col style="width: 12%">
-<col style="width: 9%">
-<col style="width: 13%">
-</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Council group</th>
-<th style="text-align: left;">Comparison</th>
-<th style="text-align: right;">DSA endorsed</th>
-<th style="text-align: right;">Other members</th>
-<th style="text-align: right;">Endorsed median</th>
-<th style="text-align: right;">Other median</th>
-<th style="text-align: right;">Median difference</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Council group</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Comparison</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">DSA endorsed</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Other members</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Endorsed median</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Other median</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Median difference</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">After 2022 election</td>
-<td style="text-align: left;">All fitted members</td>
+<td style="text-align: left;">After 2022 election</td>
+<td style="text-align: left;">All fitted members</td>
 <td style="text-align: right;">3</td>
 <td style="text-align: right;">11</td>
 <td style="text-align: right;">-1.60</td>
@@ -2449,7 +2463,7 @@ Recorded yeas and nays</p>
 <td style="text-align: right;">-1.88</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">After 2022 election</td>
+<td style="text-align: left;">After 2022 election</td>
 <td style="text-align: left;">Within Democratic-affiliated members</td>
 <td style="text-align: right;">3</td>
 <td style="text-align: right;">10</td>
@@ -2458,8 +2472,8 @@ Recorded yeas and nays</p>
 <td style="text-align: right;">-1.83</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">After 2024 election</td>
-<td style="text-align: left;">All fitted members</td>
+<td style="text-align: left;">After 2024 election</td>
+<td style="text-align: left;">All fitted members</td>
 <td style="text-align: right;">4</td>
 <td style="text-align: right;">10</td>
 <td style="text-align: right;">-1.28</td>
@@ -2467,7 +2481,7 @@ Recorded yeas and nays</p>
 <td style="text-align: right;">-1.62</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">After 2024 election</td>
+<td style="text-align: left;">After 2024 election</td>
 <td style="text-align: left;">Within Democratic-affiliated members</td>
 <td style="text-align: right;">4</td>
 <td style="text-align: right;">9</td>
@@ -2477,6 +2491,8 @@ Recorded yeas and nays</p>
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>In both documented councils, <strong>every DSA-endorsed member’s point estimate is left of every other fitted member’s</strong>, including within the Democratic-affiliated group. At the closest boundary, Raman and Harris-Dawson’s uncertainty intervals slightly overlap. Bonin is also left of Raman in the pooled plot, but he served in the earlier window, for which this report has no complete documented endorsement group.</p>
@@ -2487,74 +2503,72 @@ Recorded yeas and nays</p>
 <p>AHLA supplies a housing-focused comparison distinct from DSA. Its <a href="https://abundanthousingla.org/ahla-endorsed-candidates-update/">2022 election update</a> identifies Yaroslavsky and Soto-Martínez among its endorsed winners. Its <a href="https://www.abundanthousingla.org/2024-endorsements">2024 endorsement list</a> includes Raman, Harris-Dawson, Hutt and Nazarian, alongside challengers who are not fitted here. The documented group therefore reaches beyond the DSA bloc.</p>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th style="text-align: left;">AHLA-endorsed member</th>
-<th style="text-align: right;">Election year</th>
-<th style="text-align: right;">Pooled position</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">AHLA-endorsed member</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Election year</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Pooled position</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Katy Young-Yaroslavsky</td>
+<td style="text-align: left;">Katy Young-Yaroslavsky</td>
 <td style="text-align: right;">2022</td>
 <td style="text-align: right;">-0.14</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Hugo Soto-Martinez</td>
+<td style="text-align: left;">Hugo Soto-Martinez</td>
 <td style="text-align: right;">2022</td>
 <td style="text-align: right;">-1.60</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Adrin Nazarian</td>
+<td style="text-align: left;">Adrin Nazarian</td>
 <td style="text-align: right;">2024</td>
 <td style="text-align: right;">0.57</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Nithya Raman</td>
+<td style="text-align: left;">Nithya Raman</td>
 <td style="text-align: right;">2024</td>
 <td style="text-align: right;">-0.29</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Marqueece Harris-Dawson</td>
+<td style="text-align: left;">Marqueece Harris-Dawson</td>
 <td style="text-align: right;">2024</td>
 <td style="text-align: right;">-0.20</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Heather Hutt</td>
+<td style="text-align: left;">Heather Hutt</td>
 <td style="text-align: right;">2024</td>
 <td style="text-align: right;">-0.09</td>
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>The comparison below is limited to incoming 2024 members in districts where AHLA documented a candidate choice. “Other” means Lee and Jurado, who are not on the reviewed annual list; it is not a claim that they never received AHLA support. Holdovers and the undocumented District 6 race are excluded. The annual list combines election stages, so this is a descriptive comparison, not one simultaneous endorsement slate.</p>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 14%">
-<col style="width: 11%">
-<col style="width: 16%">
-</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Comparison</th>
-<th style="text-align: right;">AHLA endorsed</th>
-<th style="text-align: right;">Other members</th>
-<th style="text-align: right;">Endorsed median</th>
-<th style="text-align: right;">Other median</th>
-<th style="text-align: right;">Median difference</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Comparison</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">AHLA endorsed</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Other members</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Endorsed median</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Other median</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Median difference</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">All fitted members</td>
+<td style="text-align: left;">All fitted members</td>
 <td style="text-align: right;">4</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">-0.15</td>
@@ -2571,6 +2585,8 @@ Recorded yeas and nays</p>
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>AHLA support is not simply a marker for the council’s leftmost members: its endorsed group spans Raman through Nazarian. The within-Democrat comparison has only one other member, Jurado, so it should be read as a small-group description.</p>

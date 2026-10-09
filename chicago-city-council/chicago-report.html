@@ -2185,6 +2185,19 @@ figcaption, .figure-caption { font-size: 1rem; line-height: 1.5; color: var(--re
 table { font-size: .97rem; }
 table th { color: var(--report-ink); }
 table td, table th { padding: .6rem .7rem !important; }
+.report-table-wrap { overflow-x: auto; max-width: 100%; margin: 1rem 0; }
+.report-table-wrap table { table-layout: auto !important; width: 100%; }
+.report-table-wrap table td, .report-table-wrap table th {
+padding: .55rem .45rem !important;
+vertical-align: top;
+}
+.report-table-wrap td[style*="right"] { white-space: nowrap; }
+.table-nowrap { overflow-x: auto; margin: 1rem 0; }
+.table-nowrap table { table-layout: auto !important; }
+.table-nowrap table td, .table-nowrap table th {
+white-space: nowrap !important;
+padding: .55rem .45rem !important;
+}
 #TOC { font-size: .95rem; }
 @media (max-width: 767px) {
 body { font-size: 1rem; }
@@ -2271,20 +2284,22 @@ Recorded yeas and nays</p>
 <p>The pooled sample includes <strong>52 distinct council members across 50 wards</strong>, observed at <strong>58 meetings</strong> from June 2023 through July 2026. The source contains 689,152 individual member-vote records across 13,783 meeting–motion items. Only 189 items contain both yea and nay votes; <strong>all 189 enter the main ideal-point fit</strong>, including 58 with a one-member minority. They contain 9,133 observed yea/nay votes.</p>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th style="text-align: left;">Measure</th>
-<th style="text-align: left;">Value</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Measure</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Value</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Council member-vote rows</td>
+<td style="text-align: left;">Council member-vote rows</td>
 <td style="text-align: left;">689,152</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Council meetings</td>
+<td style="text-align: left;">Council meetings</td>
 <td style="text-align: left;">58</td>
 </tr>
 <tr class="odd">
@@ -2296,11 +2311,11 @@ Recorded yeas and nays</p>
 <td style="text-align: left;">13,783</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Items with yea and nay</td>
+<td style="text-align: left;">Items with yea and nay</td>
 <td style="text-align: left;">189</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Distinct council members</td>
+<td style="text-align: left;">Distinct council members</td>
 <td style="text-align: left;">52</td>
 </tr>
 <tr class="odd">
@@ -2313,6 +2328,8 @@ Recorded yeas and nays</p>
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>The analysis covers the elected City Council and pools each member’s recorded votes over their service. Absences, abstentions and unrecorded responses are not treated as nays. Most council business is unanimous, so only a small share of the recorded motions distinguishes members’ voting positions.</p>
@@ -2371,26 +2388,21 @@ Recorded yeas and nays</p>
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 30%">
-<col style="width: 17%">
-<col style="width: 12%">
-<col style="width: 17%">
-<col style="width: 22%">
-</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Group</th>
-<th style="text-align: right;">Listed members</th>
-<th style="text-align: right;">Not listed</th>
-<th style="text-align: right;">Median: listed</th>
-<th style="text-align: right;">Median: not listed</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Group</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Listed members</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Not listed</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Median: listed</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Median: not listed</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">DSA caucus</td>
+<td style="text-align: left;">DSA caucus</td>
 <td style="text-align: right;">6</td>
 <td style="text-align: right;">44</td>
 <td style="text-align: right;">-1.77</td>
@@ -2404,28 +2416,28 @@ Recorded yeas and nays</p>
 <td style="text-align: right;">0.66</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Conservative voting bloc</td>
+<td style="text-align: left;">Conservative voting bloc</td>
 <td style="text-align: right;">9</td>
 <td style="text-align: right;">41</td>
 <td style="text-align: right;">1.21</td>
 <td style="text-align: right;">-0.04</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Black caucus</td>
+<td style="text-align: left;">Black caucus</td>
 <td style="text-align: right;">19</td>
 <td style="text-align: right;">31</td>
 <td style="text-align: right;">-0.04</td>
 <td style="text-align: right;">0.62</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Latino caucus</td>
+<td style="text-align: left;">Latino caucus</td>
 <td style="text-align: right;">14</td>
 <td style="text-align: right;">36</td>
 <td style="text-align: right;">-1.02</td>
 <td style="text-align: right;">0.42</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">LGBT caucus</td>
+<td style="text-align: left;">LGBT caucus</td>
 <td style="text-align: right;">9</td>
 <td style="text-align: right;">41</td>
 <td style="text-align: right;">-1.07</td>
@@ -2433,6 +2445,8 @@ Recorded yeas and nays</p>
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>Each row compares people listed in that group’s 2024 roster with people not listed in that particular roster. These comparisons use 50 classified council members; the two later successors lack a 2024 classification. Because the categories overlap, “not listed” does not mean outside every caucus.</p>
@@ -2442,27 +2456,31 @@ Recorded yeas and nays</p>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th style="text-align: left;">Group</th>
-<th style="text-align: right;">Council members (N)</th>
-<th style="text-align: right;">Median voting position</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Group</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Council members (N)</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Median voting position</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">DSA caucus</td>
+<td style="text-align: left;">DSA caucus</td>
 <td style="text-align: right;">6</td>
 <td style="text-align: right;">-1.77</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Other Progressive caucus</td>
+<td style="text-align: left;">Other Progressive caucus</td>
 <td style="text-align: right;">13</td>
 <td style="text-align: right;">-0.83</td>
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>This comparison is restricted to the 19 Progressive caucus members: six DSA caucus members and 13 other Progressives. The DSA members sit further toward the negative end, although neither subgroup is uniform. The caucus’s <a href="https://chicagosocialistcaucus.org/who-we-are">own historical roster</a> provides an additional organizational source. No outside-Progressive members enter this comparison.</p>
@@ -2471,17 +2489,14 @@ Recorded yeas and nays</p>
 <p>Chicago DSA’s <a href="https://chicagodsa.org/2026/08/15/announcing-chicago-dsas-2027-endorsements/">2027 endorsement announcement</a> names four people in this pooled sample: Angela Clay, Anthony Quezada, Rossana Rodríguez-Sánchez and Byron Sigcho-Lopez. Endorsement is distinct from belonging to the 2024 officeholder caucus, and the dates differ. The announcement is a later external comparison, not a membership classification for every earlier vote.</p>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 55%">
-<col style="width: 11%">
-<col style="width: 32%">
-</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Group</th>
-<th style="text-align: right;">Members</th>
-<th style="text-align: right;">Median voting position</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Group</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Members</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Median voting position</th>
 </tr>
 </thead>
 <tbody>
@@ -2491,12 +2506,14 @@ Recorded yeas and nays</p>
 <td style="text-align: right;">-1.36</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Other pooled members</td>
+<td style="text-align: left;">Other pooled members</td>
 <td style="text-align: right;">48</td>
 <td style="text-align: right;">0.29</td>
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>“Other pooled members” means not named in this announcement, not never endorsed by DSA. These are descriptive comparisons of estimated voting positions, not causal effects.</p>
@@ -2513,11 +2530,13 @@ Recorded yeas and nays</p>
 <p>Our <strong>strict individual evidence file</strong> deliberately remains more conservative: 29 people have documented Democratic party offices, Gardiner has a Democratic self-description, two have independent self-descriptions, and the rest retain an unverified label. An unverified member is not coded Republican. The party-office source includes members at both estimated extremes. <a href="https://www.cookcountydems.com/committeepersons/">Cook County Democratic Party directory</a></p>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th style="text-align: left;">Evidence category (dates differ)</th>
-<th style="text-align: right;">People</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Evidence category (dates differ)</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">People</th>
 </tr>
 </thead>
 <tbody>
@@ -2543,6 +2562,8 @@ Recorded yeas and nays</p>
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>Consequently, a Democrat–Republican separation test is not informative here. <strong>Organizational caucus memberships offer a better face-validity comparison</strong>, while still requiring dates and acknowledging that ideology, party, and mayoral alignment are different constructs.</p>

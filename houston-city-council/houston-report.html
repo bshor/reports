@@ -2185,6 +2185,19 @@ figcaption, .figure-caption { font-size: 1rem; line-height: 1.5; color: var(--re
 table { font-size: .97rem; }
 table th { color: var(--report-ink); }
 table td, table th { padding: .6rem .7rem !important; }
+.report-table-wrap { overflow-x: auto; max-width: 100%; margin: 1rem 0; }
+.report-table-wrap table { table-layout: auto !important; width: 100%; }
+.report-table-wrap table td, .report-table-wrap table th {
+padding: .55rem .45rem !important;
+vertical-align: top;
+}
+.report-table-wrap td[style*="right"] { white-space: nowrap; }
+.table-nowrap { overflow-x: auto; margin: 1rem 0; }
+.table-nowrap table { table-layout: auto !important; }
+.table-nowrap table td, .table-nowrap table th {
+white-space: nowrap !important;
+padding: .55rem .45rem !important;
+}
 #TOC { font-size: .95rem; }
 @media (max-width: 767px) {
 body { font-size: 1rem; }
@@ -2274,24 +2287,22 @@ Recorded yeas and nays</p>
 <p>The combined source contains <strong>8,368 council actions</strong> and <strong>142,256 member rows</strong> from meetings between January 5, 2021 and December 10, 2025. The Mayor presides over and votes on the Houston City Council, so each action has 17 voting officials: the Mayor, eleven district members, and five at-large members. The period spans two terms, so <strong>25 people</strong> appear in total. Ten council members served in both terms and link the Turner-era and Whitmire-era councils.</p>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 56%">
-<col style="width: 43%">
-</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Measure</th>
-<th style="text-align: left;">Value</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Measure</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Value</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Council actions</td>
+<td style="text-align: left;">Council actions</td>
 <td style="text-align: left;">8,368</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Member rows</td>
+<td style="text-align: left;">Member rows</td>
 <td style="text-align: left;">142,256</td>
 </tr>
 <tr class="odd">
@@ -2307,7 +2318,7 @@ Recorded yeas and nays</p>
 <td style="text-align: left;">25</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Observed yea/nay votes</td>
+<td style="text-align: left;">Observed yea/nay votes</td>
 <td style="text-align: left;">1,869</td>
 </tr>
 <tr class="odd">
@@ -2316,16 +2327,20 @@ Recorded yeas and nays</p>
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>Yea is coded 1 and nay 0. Absences, early departures, and names omitted from an explicit roll call are missing, never nays. Houston records the great majority of actions as unanimous or near-unanimous. Only <strong>119 actions</strong> have at least two officials on each side, and these form the scale. Unanimous and single-dissent actions may matter substantively, but they carry almost no information about relative positions. Recorded disagreement is therefore scarce, and the retained votes are a selected subset of council business.</p>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th style="text-align: left;">Year</th>
-<th style="text-align: right;">Retained contested actions</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Year</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Retained contested actions</th>
 </tr>
 </thead>
 <tbody>
@@ -2351,6 +2366,8 @@ Recorded yeas and nays</p>
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 </section>
@@ -2417,23 +2434,17 @@ Recorded yeas and nays</p>
 <p>Michael Kubosh is coded Republican-affiliated from <a href="https://web.archive.org/web/20210513000446/https://www.texasmonthly.com/news-politics/here-comes-trouble/">contemporaneous <em>Texas Monthly</em> reporting</a> that describes his 2006 Democratic Senate candidacy as tactical, corroborated by a <a href="https://web.archive.org/web/20230208205501/https://www.houstonchronicle.com/news/houston-texas/houston/article/Houston-council-runoff-foes-are-opposites-in-14867953.php">2019 <em>Houston Chronicle</em> profile</a> reporting GOP endorsements and Republican ballots in eight of nine earlier primaries. He now rejects party labels, and no Republican party office or candidacy is documented; accordingly his evidence tier is <strong>reporting only</strong>, not party record. His voting score did not determine this coding.</p>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 41%">
-<col style="width: 6%">
-<col style="width: 5%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 26%">
-</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Group</th>
-<th style="text-align: right;">In group</th>
-<th style="text-align: right;">Others</th>
-<th style="text-align: right;">Mean: group</th>
-<th style="text-align: right;">Mean: others</th>
-<th style="text-align: left;">Share of pairs ordered as expected</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Group</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">In group</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Others</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Mean: group</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Mean: others</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Share of pairs ordered as expected</th>
 </tr>
 </thead>
 <tbody>
@@ -2446,7 +2457,7 @@ Recorded yeas and nays</p>
 <td style="text-align: left;">97%</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Republican candidacy or party office (vs. all others)</td>
+<td style="text-align: left;">Republican candidacy or party office (vs. all others)</td>
 <td style="text-align: right;">3</td>
 <td style="text-align: right;">22</td>
 <td style="text-align: right;">1.71</td>
@@ -2471,6 +2482,8 @@ Recorded yeas and nays</p>
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>The 2021–2025 report plots <strong>25 officials</strong>, all included in the two-party rows. “Others” means everyone outside each named group; the candidacy/office row also excludes Republicans whose evidence is only an endorsement, roster, or reporting. The 2023 endorsement row compares the five GOP-endorsed members with the other 12 officials in that council term. Republican-affiliated officials average 0.96, compared with -0.64 for Democratic-affiliated officials. In 97% of Republican–Democratic pairs, the Republican-affiliated official has the higher score. The five 2023 Republican-endorsed members also sit to the positive side of the current council. The main exception is <strong>Dave Martin</strong> (-0.43), classified Republican from reporting rather than a party record, who voted with the Turner-era majority. Kubosh is included on the strength of external reporting, not his voting score. These are descriptive associations using posterior means, not causal estimates.</p>

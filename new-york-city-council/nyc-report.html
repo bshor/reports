@@ -2185,6 +2185,19 @@ figcaption, .figure-caption { font-size: 1rem; line-height: 1.5; color: var(--re
 table { font-size: .97rem; }
 table th { color: var(--report-ink); }
 table td, table th { padding: .6rem .7rem !important; }
+.report-table-wrap { overflow-x: auto; max-width: 100%; margin: 1rem 0; }
+.report-table-wrap table { table-layout: auto !important; width: 100%; }
+.report-table-wrap table td, .report-table-wrap table th {
+padding: .55rem .45rem !important;
+vertical-align: top;
+}
+.report-table-wrap td[style*="right"] { white-space: nowrap; }
+.table-nowrap { overflow-x: auto; margin: 1rem 0; }
+.table-nowrap table { table-layout: auto !important; }
+.table-nowrap table td, .table-nowrap table th {
+white-space: nowrap !important;
+padding: .55rem .45rem !important;
+}
 #TOC { font-size: .95rem; }
 @media (max-width: 767px) {
 body { font-size: 1rem; }
@@ -2279,24 +2292,22 @@ Recorded yeas and nays</p>
 <h3 class="anchored" data-anchor-id="coverage-and-construction">Coverage and construction</h3>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 52%">
-<col style="width: 47%">
-</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Measure</th>
-<th style="text-align: left;">Value</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Measure</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Value</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Member-vote records</td>
+<td style="text-align: left;">Member-vote records</td>
 <td style="text-align: left;">293,979</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Stated meetings</td>
+<td style="text-align: left;">Stated meetings</td>
 <td style="text-align: left;">207</td>
 </tr>
 <tr class="odd">
@@ -2308,7 +2319,7 @@ Recorded yeas and nays</p>
 <td style="text-align: left;">123</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Meeting–motion items</td>
+<td style="text-align: left;">Meeting–motion items</td>
 <td style="text-align: left;">5,842</td>
 </tr>
 <tr class="even">
@@ -2320,7 +2331,7 @@ Recorded yeas and nays</p>
 <td style="text-align: left;">1239</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Usable yea/nay votes</td>
+<td style="text-align: left;">Usable yea/nay votes</td>
 <td style="text-align: left;">58,468</td>
 </tr>
 <tr class="odd">
@@ -2329,6 +2340,8 @@ Recorded yeas and nays</p>
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>Each recorded meeting–motion combination is treated as a voting item. Yea is coded 1 and nay 0. Every other recorded status — absence, abstention, medical, maternity, paternity, bereavement, suspension — is missing, never a nay. We retain votes with at least one member on each side and at least 40 recorded yeas or nays, leaving <strong>1,239 contested roll calls</strong>. This includes 502 single-dissenter items omitted from the earlier report: a lone dissent can be informative in a small council. Unanimous business is excluded.</p>
@@ -2416,32 +2429,34 @@ Recorded yeas and nays</p>
 </div>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th style="text-align: left;">Council</th>
-<th style="text-align: right;">Members</th>
-<th style="text-align: right;">Contested items voted</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Council</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Members</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Contested items voted</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">2014-2017</td>
+<td style="text-align: left;">2014⁠-⁠2017</td>
 <td style="text-align: right;">56</td>
 <td style="text-align: right;">1170</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">2018-2021</td>
+<td style="text-align: left;">2018⁠-⁠2021</td>
 <td style="text-align: right;">58</td>
 <td style="text-align: right;">2129</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">2022-2023</td>
+<td style="text-align: left;">2022⁠-⁠2023</td>
 <td style="text-align: right;">51</td>
 <td style="text-align: right;">1100</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">2024-2025</td>
+<td style="text-align: left;">2024⁠-⁠2025</td>
 <td style="text-align: right;">54</td>
 <td style="text-align: right;">1093</td>
 </tr>
@@ -2452,6 +2467,8 @@ Recorded yeas and nays</p>
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>The 2018–2021 council contributes by far the most contested votes; the council seated in 2026 has only eight months of record so far, which is why its intervals are wider than its size alone would suggest.</p>
@@ -2461,23 +2478,17 @@ Recorded yeas and nays</p>
 <p>Party affiliation is now researched for all 123 fitted members. The ledger has 124 dated, source-cited records because Ari Kagan changed from Democrat to Republican during his service. Of the other members, 112 have Democratic evidence and 10 Republican evidence. The sources include the Council’s official roster, partisan primary returns, and candidate-supplied enrollment statements. They establish affiliation at documented dates, not uninterrupted enrollment across every year. General-election fusion lines are retained as a <strong>separate electoral measure</strong>, not used to assign party affiliation. Party labels are not predictors or prior constraints in the model; organizational memberships and endorsements are external comparisons.</p>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 30%">
-<col style="width: 21%">
-<col style="width: 7%">
-<col style="width: 9%">
-<col style="width: 10%">
-<col style="width: 21%">
-</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Group</th>
-<th style="text-align: left;">Scope</th>
-<th style="text-align: right;">In group</th>
-<th style="text-align: right;">Mean: group</th>
-<th style="text-align: right;">Mean: others</th>
-<th style="text-align: left;">Pairs ordered as expected</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Group</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Scope</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">In group</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Mean: group</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Mean: others</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Pairs ordered as expected</th>
 </tr>
 </thead>
 <tbody>
@@ -2491,7 +2502,7 @@ Recorded yeas and nays</p>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Researched affiliation: Republican</td>
-<td style="text-align: left;">current council</td>
+<td style="text-align: left;">current council</td>
 <td style="text-align: right;">5</td>
 <td style="text-align: right;">1.92</td>
 <td style="text-align: right;">-0.23</td>
@@ -2499,7 +2510,7 @@ Recorded yeas and nays</p>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Common-Sense Caucus (ever)</td>
-<td style="text-align: left;">all 123</td>
+<td style="text-align: left;">all 123</td>
 <td style="text-align: right;">16</td>
 <td style="text-align: right;">1.29</td>
 <td style="text-align: right;">-0.19</td>
@@ -2507,7 +2518,7 @@ Recorded yeas and nays</p>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Progressive Caucus (ever)</td>
-<td style="text-align: left;">all 123</td>
+<td style="text-align: left;">all 123</td>
 <td style="text-align: right;">61</td>
 <td style="text-align: right;">-0.42</td>
 <td style="text-align: right;">0.41</td>
@@ -2515,7 +2526,7 @@ Recorded yeas and nays</p>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">DSA campaign endorsement (ever)</td>
-<td style="text-align: left;">all 123</td>
+<td style="text-align: left;">all 123</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">-1.07</td>
 <td style="text-align: right;">0.02</td>
@@ -2523,7 +2534,7 @@ Recorded yeas and nays</p>
 </tr>
 <tr class="even">
 <td style="text-align: left;">DSA officeholder bloc (ever)</td>
-<td style="text-align: left;">all 123</td>
+<td style="text-align: left;">all 123</td>
 <td style="text-align: right;">4</td>
 <td style="text-align: right;">-0.94</td>
 <td style="text-align: right;">0.03</td>
@@ -2531,7 +2542,7 @@ Recorded yeas and nays</p>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Also served in the state legislature</td>
-<td style="text-align: left;">all 123</td>
+<td style="text-align: left;">all 123</td>
 <td style="text-align: right;">16</td>
 <td style="text-align: right;">-0.25</td>
 <td style="text-align: right;">0.04</td>
@@ -2539,6 +2550,8 @@ Recorded yeas and nays</p>
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>The five Republicans in the current council are its five most positive members: every Republican–Democrat pair is ordered as expected. Across all twelve years, 99.4% of Republican–Democrat pairs have that ordering. The exceptions are instructive: Republican Eric Ulrich is slightly left of Democratic-affiliated Robert Holden and Kalman Yeger. Holden and Yeger appeared Republican under the old ballot-line display because they also ran on Republican fusion lines; their <a href="https://www.vote.nyc/sites/default/files/pdf/election_results/2021/20210622Primary%20Election/rcv/024414_1.html">Democratic primary</a> and <a href="https://a860-gpp.nyc.gov/downloads/ms35tb08m?locale=en">candidate-stated enrollment</a>, respectively, resolve affiliation. Kagan’s <a href="https://council.nyc.gov/press/2022/12/05/2313/">documented 2022 switch</a> is shown separately and his pooled position is excluded from the static party comparison. The Common-Sense Caucus sits toward the Republican end despite including Democrats; the Progressive Caucus and DSA measures sit toward the other end. State-legislative service shows little separation, as a biographical bridge rather than an ideological group should.</p>
@@ -2547,31 +2560,24 @@ Recorded yeas and nays</p>
 <p>The pooled “ever” indicators above span twelve years. A narrower check compares members serving together in 2026 against the <a href="https://council.nyc.gov/caucuses/progressive-caucus/">Progressive Caucus’s September roster</a> and the <a href="https://council.nyc.gov/caucuses/common-sense-caucus/">Common-Sense Caucus roster</a>, whose official membership records carry June 11 start dates and were observed in September. In each row, “unlisted” means not on that caucus’s complete roster at the specified date, not never a member. Negative values are toward the progressive end of the voting scale.</p>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 21%">
-<col style="width: 21%">
-<col style="width: 6%">
-<col style="width: 7%">
-<col style="width: 11%">
-<col style="width: 13%">
-<col style="width: 19%">
-</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Caucus</th>
-<th style="text-align: left;">Scope</th>
-<th style="text-align: right;">Listed</th>
-<th style="text-align: right;">Unlisted</th>
-<th style="text-align: right;">Mean: listed</th>
-<th style="text-align: right;">Mean: unlisted</th>
-<th style="text-align: right;">Listed minus unlisted</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Caucus</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Scope</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Listed</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Unlisted</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Mean: listed</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Mean: unlisted</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Listed minus unlisted</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Progressive · Sep 2026</td>
-<td style="text-align: left;">All fixed-party members</td>
+<td style="text-align: left;">Progressive · Sep 2026</td>
+<td style="text-align: left;">All fixed-party members</td>
 <td style="text-align: right;">23</td>
 <td style="text-align: right;">28</td>
 <td style="text-align: right;">-0.51</td>
@@ -2579,7 +2585,7 @@ Recorded yeas and nays</p>
 <td style="text-align: right;">-0.89</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Progressive · Sep 2026</td>
+<td style="text-align: left;">Progressive · Sep 2026</td>
 <td style="text-align: left;">Democrats</td>
 <td style="text-align: right;">23</td>
 <td style="text-align: right;">23</td>
@@ -2588,8 +2594,8 @@ Recorded yeas and nays</p>
 <td style="text-align: right;">-0.56</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Common-Sense · Jun 2026</td>
-<td style="text-align: left;">All fixed-party members</td>
+<td style="text-align: left;">Common-Sense · Jun 2026</td>
+<td style="text-align: left;">All fixed-party members</td>
 <td style="text-align: right;">6</td>
 <td style="text-align: right;">45</td>
 <td style="text-align: right;">1.16</td>
@@ -2597,7 +2603,7 @@ Recorded yeas and nays</p>
 <td style="text-align: right;">1.34</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Common-Sense · Jun 2026</td>
+<td style="text-align: left;">Common-Sense · Jun 2026</td>
 <td style="text-align: left;">Democrats</td>
 <td style="text-align: right;">3</td>
 <td style="text-align: right;">43</td>
@@ -2607,6 +2613,8 @@ Recorded yeas and nays</p>
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>Both distinctions remain visible <em>within Democrats</em>: the Progressive Caucus is to the left of other Democrats, while the Common-Sense Caucus is to their right. These are descriptive comparisons of pooled ideal points, not claims that caucus membership was constant through each member’s service. The <a href="https://socialists.nyc/press-releases/nyc-dsa-re-endorses-council-members-alexa-aviles-tiffany-caban/">DSA campaign announcements</a> document positive endorsements, but do not establish a complete slate from which to code everyone else as unendorsed.</p>
@@ -2656,14 +2664,16 @@ Recorded yeas and nays</p>
 </div>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th style="text-align: right;">Election</th>
-<th style="text-align: right;">Districts</th>
-<th style="text-align: right;">Pearson</th>
-<th style="text-align: right;">Ideal points per 10 points</th>
-<th style="text-align: right;">R²</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Election</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Districts</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Pearson</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Ideal points per 10 points</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">R²</th>
 </tr>
 </thead>
 <tbody>
@@ -2690,6 +2700,8 @@ Recorded yeas and nays</p>
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>Two caveats attach to the earlier cycles. They sit on the <strong>2013–2021 council map</strong>, because New York redistricted after the 2020 census, so the district identities are not the current ones; and since the ballot record begins with the 2017 council election, each is matched to the member the district elected at the next council election on that same map — 2016 to the 2017 winners, 2020 to the 2021 winners. The 2024 cycle uses the current map and the member serving on Election Day. The 2016 comparison covers 50 districts because one 2017 winner never cast a retained vote.</p>
@@ -2737,36 +2749,40 @@ Recorded yeas and nays</p>
 </div>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th style="text-align: right;">Election</th>
-<th style="text-align: right;">Districts</th>
-<th style="text-align: left;">Runner-up</th>
-<th style="text-align: right;">Pearson</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Election</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Districts</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Runner-up</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Pearson</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: right;">2017</td>
 <td style="text-align: right;">50</td>
-<td style="text-align: left;">Malliotakis (Republican)</td>
+<td style="text-align: left;">Malliotakis (Republican)</td>
 <td style="text-align: right;">0.72</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">2021</td>
 <td style="text-align: right;">51</td>
-<td style="text-align: left;">Sliwa (Republican)</td>
+<td style="text-align: left;">Sliwa (Republican)</td>
 <td style="text-align: right;">0.65</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">2025</td>
 <td style="text-align: right;">51</td>
-<td style="text-align: left;">Cuomo (independent line)</td>
+<td style="text-align: left;">Cuomo (independent line)</td>
 <td style="text-align: right;">0.66</td>
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <section id="the-winners-share" class="level5">
@@ -2812,18 +2828,20 @@ Recorded yeas and nays</p>
 </div>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th style="text-align: right;">Election</th>
-<th style="text-align: left;">Winner</th>
-<th style="text-align: right;">Pearson</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Election</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Winner</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Pearson</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: right;">2017</td>
-<td style="text-align: left;">de Blasio</td>
+<td style="text-align: left;">de Blasio</td>
 <td style="text-align: right;">-0.69</td>
 </tr>
 <tr class="even">
@@ -2838,6 +2856,8 @@ Recorded yeas and nays</p>
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>The winning side sharpens as the series runs forward — de Blasio -0.69, Adams -0.65, Mamdani -0.76 — which is what a mayoral race that increasingly divides along the council’s own dimension would look like. For 2025 it makes no practical difference whether Mamdani’s share is taken over all candidates (-0.76) or over the three leading ones (-0.76).</p>
@@ -2897,13 +2917,15 @@ Recorded yeas and nays</p>
 </div>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th style="text-align: right;">Election</th>
-<th style="text-align: right;">Contested districts</th>
-<th style="text-align: right;">Uncontested, omitted</th>
-<th style="text-align: right;">Pearson</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Election</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Contested districts</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Uncontested, omitted</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Pearson</th>
 </tr>
 </thead>
 <tbody>
@@ -2933,6 +2955,8 @@ Recorded yeas and nays</p>
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>One 2017 winner never cast a retained vote and so has no coordinate, which is why that year starts from 50 districts rather than 51.</p>
@@ -2957,14 +2981,16 @@ Recorded yeas and nays</p>
 <p>Charles Barron is excluded from calibration because his council position is unusually extreme and uncertain; Inez Barron remains included. Across the remaining <strong>15 bridges</strong>, the scales have a clear positive association (Pearson 0.82, R² 0.67). The following state-space displays show the fitted linear mapping; its uncertainty is not included in the displayed member positions.</p>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th style="text-align: left;">Term</th>
-<th style="text-align: right;">Estimate</th>
-<th style="text-align: right;">Std. error</th>
-<th style="text-align: right;">t</th>
-<th style="text-align: left;">p</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Term</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Estimate</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Std. error</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">t</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">p</th>
 </tr>
 </thead>
 <tbody>
@@ -2984,6 +3010,8 @@ Recorded yeas and nays</p>
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>Applying those coefficients to all 123 members puts the council in state units. This is a linear transform, so it changes no member’s rank — what it fixes is where the council sits, and how wide it is, relative to legislators in Albany.</p>
@@ -3022,28 +3050,22 @@ Recorded yeas and nays</p>
 </div>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 48%">
-<col style="width: 7%">
-<col style="width: 12%">
-<col style="width: 7%">
-<col style="width: 12%">
-<col style="width: 10%">
-</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Group</th>
-<th style="text-align: right;">Dem. n</th>
-<th style="text-align: right;">Dem. median</th>
-<th style="text-align: right;">Rep. n</th>
-<th style="text-align: right;">Rep. median</th>
-<th style="text-align: right;">Party gap</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Group</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Dem. n</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Dem. median</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Rep. n</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Rep. median</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Party gap</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">City council (2024-2025)</td>
+<td style="text-align: left;">City council (2024⁠-⁠2025)</td>
 <td style="text-align: right;">47</td>
 <td style="text-align: right;">-1.60</td>
 <td style="text-align: right;">7</td>
@@ -3067,7 +3089,7 @@ Recorded yeas and nays</p>
 <td style="text-align: right;">1.21</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">All state legislators</td>
+<td style="text-align: left;">All state legislators</td>
 <td style="text-align: right;">146</td>
 <td style="text-align: right;">-1.55</td>
 <td style="text-align: right;">68</td>
@@ -3076,6 +3098,8 @@ Recorded yeas and nays</p>
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>The city’s two legislatures line up closely on the Democratic side: the council’s Democrats sit at -1.60 against -1.64 for state legislators from city districts — a difference far smaller than the one separating those state legislators from Democrats elsewhere in New York (-1.17).</p>
@@ -3147,34 +3171,25 @@ Recorded yeas and nays</p>
 </div>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 8%">
-<col style="width: 10%">
-<col style="width: 16%">
-<col style="width: 14%">
-<col style="width: 4%">
-<col style="width: 10%">
-<col style="width: 16%">
-<col style="width: 14%">
-<col style="width: 4%">
-</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Council</th>
-<th style="text-align: right;">Council Dems</th>
-<th style="text-align: right;">Council Dem. median</th>
-<th style="text-align: right;">State Dem. median</th>
-<th style="text-align: right;">Gap</th>
-<th style="text-align: right;">Council Reps</th>
-<th style="text-align: right;">Council Rep. median</th>
-<th style="text-align: right;">State Rep. median</th>
-<th style="text-align: right;">Gap</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Council</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Council Dems</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Council Dem. median</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">State Dem. median</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Gap</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Council Reps</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Council Rep. median</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">State Rep. median</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Gap</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">2014-2017</td>
+<td style="text-align: left;">2014⁠-⁠2017</td>
 <td style="text-align: right;">52</td>
 <td style="text-align: right;">-1.60</td>
 <td style="text-align: right;">-1.41</td>
@@ -3185,7 +3200,7 @@ Recorded yeas and nays</p>
 <td style="text-align: right;">-0.11</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">2018-2021</td>
+<td style="text-align: left;">2018⁠-⁠2021</td>
 <td style="text-align: right;">55</td>
 <td style="text-align: right;">-1.60</td>
 <td style="text-align: right;">-1.44</td>
@@ -3196,7 +3211,7 @@ Recorded yeas and nays</p>
 <td style="text-align: right;">-0.17</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">2022-2023</td>
+<td style="text-align: left;">2022⁠-⁠2023</td>
 <td style="text-align: right;">45</td>
 <td style="text-align: right;">-1.61</td>
 <td style="text-align: right;">-1.52</td>
@@ -3207,7 +3222,7 @@ Recorded yeas and nays</p>
 <td style="text-align: right;">-0.50</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">2024-2025</td>
+<td style="text-align: left;">2024⁠-⁠2025</td>
 <td style="text-align: right;">47</td>
 <td style="text-align: right;">-1.60</td>
 <td style="text-align: right;">-1.54</td>
@@ -3230,6 +3245,8 @@ Recorded yeas and nays</p>
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>Comparing each party with its own counterpart in Albany separates two very different findings.</p>

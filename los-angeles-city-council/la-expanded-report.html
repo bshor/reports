@@ -2185,6 +2185,19 @@ figcaption, .figure-caption { font-size: 1rem; line-height: 1.5; color: var(--re
 table { font-size: .97rem; }
 table th { color: var(--report-ink); }
 table td, table th { padding: .6rem .7rem !important; }
+.report-table-wrap { overflow-x: auto; max-width: 100%; margin: 1rem 0; }
+.report-table-wrap table { table-layout: auto !important; width: 100%; }
+.report-table-wrap table td, .report-table-wrap table th {
+padding: .55rem .45rem !important;
+vertical-align: top;
+}
+.report-table-wrap td[style*="right"] { white-space: nowrap; }
+.table-nowrap { overflow-x: auto; margin: 1rem 0; }
+.table-nowrap table { table-layout: auto !important; }
+.table-nowrap table td, .table-nowrap table th {
+white-space: nowrap !important;
+padding: .55rem .45rem !important;
+}
 #TOC { font-size: .95rem; }
 @media (max-width: 767px) {
 body { font-size: 1rem; }
@@ -2264,24 +2277,26 @@ Recorded yeas and nays</p>
 <p>The analysis combines published recent roll-call votes with votes recovered directly from the City Clerk’s <a href="https://ens2.lacity.org/enssubscribe2/netdocs/index.cfm?CSS=77113&amp;FD=2&amp;FS=1&amp;SI=&amp;SP=&amp;catid=6&amp;rootcat=6">historical council journals</a>. The earlier journals identify dissenters and absentees; the remaining members are counted as yeas only when that reconstruction agrees with the printed tally. Repeated references to the same numbered roll call are treated as one vote, even when it disposed of several agenda items.</p>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th style="text-align: left;">Measure</th>
-<th style="text-align: left;">Value</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Measure</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Value</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Members fitted</td>
+<td style="text-align: left;">Members fitted</td>
 <td style="text-align: left;">45</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Qualifying roll calls</td>
+<td style="text-align: left;">Qualifying roll calls</td>
 <td style="text-align: left;">1,468</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Recorded yea/nay votes</td>
+<td style="text-align: left;">Recorded yea/nay votes</td>
 <td style="text-align: left;">18,062</td>
 </tr>
 <tr class="even">
@@ -2293,15 +2308,17 @@ Recorded yeas and nays</p>
 <td style="text-align: left;">624</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">First qualifying vote</td>
-<td style="text-align: left;">2004-01-20</td>
+<td style="text-align: left;">First qualifying vote</td>
+<td style="text-align: left;">2004⁠-⁠01⁠-⁠20</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Last qualifying vote</td>
-<td style="text-align: left;">2026-09-08</td>
+<td style="text-align: left;">Last qualifying vote</td>
+<td style="text-align: left;">2026⁠-⁠09⁠-⁠08</td>
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>A vote qualifies when at least one member votes on each side and at least ten members cast yea or nay. Members need at least seven qualifying votes. This keeps lone-dissenter votes, which are informative in a fifteen-member council, while excluding near-empty records. Absence is not opposition, and a missing record is not a recorded vote.</p>
@@ -2330,30 +2347,34 @@ Recorded yeas and nays</p>
 <p>Colors distinguish researched party affiliations. Symbols distinguish documented DSA and Abundant Housing LA endorsements, kept as separate indicators. An unmarked member has no endorsement documented here—not necessarily no endorsement historically. Each member has one pooled estimate; the intervals show uncertainty around that estimate.</p>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th style="text-align: left;"></th>
-<th style="text-align: left;">End of spectrum</th>
-<th style="text-align: right;">Voting position</th>
-<th style="text-align: right;">Qualifying votes</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">End of spectrum</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Voting position</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Qualifying votes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">1</td>
-<td style="text-align: left;">Eunisses Hernandez</td>
+<td style="text-align: left;">Eunisses Hernandez</td>
 <td style="text-align: right;">-5.18</td>
 <td style="text-align: right;">405</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">45</td>
-<td style="text-align: left;">Mitchell Englander</td>
+<td style="text-align: left;">Mitchell Englander</td>
 <td style="text-align: right;">1.16</td>
 <td style="text-align: right;">292</td>
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <section id="policy-context" class="level3">
@@ -2450,84 +2471,88 @@ Recorded yeas and nays</p>
 </div>
 </div>
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th style="text-align: left;">Council window</th>
-<th style="text-align: right;">Members</th>
-<th style="text-align: right;">Democratic-affiliated</th>
-<th style="text-align: right;">Republican-affiliated</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Council window</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Members</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Democratic-affiliated</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Republican-affiliated</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">2004–2005</td>
+<td style="text-align: left;">2004⁠–⁠2005</td>
 <td style="text-align: right;">15</td>
 <td style="text-align: right;">13</td>
 <td style="text-align: right;">1</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">2005–2007</td>
+<td style="text-align: left;">2005⁠–⁠2007</td>
 <td style="text-align: right;">16</td>
 <td style="text-align: right;">14</td>
 <td style="text-align: right;">1</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">2007–2009</td>
+<td style="text-align: left;">2007⁠–⁠2009</td>
 <td style="text-align: right;">15</td>
 <td style="text-align: right;">13</td>
 <td style="text-align: right;">1</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">2009–2011</td>
+<td style="text-align: left;">2009⁠–⁠2011</td>
 <td style="text-align: right;">15</td>
 <td style="text-align: right;">13</td>
 <td style="text-align: right;">1</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">2011–2013</td>
+<td style="text-align: left;">2011⁠–⁠2013</td>
 <td style="text-align: right;">16</td>
 <td style="text-align: right;">14</td>
 <td style="text-align: right;">1</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">2013–2015</td>
+<td style="text-align: left;">2013⁠–⁠2015</td>
 <td style="text-align: right;">15</td>
 <td style="text-align: right;">14</td>
 <td style="text-align: right;">1</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">2015–2017</td>
+<td style="text-align: left;">2015⁠–⁠2017</td>
 <td style="text-align: right;">15</td>
 <td style="text-align: right;">14</td>
 <td style="text-align: right;">1</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">2017–2020</td>
+<td style="text-align: left;">2017⁠–⁠2020</td>
 <td style="text-align: right;">18</td>
 <td style="text-align: right;">15</td>
 <td style="text-align: right;">3</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">2020–2022</td>
+<td style="text-align: left;">2020⁠–⁠2022</td>
 <td style="text-align: right;">17</td>
 <td style="text-align: right;">16</td>
 <td style="text-align: right;">1</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">2022–2024</td>
+<td style="text-align: left;">2022⁠–⁠2024</td>
 <td style="text-align: right;">14</td>
 <td style="text-align: right;">13</td>
 <td style="text-align: right;">1</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">2024–2026</td>
+<td style="text-align: left;">2024⁠–⁠2026</td>
 <td style="text-align: right;">14</td>
 <td style="text-align: right;">13</td>
 <td style="text-align: right;">1</td>
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>The top panel tracks the two party medians; the middle panel is their signed difference, Republican minus Democratic. The bottom panel measures the council’s overall spread, including differences within the Democratic majority: the middle half of members and the distance between the 10th and 90th percentiles. Republican groups are small, so their medians can represent a single member rather than a broad party bloc. Zine’s changing affiliation is excluded from the static party comparison but included in council-wide spread.</p>
@@ -2539,11 +2564,13 @@ Recorded yeas and nays</p>
 <h3 class="anchored" data-anchor-id="party-affiliation">Party affiliation</h3>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th style="text-align: left;">Affiliation evidence</th>
-<th style="text-align: right;">Members</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Affiliation evidence</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Members</th>
 </tr>
 </thead>
 <tbody>
@@ -2561,6 +2588,8 @@ Recorded yeas and nays</p>
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>The historical expansion includes nine newly researched Democratic affiliation/alignment claims. Evidence ranges from official party records to dated journalism and institutional biographies; exact affiliation boundaries remain unknown where the sources do not give them. Zine is kept separate because he changed from Republican to no-party registration during his service. Greuel’s earlier Republican history ended before this vote window; Park’s Democratic switch also preceded her council votes. Lee’s Republican claim is dated 2019 rather than verified current registration. Party alone does not capture differences among Democratic-affiliated members.</p>
@@ -2570,31 +2599,24 @@ Recorded yeas and nays</p>
 <p>DSA-LA named Raman, Hernandez and Soto-Martínez as endorsed councilmembers in <a href="https://dsa-la.org/dsa-la-city-councilmember-support-ceasefire/">November 2023</a>. California DSA documented Jurado’s endorsement and the four-member group after the <a href="https://www.californiadsa.org/news/los-angeles-election-2024">2024 election</a>. Socialists in Office coordinates these officeholders; it is not treated as a second independent endorsement group or an invented formal council caucus.</p>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 9%">
-<col style="width: 33%">
-<col style="width: 8%">
-<col style="width: 6%">
-<col style="width: 14%">
-<col style="width: 12%">
-<col style="width: 16%">
-</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Council</th>
-<th style="text-align: left;">Comparison</th>
-<th style="text-align: right;">Endorsed</th>
-<th style="text-align: right;">Others</th>
-<th style="text-align: right;">Endorsed median</th>
-<th style="text-align: right;">Others median</th>
-<th style="text-align: right;">Median difference</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Council</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Comparison</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Endorsed</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Others</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Endorsed median</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Others median</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Median difference</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">2022–2024</td>
-<td style="text-align: left;">All fitted members</td>
+<td style="text-align: left;">2022⁠–⁠2024</td>
+<td style="text-align: left;">All fitted members</td>
 <td style="text-align: right;">3</td>
 <td style="text-align: right;">11</td>
 <td style="text-align: right;">-2.45</td>
@@ -2602,7 +2624,7 @@ Recorded yeas and nays</p>
 <td style="text-align: right;">-2.67</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">2022–2024</td>
+<td style="text-align: left;">2022⁠–⁠2024</td>
 <td style="text-align: left;">Within Democratic-affiliated members</td>
 <td style="text-align: right;">3</td>
 <td style="text-align: right;">10</td>
@@ -2611,8 +2633,8 @@ Recorded yeas and nays</p>
 <td style="text-align: right;">-2.64</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">2024–2026</td>
-<td style="text-align: left;">All fitted members</td>
+<td style="text-align: left;">2024⁠–⁠2026</td>
+<td style="text-align: left;">All fitted members</td>
 <td style="text-align: right;">4</td>
 <td style="text-align: right;">10</td>
 <td style="text-align: right;">-1.93</td>
@@ -2620,7 +2642,7 @@ Recorded yeas and nays</p>
 <td style="text-align: right;">-2.23</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">2024–2026</td>
+<td style="text-align: left;">2024⁠–⁠2026</td>
 <td style="text-align: left;">Within Democratic-affiliated members</td>
 <td style="text-align: right;">4</td>
 <td style="text-align: right;">9</td>
@@ -2630,6 +2652,8 @@ Recorded yeas and nays</p>
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>In 2022–2024, every endorsed member’s point estimate lies left of every other fitted member. In 2024–2026, every endorsed member’s point estimate lies left of every other fitted member. This describes point estimates, not guaranteed separation of their uncertainty intervals.</p>
@@ -2639,87 +2663,78 @@ Recorded yeas and nays</p>
 <p>AHLA’s housing-abundance endorsements are distinct from DSA’s. Its <a href="https://abundanthousingla.org/ahla-endorsed-candidates-update/">2022 update</a> documents support for Yaroslavsky and Soto-Martínez. Its <a href="https://www.abundanthousingla.org/2024-endorsements">2024 annual list</a> includes Raman, Harris-Dawson, Hutt and Nazarian. The latter combines election stages, so it should not be read as one simultaneous slate.</p>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 4%">
-<col style="width: 32%">
-<col style="width: 33%">
-<col style="width: 30%">
-</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;"></th>
-<th style="text-align: left;">Member</th>
-<th style="text-align: right;">Documented election year</th>
-<th style="text-align: right;">Pooled voting position</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Member</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Documented election year</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Pooled voting position</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">5</td>
-<td style="text-align: left;">Katy Young-Yaroslavsky</td>
+<td style="text-align: left;">Katy Young-Yaroslavsky</td>
 <td style="text-align: right;">2022</td>
 <td style="text-align: right;">-0.15</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">6</td>
-<td style="text-align: left;">Hugo Soto-Martinez</td>
+<td style="text-align: left;">Hugo Soto-Martinez</td>
 <td style="text-align: right;">2022</td>
 <td style="text-align: right;">-2.45</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">7</td>
-<td style="text-align: left;">Adrin Nazarian</td>
+<td style="text-align: left;">Adrin Nazarian</td>
 <td style="text-align: right;">2024</td>
 <td style="text-align: right;">0.52</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">8</td>
-<td style="text-align: left;">Nithya Raman</td>
+<td style="text-align: left;">Nithya Raman</td>
 <td style="text-align: right;">2024</td>
 <td style="text-align: right;">-0.29</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">9</td>
-<td style="text-align: left;">Marqueece Harris-Dawson</td>
+<td style="text-align: left;">Marqueece Harris-Dawson</td>
 <td style="text-align: right;">2024</td>
 <td style="text-align: right;">-0.20</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">10</td>
-<td style="text-align: left;">Heather Hutt</td>
+<td style="text-align: left;">Heather Hutt</td>
 <td style="text-align: right;">2024</td>
 <td style="text-align: right;">-0.08</td>
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 2%">
-<col style="width: 35%">
-<col style="width: 8%">
-<col style="width: 6%">
-<col style="width: 15%">
-<col style="width: 13%">
-<col style="width: 17%">
-</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;"></th>
-<th style="text-align: left;">Comparison</th>
-<th style="text-align: right;">Endorsed</th>
-<th style="text-align: right;">Others</th>
-<th style="text-align: right;">Endorsed median</th>
-<th style="text-align: right;">Others median</th>
-<th style="text-align: right;">Median difference</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Comparison</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Endorsed</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Others</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Endorsed median</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Others median</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Median difference</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">5</td>
-<td style="text-align: left;">All fitted members</td>
+<td style="text-align: left;">All fitted members</td>
 <td style="text-align: right;">4</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">-0.14</td>
@@ -2737,6 +2752,8 @@ Recorded yeas and nays</p>
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>The 2024 comparison includes incoming members only in covered races. “Others” means Lee and Jurado were not listed in that reviewed annual source; it is not proof they never received an endorsement. Holdovers and District 6 are not treated as unendorsed controls. Among Democratic-affiliated members, the outside group is Jurado alone, making that comparison descriptive rather than a broad test of AHLA’s politics.</p>

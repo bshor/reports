@@ -2185,6 +2185,13 @@ figcaption, .figure-caption { font-size: 1rem; line-height: 1.5; color: var(--re
 table { font-size: .97rem; }
 table th { color: var(--report-ink); }
 table td, table th { padding: .6rem .7rem !important; }
+.report-table-wrap { overflow-x: auto; max-width: 100%; margin: 1rem 0; }
+.report-table-wrap table { table-layout: auto !important; width: 100%; }
+.report-table-wrap table td, .report-table-wrap table th {
+padding: .55rem .45rem !important;
+vertical-align: top;
+}
+.report-table-wrap td[style*="right"] { white-space: nowrap; }
 .table-nowrap { overflow-x: auto; margin: 1rem 0; }
 .table-nowrap table { table-layout: auto !important; }
 .table-nowrap table td, .table-nowrap table th {
@@ -2283,20 +2290,22 @@ Recorded yeas and nays</p>
 <p>Adding the 2000–2003 votes changes the scale’s units as well as its historical coverage. Positions in the earlier and expanded analyses therefore should not be compared as if their numerical units were fixed. The <a href="houston-expanded-technical-appendix.html">technical appendix</a> compares the estimates for members shared by the two samples.</p>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th style="text-align: left;">Measure</th>
-<th style="text-align: left;">Value</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Measure</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Value</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Source council actions</td>
+<td style="text-align: left;">Source council actions</td>
 <td style="text-align: left;">39,463</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Source member rows</td>
+<td style="text-align: left;">Source member rows</td>
 <td style="text-align: left;">626,483</td>
 </tr>
 <tr class="odd">
@@ -2308,11 +2317,13 @@ Recorded yeas and nays</p>
 <td style="text-align: left;">77</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Observed yea/nay votes</td>
+<td style="text-align: left;">Observed yea/nay votes</td>
 <td style="text-align: left;">13,785</td>
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>The mayor votes as part of the council. Today’s 17 voting officials are the mayor, eleven district members, and five at-large members; the earlier council had nine district seats (<a href="https://www.houstontx.gov/planning/Publications/2003_almanac.pdf">Houston’s 2003 almanac</a>). A person is missing, not coded nay, when absent, departed, or omitted from an explicit roll call. Only actions with at least two recorded yeas and two recorded nays enter the scale. Most council business is unanimous or close to it, so these actions are a selected subset of policy decisions rather than a summary of everything the council did. The bar chart shows how many qualifying disagreements are observed for each elected council.</p>
@@ -2363,6 +2374,8 @@ Recorded yeas and nays</p>
 <div class="table-nowrap">
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
@@ -2376,7 +2389,7 @@ Recorded yeas and nays</p>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Lee P. Brown</td>
+<td style="text-align: left;">Lee P. Brown</td>
 <td style="text-align: left;">2000⁠–⁠2001</td>
 <td style="text-align: left;">-1.19</td>
 <td style="text-align: left;">0.43</td>
@@ -2384,7 +2397,7 @@ Recorded yeas and nays</p>
 <td style="text-align: right;">13</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Lee P. Brown</td>
+<td style="text-align: left;">Lee P. Brown</td>
 <td style="text-align: left;">2002⁠–⁠2003</td>
 <td style="text-align: left;">-1.19</td>
 <td style="text-align: left;">0.43</td>
@@ -2392,7 +2405,7 @@ Recorded yeas and nays</p>
 <td style="text-align: right;">13</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Bill White</td>
+<td style="text-align: left;">Bill White</td>
 <td style="text-align: left;">2004⁠–⁠2005</td>
 <td style="text-align: left;">-0.43</td>
 <td style="text-align: left;">-0.12</td>
@@ -2400,7 +2413,7 @@ Recorded yeas and nays</p>
 <td style="text-align: right;">14</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Bill White</td>
+<td style="text-align: left;">Bill White</td>
 <td style="text-align: left;">2006⁠–⁠2007</td>
 <td style="text-align: left;">-0.43</td>
 <td style="text-align: left;">-0.36</td>
@@ -2408,7 +2421,7 @@ Recorded yeas and nays</p>
 <td style="text-align: right;">15</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Bill White</td>
+<td style="text-align: left;">Bill White</td>
 <td style="text-align: left;">2008⁠–⁠2009</td>
 <td style="text-align: left;">-0.43</td>
 <td style="text-align: left;">-0.45</td>
@@ -2416,7 +2429,7 @@ Recorded yeas and nays</p>
 <td style="text-align: right;">15</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Annise Parker</td>
+<td style="text-align: left;">Annise Parker</td>
 <td style="text-align: left;">2010⁠–⁠2011</td>
 <td style="text-align: left;">-0.59</td>
 <td style="text-align: left;">-0.34</td>
@@ -2424,7 +2437,7 @@ Recorded yeas and nays</p>
 <td style="text-align: right;">14</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Annise Parker</td>
+<td style="text-align: left;">Annise Parker</td>
 <td style="text-align: left;">2012⁠–⁠2013</td>
 <td style="text-align: left;">-0.59</td>
 <td style="text-align: left;">-0.33</td>
@@ -2432,7 +2445,7 @@ Recorded yeas and nays</p>
 <td style="text-align: right;">17</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Annise Parker</td>
+<td style="text-align: left;">Annise Parker</td>
 <td style="text-align: left;">2014⁠–⁠2015</td>
 <td style="text-align: left;">-0.59</td>
 <td style="text-align: left;">-0.26</td>
@@ -2440,7 +2453,7 @@ Recorded yeas and nays</p>
 <td style="text-align: right;">16</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Sylvester Turner</td>
+<td style="text-align: left;">Sylvester Turner</td>
 <td style="text-align: left;">2016⁠–⁠2019</td>
 <td style="text-align: left;">-0.68</td>
 <td style="text-align: left;">-0.17</td>
@@ -2448,7 +2461,7 @@ Recorded yeas and nays</p>
 <td style="text-align: right;">17</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Sylvester Turner</td>
+<td style="text-align: left;">Sylvester Turner</td>
 <td style="text-align: left;">2020⁠–⁠2023</td>
 <td style="text-align: left;">-0.68</td>
 <td style="text-align: left;">-0.39</td>
@@ -2456,7 +2469,7 @@ Recorded yeas and nays</p>
 <td style="text-align: right;">18</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">John Whitmire</td>
+<td style="text-align: left;">John Whitmire</td>
 <td style="text-align: left;">2024⁠–⁠2027</td>
 <td style="text-align: left;">0.30</td>
 <td style="text-align: left;">-0.24</td>
@@ -2465,6 +2478,8 @@ Recorded yeas and nays</p>
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 </div>
@@ -2610,6 +2625,8 @@ Recorded yeas and nays</p>
 <div class="table-nowrap">
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
@@ -2623,7 +2640,7 @@ Recorded yeas and nays</p>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">2024–2027</td>
+<td style="text-align: left;">2024⁠–⁠2027</td>
 <td style="text-align: right;">2023</td>
 <td style="text-align: right;">4</td>
 <td style="text-align: right;">17</td>
@@ -2631,7 +2648,7 @@ Recorded yeas and nays</p>
 <td style="text-align: left;">617</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">2020–2023</td>
+<td style="text-align: left;">2020⁠–⁠2023</td>
 <td style="text-align: right;">2019</td>
 <td style="text-align: right;">4</td>
 <td style="text-align: right;">19</td>
@@ -2639,7 +2656,7 @@ Recorded yeas and nays</p>
 <td style="text-align: left;">1,878</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">2016–2019</td>
+<td style="text-align: left;">2016⁠–⁠2019</td>
 <td style="text-align: right;">2015</td>
 <td style="text-align: right;">4</td>
 <td style="text-align: right;">18</td>
@@ -2647,7 +2664,7 @@ Recorded yeas and nays</p>
 <td style="text-align: left;">767</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">2014–2015</td>
+<td style="text-align: left;">2014⁠–⁠2015</td>
 <td style="text-align: right;">2013</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">17</td>
@@ -2655,7 +2672,7 @@ Recorded yeas and nays</p>
 <td style="text-align: left;">1,092</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">2012–2013</td>
+<td style="text-align: left;">2012⁠–⁠2013</td>
 <td style="text-align: right;">2011</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">18</td>
@@ -2663,7 +2680,7 @@ Recorded yeas and nays</p>
 <td style="text-align: left;">595</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">2010–2011</td>
+<td style="text-align: left;">2010⁠–⁠2011</td>
 <td style="text-align: right;">2009</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">15</td>
@@ -2671,7 +2688,7 @@ Recorded yeas and nays</p>
 <td style="text-align: left;">410</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">2008–2009</td>
+<td style="text-align: left;">2008⁠–⁠2009</td>
 <td style="text-align: right;">2007</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">16</td>
@@ -2679,7 +2696,7 @@ Recorded yeas and nays</p>
 <td style="text-align: left;">346</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">2006–2007</td>
+<td style="text-align: left;">2006⁠–⁠2007</td>
 <td style="text-align: right;">2005</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">16</td>
@@ -2687,7 +2704,7 @@ Recorded yeas and nays</p>
 <td style="text-align: left;">1,375</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">2004–2005</td>
+<td style="text-align: left;">2004⁠–⁠2005</td>
 <td style="text-align: right;">2003</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">15</td>
@@ -2695,7 +2712,7 @@ Recorded yeas and nays</p>
 <td style="text-align: left;">1,168</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">2002–2003</td>
+<td style="text-align: left;">2002⁠–⁠2003</td>
 <td style="text-align: right;">2001</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">15</td>
@@ -2703,7 +2720,7 @@ Recorded yeas and nays</p>
 <td style="text-align: left;">3,256</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">2000–2001</td>
+<td style="text-align: left;">2000⁠–⁠2001</td>
 <td style="text-align: right;">1999</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">15</td>
@@ -2712,6 +2729,8 @@ Recorded yeas and nays</p>
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 </div>
@@ -2745,13 +2764,15 @@ Recorded yeas and nays</p>
 </div>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th style="text-align: left;">Office type</th>
-<th style="text-align: right;">Officials</th>
-<th style="text-align: left;">Median position</th>
-<th style="text-align: left;">Median distance to Whitmire</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Office type</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Officials</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Median position</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Median distance to Whitmire</th>
 </tr>
 </thead>
 <tbody>
@@ -2769,6 +2790,8 @@ Recorded yeas and nays</p>
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>The five at-large members are <strong>closer to Whitmire as a group</strong>: their median absolute score distance from him is 0.39, compared with 1.05 for district members. The three Republican-affiliated at-large members cluster around +0.3 to +0.5, well short of Republican district members Huffman and Flickinger on the positive side. But <strong>Letitia Plummer</strong>, an at-large member, is the <em>most negative</em> member of the 2023-elected council. The two Democratic at-large members are not more central than the Democratic district members on average. So the citywide-moderation expectation fits the group-level pattern—especially on the Republican side—not a universal rule about at-large officeholders. These are 5-versus-11 descriptive comparisons on a roll-call scale, not an estimate of the electoral effect of at-large representation.</p>
@@ -2807,12 +2830,14 @@ Recorded yeas and nays</p>
 <p>The same comparison is now available for <strong>2016 and 2020</strong>, using the eleven-district council map in force from the 2013 election through 2023—not the post-redistricting map used above for 2024. Each point is matched to the member <strong>actually serving on presidential Election Day</strong>. In 2020, that means Jerry Davis in District B: its delayed runoff did not elect Tarsha Jackson until December. The table reports a separate district-level relationship for each year, not a pooled correlation across changing maps and councils.</p>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th style="text-align: right;">Year</th>
-<th style="text-align: right;">Districts</th>
-<th style="text-align: left;">Pearson r</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Year</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Districts</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Pearson r</th>
 </tr>
 </thead>
 <tbody>
@@ -2833,6 +2858,8 @@ Recorded yeas and nays</p>
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <div class="cell">
@@ -2852,11 +2879,13 @@ Recorded yeas and nays</p>
 <p>Houston’s municipal ballots are nonpartisan. <strong>The roll-call votes do not supply party labels; we assembled and coded them separately</strong> for all 77 fitted officials, with a source and an evidence type for each person. The four types — <code>party_record</code>, <code>party_organization</code>, <code>self_identified</code>, <code>reported</code> — describe what kind of source a label rests on, not how strong it is. <code>party_record</code> means a documented partisan candidacy or party office, not voter registration or a council ballot line. A GOP endorsement is weaker evidence of political leaning, not proof of membership. For example, <a href="https://files.harrisvotes.com/harrisvotes/prd/HISTORY/20200303/RepublicanCumulative.pdf">Mary Nan Huffman’s 2020 Republican primary candidacy</a> is a party record; the <a href="https://www.harriscountygop.com/harris-county-gop-endorsed-candidates-win-big-on-election-day/">Harris County GOP’s 2023 endorsements</a> of Flickinger, Ramirez, Davis, and Carter are endorsements. The new early members include <a href="https://history.house.gov/People/Listing/B/BELL%2C-Chris-%28B001241%29/">Chris Bell, elected to Congress as a Democrat</a>, <a href="https://files.harrisvotes.com/harrisvotes/prd/HISTORY/20180306/cumulative/Rep/cumulative.pdf">Orlando Sanchez on an official Republican primary ballot</a>, and <a href="https://ivoterguide.com/candidate/60884/race/288/election/871">Bert Keller on a Republican primary ballot</a>. Contemporary reporting identifies Brown as a Democrat and Bruce Tatro and Rob Todd as Republicans; party-organization and primary-election records support Boney, Castillo, and Robinson as Democrats. <strong>Gabriel Vasquez changed from Democratic to Republican affiliation while serving</strong>, so his affiliation is recorded as two dated rows and he is omitted from fixed two-party comparisons. The evidence ledger in the <a href="houston-expanded-technical-appendix.html">technical appendix</a> lists every source. These labels never enter the vote model as data, priors, or fixed positions. The reported solution comes from a start derived only from the votes; a separate chain started from party labels reaches the same solution, as detailed in the appendix. We found no winning Houston DSA-endorsed council candidate or formal ideological council caucus.</p>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th style="text-align: left;">External affiliation evidence</th>
-<th style="text-align: right;">Officials</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">External affiliation evidence</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Officials</th>
 </tr>
 </thead>
 <tbody>
@@ -2874,26 +2903,23 @@ Recorded yeas and nays</p>
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>Focused follow-up found a <a href="https://elections.sos.state.tx.us/elchist148_state.htm">2010 Republican primary candidacy for Addie Wiseman</a>, <a href="https://www.houstonchronicle.com/politics/houston/article/Resign-to-run-law-now-applies-to-elected-city-6787701.php">Larry Green’s interest in the Democratic nomination for county commissioner</a>, and an <a href="https://www.houstonchronicle.com/politics/houston/article/houston-mayor-candidates-gun-buybacks-bike-lanes-18395207.php">explicit Republican characterization of M. J. Khan</a>. Green’s evidence is a news account rather than a formal party filing and is typed <code>reported</code>. Two further cases are supported by distinct, non-voting evidence: an <a href="https://web.archive.org/web/20250917114837/https://texas.comcast.com/carol-mims-galloway/">archived Carol Mims Galloway biography</a> lists membership in Harris County Black Democrats, and a <a href="https://www.offthekuff.com/wp/?p=70979">contemporaneous report of the Harris County Democratic Party’s 2015 endorsement slate</a> identifies District F’s Richard Nguyen among its Democratic candidates. Galloway’s club membership is self-reported and Nguyen’s party slate is reported secondhand, so neither is typed <code>party_record</code>: Galloway is <code>self_identified</code> and Nguyen <code>reported</code>. A <a href="https://web.archive.org/web/20210513000446/https://www.texasmonthly.com/news-politics/here-comes-trouble/">contemporaneous <em>Texas Monthly</em> profile</a> identifies <strong>Michael Kubosh</strong> as a Republican and explains his 2006 Democratic Senate candidacy as a tactical ballot choice. A <a href="https://web.archive.org/web/20230208205501/https://www.houstonchronicle.com/news/houston-texas/houston/article/Houston-council-runoff-foes-are-opposites-in-14867953.php">2019 <em>Houston Chronicle</em> profile</a> reports GOP endorsements and Republican ballots in eight of nine earlier primaries, while noting that he now rejects party labels. We classify him Republican-affiliated from this combined reporting, not as a Republican party-record case: no Republican candidacy or party office is documented. No label here is assigned by voting score, district, or reputation. Individual sources and evidence types are listed in the <a href="houston-expanded-technical-appendix.html">technical appendix</a>.</p>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 41%">
-<col style="width: 10%">
-<col style="width: 7%">
-<col style="width: 26%">
-<col style="width: 14%">
-</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Affiliation group</th>
-<th style="text-align: right;">In group</th>
-<th style="text-align: right;">Others</th>
-<th style="text-align: right;">Mean ideal point: group</th>
-<th style="text-align: right;">Mean: others</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Affiliation group</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">In group</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Others</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Mean ideal point: group</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Mean: others</th>
 </tr>
 </thead>
 <tbody>
@@ -2920,6 +2946,8 @@ Recorded yeas and nays</p>
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>The count table covers <strong>all 77 officials</strong>. The mean-comparison table covers the <strong>76 assigned a single Democratic or Republican affiliation</strong>, excluding Vasquez’s documented party switch. “Others” means everyone else among those 76; in the candidacy/office row it also includes Republicans whose evidence is an endorsement, roster, or reporting. These group means are descriptive comparisons of small, unevenly served groups.</p>
@@ -2931,28 +2959,22 @@ Recorded yeas and nays</p>
 <p>For a same-election comparison, the table below uses only the <strong>17 fitted officials who voted in the first year of the council elected in 2023</strong>. It compares their pooled scores with each organization’s <em>November general-election</em> list; later runoff endorsements are retained in the ledger but not substituted for general-election choices. All listed fitted officials are Democratic-affiliated. Labor and the Caucus each backed seven, but not the same seven: labor backed Whitmire and Pollard, while the Caucus backed Castillo and Thomas. TOP backed just Plummer and Jackson among fitted winners; it also backed Lloyd Ford against incumbent Carolyn Evans-Shabazz. The separate lists therefore retain real disagreements, although TOP’s small group is descriptive, not a statistical test.</p>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 14%">
-<col style="width: 13%">
-<col style="width: 14%">
-<col style="width: 16%">
-<col style="width: 25%">
-<col style="width: 15%">
-</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Organization</th>
-<th style="text-align: right;">Listed among 17</th>
-<th style="text-align: right;">Democrats listed</th>
-<th style="text-align: right;">Republicans listed</th>
-<th style="text-align: left;">Mean gap: listed − not listed</th>
-<th style="text-align: left;">Within-D mean gap</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Organization</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Listed among 17</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Democrats listed</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Republicans listed</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Mean gap: listed − not listed</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Within-D mean gap</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Labor federation</td>
+<td style="text-align: left;">Labor federation</td>
 <td style="text-align: right;">7</td>
 <td style="text-align: right;">7</td>
 <td style="text-align: right;">0</td>
@@ -2960,7 +2982,7 @@ Recorded yeas and nays</p>
 <td style="text-align: left;">+0.10</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">LGBTQ+ Caucus</td>
+<td style="text-align: left;">LGBTQ+ Caucus</td>
 <td style="text-align: right;">7</td>
 <td style="text-align: right;">7</td>
 <td style="text-align: right;">0</td>
@@ -2968,7 +2990,7 @@ Recorded yeas and nays</p>
 <td style="text-align: left;">-0.01</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">TOP PAC</td>
+<td style="text-align: left;">TOP PAC</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">0</td>
@@ -2976,7 +2998,7 @@ Recorded yeas and nays</p>
 <td style="text-align: left;">-0.73</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Our Revolution</td>
+<td style="text-align: left;">Our Revolution</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -2985,6 +3007,8 @@ Recorded yeas and nays</p>
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>Negative gaps indicate a more negative pooled voting position for the listed candidates. Labor and Caucus endorsements distinguish the two parties in this council, but <strong>hardly separate the Democrats from one another</strong>. TOP’s two listed winners sit farther left even among Democrats, though the very small count and its partial published list make that finding tentative. Our Revolution is unmeasured, not a zero-endorsement comparison. Detailed counts, point-biserial relationships, and pairwise ordering are in the <a href="houston-expanded-technical-appendix.html">technical appendix</a>.</p>

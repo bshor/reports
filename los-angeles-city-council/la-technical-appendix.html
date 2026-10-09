@@ -2185,6 +2185,19 @@ figcaption, .figure-caption { font-size: 1rem; line-height: 1.5; color: var(--re
 table { font-size: .97rem; }
 table th { color: var(--report-ink); }
 table td, table th { padding: .6rem .7rem !important; }
+.report-table-wrap { overflow-x: auto; max-width: 100%; margin: 1rem 0; }
+.report-table-wrap table { table-layout: auto !important; width: 100%; }
+.report-table-wrap table td, .report-table-wrap table th {
+padding: .55rem .45rem !important;
+vertical-align: top;
+}
+.report-table-wrap td[style*="right"] { white-space: nowrap; }
+.table-nowrap { overflow-x: auto; margin: 1rem 0; }
+.table-nowrap table { table-layout: auto !important; }
+.table-nowrap table td, .table-nowrap table th {
+white-space: nowrap !important;
+padding: .55rem .45rem !important;
+}
 #TOC { font-size: .95rem; }
 @media (max-width: 767px) {
 body { font-size: 1rem; }
@@ -2244,11 +2257,13 @@ table { font-size: .88rem; }
 <p>An event is <strong>meeting_id plus rollcall_key</strong>, not meeting plus motion text. There are 44,958 such raw combinations including missing keys; the cleaned matrix has 44,908 keyed actions before ideological culling. Reused generic motion descriptions would collapse separate decisions if used as the identifier. Action keys are treated as source-extraction identifiers, not as independently verified permanent roll-call IDs.</p>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th style="text-align: left;">measure</th>
-<th style="text-align: left;">value</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">measure</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">value</th>
 </tr>
 </thead>
 <tbody>
@@ -2290,14 +2305,16 @@ table { font-size: .88rem; }
 </tr>
 <tr class="even">
 <td style="text-align: left;">first_date</td>
-<td style="text-align: left;">2021-02-16</td>
+<td style="text-align: left;">2021⁠-⁠02⁠-⁠16</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">last_date</td>
-<td style="text-align: left;">2026-09-11</td>
+<td style="text-align: left;">2026⁠-⁠09⁠-⁠11</td>
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>Name matching strips spacing, punctuation, accents, soft hyphens and invisible zero-width characters. The within-city roster resolves clear surname variants. A longer Soto-Martínez match supersedes the suffix Martínez; strings naming multiple people, unexplained fragments and missing action keys are excluded. The raw-to-canonical mapping and exclusions remain inspectable. Existing legacy local IDs are carried through, not newly allocated; the duplicated upstream Hugo Soto-Martínez IDs are consolidated to one analysis person, with one existing ID carried in the score table. This is an analysis-side identity normalization, not an upstream registry repair.</p>
@@ -2317,25 +2334,18 @@ table { font-size: .88rem; }
 <h3 class="anchored" data-anchor-id="diagnostics">Diagnostics</h3>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 10%">
-<col style="width: 15%">
-<col style="width: 10%">
-<col style="width: 7%">
-<col style="width: 12%">
-<col style="width: 11%">
-<col style="width: 32%">
-</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: right;">chains</th>
-<th style="text-align: right;">iterations</th>
-<th style="text-align: right;">burnin</th>
-<th style="text-align: right;">thin</th>
-<th style="text-align: right;">max_rhat</th>
-<th style="text-align: right;">min_ess</th>
-<th style="text-align: right;">chain_mean_correlation</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">chains</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">iterations</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">burnin</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">thin</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">max_rhat</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">min_ess</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">chain_mean_correlation</th>
 </tr>
 </thead>
 <tbody>
@@ -2350,6 +2360,8 @@ table { font-size: .88rem; }
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>The largest member-level R-hat is 1.011 and the smallest effective sample size is 74. Agreement of chain means is 1.000. These are within-solution diagnostics, not proof that no alternative mode exists; no label-free-start or dispersed-start comparison was run for this initial LA report. The first, shorter run also exposed name-normalization losses and is not the reported fit.</p>
@@ -2358,12 +2370,14 @@ table { font-size: .88rem; }
 <h3 class="anchored" data-anchor-id="overlap-and-repeated-patterns">Overlap and repeated patterns</h3>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th style="text-align: right;">Year</th>
-<th style="text-align: right;">Next year</th>
-<th style="text-align: right;">Members observed in both</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Year</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Next year</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Members observed in both</th>
 </tr>
 </thead>
 <tbody>
@@ -2394,13 +2408,17 @@ table { font-size: .88rem; }
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th style="text-align: right;">retained</th>
-<th style="text-align: right;">unique_within_meeting</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">retained</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">unique_within_meeting</th>
 </tr>
 </thead>
 <tbody>
@@ -2410,6 +2428,8 @@ table { font-size: .88rem; }
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>The overlap table counts members with qualifying votes in both years. It is not a count of shared legislators’ individual bridge votes. Separate official actions remain separate observations even when their recorded voting patterns repeat within a meeting; that dependence can make nominal intervals optimistic. The table above records the repeated-pattern issue without fitting an additional sensitivity model.</p>
@@ -2422,11 +2442,13 @@ table { font-size: .88rem; }
 <p>For display and within-Democrat comparisons, Park is Democratic: the September 2022 source documents that her switch had already occurred, before her first retained council vote on January 10, 2023. Her earlier Republican claim remains in the ledger. This is a presentation/validation correction, not a refit; the original chains still used 0 as Park’s starting value. McOsker’s new reported Democratic evidence is also in PR #21, but he remains unfitted. The fitted members’ evidence types are summarized below; a reference or registration claim in reporting is not an election-authority record retrieved by us.</p>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th style="text-align: left;">Evidence type</th>
-<th style="text-align: right;">Fitted members</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Evidence type</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Fitted members</th>
 </tr>
 </thead>
 <tbody>
@@ -2448,35 +2470,31 @@ table { font-size: .88rem; }
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>DSA endorsements are separately recorded in <code>Results/LosAngeles/endorsements.csv</code>. Complete descriptions of the sitting endorsed group in November 2023 and November 2024 support council-specific comparisons. Earlier missing endorsement records are not coded as evidence of non-endorsement. The pooled plot’s triangles identify the four documented endorsed officeholders, not a historical negative classification for everyone else. The comparisons omit the incomplete pre-2022 endorsement window.</p>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 12%">
-<col style="width: 33%">
-<col style="width: 22%">
-<col style="width: 5%">
-<col style="width: 8%">
-<col style="width: 17%">
-</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Organization</th>
-<th style="text-align: left;">Council group</th>
-<th style="text-align: left;">Comparison</th>
-<th style="text-align: right;">Endorsed</th>
-<th style="text-align: right;">Other members</th>
-<th style="text-align: right;">Share endorsed left of other</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Organization</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Council group</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Comparison</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Endorsed</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Other members</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Share endorsed left of other</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">DSA-LA</td>
 <td style="text-align: left;">Council after 2022 election (documented November 2023)</td>
-<td style="text-align: left;">All fitted members</td>
+<td style="text-align: left;">All fitted members</td>
 <td style="text-align: right;">3</td>
 <td style="text-align: right;">11</td>
 <td style="text-align: right;">1.0</td>
@@ -2492,7 +2510,7 @@ table { font-size: .88rem; }
 <tr class="odd">
 <td style="text-align: left;">DSA-LA</td>
 <td style="text-align: left;">Council after 2024 election (documented November 2024)</td>
-<td style="text-align: left;">All fitted members</td>
+<td style="text-align: left;">All fitted members</td>
 <td style="text-align: right;">4</td>
 <td style="text-align: right;">10</td>
 <td style="text-align: right;">1.0</td>
@@ -2506,15 +2524,15 @@ table { font-size: .88rem; }
 <td style="text-align: right;">1.0</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Abundant Housing LA</td>
+<td style="text-align: left;">Abundant Housing LA</td>
 <td style="text-align: left;">2024 incoming members in covered races</td>
-<td style="text-align: left;">All fitted members</td>
+<td style="text-align: left;">All fitted members</td>
 <td style="text-align: right;">4</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">0.5</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Abundant Housing LA</td>
+<td style="text-align: left;">Abundant Housing LA</td>
 <td style="text-align: left;">2024 incoming members in covered races</td>
 <td style="text-align: left;">Within Democratic-affiliated members</td>
 <td style="text-align: right;">4</td>
@@ -2523,6 +2541,8 @@ table { font-size: .88rem; }
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>The ordered-pair share compares every endorsed member’s <strong>pooled posterior mean voting position</strong> with every other member of the specified council group. Within-Democrat rows restrict both groups to the Democratic display label, including Park and excluding Lee. This is descriptive, with no causal interpretation or large-sample significance claim. The complete point-estimate ordering does not imply disjoint uncertainty intervals: Raman and Harris-Dawson’s intervals slightly overlap.</p>
@@ -2532,32 +2552,24 @@ table { font-size: .88rem; }
 <h2 class="anchored" data-anchor-id="full-estimates-and-implementation">Full estimates and implementation</h2>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 30%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 10%">
-<col style="width: 13%">
-<col style="width: 7%">
-<col style="width: 11%">
-</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">name</th>
-<th style="text-align: right;">mean</th>
-<th style="text-align: right;">lower</th>
-<th style="text-align: right;">upper</th>
-<th style="text-align: right;">n_votes</th>
-<th style="text-align: left;">party</th>
-<th style="text-align: right;">rhat</th>
-<th style="text-align: right;">ess</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">name</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">mean</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">lower</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">upper</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">n_votes</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">party</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">rhat</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">ess</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Eunisses Hernandez</td>
+<td style="text-align: left;">Eunisses Hernandez</td>
 <td style="text-align: right;">-3.201</td>
 <td style="text-align: right;">-3.817</td>
 <td style="text-align: right;">-2.619</td>
@@ -2567,7 +2579,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">74.121</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Hugo Soto-Martinez</td>
+<td style="text-align: left;">Hugo Soto-Martinez</td>
 <td style="text-align: right;">-1.596</td>
 <td style="text-align: right;">-1.937</td>
 <td style="text-align: right;">-1.292</td>
@@ -2577,7 +2589,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">510.763</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Ysabel J. Jurado</td>
+<td style="text-align: left;">Ysabel J. Jurado</td>
 <td style="text-align: right;">-0.961</td>
 <td style="text-align: right;">-1.158</td>
 <td style="text-align: right;">-0.792</td>
@@ -2587,7 +2599,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">763.243</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Mike Bonin</td>
+<td style="text-align: left;">Mike Bonin</td>
 <td style="text-align: right;">-0.823</td>
 <td style="text-align: right;">-1.237</td>
 <td style="text-align: right;">-0.560</td>
@@ -2597,7 +2609,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">523.123</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Nithya Raman</td>
+<td style="text-align: left;">Nithya Raman</td>
 <td style="text-align: right;">-0.288</td>
 <td style="text-align: right;">-0.354</td>
 <td style="text-align: right;">-0.222</td>
@@ -2607,7 +2619,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">570.680</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Marqueece Harris-Dawson</td>
+<td style="text-align: left;">Marqueece Harris-Dawson</td>
 <td style="text-align: right;">-0.204</td>
 <td style="text-align: right;">-0.267</td>
 <td style="text-align: right;">-0.137</td>
@@ -2617,7 +2629,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">473.639</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Katy Young-Yaroslavsky</td>
+<td style="text-align: left;">Katy Young-Yaroslavsky</td>
 <td style="text-align: right;">-0.143</td>
 <td style="text-align: right;">-0.227</td>
 <td style="text-align: right;">-0.052</td>
@@ -2627,7 +2639,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">771.866</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Heather Hutt</td>
+<td style="text-align: left;">Heather Hutt</td>
 <td style="text-align: right;">-0.089</td>
 <td style="text-align: right;">-0.159</td>
 <td style="text-align: right;">-0.016</td>
@@ -2637,7 +2649,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">515.351</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Kevin De Leon</td>
+<td style="text-align: left;">Kevin De Leon</td>
 <td style="text-align: right;">-0.077</td>
 <td style="text-align: right;">-0.150</td>
 <td style="text-align: right;">0.000</td>
@@ -2647,7 +2659,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">512.295</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Paul Koretz</td>
+<td style="text-align: left;">Paul Koretz</td>
 <td style="text-align: right;">-0.049</td>
 <td style="text-align: right;">-0.129</td>
 <td style="text-align: right;">0.037</td>
@@ -2657,7 +2669,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">585.095</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Mark Ridley-Thomas</td>
+<td style="text-align: left;">Mark Ridley-Thomas</td>
 <td style="text-align: right;">0.057</td>
 <td style="text-align: right;">-0.223</td>
 <td style="text-align: right;">0.474</td>
@@ -2667,7 +2679,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">2945.065</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Curren D Price Jr.</td>
+<td style="text-align: left;">Curren D Price Jr.</td>
 <td style="text-align: right;">0.191</td>
 <td style="text-align: right;">0.097</td>
 <td style="text-align: right;">0.292</td>
@@ -2677,7 +2689,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">481.267</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Herb J. Wesson Jr.</td>
+<td style="text-align: left;">Herb J. Wesson Jr.</td>
 <td style="text-align: right;">0.212</td>
 <td style="text-align: right;">-0.018</td>
 <td style="text-align: right;">0.458</td>
@@ -2687,7 +2699,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">2140.929</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Bob Blumenfield</td>
+<td style="text-align: left;">Bob Blumenfield</td>
 <td style="text-align: right;">0.287</td>
 <td style="text-align: right;">0.186</td>
 <td style="text-align: right;">0.398</td>
@@ -2697,7 +2709,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">422.403</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Mitch O’Farrell</td>
+<td style="text-align: left;">Mitch O&#39;Farrell</td>
 <td style="text-align: right;">0.301</td>
 <td style="text-align: right;">0.173</td>
 <td style="text-align: right;">0.442</td>
@@ -2707,7 +2719,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">707.324</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Paul Krekorian</td>
+<td style="text-align: left;">Paul Krekorian</td>
 <td style="text-align: right;">0.310</td>
 <td style="text-align: right;">0.198</td>
 <td style="text-align: right;">0.432</td>
@@ -2717,7 +2729,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">478.451</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Nury Martinez</td>
+<td style="text-align: left;">Nury Martinez</td>
 <td style="text-align: right;">0.358</td>
 <td style="text-align: right;">0.208</td>
 <td style="text-align: right;">0.528</td>
@@ -2727,7 +2739,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">968.925</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Traci Park</td>
+<td style="text-align: left;">Traci Park</td>
 <td style="text-align: right;">0.403</td>
 <td style="text-align: right;">0.267</td>
 <td style="text-align: right;">0.553</td>
@@ -2737,7 +2749,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">477.344</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Gilbert Cedillo</td>
+<td style="text-align: left;">Gilbert Cedillo</td>
 <td style="text-align: right;">0.441</td>
 <td style="text-align: right;">0.258</td>
 <td style="text-align: right;">0.639</td>
@@ -2747,7 +2759,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">818.345</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Imelda Padilla</td>
+<td style="text-align: left;">Imelda Padilla</td>
 <td style="text-align: right;">0.460</td>
 <td style="text-align: right;">0.290</td>
 <td style="text-align: right;">0.644</td>
@@ -2757,7 +2769,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">612.826</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Adrin Nazarian</td>
+<td style="text-align: left;">Adrin Nazarian</td>
 <td style="text-align: right;">0.567</td>
 <td style="text-align: right;">0.381</td>
 <td style="text-align: right;">0.761</td>
@@ -2767,7 +2779,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">479.976</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">John Lee</td>
+<td style="text-align: left;">John Lee</td>
 <td style="text-align: right;">0.672</td>
 <td style="text-align: right;">0.527</td>
 <td style="text-align: right;">0.839</td>
@@ -2777,7 +2789,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">311.042</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Monica Rodriguez</td>
+<td style="text-align: left;">Monica Rodriguez</td>
 <td style="text-align: right;">0.696</td>
 <td style="text-align: right;">0.531</td>
 <td style="text-align: right;">0.872</td>
@@ -2787,7 +2799,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">435.864</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Joseph Buscaino</td>
+<td style="text-align: left;">Joseph Buscaino</td>
 <td style="text-align: right;">2.476</td>
 <td style="text-align: right;">1.898</td>
 <td style="text-align: right;">3.205</td>
@@ -2798,6 +2810,8 @@ table { font-size: .88rem; }
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p><code>Code/48_prepare_la.py</code> preserves the municipality subset. <code>Code/49_fit_la.r</code> constructs the matrix and fits the two chains; <code>Code/50_la_report_outputs.r</code> creates shared-axis plots and organizational checks without refitting. Canonical outputs are under <code>Results/LosAngeles/</code>. Render <code>la-report.qmd</code> and <code>la-technical-appendix.qmd</code> from the Local project directory. No cross-city or state-common-space mapping, district-election validation, posterior predictive assessment or comprehensive source audit is claimed in this initial LA analysis.</p>

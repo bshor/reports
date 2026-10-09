@@ -2220,6 +2220,19 @@ figcaption, .figure-caption { font-size: 1rem; line-height: 1.5; color: var(--re
 table { font-size: .97rem; }
 table th { color: var(--report-ink); }
 table td, table th { padding: .6rem .7rem !important; }
+.report-table-wrap { overflow-x: auto; max-width: 100%; margin: 1rem 0; }
+.report-table-wrap table { table-layout: auto !important; width: 100%; }
+.report-table-wrap table td, .report-table-wrap table th {
+padding: .55rem .45rem !important;
+vertical-align: top;
+}
+.report-table-wrap td[style*="right"] { white-space: nowrap; }
+.table-nowrap { overflow-x: auto; margin: 1rem 0; }
+.table-nowrap table { table-layout: auto !important; }
+.table-nowrap table td, .table-nowrap table th {
+white-space: nowrap !important;
+padding: .55rem .45rem !important;
+}
 #TOC { font-size: .95rem; }
 @media (max-width: 767px) {
 body { font-size: 1rem; }
@@ -2302,21 +2315,16 @@ table { font-size: .88rem; }
 <h3 class="anchored" data-anchor-id="chain-behavior">Chain behavior</h3>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 43%">
-<col style="width: 7%">
-<col style="width: 5%">
-<col style="width: 13%">
-<col style="width: 29%">
-</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Fit</th>
-<th style="text-align: right;">Members</th>
-<th style="text-align: right;">Items</th>
-<th style="text-align: left;">Maximum R-hat</th>
-<th style="text-align: right;">Minimum effective sample size</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Fit</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Members</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Items</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Maximum R-hat</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Minimum effective sample size</th>
 </tr>
 </thead>
 <tbody>
@@ -2336,6 +2344,8 @@ table { font-size: .88rem; }
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>Maximum classical R-hat is 1.030, with minimum ESS 70. The enlarged fit is weaker than the prior 150-item fit and does not meet R-hat below 1.01 for every member. These diagnostics do not validate the event definition or the apparent conservative interpretation of Hinds’s endpoint.</p>
@@ -2368,28 +2378,22 @@ table { font-size: .88rem; }
 <h2 class="anchored" data-anchor-id="member-estimates">Member estimates</h2>
 <div class="cell">
 <div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
 <table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 34%">
-<col style="width: 20%">
-<col style="width: 13%">
-<col style="width: 13%">
-<col style="width: 8%">
-<col style="width: 10%">
-</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Council member</th>
-<th style="text-align: right;">Posterior mean</th>
-<th style="text-align: right;">95% lower</th>
-<th style="text-align: right;">95% upper</th>
-<th style="text-align: right;">R-hat</th>
-<th style="text-align: right;">ESS</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Council member</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Posterior mean</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">95% lower</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">95% upper</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">R-hat</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">ESS</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Shontel Lewis</td>
+<td style="text-align: left;">Shontel Lewis</td>
 <td style="text-align: right;">-2.942</td>
 <td style="text-align: right;">-3.802</td>
 <td style="text-align: right;">-2.121</td>
@@ -2397,7 +2401,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">69.854</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Sarah Parady</td>
+<td style="text-align: left;">Sarah Parady</td>
 <td style="text-align: right;">-1.065</td>
 <td style="text-align: right;">-1.479</td>
 <td style="text-align: right;">-0.696</td>
@@ -2413,7 +2417,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">285.022</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Stacie Gilmore</td>
+<td style="text-align: left;">Stacie Gilmore</td>
 <td style="text-align: right;">0.130</td>
 <td style="text-align: right;">-0.039</td>
 <td style="text-align: right;">0.298</td>
@@ -2421,7 +2425,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">298.307</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Paul Kashmann</td>
+<td style="text-align: left;">Paul Kashmann</td>
 <td style="text-align: right;">0.157</td>
 <td style="text-align: right;">0.007</td>
 <td style="text-align: right;">0.318</td>
@@ -2429,7 +2433,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">268.750</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Jamie Torres</td>
+<td style="text-align: left;">Jamie Torres</td>
 <td style="text-align: right;">0.292</td>
 <td style="text-align: right;">0.135</td>
 <td style="text-align: right;">0.452</td>
@@ -2437,7 +2441,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">312.377</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Flor Alvidrez</td>
+<td style="text-align: left;">Flor Alvidrez</td>
 <td style="text-align: right;">0.293</td>
 <td style="text-align: right;">0.132</td>
 <td style="text-align: right;">0.467</td>
@@ -2445,7 +2449,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">340.369</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Amanda Sandoval</td>
+<td style="text-align: left;">Amanda Sandoval</td>
 <td style="text-align: right;">0.341</td>
 <td style="text-align: right;">0.191</td>
 <td style="text-align: right;">0.504</td>
@@ -2453,7 +2457,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">287.228</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Diana Romero Campbell</td>
+<td style="text-align: left;">Diana Romero Campbell</td>
 <td style="text-align: right;">0.445</td>
 <td style="text-align: right;">0.292</td>
 <td style="text-align: right;">0.603</td>
@@ -2461,7 +2465,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">277.734</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Darrell Watson</td>
+<td style="text-align: left;">Darrell Watson</td>
 <td style="text-align: right;">0.510</td>
 <td style="text-align: right;">0.361</td>
 <td style="text-align: right;">0.675</td>
@@ -2469,7 +2473,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">305.410</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Amanda Sawyer</td>
+<td style="text-align: left;">Amanda Sawyer</td>
 <td style="text-align: right;">0.575</td>
 <td style="text-align: right;">0.426</td>
 <td style="text-align: right;">0.740</td>
@@ -2477,7 +2481,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">309.017</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Kevin Flynn</td>
+<td style="text-align: left;">Kevin Flynn</td>
 <td style="text-align: right;">0.636</td>
 <td style="text-align: right;">0.485</td>
 <td style="text-align: right;">0.808</td>
@@ -2485,7 +2489,7 @@ table { font-size: .88rem; }
 <td style="text-align: right;">321.327</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Chris Hinds</td>
+<td style="text-align: left;">Chris Hinds</td>
 <td style="text-align: right;">0.809</td>
 <td style="text-align: right;">0.635</td>
 <td style="text-align: right;">0.996</td>
@@ -2494,6 +2498,8 @@ table { font-size: .88rem; }
 </tr>
 </tbody>
 </table>
+
+</div>
 </div>
 </div>
 <p>Intervals are marginal equal-tail intervals under the fitted model. Extensive overlap among the middle members is a reason not to treat their exact order as a reliable ranking.</p>
