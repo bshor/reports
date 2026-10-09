@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Boris Shor">
-<meta name="dcterms.date" content="2026-10-08">
+<meta name="dcterms.date" content="2026-10-09">
 
 <title>Los Angeles, 2004–2026: technical appendix</title>
 <style>
@@ -2245,7 +2245,7 @@ table { font-size: .88rem; }
     <div>
     <div class="quarto-title-meta-heading">Updated</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 8, 2026</p>
+      <p class="date">October 9, 2026</p>
     </div>
   </div>
   
@@ -2813,6 +2813,124 @@ table { font-size: .88rem; }
 <p>Election turnovers follow July 1 in the earlier odd-year elections, then December 14, 2020; December 12, 2022; and December 9, 2024. The transition extended the 2015 and 2017 terms, so no 2019 turnover is invented. The initial 2004 window is left-truncated. Windows include interim officeholders with qualifying responses, and all reuse pooled scores.</p>
 <p>The canonical affiliation table includes the nine historical <code>reported</code> claims contributed to PR #21, with source notes accompanying each claim. Existing person IDs are unchanged; the claim ledger retires their earlier Unknown entries and records the new affiliations. Zine’s Republican-to-no-party switch is represented as a separate display category rather than collapsed into one static party. The source provides no precise switch date.</p>
 <p>DSA and Abundant Housing LA remain separate indicators. Historical absence of a slate is unknown, not non-endorsement. Organizational plot markers are not backdated before the documented windows; pooled markers show ever-documented support. The DSA comparison uses the 2023 and 2024 sitting-group descriptions. AHLA comparison is restricted to the six incoming members in covered 2024 races; within Democrats its two-person outside set shrinks to Jurado alone. Annual AHLA sources mix election stages.</p>
+<section id="presidential-vote-validation" class="level3">
+<h3 class="anchored" data-anchor-id="presidential-vote-validation">Presidential vote validation</h3>
+<p><code>Code/58_collect_la_electoral_geography.r</code> caches county precinct attributes; <code>Code/59_la_presidential_validation.r</code> constructs the district comparison without changing any fitted estimates. The vote source is the New York Times’s <a href="https://github.com/nytimes/presidential-precinct-map-2024">2024 precinct release</a>, paired with its election-specific polygons. All 2,626 Los Angeles County reporting units have unique keys, and their candidate totals reproduce the county’s <a href="https://content.lavote.gov/docs/rrcc/documents/generalelection_pressbulletin_final.pdf">certified final canvass</a>: Harris 2,417,109 and Trump 1,189,862. These are county checks, not citywide totals. Third-party and write-in votes are not in the Harris–Trump denominator.</p>
+<p>The 809 city-code reporting units contain 976,781 Harris and 369,619 Trump votes. No independent certified City-of-Los-Angeles-only presidential total was located. A whole-county overlay finds no substantial omitted non-city-code polygon: the largest non-city-code overlap is 2.2% of an 11-two-party-vote precinct. Small boundary slivers do not justify treating those units as city returns.</p>
+<p>The target is the City’s official 2021 council plan. <a href="https://cityclerk.lacity.org/onlinedocs/2020/20-0668-S7_ord_187279_12-10-21.pdf">Ordinance 187279</a>, opened from the original PDF, records publication and effectiveness on December 10, 2021. Its application in November 2024 is an inference from the operative plan and official geometry, not an explicit election-specific statement found in the bounded search. The <a href="https://cityclerk.lacity.org/lacityclerkconnect/index.cfm?cfnumber=24-1263&amp;fa=ccfi.viewrecord">November 6, 2024 official Council roll call</a> verifies the near-election roster by district, including Krekorian in CD2 and de León in CD14. Current GIS member-name attributes are not used.</p>
+<p>Precinct and council polygons are intersected in California’s equal-area projection (EPSG:3310). Each city reporting unit’s votes are apportioned by its area in each district, normalized within the city boundary. This assumes uniform vote density within a precinct and is not an official district tabulation. Eighty-one units, containing 9.9% of the city’s two-party votes, have more than 1% of their area outside their dominant district. Area shares and allocations are retained for inspection.</p>
+<p>The county precinct attribute layer’s metadata says March 2022, so it is a diagnostic crosswalk rather than unquestioned authority for 2024 consolidations. Its base-precinct keys give unique assignments for 808 of 809 city units, but ten disagree with the dominant 2024 polygon district. Comparing that crosswalk allocation with the reported polygon allocation changes no district’s Trump share by more than 0.37 percentage points. County candidate totals, city vote conservation, unique precinct keys, all fifteen districts and the fourteen matched scores are checked programmatically. Outputs and source evidence are indexed in <code>Data/LosAngeles/presidential_validation/readme.md</code>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
+
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: right;" data-quarto-table-cell-role="th">District</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">member</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Trump share (%)</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">ideal_point</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">Eunisses Hernandez</td>
+<td style="text-align: right;">22.052</td>
+<td style="text-align: right;">-5.185</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Paul Krekorian</td>
+<td style="text-align: right;">29.074</td>
+<td style="text-align: right;">0.215</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">Bob Blumenfield</td>
+<td style="text-align: right;">37.786</td>
+<td style="text-align: right;">0.233</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">Nithya Raman</td>
+<td style="text-align: right;">23.988</td>
+<td style="text-align: right;">-0.294</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">Katy Yaroslavsky</td>
+<td style="text-align: right;">26.494</td>
+<td style="text-align: right;">-0.148</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">Imelda Padilla</td>
+<td style="text-align: right;">33.617</td>
+<td style="text-align: right;">0.406</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">7</td>
+<td style="text-align: left;">Monica Rodriguez</td>
+<td style="text-align: right;">38.407</td>
+<td style="text-align: right;">0.475</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">8</td>
+<td style="text-align: left;">Marqueece Harris-Dawson</td>
+<td style="text-align: right;">17.233</td>
+<td style="text-align: right;">-0.199</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">9</td>
+<td style="text-align: left;">Curren D. Price Jr.</td>
+<td style="text-align: right;">24.848</td>
+<td style="text-align: right;">0.161</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">10</td>
+<td style="text-align: left;">Heather Hutt</td>
+<td style="text-align: right;">17.838</td>
+<td style="text-align: right;">-0.085</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">11</td>
+<td style="text-align: left;">Traci Park</td>
+<td style="text-align: right;">21.571</td>
+<td style="text-align: right;">0.366</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">12</td>
+<td style="text-align: left;">John Lee</td>
+<td style="text-align: right;">40.642</td>
+<td style="text-align: right;">0.628</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">13</td>
+<td style="text-align: left;">Hugo Soto-Martinez</td>
+<td style="text-align: right;">19.631</td>
+<td style="text-align: right;">-2.452</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">14</td>
+<td style="text-align: left;">Kevin de Leon</td>
+<td style="text-align: right;">21.745</td>
+<td style="text-align: right;">-0.066</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">15</td>
+<td style="text-align: left;">Tim McOsker</td>
+<td style="text-align: right;">34.498</td>
+<td style="text-align: right;">NA</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
 </section>
 <section id="verification-and-estimates" class="level2">
 <h2 class="anchored" data-anchor-id="verification-and-estimates">Verification and estimates</h2>
