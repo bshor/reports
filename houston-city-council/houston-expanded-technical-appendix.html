@@ -6,7 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2026-09-28">
+<meta name="author" content="Boris Shor">
+<meta name="dcterms.date" content="2026-10-08">
 
 <title>Houston City Council: expanded roll calls</title>
 <style>
@@ -2254,7 +2255,10 @@ table { font-size: .88rem; }
   <li><a href="#source-and-analysis-matrix" id="toc-source-and-analysis-matrix" class="nav-link active" data-scroll-target="#source-and-analysis-matrix">Source and analysis matrix</a></li>
   <li><a href="#model-and-identification" id="toc-model-and-identification" class="nav-link" data-scroll-target="#model-and-identification">Model and identification</a></li>
   <li><a href="#diagnostics" id="toc-diagnostics" class="nav-link" data-scroll-target="#diagnostics">Diagnostics</a></li>
-  <li><a href="#pooled-member-estimates" id="toc-pooled-member-estimates" class="nav-link" data-scroll-target="#pooled-member-estimates">Pooled member estimates</a></li>
+  <li><a href="#pooled-member-estimates" id="toc-pooled-member-estimates" class="nav-link" data-scroll-target="#pooled-member-estimates">Pooled member estimates</a>
+  <ul class="collapse">
+  <li><a href="#comparison-with-the-earlier-report" id="toc-comparison-with-the-earlier-report" class="nav-link" data-scroll-target="#comparison-with-the-earlier-report">Comparison with the earlier report</a></li>
+  </ul></li>
   <li><a href="#elected-councils-and-bridging" id="toc-elected-councils-and-bridging" class="nav-link" data-scroll-target="#elected-councils-and-bridging">Elected councils and bridging</a></li>
   <li><a href="#validation-and-remaining-limits" id="toc-validation-and-remaining-limits" class="nav-link" data-scroll-target="#validation-and-remaining-limits">Validation and remaining limits</a>
   <ul class="collapse">
@@ -2277,11 +2281,17 @@ table { font-size: .88rem; }
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Boris Shor </p>
+          </div>
+  </div>
     
     <div>
-    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-heading">Updated</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 28, 2026</p>
+      <p class="date">October 8, 2026</p>
     </div>
   </div>
   
@@ -2461,7 +2471,7 @@ table { font-size: .88rem; }
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">Split</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Held-out votes</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Held-out votes</th>
 <th style="text-align: left;" data-quarto-table-cell-role="th">Reported fit log loss</th>
 <th style="text-align: left;" data-quarto-table-cell-role="th">Alternative mode log loss</th>
 </tr>
@@ -2469,19 +2479,19 @@ table { font-size: .88rem; }
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Split 1</td>
-<td style="text-align: right;">2156</td>
+<td style="text-align: left;">2,156</td>
 <td style="text-align: left;">0.4343</td>
 <td style="text-align: left;">0.4445</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Split 2</td>
-<td style="text-align: right;">2175</td>
+<td style="text-align: left;">2,175</td>
 <td style="text-align: left;">0.4211</td>
 <td style="text-align: left;">0.4275</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Split 3</td>
-<td style="text-align: right;">2158</td>
+<td style="text-align: left;">2,158</td>
 <td style="text-align: left;">0.4229</td>
 <td style="text-align: left;">0.4283</td>
 </tr>
@@ -2495,6 +2505,9 @@ table { font-size: .88rem; }
 </section>
 <section id="pooled-member-estimates" class="level2">
 <h2 class="anchored" data-anchor-id="pooled-member-estimates">Pooled member estimates</h2>
+<section id="comparison-with-the-earlier-report" class="level3">
+<h3 class="anchored" data-anchor-id="comparison-with-the-earlier-report">Comparison with the earlier report</h3>
+<p>The 2000–2026 analysis adds substantial early service relative to the preserved 2003–2026 report. The numerical normalizations differ, so score changes are not estimates of individual ideological movement. Shelley Sekula-Gibbs changes from +2.29 in the earlier fit to 1.06 in this fit, and Addie Wiseman from +4.04 to 1.23. The added early votes also bring Lee P. Brown and the full 2000–2001 council into the analysis.</p>
 <p>These are the 77 reported estimates plotted in the report. The five mayors are identified by name because the source’s <code>role</code> field labels some earlier mayors as council members. Values are specific to this pooled Houston fit.</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -3057,6 +3070,7 @@ table { font-size: .88rem; }
 </div>
 </div>
 </section>
+</section>
 <section id="elected-councils-and-bridging" class="level2">
 <h2 class="anchored" data-anchor-id="elected-councils-and-bridging">Elected councils and bridging</h2>
 <p>Houston’s regular terms were two years through the council elected in 2013 and seated in 2014–2015, then four years beginning with the 2015 election and January 2016 seating (<a href="https://www.houstontx.gov/planning/Publications/2003_almanac.pdf">2003 city almanac</a>; <a href="https://houstontx.gov/controller/cafr/cafr2016printerfriendly.pdf">2016 financial report</a>). The <a href="https://www.houstontx.gov/council/">city’s council page</a> specifies January 2 term starts, and the <a href="https://www.houstontx.gov/citysec/elections/electionsindex.html">City Secretary’s election index</a> supplies the election years. The report assigns actions by those term boundaries, not by equal-sized analytical windows. A special election changes who serves within an existing council term.</p>
@@ -3068,112 +3082,112 @@ table { font-size: .88rem; }
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">Council</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Elected in</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Elected in</th>
 <th style="text-align: right;" data-quarto-table-cell-role="th">Term years</th>
 <th style="text-align: right;" data-quarto-table-cell-role="th">Members</th>
 <th style="text-align: right;" data-quarto-table-cell-role="th">Actions</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Observed votes</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Observed votes</th>
 <th style="text-align: right;" data-quarto-table-cell-role="th">Continuing from prior</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">2000⁠–⁠2001</td>
-<td style="text-align: right;">1999</td>
+<td style="text-align: left;">1,999</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">15</td>
 <td style="text-align: right;">165</td>
-<td style="text-align: right;">2281</td>
+<td style="text-align: left;">2,281</td>
 <td style="text-align: right;">NA</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">2002⁠–⁠2003</td>
-<td style="text-align: right;">2001</td>
+<td style="text-align: left;">2,001</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">15</td>
 <td style="text-align: right;">227</td>
-<td style="text-align: right;">3256</td>
+<td style="text-align: left;">3,256</td>
 <td style="text-align: right;">10</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">2004⁠–⁠2005</td>
-<td style="text-align: right;">2003</td>
+<td style="text-align: left;">2,003</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">15</td>
 <td style="text-align: right;">82</td>
-<td style="text-align: right;">1168</td>
+<td style="text-align: left;">1,168</td>
 <td style="text-align: right;">9</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">2006⁠–⁠2007</td>
-<td style="text-align: right;">2005</td>
+<td style="text-align: left;">2,005</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">16</td>
 <td style="text-align: right;">97</td>
-<td style="text-align: right;">1375</td>
+<td style="text-align: left;">1,375</td>
 <td style="text-align: right;">11</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">2008⁠–⁠2009</td>
-<td style="text-align: right;">2007</td>
+<td style="text-align: left;">2,007</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">16</td>
 <td style="text-align: right;">25</td>
-<td style="text-align: right;">346</td>
+<td style="text-align: left;">346</td>
 <td style="text-align: right;">11</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">2010⁠–⁠2011</td>
-<td style="text-align: right;">2009</td>
+<td style="text-align: left;">2,009</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">15</td>
 <td style="text-align: right;">29</td>
-<td style="text-align: right;">410</td>
+<td style="text-align: left;">410</td>
 <td style="text-align: right;">9</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">2012⁠–⁠2013</td>
-<td style="text-align: right;">2011</td>
+<td style="text-align: left;">2,011</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">18</td>
 <td style="text-align: right;">37</td>
-<td style="text-align: right;">595</td>
+<td style="text-align: left;">595</td>
 <td style="text-align: right;">10</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">2014⁠–⁠2015</td>
-<td style="text-align: right;">2013</td>
+<td style="text-align: left;">2,013</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">17</td>
 <td style="text-align: right;">70</td>
-<td style="text-align: right;">1092</td>
+<td style="text-align: left;">1,092</td>
 <td style="text-align: right;">11</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">2016⁠–⁠2019</td>
-<td style="text-align: right;">2015</td>
+<td style="text-align: left;">2,015</td>
 <td style="text-align: right;">4</td>
 <td style="text-align: right;">18</td>
 <td style="text-align: right;">49</td>
-<td style="text-align: right;">767</td>
+<td style="text-align: left;">767</td>
 <td style="text-align: right;">11</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">2020⁠–⁠2023</td>
-<td style="text-align: right;">2019</td>
+<td style="text-align: left;">2,019</td>
 <td style="text-align: right;">4</td>
 <td style="text-align: right;">19</td>
 <td style="text-align: right;">116</td>
-<td style="text-align: right;">1878</td>
+<td style="text-align: left;">1,878</td>
 <td style="text-align: right;">10</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">2024⁠–⁠2027</td>
-<td style="text-align: right;">2023</td>
+<td style="text-align: left;">2,023</td>
 <td style="text-align: right;">4</td>
 <td style="text-align: right;">17</td>
 <td style="text-align: right;">42</td>
-<td style="text-align: right;">617</td>
+<td style="text-align: left;">617</td>
 <td style="text-align: right;">10</td>
 </tr>
 </tbody>
