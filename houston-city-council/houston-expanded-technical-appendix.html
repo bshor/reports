@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Boris Shor">
-<meta name="dcterms.date" content="2026-10-08">
+<meta name="dcterms.date" content="2026-10-12">
 
 <title>Houston City Council: expanded roll calls</title>
 <style>
@@ -2254,10 +2254,14 @@ table { font-size: .88rem; }
   <ul>
   <li><a href="#source-and-analysis-matrix" id="toc-source-and-analysis-matrix" class="nav-link active" data-scroll-target="#source-and-analysis-matrix">Source and analysis matrix</a></li>
   <li><a href="#model-and-identification" id="toc-model-and-identification" class="nav-link" data-scroll-target="#model-and-identification">Model and identification</a></li>
-  <li><a href="#diagnostics" id="toc-diagnostics" class="nav-link" data-scroll-target="#diagnostics">Diagnostics</a></li>
+  <li><a href="#diagnostics" id="toc-diagnostics" class="nav-link" data-scroll-target="#diagnostics">Diagnostics</a>
+  <ul class="collapse">
+  <li><a href="#lone-dissent-endpoints" id="toc-lone-dissent-endpoints" class="nav-link" data-scroll-target="#lone-dissent-endpoints">Lone-dissent endpoints</a></li>
+  <li><a href="#earlier-identification-diagnostics-september-25-package" id="toc-earlier-identification-diagnostics-september-25-package" class="nav-link" data-scroll-target="#earlier-identification-diagnostics-september-25-package">Earlier identification diagnostics (September 25 package)</a></li>
+  </ul></li>
   <li><a href="#pooled-member-estimates" id="toc-pooled-member-estimates" class="nav-link" data-scroll-target="#pooled-member-estimates">Pooled member estimates</a>
   <ul class="collapse">
-  <li><a href="#comparison-with-the-earlier-report" id="toc-comparison-with-the-earlier-report" class="nav-link" data-scroll-target="#comparison-with-the-earlier-report">Comparison with the earlier report</a></li>
+  <li><a href="#comparison-with-the-september-25-fit" id="toc-comparison-with-the-september-25-fit" class="nav-link" data-scroll-target="#comparison-with-the-september-25-fit">Comparison with the September 25 fit</a></li>
   </ul></li>
   <li><a href="#elected-councils-and-bridging" id="toc-elected-councils-and-bridging" class="nav-link" data-scroll-target="#elected-councils-and-bridging">Elected councils and bridging</a></li>
   <li><a href="#validation-and-remaining-limits" id="toc-validation-and-remaining-limits" class="nav-link" data-scroll-target="#validation-and-remaining-limits">Validation and remaining limits</a>
@@ -2291,7 +2295,7 @@ table { font-size: .88rem; }
     <div>
     <div class="quarto-title-meta-heading">Updated</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 8, 2026</p>
+      <p class="date">October 12, 2026</p>
     </div>
   </div>
   
@@ -2306,9 +2310,10 @@ table { font-size: .88rem; }
 <p>This appendix documents the <a href="houston-expanded-report.html">expanded Houston report</a>. It presents <strong>2000–2026 pooled positions</strong>, with tabs for each elected council on a common axis. A separate 2021–2026 fit provides a within-period check. The earlier <a href="houston-technical-appendix.html">2021–2025 technical appendix</a> describes the baseline report.</p>
 <section id="source-and-analysis-matrix" class="level2">
 <h2 class="anchored" data-anchor-id="source-and-analysis-matrix">Source and analysis matrix</h2>
-<p>The input is the <a href="https://github.com/MyTownRepo/council-votes/tree/research/houston-2000-2003">published roll-call package on the research branch</a> at commit <code>e39f1fe</code>, also preserved locally as <code>Jacob/2026-09-25-houston/houston_rollcalls_2000_2026.zip</code> (SHA-256 <code>bdda1d6d595262aece0ce28437626e55e56f4bfad4d94f1003eca1243bfa38be</code>). It contains 39,463 actions and 626,483 member rows; 939 actions have at least two yeas and two nays. <code>Code/25_prepare_houston_full.r</code> uses 1 for yea and 0 for nay, with absences, departures, and omissions missing. It does not recode missing votes as nays or merge the superseded <code>houston_balance_votes.csv</code>.</p>
-<p>Five actions previously verified against official minutes are already in this ZIP and are not appended twice. Three retain analysis-side corrections against saved page transcriptions: ORDINANCE 2024-0444 and MOTIONS 2025-0781 and 2025-0855. Changed cells are in <code>Results/Houston-2000/verified_overrides.csv</code>; the ZIP is unchanged. All 549 previously eligible actions and all 8,268 previously observed binary cells are preserved. Against the 2003–2020 hold-out, the current parser gets all 35 corrected yea totals and all 36 nay totals; the separately supplied 2000–2003 hold-out has 23 correct emitted full vectors and three explicit refusals rather than guessed results. See the <a href="Jacob/2026-09-25-houston/review.md">package review</a>.</p>
-<p>Following the minimum-observation rule in the State Ideal workflow, the matrix requires seven qualifying yea/nay votes per person. Only two one-vote name variants fall below it. Lee P. Brown now has 368 votes and is included. All 939 actions remain eligible after the cutoff. The matrix has <strong>77 members and 13,785 observed binary votes</strong>.</p>
+<p>The input is Jacob’s October 12, 2026 package, <code>houston_rollcalls_2000_2026_2026-10-12.zip</code>, preserved locally under <code>Jacob/2026-10-12-houston/original/</code> (SHA-256 <code>4a905676a80a12b59942ca743338c153adf51868219f95c3fe3b0dc105f5d021</code>, matching the author’s hash). It contains 39,764 actions and 631,078 member rows. Of these, 2,081 actions are contested, and 1,113 of those have a one-vote minority. The package no longer flags actions as scaling-eligible; retention is decided here. <code>Code/61_prepare_houston_2026_10_12.r</code> keeps every contested action with at least one yea and one nay among fitted members. It codes 1 for yea and 0 for nay, with absences, departures and omissions missing. Missing votes are never recoded as nays.</p>
+<p>Compared with the September 25 package, this version adds 307 actions from September 2010 to July 2011 meetings, 59 of them contested. It also splits a merged member string, “Wanda Adams. Mike Sullivan”, into the two members it combined. Six uncontested procedural motions reappear under renumbered keys. All 31,909 vote cells on actions contested in both versions are unchanged, and the hold-out files are byte-identical. A bounded source check covered twelve seeded contested actions (eight newly added, four formerly merged) against the official minutes, and all twelve were supported. The <a href="Jacob/2026-10-12-houston/audit/supervision.md">audit record</a> documents both checks.</p>
+<p>Five actions previously verified against official minutes are already in this ZIP and are not appended twice. Three retain analysis-side corrections against saved page transcriptions: ORDINANCE 2024-0444 and MOTIONS 2025-0781 and 2025-0855. These three remain uncorrected in the October 12 package. Changed cells are in <code>Results/Houston-2000/verified_overrides.csv</code>; the ZIP is unchanged. Against the 2003–2020 hold-out, the current parser gets all 35 corrected yea totals and all 36 nay totals; the separately supplied 2000–2003 hold-out has 23 correct emitted full vectors and three explicit refusals rather than guessed results. See the <a href="Jacob/2026-09-25-houston/review.md">earlier package review</a>.</p>
+<p>Following the minimum-observation rule in the State Ideal workflow, the matrix requires seven qualifying yea/nay votes per person. Only two one-vote name variants fall below it. All 2,081 contested actions still have a yea and a nay after the cutoff. The matrix has <strong>77 members, 2,081 actions and 30,633 observed binary votes</strong>. The September 25 fit, which required two votes on each side, used 939 actions and 13,785 votes.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
@@ -2323,7 +2328,7 @@ table { font-size: .88rem; }
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Carolyn EvansShabazz</td>
-<td style="text-align: right;">1</td>
+<td style="text-align: right;">5</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">M. J. Kahn</td>
@@ -2339,9 +2344,9 @@ table { font-size: .88rem; }
 </section>
 <section id="model-and-identification" class="level2">
 <h2 class="anchored" data-anchor-id="model-and-identification">Model and identification</h2>
-<p>The one-dimensional <code>pscl::ideal()</code> model is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">Pr</mi><mo>⁡</mo></mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>Y</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><mo>=</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi mathvariant="normal">Φ</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>x</mi><mi>i</mi></msub><msub><mi>β</mi><mi>j</mi></msub><mo>−</mo><msub><mi>α</mi><mi>j</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\Pr(Y_{ij}=1)=\Phi(x_i\beta_j-\alpha_j)</annotation></semantics></math>, where <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>x</mi><mi>i</mi></msub><annotation encoding="application/x-tex">x_i</annotation></semantics></math> is a fixed member position, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>β</mi><mi>j</mi></msub><annotation encoding="application/x-tex">\beta_j</annotation></semantics></math> an item’s discrimination, and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>α</mi><mi>j</mi></msub><annotation encoding="application/x-tex">\alpha_j</annotation></semantics></math> its difficulty. Each person has one position within a fitted window. <code>normalize=TRUE</code> identifies location and scale. Display signs are aligned with Amy Peck positive. This is a sign convention, not an external ideological constraint.</p>
-<p>The modern check uses two freshly initialized chains; the reported pooled fit uses two chains, each with 50,000 iterations, 5,000 burn-in, thinning by 50, and 1,000 retained draws after the stored boundary row is dropped.</p>
-<p>The first pooled chain starts from the leading eigenvector of the vote matrix. <strong>No external label enters that start</strong>, and it reaches the reported solution on its own. The second chain starts from party labels as a check on it: the 67 officials whose affiliations were coded before the new package start at −1 if Democratic and +1 if Republican, and the ten newly included officials start at zero. The two chains agree almost exactly — their chain means correlate 0.9995 across all 77 officials, 0.9997 in the early period and 0.9996 in the late period. A vote-only start and a party-informed start therefore land in the same place; the party start confirms the solution rather than selecting it. Party labels affect starting values <strong>only</strong> — never votes, likelihood, priors, or post-fit positions — so the external party comparisons later in the report remain independent of the fit. New affiliations researched for the ten additional members did not enter either start. The chains and diagnostics are saved separately under <code>Results/Houston-2000/</code>.</p>
+<p>The one-dimensional <code>pscl::ideal()</code> model is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">Pr</mi><mo>⁡</mo></mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>Y</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><mo>=</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi mathvariant="normal">Φ</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>x</mi><mi>i</mi></msub><msub><mi>β</mi><mi>j</mi></msub><mo>−</mo><msub><mi>α</mi><mi>j</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\Pr(Y_{ij}=1)=\Phi(x_i\beta_j-\alpha_j)</annotation></semantics></math>, where <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>x</mi><mi>i</mi></msub><annotation encoding="application/x-tex">x_i</annotation></semantics></math> is a fixed member position, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>β</mi><mi>j</mi></msub><annotation encoding="application/x-tex">\beta_j</annotation></semantics></math> an item’s discrimination, and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>α</mi><mi>j</mi></msub><annotation encoding="application/x-tex">\alpha_j</annotation></semantics></math> its difficulty. Each person has one position within a fitted window. <code>normalize=TRUE</code> identifies location and scale. Display signs place Republican-affiliated members on the positive side. This is a sign convention, not an external ideological constraint.</p>
+<p>The modern check uses two freshly initialized chains. The reported pooled fit (<code>Code/62_fit_houston_party_start.r</code>) uses <strong>exactly two chains, both started from researched party affiliation</strong>: Democratic −1, Republican +1, and 0 for Gabriel Vasquez, who switched parties while serving. This is the starting rule used for every city in the project. Labels set starting values <strong>only</strong>. They never enter the votes, likelihood, priors or post-fit positions, so the party comparisons in the report remain external checks. A start is mode selection, not proof of identification; see the earlier diagnostics below.</p>
+<p>Each chain runs 500,000 iterations after 10,000 burn-in, thinned by 500, keeping 1,000 draws. A first run at the earlier length (50,000 iterations, thinned by 50) mixed too slowly at the two lone-dissent endpoints and among early Republican-affiliated members: maximum R-hat 1.135 and minimum ESS 21. Its estimates matched the longer run, which is the one reported. Chains, seeds and session information are saved under <code>Results/Houston-2000/party-start-two-chain/</code>.</p>
 </section>
 <section id="diagnostics" class="level2">
 <h2 class="anchored" data-anchor-id="diagnostics">Diagnostics</h2>
@@ -2354,7 +2359,7 @@ table { font-size: .88rem; }
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">Fit</th>
 <th style="text-align: right;" data-quarto-table-cell-role="th">Members</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Actions</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Actions</th>
 <th style="text-align: left;" data-quarto-table-cell-role="th">Maximum R-hat</th>
 <th style="text-align: right;" data-quarto-table-cell-role="th">Minimum ESS</th>
 </tr>
@@ -2363,16 +2368,16 @@ table { font-size: .88rem; }
 <tr class="odd">
 <td style="text-align: left;">Modern, 2021⁠–⁠2026</td>
 <td style="text-align: right;">25</td>
-<td style="text-align: right;">140</td>
+<td style="text-align: left;">140</td>
 <td style="text-align: left;">1.010</td>
 <td style="text-align: right;">191</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Pooled reported fit, 2000⁠–⁠2026</td>
 <td style="text-align: right;">77</td>
-<td style="text-align: right;">939</td>
-<td style="text-align: left;">1.025</td>
-<td style="text-align: right;">141</td>
+<td style="text-align: left;">2,081</td>
+<td style="text-align: left;">1.040</td>
+<td style="text-align: right;">192</td>
 </tr>
 </tbody>
 </table>
@@ -2380,8 +2385,14 @@ table { font-size: .88rem; }
 </div>
 </div>
 </div>
-<p>These are classical univariate R-hat and <code>coda</code> effective sample sizes, not rank-normalized split R-hat or bulk/tail ESS. The modern fit has maximum R-hat 1.010 and minimum ESS 191. The reported pooled pair has maximum R-hat 1.025 and minimum ESS 141. Its scores correlate 0.981 with the independent modern fit on shared members. These checks describe <strong>within-mode</strong> stability; they do not prove global identification.</p>
-<p>A third chain from a dispersed random start reached a substantially different mode. Correlations of its chain means with the eigen-start chain by period are:</p>
+<p>These are classical univariate R-hat and <code>coda</code> effective sample sizes, not rank-normalized split R-hat or bulk/tail ESS. The two pooled chains’ member means correlate 0.9999 overall and at least 0.9999 within every elected council. The pooled scores correlate 0.954 with the independent 2021–2026 fit on its 25 members. These checks describe stability <strong>within the selected mode</strong>; they do not prove global identification.</p>
+<section id="lone-dissent-endpoints" class="level3">
+<h3 class="anchored" data-anchor-id="lone-dissent-endpoints">Lone-dissent endpoints</h3>
+<p>Including one-vote minorities places Jolanda Jones (-5.05) and Helena Brown (5.87) far beyond every other member. They cast the sole minority vote on about 31% and 79% of their qualifying votes, respectively. Because <code>normalize=TRUE</code> fixes the overall spread, these endpoints compress everyone else toward zero relative to the September 25 fit. The ordering is little changed: rank correlation with the September 25 scores is 0.985, against a Pearson correlation of 0.757. The two endpoints also have the smallest effective sample sizes.</p>
+</section>
+<section id="earlier-identification-diagnostics-september-25-package" class="level3">
+<h3 class="anchored" data-anchor-id="earlier-identification-diagnostics-september-25-package">Earlier identification diagnostics (September 25 package)</h3>
+<p>Fits to the September 25 package showed that the 26-year scale is not globally identified by the votes alone. These diagnostics were not repeated on the October 12 matrix. A chain started from the leading eigenvector and a chain started from party labels reached the same solution. A chain from a dispersed random start reached a different mode, preserving the early councils’ ordering but reversing the modern end. Its chain means correlated with the eigen-start chain by period as follows:</p>
 <div class="cell">
 <div class="cell-output-display">
 <div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
@@ -2461,8 +2472,7 @@ table { font-size: .88rem; }
 </div>
 </div>
 </div>
-<p>Pooling the eigen and random chains yields maximum R-hat 20.43, so that combination is <strong>not used</strong> for reported scores. The disagreement concentrates in later councils: the early 2000–2007 ranks agree closely, but the modern end reverses.</p>
-<p>Two checks favor the reported solution over the random-start alternative. The stronger one is agreement with the independently fitted 2021–2026 window, 0.981 on the 25 shared officials, against 0.261 between the reported and alternative solutions overall. The weaker one is held-out vote prediction in three fixed-seed splits, where the reported solution’s mean log loss is lower by a small margin:</p>
+<p>Pooling those eigen and random chains gave maximum R-hat 20.43. Two checks favored the party-consistent solution. It agreed with the independent 2021–2026 window, and it had slightly lower held-out log loss in three fixed-seed splits:</p>
 <div class="cell">
 <div class="cell-output-display">
 <div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
@@ -2472,7 +2482,7 @@ table { font-size: .88rem; }
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">Split</th>
 <th style="text-align: left;" data-quarto-table-cell-role="th">Held-out votes</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Reported fit log loss</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Party-consistent log loss</th>
 <th style="text-align: left;" data-quarto-table-cell-role="th">Alternative mode log loss</th>
 </tr>
 </thead>
@@ -2501,13 +2511,14 @@ table { font-size: .88rem; }
 </div>
 </div>
 </div>
-<p>Margins of 0.005–0.010 in log loss are real but thin, and neither check eliminates the alternative orientation. The historical ordering should therefore be read as the solution recovered from the vote matrix and corroborated by the modern window, not as a uniquely identified scale.</p>
+<p>The margins were thin, and neither check eliminated the alternative orientation. The current fit’s party starts select the party-consistent mode by design. The historical ordering should therefore be read as the solution corroborated by the modern window and by external affiliation, not as a uniquely identified scale.</p>
+</section>
 </section>
 <section id="pooled-member-estimates" class="level2">
 <h2 class="anchored" data-anchor-id="pooled-member-estimates">Pooled member estimates</h2>
-<section id="comparison-with-the-earlier-report" class="level3">
-<h3 class="anchored" data-anchor-id="comparison-with-the-earlier-report">Comparison with the earlier report</h3>
-<p>The 2000–2026 analysis adds substantial early service relative to the preserved 2003–2026 report. The numerical normalizations differ, so score changes are not estimates of individual ideological movement. Shelley Sekula-Gibbs changes from +2.29 in the earlier fit to 1.06 in this fit, and Addie Wiseman from +4.04 to 1.23. The added early votes also bring Lee P. Brown and the full 2000–2001 council into the analysis.</p>
+<section id="comparison-with-the-september-25-fit" class="level3">
+<h3 class="anchored" data-anchor-id="comparison-with-the-september-25-fit">Comparison with the September 25 fit</h3>
+<p>The October 12 matrix adds one-vote-minority actions and the 2010–2011 meetings, and its party-start fit is renormalized around the two lone-dissent endpoints. Score changes therefore reflect a rescaled axis, not individual ideological movement. For example, Mike Sullivan moves from +1.97 to +0.77, and Addie Wiseman from +1.23 to +0.90. Jolanda Jones moves from -1.15 to -5.05.</p>
 <p>These are the 77 reported estimates plotted in the report. The five mayors are identified by name because the source’s <code>role</code> field labels some earlier mayors as council members. Values are specific to this pooled Houston fit.</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -2520,548 +2531,548 @@ table { font-size: .88rem; }
 <th style="text-align: right;" data-quarto-table-cell-role="th">Mean</th>
 <th style="text-align: right;" data-quarto-table-cell-role="th">95% lower</th>
 <th style="text-align: right;" data-quarto-table-cell-role="th">95% upper</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Qualifying votes</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Qualifying votes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Jew Don Boney, Jr.</td>
-<td style="text-align: right;">-1.65</td>
-<td style="text-align: right;">-2.70</td>
-<td style="text-align: right;">-0.99</td>
-<td style="text-align: right;">151</td>
+<td style="text-align: left;">Jolanda “Jo” Jones</td>
+<td style="text-align: right;">-5.05</td>
+<td style="text-align: right;">-6.27</td>
+<td style="text-align: right;">-3.93</td>
+<td style="text-align: left;">311</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">John E. Castillo</td>
-<td style="text-align: right;">-1.34</td>
-<td style="text-align: right;">-2.00</td>
-<td style="text-align: right;">-0.85</td>
-<td style="text-align: right;">157</td>
+<td style="text-align: left;">Amanda Edwards</td>
+<td style="text-align: right;">-1.69</td>
+<td style="text-align: right;">-2.70</td>
+<td style="text-align: right;">-1.01</td>
+<td style="text-align: left;">111</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Edward Pollard</td>
+<td style="text-align: right;">-0.90</td>
+<td style="text-align: right;">-1.17</td>
+<td style="text-align: right;">-0.67</td>
+<td style="text-align: left;">286</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ada Edwards</td>
+<td style="text-align: right;">-0.81</td>
+<td style="text-align: right;">-1.05</td>
+<td style="text-align: right;">-0.62</td>
+<td style="text-align: left;">665</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Letitia Plummer</td>
+<td style="text-align: right;">-0.59</td>
+<td style="text-align: right;">-0.77</td>
+<td style="text-align: right;">-0.42</td>
+<td style="text-align: left;">257</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Jew Don Boney, Jr.</td>
+<td style="text-align: right;">-0.51</td>
+<td style="text-align: right;">-0.76</td>
+<td style="text-align: right;">-0.31</td>
+<td style="text-align: left;">218</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Carol M. Galloway</td>
-<td style="text-align: right;">-1.32</td>
-<td style="text-align: right;">-1.75</td>
-<td style="text-align: right;">-0.96</td>
-<td style="text-align: right;">438</td>
+<td style="text-align: right;">-0.50</td>
+<td style="text-align: right;">-0.64</td>
+<td style="text-align: right;">-0.37</td>
+<td style="text-align: left;">641</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Letitia Plummer</td>
-<td style="text-align: right;">-1.31</td>
-<td style="text-align: right;">-1.81</td>
-<td style="text-align: right;">-0.88</td>
-<td style="text-align: right;">137</td>
+<td style="text-align: left;">John E. Castillo</td>
+<td style="text-align: right;">-0.46</td>
+<td style="text-align: right;">-0.68</td>
+<td style="text-align: right;">-0.30</td>
+<td style="text-align: left;">234</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Jarvis Johnson</td>
-<td style="text-align: right;">-1.21</td>
-<td style="text-align: right;">-1.91</td>
-<td style="text-align: right;">-0.65</td>
-<td style="text-align: right;">142</td>
-</tr>
-<tr class="even">
 <td style="text-align: left;">Lee P. Brown</td>
-<td style="text-align: right;">-1.19</td>
-<td style="text-align: right;">-1.61</td>
-<td style="text-align: right;">-0.84</td>
-<td style="text-align: right;">368</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Jolanda “Jo” Jones</td>
-<td style="text-align: right;">-1.15</td>
-<td style="text-align: right;">-1.96</td>
-<td style="text-align: right;">-0.60</td>
-<td style="text-align: right;">48</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Edward Pollard</td>
-<td style="text-align: right;">-1.09</td>
-<td style="text-align: right;">-1.53</td>
-<td style="text-align: right;">-0.71</td>
-<td style="text-align: right;">148</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Amanda Edwards</td>
-<td style="text-align: right;">-1.05</td>
-<td style="text-align: right;">-2.90</td>
-<td style="text-align: right;">-0.22</td>
-<td style="text-align: right;">43</td>
+<td style="text-align: right;">-0.44</td>
+<td style="text-align: right;">-0.58</td>
+<td style="text-align: right;">-0.30</td>
+<td style="text-align: left;">537</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Tarsha Jackson</td>
-<td style="text-align: right;">-1.01</td>
-<td style="text-align: right;">-1.41</td>
-<td style="text-align: right;">-0.65</td>
-<td style="text-align: right;">127</td>
+<td style="text-align: right;">-0.43</td>
+<td style="text-align: right;">-0.61</td>
+<td style="text-align: right;">-0.28</td>
+<td style="text-align: left;">221</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Ada Edwards</td>
-<td style="text-align: right;">-0.96</td>
-<td style="text-align: right;">-1.30</td>
-<td style="text-align: right;">-0.66</td>
-<td style="text-align: right;">396</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Wanda Adams</td>
-<td style="text-align: right;">-0.96</td>
-<td style="text-align: right;">-1.45</td>
-<td style="text-align: right;">-0.55</td>
-<td style="text-align: right;">83</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Ellen Cohen</td>
-<td style="text-align: right;">-0.91</td>
-<td style="text-align: right;">-1.43</td>
-<td style="text-align: right;">-0.51</td>
-<td style="text-align: right;">149</td>
+<td style="text-align: left;">Abbie Kamin</td>
+<td style="text-align: right;">-0.36</td>
+<td style="text-align: right;">-0.52</td>
+<td style="text-align: right;">-0.21</td>
+<td style="text-align: left;">278</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Tiffany D. Thomas</td>
-<td style="text-align: right;">-0.82</td>
-<td style="text-align: right;">-1.17</td>
+<td style="text-align: right;">-0.36</td>
+<td style="text-align: right;">-0.53</td>
+<td style="text-align: right;">-0.20</td>
+<td style="text-align: left;">276</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Wanda Adams</td>
+<td style="text-align: right;">-0.33</td>
+<td style="text-align: right;">-0.49</td>
+<td style="text-align: right;">-0.19</td>
+<td style="text-align: left;">501</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ellen Cohen</td>
+<td style="text-align: right;">-0.33</td>
 <td style="text-align: right;">-0.48</td>
-<td style="text-align: right;">145</td>
+<td style="text-align: right;">-0.20</td>
+<td style="text-align: left;">506</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Edward Gonzalez</td>
-<td style="text-align: right;">-0.76</td>
-<td style="text-align: right;">-1.12</td>
-<td style="text-align: right;">-0.45</td>
-<td style="text-align: right;">137</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Abbie Kamin</td>
-<td style="text-align: right;">-0.75</td>
-<td style="text-align: right;">-1.13</td>
+<td style="text-align: right;">-0.30</td>
 <td style="text-align: right;">-0.42</td>
-<td style="text-align: right;">144</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Adrian Garcia</td>
-<td style="text-align: right;">-0.75</td>
-<td style="text-align: right;">-1.14</td>
-<td style="text-align: right;">-0.39</td>
-<td style="text-align: right;">185</td>
+<td style="text-align: right;">-0.20</td>
+<td style="text-align: left;">619</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Sylvester Turner</td>
-<td style="text-align: right;">-0.68</td>
-<td style="text-align: right;">-1.06</td>
-<td style="text-align: right;">-0.32</td>
-<td style="text-align: right;">159</td>
-</tr>
-<tr class="odd">
 <td style="text-align: left;">Richard Nguyen</td>
-<td style="text-align: right;">-0.66</td>
-<td style="text-align: right;">-1.11</td>
 <td style="text-align: right;">-0.30</td>
-<td style="text-align: right;">69</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Karla Cisneros</td>
-<td style="text-align: right;">-0.61</td>
-<td style="text-align: right;">-0.98</td>
-<td style="text-align: right;">-0.26</td>
-<td style="text-align: right;">161</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Peter Brown</td>
-<td style="text-align: right;">-0.60</td>
-<td style="text-align: right;">-1.06</td>
-<td style="text-align: right;">-0.21</td>
-<td style="text-align: right;">111</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Annise Parker</td>
-<td style="text-align: right;">-0.59</td>
-<td style="text-align: right;">-0.81</td>
-<td style="text-align: right;">-0.38</td>
-<td style="text-align: right;">510</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">David W. Robinson</td>
-<td style="text-align: right;">-0.57</td>
-<td style="text-align: right;">-0.86</td>
-<td style="text-align: right;">-0.30</td>
-<td style="text-align: right;">220</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Carolyn Evans-Shabazz</td>
 <td style="text-align: right;">-0.50</td>
-<td style="text-align: right;">-0.86</td>
-<td style="text-align: right;">-0.17</td>
-<td style="text-align: right;">152</td>
+<td style="text-align: right;">-0.15</td>
+<td style="text-align: left;">92</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sylvester Turner</td>
+<td style="text-align: right;">-0.26</td>
+<td style="text-align: right;">-0.42</td>
+<td style="text-align: right;">-0.12</td>
+<td style="text-align: left;">330</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Adrian Garcia</td>
+<td style="text-align: right;">-0.26</td>
+<td style="text-align: right;">-0.40</td>
+<td style="text-align: right;">-0.13</td>
+<td style="text-align: left;">390</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">James G. Rodriguez</td>
-<td style="text-align: right;">-0.49</td>
-<td style="text-align: right;">-0.85</td>
-<td style="text-align: right;">-0.16</td>
-<td style="text-align: right;">88</td>
+<td style="text-align: right;">-0.26</td>
+<td style="text-align: right;">-0.38</td>
+<td style="text-align: right;">-0.14</td>
+<td style="text-align: left;">609</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Melissa Noriega</td>
-<td style="text-align: right;">-0.45</td>
-<td style="text-align: right;">-0.83</td>
-<td style="text-align: right;">-0.11</td>
-<td style="text-align: right;">91</td>
+<td style="text-align: left;">Peter Brown</td>
+<td style="text-align: right;">-0.25</td>
+<td style="text-align: right;">-0.43</td>
+<td style="text-align: right;">-0.10</td>
+<td style="text-align: left;">312</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Bill White</td>
-<td style="text-align: right;">-0.43</td>
-<td style="text-align: right;">-0.71</td>
+<td style="text-align: left;">Annise Parker</td>
+<td style="text-align: right;">-0.25</td>
+<td style="text-align: right;">-0.34</td>
 <td style="text-align: right;">-0.16</td>
-<td style="text-align: right;">203</td>
+<td style="text-align: left;">1,139</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Ronald C. Green</td>
-<td style="text-align: right;">-0.42</td>
-<td style="text-align: right;">-0.74</td>
-<td style="text-align: right;">-0.12</td>
-<td style="text-align: right;">194</td>
+<td style="text-align: left;">David W. Robinson</td>
+<td style="text-align: right;">-0.25</td>
+<td style="text-align: right;">-0.37</td>
+<td style="text-align: right;">-0.14</td>
+<td style="text-align: left;">413</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Karla Cisneros</td>
+<td style="text-align: right;">-0.25</td>
+<td style="text-align: right;">-0.41</td>
+<td style="text-align: right;">-0.10</td>
+<td style="text-align: left;">335</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Jarvis Johnson</td>
+<td style="text-align: right;">-0.22</td>
+<td style="text-align: right;">-0.35</td>
+<td style="text-align: right;">-0.10</td>
+<td style="text-align: left;">478</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Melissa Noriega</td>
+<td style="text-align: right;">-0.21</td>
+<td style="text-align: right;">-0.34</td>
+<td style="text-align: right;">-0.09</td>
+<td style="text-align: left;">597</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Larry V. Green</td>
+<td style="text-align: right;">-0.21</td>
+<td style="text-align: right;">-0.34</td>
+<td style="text-align: right;">-0.09</td>
+<td style="text-align: left;">460</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Carolyn Evans-Shabazz</td>
+<td style="text-align: right;">-0.20</td>
+<td style="text-align: right;">-0.35</td>
+<td style="text-align: right;">-0.04</td>
+<td style="text-align: left;">289</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bill White</td>
+<td style="text-align: right;">-0.19</td>
+<td style="text-align: right;">-0.31</td>
+<td style="text-align: right;">-0.08</td>
+<td style="text-align: left;">463</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Martha Castex-Tatum</td>
-<td style="text-align: right;">-0.41</td>
-<td style="text-align: right;">-0.76</td>
-<td style="text-align: right;">-0.09</td>
-<td style="text-align: right;">161</td>
+<td style="text-align: right;">-0.17</td>
+<td style="text-align: right;">-0.32</td>
+<td style="text-align: right;">-0.03</td>
+<td style="text-align: left;">319</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Carol Alvarado</td>
-<td style="text-align: right;">-0.41</td>
-<td style="text-align: right;">-0.62</td>
-<td style="text-align: right;">-0.20</td>
-<td style="text-align: right;">400</td>
+<td style="text-align: right;">-0.17</td>
+<td style="text-align: right;">-0.26</td>
+<td style="text-align: right;">-0.07</td>
+<td style="text-align: left;">669</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Larry V. Green</td>
-<td style="text-align: right;">-0.40</td>
-<td style="text-align: right;">-0.73</td>
-<td style="text-align: right;">-0.09</td>
-<td style="text-align: right;">129</td>
+<td style="text-align: left;">Ronald C. Green</td>
+<td style="text-align: right;">-0.17</td>
+<td style="text-align: right;">-0.29</td>
+<td style="text-align: right;">-0.06</td>
+<td style="text-align: left;">447</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">M. J. Khan, P. E.</td>
+<td style="text-align: right;">-0.16</td>
+<td style="text-align: right;">-0.28</td>
+<td style="text-align: right;">-0.05</td>
+<td style="text-align: left;">450</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Jerry Davis</td>
+<td style="text-align: right;">-0.16</td>
+<td style="text-align: right;">-0.28</td>
+<td style="text-align: right;">-0.05</td>
+<td style="text-align: left;">523</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Gordon Quan</td>
-<td style="text-align: right;">-0.39</td>
-<td style="text-align: right;">-0.61</td>
-<td style="text-align: right;">-0.17</td>
-<td style="text-align: right;">453</td>
+<td style="text-align: right;">-0.15</td>
+<td style="text-align: right;">-0.24</td>
+<td style="text-align: right;">-0.05</td>
+<td style="text-align: left;">666</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">M. J. Khan, P. E.</td>
-<td style="text-align: right;">-0.36</td>
-<td style="text-align: right;">-0.65</td>
-<td style="text-align: right;">-0.09</td>
-<td style="text-align: right;">194</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Jerry Davis</td>
-<td style="text-align: right;">-0.36</td>
-<td style="text-align: right;">-0.69</td>
-<td style="text-align: right;">-0.07</td>
-<td style="text-align: right;">152</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">C. O. “Brad” Bradford</td>
-<td style="text-align: right;">-0.34</td>
-<td style="text-align: right;">-0.81</td>
-<td style="text-align: right;">0.04</td>
-<td style="text-align: right;">130</td>
-</tr>
-<tr class="even">
 <td style="text-align: left;">Sue Lovell</td>
-<td style="text-align: right;">-0.34</td>
-<td style="text-align: right;">-0.64</td>
-<td style="text-align: right;">-0.07</td>
-<td style="text-align: right;">143</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Andrew C. Burks, Jr.</td>
-<td style="text-align: right;">-0.33</td>
-<td style="text-align: right;">-1.22</td>
-<td style="text-align: right;">0.29</td>
-<td style="text-align: right;">36</td>
+<td style="text-align: right;">-0.14</td>
+<td style="text-align: right;">-0.25</td>
+<td style="text-align: right;">-0.04</td>
+<td style="text-align: left;">513</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Al Hoang</td>
-<td style="text-align: right;">-0.31</td>
-<td style="text-align: right;">-0.78</td>
-<td style="text-align: right;">0.15</td>
-<td style="text-align: right;">59</td>
+<td style="text-align: left;">Andrew C. Burks, Jr.</td>
+<td style="text-align: right;">-0.14</td>
+<td style="text-align: right;">-0.38</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: left;">295</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Stephen C. Costello</td>
-<td style="text-align: right;">-0.29</td>
-<td style="text-align: right;">-0.60</td>
-<td style="text-align: right;">0.00</td>
-<td style="text-align: right;">120</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Mario Castillo</td>
-<td style="text-align: right;">-0.26</td>
-<td style="text-align: right;">-0.67</td>
-<td style="text-align: right;">0.17</td>
-<td style="text-align: right;">39</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Joaquin Martinez</td>
-<td style="text-align: right;">-0.23</td>
-<td style="text-align: right;">-0.69</td>
-<td style="text-align: right;">0.25</td>
-<td style="text-align: right;">36</td>
+<td style="text-align: right;">-0.14</td>
+<td style="text-align: right;">-0.25</td>
+<td style="text-align: right;">-0.03</td>
+<td style="text-align: left;">561</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Dwight Boykins</td>
-<td style="text-align: right;">-0.23</td>
-<td style="text-align: right;">-0.49</td>
-<td style="text-align: right;">0.03</td>
-<td style="text-align: right;">107</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Mike Laster</td>
-<td style="text-align: right;">-0.17</td>
-<td style="text-align: right;">-0.44</td>
-<td style="text-align: right;">0.09</td>
-<td style="text-align: right;">141</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Robert Gallegos</td>
 <td style="text-align: right;">-0.12</td>
-<td style="text-align: right;">-0.39</td>
-<td style="text-align: right;">0.13</td>
-<td style="text-align: right;">211</td>
+<td style="text-align: right;">-0.24</td>
+<td style="text-align: right;">-0.01</td>
+<td style="text-align: left;">196</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Sallie Alcorn</td>
-<td style="text-align: right;">-0.11</td>
-<td style="text-align: right;">-0.47</td>
-<td style="text-align: right;">0.20</td>
-<td style="text-align: right;">152</td>
+<td style="text-align: left;">Al Hoang</td>
+<td style="text-align: right;">-0.12</td>
+<td style="text-align: right;">-0.27</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: left;">462</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Gabriel Vasquez</td>
-<td style="text-align: right;">-0.04</td>
-<td style="text-align: right;">-0.26</td>
-<td style="text-align: right;">0.16</td>
-<td style="text-align: right;">352</td>
+<td style="text-align: left;">Mike Laster</td>
+<td style="text-align: right;">-0.11</td>
+<td style="text-align: right;">-0.22</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: left;">507</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Robert Gallegos</td>
+<td style="text-align: right;">-0.07</td>
+<td style="text-align: right;">-0.18</td>
+<td style="text-align: right;">0.03</td>
+<td style="text-align: left;">399</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mario Castillo</td>
+<td style="text-align: right;">-0.06</td>
+<td style="text-align: right;">-0.28</td>
+<td style="text-align: right;">0.15</td>
+<td style="text-align: left;">80</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">C. O. “Brad” Bradford</td>
+<td style="text-align: right;">-0.06</td>
+<td style="text-align: right;">-0.17</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: left;">603</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Joaquin Martinez</td>
+<td style="text-align: right;">-0.05</td>
+<td style="text-align: right;">-0.25</td>
+<td style="text-align: right;">0.17</td>
+<td style="text-align: left;">77</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Jack Christie D.C.</td>
-<td style="text-align: right;">-0.01</td>
-<td style="text-align: right;">-0.27</td>
-<td style="text-align: right;">0.26</td>
-<td style="text-align: right;">143</td>
+<td style="text-align: right;">-0.03</td>
+<td style="text-align: right;">-0.15</td>
+<td style="text-align: right;">0.09</td>
+<td style="text-align: left;">511</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sallie Alcorn</td>
+<td style="text-align: right;">-0.03</td>
+<td style="text-align: right;">-0.18</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: left;">291</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Gabriel Vasquez</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">-0.09</td>
+<td style="text-align: right;">0.09</td>
+<td style="text-align: left;">504</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Toni Lawrence</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">-0.06</td>
 <td style="text-align: right;">0.12</td>
-<td style="text-align: right;">-0.10</td>
-<td style="text-align: right;">0.36</td>
-<td style="text-align: right;">202</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Carroll Robinson</td>
-<td style="text-align: right;">0.13</td>
-<td style="text-align: right;">-0.07</td>
-<td style="text-align: right;">0.33</td>
-<td style="text-align: right;">346</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Dave Martin</td>
-<td style="text-align: right;">0.23</td>
-<td style="text-align: right;">-0.01</td>
-<td style="text-align: right;">0.44</td>
-<td style="text-align: right;">233</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">John Whitmire</td>
-<td style="text-align: right;">0.30</td>
-<td style="text-align: right;">-0.20</td>
-<td style="text-align: right;">0.77</td>
-<td style="text-align: right;">41</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Anne Clutterbuck</td>
-<td style="text-align: right;">0.34</td>
-<td style="text-align: right;">0.11</td>
-<td style="text-align: right;">0.56</td>
-<td style="text-align: right;">146</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Willie Davis</td>
-<td style="text-align: right;">0.38</td>
-<td style="text-align: right;">-0.16</td>
-<td style="text-align: right;">0.95</td>
-<td style="text-align: right;">35</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Pam Holm</td>
-<td style="text-align: right;">0.41</td>
-<td style="text-align: right;">0.20</td>
-<td style="text-align: right;">0.64</td>
-<td style="text-align: right;">200</td>
+<td style="text-align: left;">460</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Oliver Pennington</td>
-<td style="text-align: right;">0.43</td>
+<td style="text-align: right;">0.07</td>
+<td style="text-align: right;">-0.02</td>
 <td style="text-align: right;">0.15</td>
-<td style="text-align: right;">0.71</td>
-<td style="text-align: right;">128</td>
+<td style="text-align: left;">584</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Dave Martin</td>
+<td style="text-align: right;">0.08</td>
+<td style="text-align: right;">-0.01</td>
+<td style="text-align: right;">0.17</td>
+<td style="text-align: left;">486</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Carroll Robinson</td>
+<td style="text-align: right;">0.08</td>
+<td style="text-align: right;">-0.01</td>
+<td style="text-align: right;">0.17</td>
+<td style="text-align: left;">490</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Anne Clutterbuck</td>
+<td style="text-align: right;">0.12</td>
+<td style="text-align: right;">0.03</td>
+<td style="text-align: right;">0.20</td>
+<td style="text-align: left;">501</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Brenda Stardig</td>
+<td style="text-align: right;">0.12</td>
+<td style="text-align: right;">0.02</td>
+<td style="text-align: right;">0.21</td>
+<td style="text-align: left;">408</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">John Whitmire</td>
+<td style="text-align: right;">0.16</td>
+<td style="text-align: right;">-0.06</td>
+<td style="text-align: right;">0.37</td>
+<td style="text-align: left;">82</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Pam Holm</td>
+<td style="text-align: right;">0.19</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">0.27</td>
+<td style="text-align: left;">449</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Mark Goldberg</td>
-<td style="text-align: right;">0.43</td>
+<td style="text-align: right;">0.22</td>
+<td style="text-align: right;">0.14</td>
+<td style="text-align: right;">0.31</td>
+<td style="text-align: left;">656</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Willie Davis</td>
+<td style="text-align: right;">0.23</td>
+<td style="text-align: right;">-0.02</td>
+<td style="text-align: right;">0.48</td>
+<td style="text-align: left;">74</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Steve Le</td>
 <td style="text-align: right;">0.24</td>
-<td style="text-align: right;">0.62</td>
-<td style="text-align: right;">441</td>
+<td style="text-align: right;">0.09</td>
+<td style="text-align: right;">0.41</td>
+<td style="text-align: left;">108</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Chris Bell</td>
-<td style="text-align: right;">0.44</td>
-<td style="text-align: right;">0.22</td>
-<td style="text-align: right;">0.66</td>
-<td style="text-align: right;">155</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Brenda Stardig</td>
-<td style="text-align: right;">0.45</td>
-<td style="text-align: right;">0.19</td>
-<td style="text-align: right;">0.71</td>
-<td style="text-align: right;">147</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Julian Ramirez</td>
-<td style="text-align: right;">0.66</td>
-<td style="text-align: right;">0.12</td>
-<td style="text-align: right;">1.19</td>
-<td style="text-align: right;">35</td>
+<td style="text-align: right;">0.25</td>
+<td style="text-align: right;">0.15</td>
+<td style="text-align: right;">0.34</td>
+<td style="text-align: left;">232</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Twila Carter</td>
-<td style="text-align: right;">0.69</td>
-<td style="text-align: right;">0.06</td>
-<td style="text-align: right;">1.39</td>
-<td style="text-align: right;">31</td>
+<td style="text-align: right;">0.26</td>
+<td style="text-align: right;">0.02</td>
+<td style="text-align: right;">0.51</td>
+<td style="text-align: left;">71</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Steve Le</td>
-<td style="text-align: right;">0.70</td>
-<td style="text-align: right;">0.33</td>
-<td style="text-align: right;">1.10</td>
-<td style="text-align: right;">44</td>
-</tr>
-<tr class="even">
 <td style="text-align: left;">Mark Ellis</td>
-<td style="text-align: right;">0.74</td>
-<td style="text-align: right;">0.54</td>
-<td style="text-align: right;">0.93</td>
-<td style="text-align: right;">453</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Rob Todd</td>
-<td style="text-align: right;">0.75</td>
-<td style="text-align: right;">0.52</td>
-<td style="text-align: right;">0.98</td>
-<td style="text-align: right;">137</td>
+<td style="text-align: right;">0.39</td>
+<td style="text-align: right;">0.31</td>
+<td style="text-align: right;">0.47</td>
+<td style="text-align: left;">677</td>
 </tr>
 <tr class="even">
+<td style="text-align: left;">Rob Todd</td>
+<td style="text-align: right;">0.40</td>
+<td style="text-align: right;">0.29</td>
+<td style="text-align: right;">0.50</td>
+<td style="text-align: left;">199</td>
+</tr>
+<tr class="odd">
 <td style="text-align: left;">Bert Keller</td>
-<td style="text-align: right;">0.75</td>
-<td style="text-align: right;">0.55</td>
-<td style="text-align: right;">0.96</td>
-<td style="text-align: right;">366</td>
+<td style="text-align: right;">0.40</td>
+<td style="text-align: right;">0.31</td>
+<td style="text-align: right;">0.48</td>
+<td style="text-align: left;">534</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Amy Peck</td>
+<td style="text-align: right;">0.42</td>
+<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.54</td>
+<td style="text-align: left;">297</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Orlando Sanchez</td>
-<td style="text-align: right;">0.80</td>
-<td style="text-align: right;">0.56</td>
-<td style="text-align: right;">1.04</td>
-<td style="text-align: right;">149</td>
+<td style="text-align: right;">0.43</td>
+<td style="text-align: right;">0.32</td>
+<td style="text-align: right;">0.53</td>
+<td style="text-align: left;">223</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Michael Berry</td>
-<td style="text-align: right;">0.88</td>
-<td style="text-align: right;">0.69</td>
-<td style="text-align: right;">1.09</td>
-<td style="text-align: right;">379</td>
+<td style="text-align: right;">0.43</td>
+<td style="text-align: right;">0.35</td>
+<td style="text-align: right;">0.51</td>
+<td style="text-align: left;">594</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Amy Peck</td>
-<td style="text-align: right;">1.00</td>
-<td style="text-align: right;">0.70</td>
-<td style="text-align: right;">1.31</td>
-<td style="text-align: right;">155</td>
+<td style="text-align: left;">Julian Ramirez</td>
+<td style="text-align: right;">0.51</td>
+<td style="text-align: right;">0.27</td>
+<td style="text-align: right;">0.77</td>
+<td style="text-align: left;">77</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Shelley Sekula-Gibbs, M.D.</td>
-<td style="text-align: right;">1.06</td>
-<td style="text-align: right;">0.85</td>
-<td style="text-align: right;">1.28</td>
-<td style="text-align: right;">358</td>
+<td style="text-align: right;">0.53</td>
+<td style="text-align: right;">0.45</td>
+<td style="text-align: right;">0.62</td>
+<td style="text-align: left;">584</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Michael Kubosh</td>
-<td style="text-align: right;">1.15</td>
-<td style="text-align: right;">0.86</td>
-<td style="text-align: right;">1.47</td>
-<td style="text-align: right;">217</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Addie Wiseman</td>
-<td style="text-align: right;">1.23</td>
-<td style="text-align: right;">1.02</td>
-<td style="text-align: right;">1.47</td>
-<td style="text-align: right;">392</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Greg Travis</td>
-<td style="text-align: right;">1.41</td>
-<td style="text-align: right;">1.04</td>
-<td style="text-align: right;">1.81</td>
-<td style="text-align: right;">101</td>
+<td style="text-align: right;">0.54</td>
+<td style="text-align: right;">0.43</td>
+<td style="text-align: right;">0.68</td>
+<td style="text-align: left;">394</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Mike Knox</td>
-<td style="text-align: right;">1.55</td>
-<td style="text-align: right;">1.19</td>
-<td style="text-align: right;">1.96</td>
-<td style="text-align: right;">157</td>
+<td style="text-align: right;">0.59</td>
+<td style="text-align: right;">0.47</td>
+<td style="text-align: right;">0.72</td>
+<td style="text-align: left;">316</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Mary Nan Huffman</td>
-<td style="text-align: right;">1.63</td>
-<td style="text-align: right;">1.17</td>
-<td style="text-align: right;">2.21</td>
-<td style="text-align: right;">92</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Bruce Tatro</td>
-<td style="text-align: right;">1.71</td>
-<td style="text-align: right;">1.39</td>
-<td style="text-align: right;">2.07</td>
-<td style="text-align: right;">387</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Mike Sullivan</td>
-<td style="text-align: right;">1.97</td>
-<td style="text-align: right;">1.12</td>
-<td style="text-align: right;">3.29</td>
-<td style="text-align: right;">66</td>
+<td style="text-align: right;">0.65</td>
+<td style="text-align: right;">0.50</td>
+<td style="text-align: right;">0.81</td>
+<td style="text-align: left;">174</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Fred Flickinger</td>
-<td style="text-align: right;">2.74</td>
-<td style="text-align: right;">1.36</td>
-<td style="text-align: right;">4.95</td>
-<td style="text-align: right;">41</td>
+<td style="text-align: right;">0.72</td>
+<td style="text-align: right;">0.49</td>
+<td style="text-align: right;">0.97</td>
+<td style="text-align: left;">79</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Mike Sullivan</td>
+<td style="text-align: right;">0.77</td>
+<td style="text-align: right;">0.65</td>
+<td style="text-align: right;">0.89</td>
+<td style="text-align: left;">490</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Addie Wiseman</td>
+<td style="text-align: right;">0.90</td>
+<td style="text-align: right;">0.79</td>
+<td style="text-align: right;">1.01</td>
+<td style="text-align: left;">645</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Greg Travis</td>
+<td style="text-align: right;">0.95</td>
+<td style="text-align: right;">0.75</td>
+<td style="text-align: right;">1.18</td>
+<td style="text-align: left;">224</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bruce Tatro</td>
+<td style="text-align: right;">1.68</td>
+<td style="text-align: right;">1.39</td>
+<td style="text-align: right;">2.06</td>
+<td style="text-align: left;">567</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Helena Brown</td>
-<td style="text-align: right;">4.27</td>
-<td style="text-align: right;">2.34</td>
-<td style="text-align: right;">6.81</td>
-<td style="text-align: right;">37</td>
+<td style="text-align: right;">5.87</td>
+<td style="text-align: right;">4.79</td>
+<td style="text-align: right;">7.03</td>
+<td style="text-align: left;">317</td>
 </tr>
 </tbody>
 </table>
@@ -3087,108 +3098,108 @@ table { font-size: .88rem; }
 <th style="text-align: right;" data-quarto-table-cell-role="th">Members</th>
 <th style="text-align: right;" data-quarto-table-cell-role="th">Actions</th>
 <th style="text-align: left;" data-quarto-table-cell-role="th">Observed votes</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Continuing from prior</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Continuing from prior</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">2000⁠–⁠2001</td>
-<td style="text-align: left;">1,999</td>
+<td style="text-align: left;">1999</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">15</td>
-<td style="text-align: right;">165</td>
-<td style="text-align: left;">2,281</td>
-<td style="text-align: right;">NA</td>
+<td style="text-align: right;">247</td>
+<td style="text-align: left;">3,374</td>
+<td style="text-align: left;">—</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">2002⁠–⁠2003</td>
-<td style="text-align: left;">2,001</td>
+<td style="text-align: left;">2001</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">15</td>
-<td style="text-align: right;">227</td>
-<td style="text-align: left;">3,256</td>
-<td style="text-align: right;">10</td>
+<td style="text-align: right;">328</td>
+<td style="text-align: left;">4,647</td>
+<td style="text-align: left;">10</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">2004⁠–⁠2005</td>
-<td style="text-align: left;">2,003</td>
+<td style="text-align: left;">2003</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">15</td>
-<td style="text-align: right;">82</td>
-<td style="text-align: left;">1,168</td>
-<td style="text-align: right;">9</td>
+<td style="text-align: right;">138</td>
+<td style="text-align: left;">1,933</td>
+<td style="text-align: left;">9</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">2006⁠–⁠2007</td>
-<td style="text-align: left;">2,005</td>
+<td style="text-align: left;">2005</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">16</td>
-<td style="text-align: right;">97</td>
-<td style="text-align: left;">1,375</td>
-<td style="text-align: right;">11</td>
+<td style="text-align: right;">214</td>
+<td style="text-align: left;">3,029</td>
+<td style="text-align: left;">11</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">2008⁠–⁠2009</td>
-<td style="text-align: left;">2,007</td>
+<td style="text-align: left;">2007</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">16</td>
-<td style="text-align: right;">25</td>
-<td style="text-align: left;">346</td>
-<td style="text-align: right;">11</td>
+<td style="text-align: right;">118</td>
+<td style="text-align: left;">1,628</td>
+<td style="text-align: left;">11</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">2010⁠–⁠2011</td>
-<td style="text-align: left;">2,009</td>
+<td style="text-align: left;">2009</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">15</td>
-<td style="text-align: right;">29</td>
-<td style="text-align: left;">410</td>
-<td style="text-align: right;">9</td>
+<td style="text-align: right;">202</td>
+<td style="text-align: left;">2,799</td>
+<td style="text-align: left;">9</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">2012⁠–⁠2013</td>
-<td style="text-align: left;">2,011</td>
+<td style="text-align: left;">2011</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">18</td>
-<td style="text-align: right;">37</td>
-<td style="text-align: left;">595</td>
-<td style="text-align: right;">10</td>
+<td style="text-align: right;">317</td>
+<td style="text-align: left;">5,061</td>
+<td style="text-align: left;">10</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">2014⁠–⁠2015</td>
-<td style="text-align: left;">2,013</td>
+<td style="text-align: left;">2013</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">17</td>
-<td style="text-align: right;">70</td>
-<td style="text-align: left;">1,092</td>
-<td style="text-align: right;">11</td>
+<td style="text-align: right;">93</td>
+<td style="text-align: left;">1,449</td>
+<td style="text-align: left;">11</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">2016⁠–⁠2019</td>
-<td style="text-align: left;">2,015</td>
+<td style="text-align: left;">2015</td>
 <td style="text-align: right;">4</td>
 <td style="text-align: right;">18</td>
-<td style="text-align: right;">49</td>
-<td style="text-align: left;">767</td>
-<td style="text-align: right;">11</td>
+<td style="text-align: right;">122</td>
+<td style="text-align: left;">1,914</td>
+<td style="text-align: left;">11</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">2020⁠–⁠2023</td>
-<td style="text-align: left;">2,019</td>
+<td style="text-align: left;">2019</td>
 <td style="text-align: right;">4</td>
 <td style="text-align: right;">19</td>
-<td style="text-align: right;">116</td>
-<td style="text-align: left;">1,878</td>
-<td style="text-align: right;">10</td>
+<td style="text-align: right;">218</td>
+<td style="text-align: left;">3,521</td>
+<td style="text-align: left;">10</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">2024⁠–⁠2027</td>
-<td style="text-align: left;">2,023</td>
+<td style="text-align: left;">2023</td>
 <td style="text-align: right;">4</td>
 <td style="text-align: right;">17</td>
-<td style="text-align: right;">42</td>
-<td style="text-align: left;">617</td>
-<td style="text-align: right;">10</td>
+<td style="text-align: right;">84</td>
+<td style="text-align: left;">1,278</td>
+<td style="text-align: left;">10</td>
 </tr>
 </tbody>
 </table>
@@ -3196,11 +3207,11 @@ table { font-size: .88rem; }
 </div>
 </div>
 </div>
-<p>The new source contains substantial 2000–2003 coverage; the 2024–2027 term is observed only through May 2026. Adjacent councils share 9–11 observed members, but roster overlap alone does not guarantee enough <em>discriminating</em> votes to align the full scale. The alternative random-start mode shows that this alignment remains sensitive to initialization. Earlier ad hoc window fits were exploratory diagnostics and are not used as report periods or current estimates.</p>
+<p>The new source contains substantial 2000–2003 coverage; the 2024–2027 term is observed only through May 2026. Adjacent councils share 9–11 observed members, but roster overlap alone does not guarantee enough <em>discriminating</em> votes to align the full scale. The alternative random-start mode found for the September 25 package shows that this alignment is sensitive to initialization. Earlier ad hoc window fits were exploratory diagnostics and are not used as report periods or current estimates.</p>
 </section>
 <section id="validation-and-remaining-limits" class="level2">
 <h2 class="anchored" data-anchor-id="validation-and-remaining-limits">Validation and remaining limits</h2>
-<p>Party affiliation was researched separately from the roll-call package. <code>Code/30_houston_pooled_party_evidence.r</code> maintains evidence for the original 67 officials; <code>Code/38_houston_2000_party_evidence.r</code> adds ten source-backed records and produces <code>Results/Houston-2000/party_evidence.csv</code> and <code>scores_with_party.csv</code>. Each record has a source and one of four descriptive evidence types — <code>party_record</code>, <code>party_organization</code>, <code>self_identified</code>, <code>reported</code> — which say what kind of source the label rests on and are deliberately not a ranking. A documented partisan candidacy or party office is thereby distinguished from an endorsement or news characterization; no vote pattern or district was used to assign party. Gabriel Vasquez’s documented Democratic-to-Republican switch is carried as <strong>two interval rows</strong> in <code>party_affiliation.csv</code>, one per affiliation, and appears as Mixed only in the person-level analysis table, where his single pooled position cannot be assigned to one party. The final inventory is 45 Democratic, 31 Republican, and one Mixed; two-party comparisons use 76 officials. The 67 earlier labels informed one starting vector, but no party label enters the likelihood or prior. The separate modern-subset comparison and presidential-vote relationship use pooled positions for the officials to whom those external data apply. The 2024 district overlay allocates precinct votes to districts in proportion to intersecting area. The report places the median of the five 2023-elected at-large members’ pooled posterior-mean positions at the approximate citywide Trump share; that marker is excluded from the district-only correlation and fitted line. Unanimous actions are excluded from scaling, so the fitted dimension pertains to a selected subset of business.</p>
+<p>Party affiliation was researched separately from the roll-call package. <code>Code/30_houston_pooled_party_evidence.r</code> maintains evidence for the original 67 officials; <code>Code/38_houston_2000_party_evidence.r</code> adds ten source-backed records and produces <code>Results/Houston-2000/party_evidence.csv</code> and <code>scores_with_party.csv</code>. Each record has a source and one of four descriptive evidence types — <code>party_record</code>, <code>party_organization</code>, <code>self_identified</code>, <code>reported</code> — which say what kind of source the label rests on and are deliberately not a ranking. A documented partisan candidacy or party office is thereby distinguished from an endorsement or news characterization; no vote pattern or district was used to assign party. Gabriel Vasquez’s documented Democratic-to-Republican switch is carried as <strong>two interval rows</strong> in <code>party_affiliation.csv</code>, one per affiliation, and appears as Mixed only in the person-level analysis table, where his single pooled position cannot be assigned to one party. The final inventory is 45 Democratic, 31 Republican, and one Mixed; two-party comparisons use 76 officials. The 77-person labels set both chains’ starting values, but no party label enters the likelihood or prior. The separate modern-subset comparison and presidential-vote relationship use pooled positions for the officials to whom those external data apply. The 2024 district overlay allocates precinct votes to districts in proportion to intersecting area. The report places the median of the five 2023-elected at-large members’ pooled posterior-mean positions at the approximate citywide Trump share; that marker is excluded from the district-only correlation and fitted line. Unanimous actions are excluded from scaling, so the fitted dimension pertains to a selected subset of business; actions with a single dissent are included.</p>
 <p>The 2023 mayoral check is built by <code>Code/44_houston_mayoral_districts.r</code> from the <a href="https://www.houstontx.gov/citysec/elections/120923.pdf">City’s official runoff canvass</a>, with all Harris, Fort Bend, and Montgomery candidate totals reconciled to their county subtotals. The <a href="https://houstontx.gov/citysec/precincts.pdf">official October 2022 crosswalk</a> identifies twelve Harris precincts marked as crossing council districts; the table includes one zero-vote precinct absent from its prose appendix. The primary series excludes all twelve, uses the predominant overlap with the official 2023 council polygons for remaining Harris precincts and 2022G Fort Bend precincts, and leaves 111 Montgomery candidate votes unmatched. It assigns 197,676 of 201,528 candidate votes (98.09%). This is <em>near-exact</em>, not certified district-level tabulation: precinct and polygon vintages differ, and a few minor secondary overlaps remain. <code>mayoral_precinct_audit_2023.csv</code> flags secondary area shares of at least 1%; among unmarked precincts, only one candidate vote lies in a precinct with a secondary share over that threshold. An area-weighted allocation of the matched precincts is reported as a sensitivity check and assumes uniform voter density. Both variants compare Whitmire’s two-candidate district share with the pooled scores of the eleven district members elected in 2023, not the council that was still serving on runoff day. The local <code>Data/Houston/mayoral_history/readme.md</code> retains hashes, coverage, and the split list.</p>
 <section id="candidate-endorsement-indicators" class="level3">
 <h3 class="anchored" data-anchor-id="candidate-endorsement-indicators">Candidate endorsement indicators</h3>
@@ -3255,14 +3266,14 @@ table { font-size: .88rem; }
 <th style="text-align: left;" data-quarto-table-cell-role="th">Organization</th>
 <th style="text-align: left;" data-quarto-table-cell-role="th">Listed / outside</th>
 <th style="text-align: left;" data-quarto-table-cell-role="th">D / R listed</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Mean listed</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Mean outside</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Difference</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Point-biserial</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Ordered-pair share</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Mean listed</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Mean outside</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Difference</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Point-biserial</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Ordered-pair share</th>
 <th style="text-align: left;" data-quarto-table-cell-role="th">Within-D listed / outside</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Within-D mean difference</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Within-D ordered-pair share</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Within-D mean difference</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Within-D ordered-pair share</th>
 </tr>
 </thead>
 <tbody>
@@ -3270,53 +3281,53 @@ table { font-size: .88rem; }
 <td style="text-align: left;">Labor federation</td>
 <td style="text-align: left;">7 / 10</td>
 <td style="text-align: left;">7 / 0</td>
-<td style="text-align: right;">-0.53</td>
-<td style="text-align: right;">0.46</td>
-<td style="text-align: right;">-0.99</td>
-<td style="text-align: right;">-0.47</td>
-<td style="text-align: right;">0.77</td>
+<td style="text-align: left;">-0.28</td>
+<td style="text-align: left;">0.18</td>
+<td style="text-align: left;">-0.46</td>
+<td style="text-align: left;">-0.52</td>
+<td style="text-align: left;">0.79</td>
 <td style="text-align: left;">7 / 4</td>
-<td style="text-align: right;">0.10</td>
-<td style="text-align: right;">0.43</td>
+<td style="text-align: left;">-0.02</td>
+<td style="text-align: left;">0.46</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">LGBTQ+ Caucus</td>
 <td style="text-align: left;">7 / 10</td>
 <td style="text-align: left;">7 / 0</td>
-<td style="text-align: right;">-0.57</td>
-<td style="text-align: right;">0.49</td>
-<td style="text-align: right;">-1.06</td>
-<td style="text-align: right;">-0.51</td>
-<td style="text-align: right;">0.79</td>
+<td style="text-align: left;">-0.24</td>
+<td style="text-align: left;">0.14</td>
+<td style="text-align: left;">-0.38</td>
+<td style="text-align: left;">-0.43</td>
+<td style="text-align: left;">0.77</td>
 <td style="text-align: left;">7 / 4</td>
-<td style="text-align: right;">-0.01</td>
-<td style="text-align: right;">0.46</td>
+<td style="text-align: left;">0.1</td>
+<td style="text-align: left;">0.43</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">TOP PAC</td>
 <td style="text-align: left;">2 / 15</td>
 <td style="text-align: left;">2 / 0</td>
-<td style="text-align: right;">-1.16</td>
-<td style="text-align: right;">0.22</td>
-<td style="text-align: right;">-1.37</td>
-<td style="text-align: right;">-0.43</td>
-<td style="text-align: right;">0.97</td>
+<td style="text-align: left;">-0.51</td>
+<td style="text-align: left;">0.05</td>
+<td style="text-align: left;">-0.57</td>
+<td style="text-align: left;">-0.42</td>
+<td style="text-align: left;">0.93</td>
 <td style="text-align: left;">2 / 9</td>
-<td style="text-align: right;">-0.73</td>
-<td style="text-align: right;">0.94</td>
+<td style="text-align: left;">-0.29</td>
+<td style="text-align: left;">0.89</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Our Revolution</td>
 <td style="text-align: left;">0 / unknown</td>
 <td style="text-align: left;">0 / 0</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: right;">NA</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">—</td>
 <td style="text-align: left;">0 / unknown</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: right;">NA</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">—</td>
 </tr>
 </tbody>
 </table>
@@ -3349,30 +3360,30 @@ table { font-size: .88rem; }
 <td style="text-align: right;">17</td>
 <td style="text-align: left;">10 / 7</td>
 <td style="text-align: left;">8 / 2</td>
-<td style="text-align: right;">-0.62</td>
-<td style="text-align: right;">-0.60</td>
-<td style="text-align: right;">0.84</td>
-<td style="text-align: right;">-0.17</td>
+<td style="text-align: right;">-0.23</td>
+<td style="text-align: right;">-0.54</td>
+<td style="text-align: right;">0.81</td>
+<td style="text-align: right;">-0.04</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">2015 → 2016</td>
 <td style="text-align: right;">17</td>
 <td style="text-align: left;">8 / 9</td>
 <td style="text-align: left;">8 / 0</td>
-<td style="text-align: right;">-1.05</td>
-<td style="text-align: right;">-0.68</td>
-<td style="text-align: right;">0.90</td>
-<td style="text-align: right;">-0.11</td>
+<td style="text-align: right;">-0.62</td>
+<td style="text-align: right;">-0.58</td>
+<td style="text-align: right;">0.92</td>
+<td style="text-align: right;">-0.20</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">2019 → 2020</td>
 <td style="text-align: right;">16</td>
 <td style="text-align: left;">6 / 10</td>
 <td style="text-align: left;">6 / 0</td>
-<td style="text-align: right;">-0.56</td>
-<td style="text-align: right;">-0.31</td>
+<td style="text-align: right;">-0.22</td>
+<td style="text-align: right;">-0.23</td>
 <td style="text-align: right;">0.60</td>
-<td style="text-align: right;">0.40</td>
+<td style="text-align: right;">0.27</td>
 </tr>
 </tbody>
 </table>
@@ -3952,15 +3963,16 @@ table { font-size: .88rem; }
 <section id="reproduction" class="level2">
 <h2 class="anchored" data-anchor-id="reproduction">Reproduction</h2>
 <p>From the Local project root, with the verified ZIP in the path expected by the preparation script:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="va">HOUSTON_SOURCE_VERSION</span><span class="op">=</span>2000 <span class="ex">Rscript</span> Code/25_prepare_houston_full.r</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="va">HOUSTON_SOURCE_VERSION</span><span class="op">=</span>2000 <span class="ex">Rscript</span> Code/29_refit_houston_two_chains.r</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> Code/35_houston_2000_party_start_diagnostic.r</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> Code/36_houston_2000_conditional_scores.r</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> Code/38_houston_2000_party_evidence.r</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="va">HOUSTON_SOURCE_VERSION</span><span class="op">=</span>2000 <span class="ex">Rscript</span> Code/31_houston_endorsement_validity.r</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> Code/61_prepare_houston_2026_10_12.r</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> Code/62_fit_houston_party_start.r</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> Code/38_houston_2000_party_evidence.r</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="va">HOUSTON_SOURCE_VERSION</span><span class="op">=</span>2000 <span class="ex">Rscript</span> Code/31_houston_endorsement_validity.r</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> Code/44_houston_mayoral_districts.r</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> Code/39_houston_state_bridge.r</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render houston-expanded-report.qmd</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render houston-expanded-technical-appendix.qmd</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The earlier short-window output files are pre-cutoff diagnostics; do not interpret them as reproduced by this sequence. Seeds, starts, and session information are saved alongside each fitted output.</p>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render houston-expanded-technical-appendix.qmd</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render houston-dashboard.qmd</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>Code/61</code> overwrites the September 25 matrix in <code>Results/Houston-2000/</code>; that fit and its diagnostics are archived in <code>Results/houston-2000-sept25-2026-10-12/</code> and are not reproduced by this sequence. Seeds, starts, and session information are saved alongside each fitted output.</p>
 </section>
 
 </main>
