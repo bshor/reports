@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Boris Shor">
-<meta name="dcterms.date" content="2026-10-15">
+<meta name="dcterms.date" content="2026-10-18">
 
 <title>Chicago City Council, 2003–2026</title>
 <style>
@@ -2283,7 +2283,7 @@ table { font-size: .88rem; }
     <div>
     <div class="quarto-title-meta-heading">Updated</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 15, 2026</p>
+      <p class="date">October 18, 2026</p>
     </div>
   </div>
   
@@ -2295,13 +2295,15 @@ table { font-size: .88rem; }
 </header>
 
 
-<p>This appendix documents the pooled analysis in the <a href="chicago-report.html">main report</a>: 132 members, 693 contested roll calls and 32,933 observed binary responses, 2003–2026. The earlier recent-only analysis is preserved separately.</p>
+<p>This appendix documents the pooled analysis in the <a href="chicago-report.html">main report</a>: 132 members, 693 contested roll calls and 32,980 observed binary responses, 2003–2026. The earlier analyses are preserved separately.</p>
 <section id="source-identity-and-construction" class="level2">
 <h2 class="anchored" data-anchor-id="source-identity-and-construction">Source, identity and construction</h2>
-<p>The input is the October 15 revised Chicago journal package linked from <a href="https://github.com/MyTownRepo/council-votes/pull/32">PR #32</a>, with source coverage January 16, 2003–June 17, 2026. It contains 26,215 roll calls, 727 with both recorded yeas and nays. This is a journal-only delivery; the overlapping recent ELMS source is not added, preventing double ingestion. The earlier recent-only report uses a different source/window and is not simply appended to this matrix.</p>
-<p>The preserved delivery SHA-256 is <code>563085c13616912f2b77bbf6e5564abbf29d8675d3b762f710a13b388622d641</code>. It was downloaded via rclone, checked for ZIP integrity and preserved separately from the prior delivery. This is a locally computed pin, not a claim that an author-supplied delivery checksum matched.</p>
+<p>The input is the corrected Chicago journal package downloaded October 16 from <a href="https://github.com/MyTownRepo/council-votes/pull/32">PR #32</a>, with source coverage January 16, 2003–June 17, 2026. It contains 26,215 roll calls, 727 with both recorded yeas and nays. This is a journal-only delivery; the overlapping recent ELMS source is not added, preventing double ingestion. The earlier recent-only report uses a different source/window and is not simply appended to this matrix.</p>
+<p>The preserved delivery SHA-256 is <code>1be2b79dd4481c00c1fbfd1b1ee78f307e4f50eb37c2670a73268eff6a19c08e</code>. It was downloaded via rclone, checked for ZIP integrity and preserved separately from the prior delivery. Every file inside the ZIP matches the committed package manifest on repair branch commit <code>12e7271</code>.</p>
+<p>The published replay inputs were also downloaded and checked. The row-level author validator passes, and an independent local replay reproduces all 20 delivered files byte-for-byte.</p>
 <p>Dated roster identities resolve people before constructing the vote matrix. This separates the Moore, Burnett, Mell and Colon/Colom successions and Milly Santiago from Miguel Santiago. Michael Chandler and Michael D. Chandler are an explicit same-person variant. Internal analysis keys do not allocate permanent IDs. Conflicted or missing registry IDs remain blank in metadata rather than defining a fictional person. Rows lacking a resolved roster identity, and explicitly flagged out-of-term rows, are excluded.</p>
-<p>Seven source-verified local additions restore omitted printed yeas: Mitts once and Cárdenas six times. Two printed Scott responses misassigned to Solis are also corrected in the analysis layer; those two events are unanimous and do not enter the fit. All exceptions have separate ledgers; the raw delivery is unchanged. Bounded checks found recurring omissions among deduplication-flagged events, but do not establish that every flagged event is wrong or estimate a corpus-wide error rate.</p>
+<p>The upstream package restores 1,028 previously dropped responses across 1,019 ballots. Whole-file checks reproduce its response totals and find no duplicate roster-person response within an event. Thirty-nine events retain printed-versus-counted tally discrepancies; unresolved responses are not invented to close them. Our seven source-verified omissions and the two Scott/Solis misassignments are now corrected upstream, so <strong>no local vote additions or identity overrides are applied</strong>. The raw delivery remains unchanged.</p>
+<p>Compared with the preceding prepared matrix, the new input adds 47 observed cells, changes none of the 32,933 already observed responses and removes none. The member and retained-event universes are unchanged. This is an input-conservation check, not a source-accuracy estimate.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div class="report-table-wrap" role="region" aria-label="Data table" tabindex="0">
@@ -2311,7 +2313,7 @@ table { font-size: .88rem; }
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">Source roll-call key</th>
 <th style="text-align: left;" data-quarto-table-cell-role="th">Member</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Recorded response restored</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Upstream-restored response</th>
 </tr>
 </thead>
 <tbody>
@@ -2366,7 +2368,7 @@ table { font-size: .88rem; }
 \Pr(y_{ij}=1)=\Phi(x_i\beta_j-\alpha_j).
 </annotation></semantics></math></p>
 <p>Each member has a constant pooled position xᵢ; each item has a discrimination βⱼ and difficulty αⱼ. Default <code>pscl::ideal()</code> priors have member variance 1 and item-parameter variance 25. Output is normalized, and posterior signs are aligned to a vote-derived singular-vector reference with Raymond Lopez positive. That convention does not fix his score or supply an external ideological calibration.</p>
-<p>Exactly <strong>two chains</strong> use party starting values: Democratic −1, Republican +1 and unknown or conflicting/multiple designations 0. At execution, the available name-matched evidence supplied 85 Democratic starts, one Republican and 46 zero starts. Subsequent research supplies the richer report labels but does not change the saved starts or estimates. Starting values enter neither the likelihood nor the priors.</p>
+<p>Exactly <strong>two chains</strong> use party starting values: Democratic −1, Republican +1 and unknown or conflicting/multiple designations 0. The completed party research supplies 113 Democratic starts, one Republican and 18 zero starts (15 Unknown and three with multiple/changing designations). Starting values enter neither the likelihood nor the priors.</p>
 <p>Each chain uses 100,000 post-burn-in iterations plus 10,000 burn-in, thinned by 100; seeds are 20261015 and 20261016. No additional sensitivity fit or label-free start was run.</p>
 </section>
 <section id="diagnostics" class="level2">
@@ -2401,15 +2403,15 @@ table { font-size: .88rem; }
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Maximum R-hat</td>
-<td style="text-align: left;">1.0155</td>
+<td style="text-align: left;">1.0113</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Minimum ESS</td>
-<td style="text-align: left;">135</td>
+<td style="text-align: left;">113</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Correlation of chain means</td>
-<td style="text-align: left;">0.999611</td>
+<td style="text-align: left;">0.999895</td>
 </tr>
 </tbody>
 </table>
@@ -2557,7 +2559,8 @@ table { font-size: .88rem; }
 </section>
 <section id="party-caucus-and-election-validation" class="level2">
 <h2 class="anchored" data-anchor-id="party-caucus-and-election-validation">Party, caucus and election validation</h2>
-<p>Party research combines the existing upstream pilot, the 2003–2007 council review and the supervised follow-up on 44 initially unresolved records. Four of those were already labeled under the same local ID but a different name. The follow-up contributes 24 Democratic labels, Fioretti’s separate Democratic/later Republican evidence, and leaves 15 unresolved. The report therefore has 113 Democratic, one Republican, three multiple/changing designations and 15 Unknown.</p>
+<p>Party research combines the existing upstream pilot, the 2003–2007 council review and supervised follow-ups. Four initially unresolved cases were already labeled under the same local ID but a different name. Subsequent research resolves thirteen of the final fifteen gaps, leaving Darcel Beavers and Leonard DeVille Unknown. The report has 126 Democratic-affiliated, one Republican, three multiple/changing designations and two Unknown. These latest labels enrich the report only: the fitted draws and the 113 Democratic, one Republican and eighteen zero initialization values described above are unchanged.</p>
+<p>The new evidence includes candidate questionnaires, explicit reporting of party-organizational membership, a corporate PAC’s stated party classification, and reported convention participation. These are not all registration or original party records. Granato and Colom’s convention evidence is from 1996, Rice’s explicit reporting postdates council service, and other source-specific timing limits remain in the evidence ledger; a person-level designation does not imply verified continuous affiliation throughout local service. Cullerton’s evidence is his former campaign manager’s retrospective description, not Cullerton’s own self-identification. Mosley’s report is preserved through a third-party republication. No affiliation is inferred from a donor’s party, relatives, or roll-call behavior.</p>
 <p>Evidence types distinguish party records, self-identification, reporting and party-organization alignment. Source dates are not automatically party start/end dates. UIC’s January 25, 2006 report supplies a 2004 snapshot; it does not establish continuous affiliation throughout later service. Fioretti’s Republican evidence postdates his council service. Uncited infoboxes alone remain leads. <a href="https://github.com/MyTownRepo/council-votes/pull/34">Research contribution and source justifications</a>.</p>
 <p>The 2024 UIC caucus comparisons classify only the 50 people covered by the roster. Historic ward holders and later successors are unclassified. The separately recorded 2027 DSA endorsement comparison uses only the 52 current-period members; older councillors are not coded non-endorsed from their absence in a later announcement. Tables show group medians and differences, with group sizes; no rank correlations or pairwise-ordering shares are added.</p>
 <p>The presidential comparison preserves the previously validated NYT precinct aggregation and matches all 50 wards to the dated roster on November 5, 2024. Ward labels are offset from the points. These votes measure residents, not councilmembers. Prior county/city reconciliation is unchanged; the NYT major-party totals differ slightly from the certified canvass and are not silently adjusted.</p>
@@ -2586,631 +2589,631 @@ table { font-size: .88rem; }
 <td style="text-align: left;">Daniel La Spata</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">333</td>
-<td style="text-align: right;">-2.601</td>
-<td style="text-align: right;">-3.541</td>
-<td style="text-align: right;">-1.871</td>
-<td style="text-align: right;">1.013</td>
-<td style="text-align: right;">199.581</td>
+<td style="text-align: right;">-2.536</td>
+<td style="text-align: right;">-3.453</td>
+<td style="text-align: right;">-1.759</td>
+<td style="text-align: right;">1.000</td>
+<td style="text-align: right;">206.745</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Rossana Rodriguez Sanchez</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">315</td>
-<td style="text-align: right;">-2.457</td>
-<td style="text-align: right;">-3.522</td>
-<td style="text-align: right;">-1.677</td>
-<td style="text-align: right;">1.001</td>
-<td style="text-align: right;">191.606</td>
+<td style="text-align: right;">-2.408</td>
+<td style="text-align: right;">-3.275</td>
+<td style="text-align: right;">-1.667</td>
+<td style="text-align: right;">1.007</td>
+<td style="text-align: right;">258.032</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Jessica Fuentes</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">206</td>
-<td style="text-align: right;">-2.045</td>
-<td style="text-align: right;">-2.763</td>
-<td style="text-align: right;">-1.424</td>
-<td style="text-align: right;">1.002</td>
-<td style="text-align: right;">297.629</td>
+<td style="text-align: right;">-2.035</td>
+<td style="text-align: right;">-2.780</td>
+<td style="text-align: right;">-1.411</td>
+<td style="text-align: right;">1.010</td>
+<td style="text-align: right;">551.814</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Anthony Quezada</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">79</td>
-<td style="text-align: right;">-1.895</td>
-<td style="text-align: right;">-2.918</td>
-<td style="text-align: right;">-1.161</td>
-<td style="text-align: right;">1.004</td>
-<td style="text-align: right;">698.296</td>
+<td style="text-align: right;">-1.908</td>
+<td style="text-align: right;">-2.974</td>
+<td style="text-align: right;">-1.167</td>
+<td style="text-align: right;">1.000</td>
+<td style="text-align: right;">694.801</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Leni Manaa-Hoppenworth</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">205</td>
-<td style="text-align: right;">-1.849</td>
-<td style="text-align: right;">-2.562</td>
-<td style="text-align: right;">-1.290</td>
+<td style="text-align: right;">-1.828</td>
+<td style="text-align: right;">-2.514</td>
+<td style="text-align: right;">-1.281</td>
 <td style="text-align: right;">1.002</td>
-<td style="text-align: right;">452.046</td>
+<td style="text-align: right;">307.833</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Maria Hadden</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">315</td>
-<td style="text-align: right;">-1.829</td>
-<td style="text-align: right;">-2.470</td>
-<td style="text-align: right;">-1.305</td>
-<td style="text-align: right;">1.005</td>
-<td style="text-align: right;">248.947</td>
+<td style="text-align: right;">-1.823</td>
+<td style="text-align: right;">-2.436</td>
+<td style="text-align: right;">-1.314</td>
+<td style="text-align: right;">1.000</td>
+<td style="text-align: right;">275.547</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Byron Sigcho-Lopez</td>
-<td style="text-align: left;">Democratic</td>
-<td style="text-align: right;">329</td>
-<td style="text-align: right;">-1.812</td>
-<td style="text-align: right;">-2.456</td>
-<td style="text-align: right;">-1.270</td>
-<td style="text-align: right;">1.004</td>
-<td style="text-align: right;">466.294</td>
-</tr>
-<tr class="even">
 <td style="text-align: left;">William E. Hall</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">205</td>
-<td style="text-align: right;">-1.795</td>
-<td style="text-align: right;">-2.488</td>
-<td style="text-align: right;">-1.231</td>
-<td style="text-align: right;">1.001</td>
-<td style="text-align: right;">436.656</td>
+<td style="text-align: right;">-1.820</td>
+<td style="text-align: right;">-2.541</td>
+<td style="text-align: right;">-1.244</td>
+<td style="text-align: right;">1.002</td>
+<td style="text-align: right;">418.707</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Byron Sigcho-Lopez</td>
+<td style="text-align: left;">Democratic</td>
+<td style="text-align: right;">329</td>
+<td style="text-align: right;">-1.818</td>
+<td style="text-align: right;">-2.459</td>
+<td style="text-align: right;">-1.306</td>
+<td style="text-align: right;">1.003</td>
+<td style="text-align: right;">325.850</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">John Arena</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">233</td>
-<td style="text-align: right;">-1.758</td>
-<td style="text-align: right;">-2.240</td>
-<td style="text-align: right;">-1.332</td>
-<td style="text-align: right;">1.003</td>
-<td style="text-align: right;">395.169</td>
+<td style="text-align: right;">-1.792</td>
+<td style="text-align: right;">-2.265</td>
+<td style="text-align: right;">-1.364</td>
+<td style="text-align: right;">1.004</td>
+<td style="text-align: right;">344.912</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Angela Clay</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">202</td>
-<td style="text-align: right;">-1.752</td>
-<td style="text-align: right;">-2.410</td>
-<td style="text-align: right;">-1.197</td>
+<td style="text-align: right;">-1.732</td>
+<td style="text-align: right;">-2.335</td>
+<td style="text-align: right;">-1.204</td>
 <td style="text-align: right;">1.002</td>
-<td style="text-align: right;">480.212</td>
+<td style="text-align: right;">415.613</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Michael D. Rodriguez</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">323</td>
-<td style="text-align: right;">-1.738</td>
-<td style="text-align: right;">-2.290</td>
-<td style="text-align: right;">-1.258</td>
-<td style="text-align: right;">1.006</td>
-<td style="text-align: right;">320.393</td>
+<td style="text-align: right;">-1.731</td>
+<td style="text-align: right;">-2.258</td>
+<td style="text-align: right;">-1.257</td>
+<td style="text-align: right;">1.001</td>
+<td style="text-align: right;">545.689</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Carlos Ramirez-Rosa</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">392</td>
-<td style="text-align: right;">-1.616</td>
-<td style="text-align: right;">-2.106</td>
-<td style="text-align: right;">-1.198</td>
+<td style="text-align: right;">-1.650</td>
+<td style="text-align: right;">-2.085</td>
+<td style="text-align: right;">-1.235</td>
 <td style="text-align: right;">1.003</td>
-<td style="text-align: right;">328.481</td>
+<td style="text-align: right;">346.205</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Julia M. Ramirez</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">205</td>
-<td style="text-align: right;">-1.574</td>
-<td style="text-align: right;">-2.120</td>
-<td style="text-align: right;">-1.112</td>
-<td style="text-align: right;">1.007</td>
-<td style="text-align: right;">503.472</td>
+<td style="text-align: right;">-1.590</td>
+<td style="text-align: right;">-2.111</td>
+<td style="text-align: right;">-1.142</td>
+<td style="text-align: right;">1.000</td>
+<td style="text-align: right;">433.236</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Bob Fioretti</td>
 <td style="text-align: left;">Multiple / changing designations</td>
 <td style="text-align: right;">142</td>
-<td style="text-align: right;">-1.563</td>
-<td style="text-align: right;">-2.035</td>
-<td style="text-align: right;">-1.169</td>
-<td style="text-align: right;">1.001</td>
-<td style="text-align: right;">373.580</td>
+<td style="text-align: right;">-1.578</td>
+<td style="text-align: right;">-1.992</td>
+<td style="text-align: right;">-1.194</td>
+<td style="text-align: right;">1.009</td>
+<td style="text-align: right;">465.510</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Toni Preckwinkle</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">107</td>
-<td style="text-align: right;">-1.562</td>
-<td style="text-align: right;">-2.114</td>
-<td style="text-align: right;">-1.120</td>
-<td style="text-align: right;">1.000</td>
-<td style="text-align: right;">413.975</td>
+<td style="text-align: right;">-1.572</td>
+<td style="text-align: right;">-2.087</td>
+<td style="text-align: right;">-1.116</td>
+<td style="text-align: right;">1.002</td>
+<td style="text-align: right;">566.832</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Matt Martin</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">331</td>
-<td style="text-align: right;">-1.446</td>
-<td style="text-align: right;">-1.890</td>
-<td style="text-align: right;">-1.031</td>
+<td style="text-align: right;">-1.452</td>
+<td style="text-align: right;">-1.909</td>
+<td style="text-align: right;">-1.074</td>
 <td style="text-align: right;">1.001</td>
-<td style="text-align: right;">347.893</td>
+<td style="text-align: right;">409.679</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Lamont Robinson</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">201</td>
-<td style="text-align: right;">-1.396</td>
-<td style="text-align: right;">-1.919</td>
-<td style="text-align: right;">-0.980</td>
-<td style="text-align: right;">1.003</td>
-<td style="text-align: right;">471.241</td>
+<td style="text-align: right;">-1.389</td>
+<td style="text-align: right;">-1.889</td>
+<td style="text-align: right;">-0.960</td>
+<td style="text-align: right;">1.001</td>
+<td style="text-align: right;">404.060</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Jeylu B. Gutierrez</td>
-<td style="text-align: left;">Unknown</td>
+<td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">206</td>
-<td style="text-align: right;">-1.232</td>
-<td style="text-align: right;">-1.651</td>
-<td style="text-align: right;">-0.879</td>
-<td style="text-align: right;">1.003</td>
-<td style="text-align: right;">394.495</td>
+<td style="text-align: right;">-1.237</td>
+<td style="text-align: right;">-1.638</td>
+<td style="text-align: right;">-0.887</td>
+<td style="text-align: right;">1.002</td>
+<td style="text-align: right;">436.171</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Dorothy Tillman</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">52</td>
-<td style="text-align: right;">-1.209</td>
-<td style="text-align: right;">-1.723</td>
-<td style="text-align: right;">-0.788</td>
-<td style="text-align: right;">1.005</td>
-<td style="text-align: right;">455.975</td>
+<td style="text-align: right;">-1.220</td>
+<td style="text-align: right;">-1.733</td>
+<td style="text-align: right;">-0.813</td>
+<td style="text-align: right;">1.001</td>
+<td style="text-align: right;">603.269</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Andre Vasquez</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">330</td>
-<td style="text-align: right;">-1.160</td>
-<td style="text-align: right;">-1.515</td>
-<td style="text-align: right;">-0.839</td>
+<td style="text-align: right;">-1.166</td>
+<td style="text-align: right;">-1.529</td>
+<td style="text-align: right;">-0.854</td>
 <td style="text-align: right;">1.000</td>
-<td style="text-align: right;">295.970</td>
+<td style="text-align: right;">266.081</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Walter Redmond Burnett</td>
-<td style="text-align: left;">Unknown</td>
+<td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">57</td>
-<td style="text-align: right;">-1.101</td>
-<td style="text-align: right;">-1.597</td>
-<td style="text-align: right;">-0.672</td>
-<td style="text-align: right;">1.003</td>
-<td style="text-align: right;">532.121</td>
+<td style="text-align: right;">-1.104</td>
+<td style="text-align: right;">-1.593</td>
+<td style="text-align: right;">-0.701</td>
+<td style="text-align: right;">1.001</td>
+<td style="text-align: right;">520.728</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Jeanette B. Taylor</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">254</td>
-<td style="text-align: right;">-1.065</td>
-<td style="text-align: right;">-1.433</td>
-<td style="text-align: right;">-0.735</td>
-<td style="text-align: right;">1.001</td>
-<td style="text-align: right;">473.712</td>
+<td style="text-align: right;">-1.070</td>
+<td style="text-align: right;">-1.451</td>
+<td style="text-align: right;">-0.727</td>
+<td style="text-align: right;">1.005</td>
+<td style="text-align: right;">386.460</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Sandi Jackson</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">65</td>
-<td style="text-align: right;">-0.975</td>
-<td style="text-align: right;">-1.412</td>
-<td style="text-align: right;">-0.586</td>
-<td style="text-align: right;">1.001</td>
-<td style="text-align: right;">521.631</td>
+<td style="text-align: right;">-1.001</td>
+<td style="text-align: right;">-1.450</td>
+<td style="text-align: right;">-0.604</td>
+<td style="text-align: right;">1.005</td>
+<td style="text-align: right;">410.842</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Arenda Troutman</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">54</td>
-<td style="text-align: right;">-0.973</td>
-<td style="text-align: right;">-1.398</td>
-<td style="text-align: right;">-0.566</td>
-<td style="text-align: right;">1.002</td>
-<td style="text-align: right;">430.010</td>
+<td style="text-align: right;">-0.984</td>
+<td style="text-align: right;">-1.424</td>
+<td style="text-align: right;">-0.599</td>
+<td style="text-align: right;">1.001</td>
+<td style="text-align: right;">520.640</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Ricardo Munoz</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">350</td>
-<td style="text-align: right;">-0.733</td>
-<td style="text-align: right;">-0.998</td>
-<td style="text-align: right;">-0.495</td>
-<td style="text-align: right;">1.001</td>
-<td style="text-align: right;">225.400</td>
+<td style="text-align: right;">-0.745</td>
+<td style="text-align: right;">-0.979</td>
+<td style="text-align: right;">-0.506</td>
+<td style="text-align: right;">1.011</td>
+<td style="text-align: right;">189.370</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Ruth Cruz</td>
-<td style="text-align: left;">Democratic</td>
-<td style="text-align: right;">202</td>
-<td style="text-align: right;">-0.623</td>
-<td style="text-align: right;">-0.854</td>
-<td style="text-align: right;">-0.398</td>
-<td style="text-align: right;">1.000</td>
-<td style="text-align: right;">238.753</td>
-</tr>
-<tr class="odd">
 <td style="text-align: left;">Susan Sadlowski Garza</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">260</td>
-<td style="text-align: right;">-0.613</td>
-<td style="text-align: right;">-0.962</td>
-<td style="text-align: right;">-0.290</td>
+<td style="text-align: right;">-0.625</td>
+<td style="text-align: right;">-0.958</td>
+<td style="text-align: right;">-0.284</td>
 <td style="text-align: right;">1.000</td>
-<td style="text-align: right;">462.282</td>
+<td style="text-align: right;">376.563</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ruth Cruz</td>
+<td style="text-align: left;">Democratic</td>
+<td style="text-align: right;">202</td>
+<td style="text-align: right;">-0.621</td>
+<td style="text-align: right;">-0.848</td>
+<td style="text-align: right;">-0.395</td>
+<td style="text-align: right;">1.000</td>
+<td style="text-align: right;">174.284</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Jason C. Ervin</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">570</td>
-<td style="text-align: right;">-0.599</td>
-<td style="text-align: right;">-0.819</td>
-<td style="text-align: right;">-0.379</td>
-<td style="text-align: right;">1.002</td>
-<td style="text-align: right;">183.985</td>
+<td style="text-align: right;">-0.607</td>
+<td style="text-align: right;">-0.818</td>
+<td style="text-align: right;">-0.393</td>
+<td style="text-align: right;">1.001</td>
+<td style="text-align: right;">118.418</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Ronnie L. Mosley</td>
-<td style="text-align: left;">Unknown</td>
+<td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">188</td>
-<td style="text-align: right;">-0.574</td>
-<td style="text-align: right;">-0.811</td>
-<td style="text-align: right;">-0.349</td>
+<td style="text-align: right;">-0.578</td>
+<td style="text-align: right;">-0.813</td>
+<td style="text-align: right;">-0.340</td>
 <td style="text-align: right;">1.000</td>
-<td style="text-align: right;">229.623</td>
+<td style="text-align: right;">184.960</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Sophia King</td>
-<td style="text-align: left;">Unknown</td>
+<td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">242</td>
-<td style="text-align: right;">-0.559</td>
-<td style="text-align: right;">-0.898</td>
-<td style="text-align: right;">-0.222</td>
-<td style="text-align: right;">1.001</td>
-<td style="text-align: right;">452.997</td>
+<td style="text-align: right;">-0.573</td>
+<td style="text-align: right;">-0.906</td>
+<td style="text-align: right;">-0.250</td>
+<td style="text-align: right;">1.000</td>
+<td style="text-align: right;">506.906</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Desmon C. Yancy</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">196</td>
-<td style="text-align: right;">-0.557</td>
-<td style="text-align: right;">-0.799</td>
-<td style="text-align: right;">-0.337</td>
+<td style="text-align: right;">-0.561</td>
+<td style="text-align: right;">-0.795</td>
+<td style="text-align: right;">-0.341</td>
 <td style="text-align: right;">1.002</td>
-<td style="text-align: right;">172.415</td>
+<td style="text-align: right;">177.991</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Leslie Hairston</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">455</td>
-<td style="text-align: right;">-0.549</td>
-<td style="text-align: right;">-0.795</td>
-<td style="text-align: right;">-0.308</td>
-<td style="text-align: right;">1.001</td>
-<td style="text-align: right;">186.506</td>
+<td style="text-align: right;">-0.559</td>
+<td style="text-align: right;">-0.786</td>
+<td style="text-align: right;">-0.326</td>
+<td style="text-align: right;">1.000</td>
+<td style="text-align: right;">227.165</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Billy Ocasio</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">79</td>
-<td style="text-align: right;">-0.542</td>
-<td style="text-align: right;">-0.891</td>
-<td style="text-align: right;">-0.190</td>
-<td style="text-align: right;">1.001</td>
-<td style="text-align: right;">602.714</td>
+<td style="text-align: right;">-0.543</td>
+<td style="text-align: right;">-0.886</td>
+<td style="text-align: right;">-0.218</td>
+<td style="text-align: right;">1.000</td>
+<td style="text-align: right;">349.147</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Toni L. Foulkes</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">285</td>
-<td style="text-align: right;">-0.452</td>
-<td style="text-align: right;">-0.704</td>
-<td style="text-align: right;">-0.200</td>
-<td style="text-align: right;">1.000</td>
-<td style="text-align: right;">233.207</td>
+<td style="text-align: right;">-0.459</td>
+<td style="text-align: right;">-0.720</td>
+<td style="text-align: right;">-0.206</td>
+<td style="text-align: right;">1.002</td>
+<td style="text-align: right;">217.909</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Anabel Abarca</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">16</td>
-<td style="text-align: right;">-0.436</td>
-<td style="text-align: right;">-1.619</td>
-<td style="text-align: right;">0.486</td>
-<td style="text-align: right;">1.005</td>
-<td style="text-align: right;">1621.568</td>
+<td style="text-align: right;">-0.440</td>
+<td style="text-align: right;">-1.635</td>
+<td style="text-align: right;">0.506</td>
+<td style="text-align: right;">1.000</td>
+<td style="text-align: right;">1903.686</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Joe Moore</td>
 <td style="text-align: left;">Democratic</td>
-<td style="text-align: right;">330</td>
-<td style="text-align: right;">-0.413</td>
-<td style="text-align: right;">-0.665</td>
-<td style="text-align: right;">-0.166</td>
-<td style="text-align: right;">1.000</td>
-<td style="text-align: right;">240.140</td>
+<td style="text-align: right;">331</td>
+<td style="text-align: right;">-0.417</td>
+<td style="text-align: right;">-0.652</td>
+<td style="text-align: right;">-0.172</td>
+<td style="text-align: right;">1.004</td>
+<td style="text-align: right;">185.807</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Theodore Thomas</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">58</td>
-<td style="text-align: right;">-0.386</td>
-<td style="text-align: right;">-0.792</td>
-<td style="text-align: right;">-0.027</td>
-<td style="text-align: right;">1.002</td>
-<td style="text-align: right;">443.337</td>
+<td style="text-align: right;">-0.397</td>
+<td style="text-align: right;">-0.781</td>
+<td style="text-align: right;">-0.028</td>
+<td style="text-align: right;">1.000</td>
+<td style="text-align: right;">641.009</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Scott Waguespack</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">611</td>
 <td style="text-align: right;">-0.373</td>
-<td style="text-align: right;">-0.571</td>
-<td style="text-align: right;">-0.175</td>
-<td style="text-align: right;">1.003</td>
-<td style="text-align: right;">166.958</td>
+<td style="text-align: right;">-0.564</td>
+<td style="text-align: right;">-0.168</td>
+<td style="text-align: right;">1.000</td>
+<td style="text-align: right;">171.406</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Chris Taliaferro</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">475</td>
-<td style="text-align: right;">-0.344</td>
-<td style="text-align: right;">-0.545</td>
-<td style="text-align: right;">-0.147</td>
-<td style="text-align: right;">1.000</td>
-<td style="text-align: right;">183.173</td>
+<td style="text-align: right;">-0.348</td>
+<td style="text-align: right;">-0.540</td>
+<td style="text-align: right;">-0.154</td>
+<td style="text-align: right;">1.001</td>
+<td style="text-align: right;">143.723</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Timmy Knudsen</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">237</td>
-<td style="text-align: right;">-0.320</td>
+<td style="text-align: right;">-0.323</td>
 <td style="text-align: right;">-0.524</td>
-<td style="text-align: right;">-0.112</td>
+<td style="text-align: right;">-0.120</td>
 <td style="text-align: right;">1.000</td>
-<td style="text-align: right;">169.220</td>
+<td style="text-align: right;">148.275</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Walter Burnett Jr.</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">596</td>
-<td style="text-align: right;">-0.315</td>
-<td style="text-align: right;">-0.526</td>
-<td style="text-align: right;">-0.122</td>
+<td style="text-align: right;">-0.321</td>
+<td style="text-align: right;">-0.522</td>
+<td style="text-align: right;">-0.126</td>
 <td style="text-align: right;">1.000</td>
-<td style="text-align: right;">146.348</td>
+<td style="text-align: right;">113.521</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Pat Dowell</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">621</td>
-<td style="text-align: right;">-0.300</td>
-<td style="text-align: right;">-0.495</td>
-<td style="text-align: right;">-0.108</td>
-<td style="text-align: right;">1.002</td>
-<td style="text-align: right;">137.671</td>
+<td style="text-align: right;">-0.303</td>
+<td style="text-align: right;">-0.484</td>
+<td style="text-align: right;">-0.118</td>
+<td style="text-align: right;">1.001</td>
+<td style="text-align: right;">162.094</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Michael Chandler</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">137</td>
-<td style="text-align: right;">-0.286</td>
-<td style="text-align: right;">-0.572</td>
-<td style="text-align: right;">0.008</td>
+<td style="text-align: right;">-0.292</td>
+<td style="text-align: right;">-0.577</td>
+<td style="text-align: right;">0.003</td>
 <td style="text-align: right;">1.000</td>
-<td style="text-align: right;">336.481</td>
+<td style="text-align: right;">314.739</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Stephanie D. Coleman</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">317</td>
-<td style="text-align: right;">-0.284</td>
-<td style="text-align: right;">-0.493</td>
+<td style="text-align: right;">-0.286</td>
+<td style="text-align: right;">-0.474</td>
 <td style="text-align: right;">-0.079</td>
-<td style="text-align: right;">1.001</td>
-<td style="text-align: right;">167.108</td>
+<td style="text-align: right;">1.000</td>
+<td style="text-align: right;">116.599</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Ed Smith</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">114</td>
-<td style="text-align: right;">-0.270</td>
-<td style="text-align: right;">-0.561</td>
-<td style="text-align: right;">0.010</td>
-<td style="text-align: right;">1.000</td>
-<td style="text-align: right;">291.710</td>
+<td style="text-align: right;">-0.278</td>
+<td style="text-align: right;">-0.563</td>
+<td style="text-align: right;">0.014</td>
+<td style="text-align: right;">1.001</td>
+<td style="text-align: right;">326.359</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Shirley Coleman</td>
-<td style="text-align: left;">Democratic</td>
-<td style="text-align: right;">49</td>
-<td style="text-align: right;">-0.264</td>
-<td style="text-align: right;">-0.788</td>
-<td style="text-align: right;">0.348</td>
-<td style="text-align: right;">1.001</td>
-<td style="text-align: right;">811.019</td>
-</tr>
-<tr class="odd">
 <td style="text-align: left;">Harry Osterman</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">361</td>
-<td style="text-align: right;">-0.254</td>
-<td style="text-align: right;">-0.527</td>
-<td style="text-align: right;">0.003</td>
-<td style="text-align: right;">1.000</td>
-<td style="text-align: right;">275.835</td>
+<td style="text-align: right;">-0.261</td>
+<td style="text-align: right;">-0.524</td>
+<td style="text-align: right;">0.013</td>
+<td style="text-align: right;">1.002</td>
+<td style="text-align: right;">245.589</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Shirley Coleman</td>
+<td style="text-align: left;">Democratic</td>
+<td style="text-align: right;">49</td>
+<td style="text-align: right;">-0.257</td>
+<td style="text-align: right;">-0.758</td>
+<td style="text-align: right;">0.383</td>
+<td style="text-align: right;">1.001</td>
+<td style="text-align: right;">878.617</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Michelle A. Harris</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">629</td>
-<td style="text-align: right;">-0.223</td>
-<td style="text-align: right;">-0.421</td>
-<td style="text-align: right;">-0.030</td>
+<td style="text-align: right;">-0.224</td>
+<td style="text-align: right;">-0.407</td>
+<td style="text-align: right;">-0.035</td>
 <td style="text-align: right;">1.000</td>
-<td style="text-align: right;">135.155</td>
+<td style="text-align: right;">112.852</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Manuel Flores</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">84</td>
-<td style="text-align: right;">-0.216</td>
-<td style="text-align: right;">-0.557</td>
-<td style="text-align: right;">0.120</td>
+<td style="text-align: right;">-0.215</td>
+<td style="text-align: right;">-0.543</td>
+<td style="text-align: right;">0.118</td>
 <td style="text-align: right;">1.000</td>
-<td style="text-align: right;">354.053</td>
+<td style="text-align: right;">598.686</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Sharon Denise Dixon</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">58</td>
-<td style="text-align: right;">-0.199</td>
-<td style="text-align: right;">-0.583</td>
-<td style="text-align: right;">0.161</td>
-<td style="text-align: right;">1.002</td>
-<td style="text-align: right;">427.888</td>
+<td style="text-align: right;">-0.212</td>
+<td style="text-align: right;">-0.603</td>
+<td style="text-align: right;">0.189</td>
+<td style="text-align: right;">1.000</td>
+<td style="text-align: right;">467.970</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Gregory I. Mitchell</td>
-<td style="text-align: left;">Democratic</td>
-<td style="text-align: right;">467</td>
-<td style="text-align: right;">-0.188</td>
-<td style="text-align: right;">-0.379</td>
-<td style="text-align: right;">0.010</td>
-<td style="text-align: right;">1.001</td>
-<td style="text-align: right;">168.332</td>
-</tr>
-<tr class="even">
 <td style="text-align: left;">Ameya Pawar</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">232</td>
-<td style="text-align: right;">-0.187</td>
-<td style="text-align: right;">-0.497</td>
-<td style="text-align: right;">0.131</td>
+<td style="text-align: right;">-0.194</td>
+<td style="text-align: right;">-0.502</td>
+<td style="text-align: right;">0.130</td>
+<td style="text-align: right;">1.001</td>
+<td style="text-align: right;">269.469</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Gregory I. Mitchell</td>
+<td style="text-align: left;">Democratic</td>
+<td style="text-align: right;">467</td>
+<td style="text-align: right;">-0.189</td>
+<td style="text-align: right;">-0.384</td>
+<td style="text-align: right;">-0.001</td>
 <td style="text-align: right;">1.000</td>
-<td style="text-align: right;">348.238</td>
+<td style="text-align: right;">129.904</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Rey Colon</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">192</td>
-<td style="text-align: right;">-0.183</td>
-<td style="text-align: right;">-0.462</td>
-<td style="text-align: right;">0.092</td>
-<td style="text-align: right;">1.000</td>
-<td style="text-align: right;">254.545</td>
+<td style="text-align: right;">-0.189</td>
+<td style="text-align: right;">-0.459</td>
+<td style="text-align: right;">0.087</td>
+<td style="text-align: right;">1.002</td>
+<td style="text-align: right;">240.884</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Milly Santiago</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">144</td>
-<td style="text-align: right;">-0.171</td>
-<td style="text-align: right;">-0.585</td>
-<td style="text-align: right;">0.266</td>
-<td style="text-align: right;">1.006</td>
-<td style="text-align: right;">983.681</td>
+<td style="text-align: right;">-0.178</td>
+<td style="text-align: right;">-0.606</td>
+<td style="text-align: right;">0.269</td>
+<td style="text-align: right;">1.000</td>
+<td style="text-align: right;">956.653</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Bennett R. Lawson</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">204</td>
-<td style="text-align: right;">-0.164</td>
-<td style="text-align: right;">-0.360</td>
-<td style="text-align: right;">0.031</td>
-<td style="text-align: right;">1.001</td>
-<td style="text-align: right;">160.674</td>
+<td style="text-align: right;">-0.162</td>
+<td style="text-align: right;">-0.358</td>
+<td style="text-align: right;">0.033</td>
+<td style="text-align: right;">1.002</td>
+<td style="text-align: right;">156.923</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Emma M. Mitts</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">626</td>
-<td style="text-align: right;">-0.142</td>
-<td style="text-align: right;">-0.345</td>
-<td style="text-align: right;">0.041</td>
+<td style="text-align: right;">-0.145</td>
+<td style="text-align: right;">-0.341</td>
+<td style="text-align: right;">0.052</td>
 <td style="text-align: right;">1.000</td>
-<td style="text-align: right;">137.348</td>
+<td style="text-align: right;">153.943</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Nicole Lee</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">255</td>
-<td style="text-align: right;">-0.122</td>
-<td style="text-align: right;">-0.307</td>
-<td style="text-align: right;">0.064</td>
-<td style="text-align: right;">1.001</td>
-<td style="text-align: right;">156.781</td>
+<td style="text-align: right;">-0.125</td>
+<td style="text-align: right;">-0.306</td>
+<td style="text-align: right;">0.067</td>
+<td style="text-align: right;">1.000</td>
+<td style="text-align: right;">154.198</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">James Cappleman</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">364</td>
-<td style="text-align: right;">-0.115</td>
-<td style="text-align: right;">-0.395</td>
-<td style="text-align: right;">0.154</td>
-<td style="text-align: right;">1.001</td>
-<td style="text-align: right;">249.077</td>
+<td style="text-align: right;">-0.120</td>
+<td style="text-align: right;">-0.378</td>
+<td style="text-align: right;">0.153</td>
+<td style="text-align: right;">1.000</td>
+<td style="text-align: right;">258.937</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Deborah L. Mell</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">195</td>
-<td style="text-align: right;">-0.106</td>
-<td style="text-align: right;">-0.458</td>
-<td style="text-align: right;">0.293</td>
-<td style="text-align: right;">1.000</td>
-<td style="text-align: right;">437.917</td>
+<td style="text-align: right;">-0.101</td>
+<td style="text-align: right;">-0.456</td>
+<td style="text-align: right;">0.321</td>
+<td style="text-align: right;">1.003</td>
+<td style="text-align: right;">593.052</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Madeline Haithcock</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">58</td>
-<td style="text-align: right;">-0.087</td>
-<td style="text-align: right;">-0.409</td>
-<td style="text-align: right;">0.203</td>
+<td style="text-align: right;">-0.094</td>
+<td style="text-align: right;">-0.431</td>
+<td style="text-align: right;">0.218</td>
 <td style="text-align: right;">1.001</td>
-<td style="text-align: right;">350.867</td>
+<td style="text-align: right;">370.151</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Roberto Maldonado</td>
 <td style="text-align: left;">Democratic</td>
-<td style="text-align: right;">353</td>
-<td style="text-align: right;">-0.077</td>
-<td style="text-align: right;">-0.354</td>
-<td style="text-align: right;">0.207</td>
+<td style="text-align: right;">354</td>
+<td style="text-align: right;">-0.083</td>
+<td style="text-align: right;">-0.360</td>
+<td style="text-align: right;">0.205</td>
 <td style="text-align: right;">1.000</td>
-<td style="text-align: right;">336.478</td>
+<td style="text-align: right;">293.882</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Freddrenna Lyle</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">108</td>
-<td style="text-align: right;">-0.070</td>
-<td style="text-align: right;">-0.351</td>
-<td style="text-align: right;">0.206</td>
-<td style="text-align: right;">1.002</td>
-<td style="text-align: right;">251.218</td>
+<td style="text-align: right;">-0.073</td>
+<td style="text-align: right;">-0.353</td>
+<td style="text-align: right;">0.186</td>
+<td style="text-align: right;">1.000</td>
+<td style="text-align: right;">340.221</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Helen Shiller</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">102</td>
-<td style="text-align: right;">-0.055</td>
-<td style="text-align: right;">-0.382</td>
-<td style="text-align: right;">0.246</td>
+<td style="text-align: right;">-0.061</td>
+<td style="text-align: right;">-0.365</td>
+<td style="text-align: right;">0.245</td>
 <td style="text-align: right;">1.000</td>
-<td style="text-align: right;">436.816</td>
+<td style="text-align: right;">366.182</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Roderick T. Sawyer</td>
@@ -3218,689 +3221,689 @@ table { font-size: .88rem; }
 <td style="text-align: right;">349</td>
 <td style="text-align: right;">-0.052</td>
 <td style="text-align: right;">-0.342</td>
-<td style="text-align: right;">0.226</td>
-<td style="text-align: right;">1.000</td>
-<td style="text-align: right;">315.051</td>
+<td style="text-align: right;">0.230</td>
+<td style="text-align: right;">1.001</td>
+<td style="text-align: right;">279.049</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Bill Conway</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">202</td>
-<td style="text-align: right;">-0.041</td>
-<td style="text-align: right;">-0.235</td>
+<td style="text-align: right;">-0.043</td>
+<td style="text-align: right;">-0.226</td>
 <td style="text-align: right;">0.150</td>
-<td style="text-align: right;">1.001</td>
-<td style="text-align: right;">139.992</td>
+<td style="text-align: right;">1.000</td>
+<td style="text-align: right;">164.519</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">David H. Moore</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">470</td>
-<td style="text-align: right;">-0.008</td>
-<td style="text-align: right;">-0.214</td>
-<td style="text-align: right;">0.190</td>
-<td style="text-align: right;">1.001</td>
-<td style="text-align: right;">170.082</td>
+<td style="text-align: right;">-0.009</td>
+<td style="text-align: right;">-0.200</td>
+<td style="text-align: right;">0.188</td>
+<td style="text-align: right;">1.000</td>
+<td style="text-align: right;">131.335</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Michele Smith</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">326</td>
-<td style="text-align: right;">-0.005</td>
-<td style="text-align: right;">-0.317</td>
+<td style="text-align: right;">-0.004</td>
+<td style="text-align: right;">-0.318</td>
 <td style="text-align: right;">0.309</td>
-<td style="text-align: right;">1.003</td>
-<td style="text-align: right;">463.065</td>
+<td style="text-align: right;">1.001</td>
+<td style="text-align: right;">430.225</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Howard B. Brookins Jr.</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">453</td>
-<td style="text-align: right;">0.039</td>
-<td style="text-align: right;">-0.199</td>
-<td style="text-align: right;">0.276</td>
-<td style="text-align: right;">1.000</td>
-<td style="text-align: right;">288.056</td>
+<td style="text-align: right;">0.040</td>
+<td style="text-align: right;">-0.202</td>
+<td style="text-align: right;">0.282</td>
+<td style="text-align: right;">1.005</td>
+<td style="text-align: right;">222.307</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Michael Scott Jr.</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">233</td>
-<td style="text-align: right;">0.061</td>
-<td style="text-align: right;">-0.293</td>
-<td style="text-align: right;">0.410</td>
+<td style="text-align: right;">0.057</td>
+<td style="text-align: right;">-0.282</td>
+<td style="text-align: right;">0.394</td>
 <td style="text-align: right;">1.000</td>
-<td style="text-align: right;">425.143</td>
+<td style="text-align: right;">450.218</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Monique L. Scott</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">245</td>
-<td style="text-align: right;">0.076</td>
-<td style="text-align: right;">-0.111</td>
-<td style="text-align: right;">0.264</td>
-<td style="text-align: right;">1.001</td>
-<td style="text-align: right;">157.049</td>
+<td style="text-align: right;">0.078</td>
+<td style="text-align: right;">-0.097</td>
+<td style="text-align: right;">0.267</td>
+<td style="text-align: right;">1.000</td>
+<td style="text-align: right;">126.711</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Gilbert Villegas</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">450</td>
-<td style="text-align: right;">0.080</td>
-<td style="text-align: right;">-0.115</td>
-<td style="text-align: right;">0.265</td>
-<td style="text-align: right;">1.001</td>
-<td style="text-align: right;">161.949</td>
+<td style="text-align: right;">0.082</td>
+<td style="text-align: right;">-0.108</td>
+<td style="text-align: right;">0.264</td>
+<td style="text-align: right;">1.000</td>
+<td style="text-align: right;">141.141</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Samantha Nugent</td>
-<td style="text-align: left;">Unknown</td>
+<td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">332</td>
-<td style="text-align: right;">0.154</td>
-<td style="text-align: right;">-0.030</td>
-<td style="text-align: right;">0.334</td>
+<td style="text-align: right;">0.156</td>
+<td style="text-align: right;">-0.025</td>
+<td style="text-align: right;">0.339</td>
 <td style="text-align: right;">1.000</td>
-<td style="text-align: right;">142.263</td>
+<td style="text-align: right;">160.112</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Derrick G. Curtis</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">451</td>
-<td style="text-align: right;">0.157</td>
+<td style="text-align: right;">0.158</td>
 <td style="text-align: right;">-0.026</td>
-<td style="text-align: right;">0.343</td>
+<td style="text-align: right;">0.345</td>
 <td style="text-align: right;">1.000</td>
-<td style="text-align: right;">141.931</td>
+<td style="text-align: right;">163.381</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Gene Schulter</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">104</td>
-<td style="text-align: right;">0.224</td>
-<td style="text-align: right;">-0.164</td>
-<td style="text-align: right;">0.643</td>
-<td style="text-align: right;">1.000</td>
-<td style="text-align: right;">511.196</td>
+<td style="text-align: right;">0.215</td>
+<td style="text-align: right;">-0.171</td>
+<td style="text-align: right;">0.640</td>
+<td style="text-align: right;">1.003</td>
+<td style="text-align: right;">636.283</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">George A. Cardenas</td>
 <td style="text-align: left;">Democratic</td>
-<td style="text-align: right;">399</td>
-<td style="text-align: right;">0.238</td>
-<td style="text-align: right;">-0.006</td>
-<td style="text-align: right;">0.504</td>
+<td style="text-align: right;">441</td>
+<td style="text-align: right;">0.242</td>
+<td style="text-align: right;">-0.004</td>
+<td style="text-align: right;">0.477</td>
 <td style="text-align: right;">1.000</td>
-<td style="text-align: right;">285.713</td>
+<td style="text-align: right;">274.368</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Brian Hopkins</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">472</td>
-<td style="text-align: right;">0.263</td>
-<td style="text-align: right;">0.072</td>
-<td style="text-align: right;">0.443</td>
-<td style="text-align: right;">1.001</td>
-<td style="text-align: right;">170.642</td>
+<td style="text-align: right;">0.266</td>
+<td style="text-align: right;">0.091</td>
+<td style="text-align: right;">0.451</td>
+<td style="text-align: right;">1.000</td>
+<td style="text-align: right;">141.850</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Debra Silverstein</td>
-<td style="text-align: left;">Democratic</td>
-<td style="text-align: right;">529</td>
-<td style="text-align: right;">0.268</td>
-<td style="text-align: right;">0.077</td>
-<td style="text-align: right;">0.449</td>
-<td style="text-align: right;">1.003</td>
-<td style="text-align: right;">154.715</td>
-</tr>
-<tr class="even">
 <td style="text-align: left;">Matthew J. O&#39;Shea</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">564</td>
 <td style="text-align: right;">0.271</td>
-<td style="text-align: right;">0.083</td>
-<td style="text-align: right;">0.454</td>
+<td style="text-align: right;">0.090</td>
+<td style="text-align: right;">0.458</td>
 <td style="text-align: right;">1.002</td>
-<td style="text-align: right;">145.613</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Natashia Holmes</td>
-<td style="text-align: left;">Unknown</td>
-<td style="text-align: right;">50</td>
-<td style="text-align: right;">0.308</td>
-<td style="text-align: right;">-0.242</td>
-<td style="text-align: right;">0.993</td>
-<td style="text-align: right;">1.000</td>
-<td style="text-align: right;">1039.320</td>
+<td style="text-align: right;">147.286</td>
 </tr>
 <tr class="even">
+<td style="text-align: left;">Debra Silverstein</td>
+<td style="text-align: left;">Democratic</td>
+<td style="text-align: right;">529</td>
+<td style="text-align: right;">0.272</td>
+<td style="text-align: right;">0.093</td>
+<td style="text-align: right;">0.455</td>
+<td style="text-align: right;">1.000</td>
+<td style="text-align: right;">144.654</td>
+</tr>
+<tr class="odd">
 <td style="text-align: left;">Thomas M. Tunney</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">471</td>
-<td style="text-align: right;">0.312</td>
-<td style="text-align: right;">0.092</td>
+<td style="text-align: right;">0.308</td>
+<td style="text-align: right;">0.088</td>
 <td style="text-align: right;">0.533</td>
-<td style="text-align: right;">1.001</td>
-<td style="text-align: right;">205.136</td>
+<td style="text-align: right;">1.000</td>
+<td style="text-align: right;">193.550</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">Ariel E. Reboyras</td>
 <td style="text-align: left;">Democratic</td>
-<td style="text-align: right;">463</td>
-<td style="text-align: right;">0.317</td>
-<td style="text-align: right;">0.069</td>
-<td style="text-align: right;">0.568</td>
-<td style="text-align: right;">1.002</td>
-<td style="text-align: right;">227.376</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Proco Joe Moreno</td>
-<td style="text-align: left;">Unknown</td>
-<td style="text-align: right;">249</td>
-<td style="text-align: right;">0.329</td>
-<td style="text-align: right;">-0.050</td>
-<td style="text-align: right;">0.720</td>
+<td style="text-align: right;">464</td>
+<td style="text-align: right;">0.316</td>
+<td style="text-align: right;">0.073</td>
+<td style="text-align: right;">0.558</td>
 <td style="text-align: right;">1.000</td>
-<td style="text-align: right;">673.027</td>
+<td style="text-align: right;">201.596</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Peter Chico</td>
+<td style="text-align: left;">Proco Joe Moreno</td>
 <td style="text-align: left;">Democratic</td>
-<td style="text-align: right;">205</td>
-<td style="text-align: right;">0.361</td>
-<td style="text-align: right;">0.156</td>
-<td style="text-align: right;">0.555</td>
-<td style="text-align: right;">1.002</td>
-<td style="text-align: right;">171.352</td>
+<td style="text-align: right;">249</td>
+<td style="text-align: right;">0.325</td>
+<td style="text-align: right;">-0.064</td>
+<td style="text-align: right;">0.725</td>
+<td style="text-align: right;">1.006</td>
+<td style="text-align: right;">955.471</td>
 </tr>
 <tr class="even">
+<td style="text-align: left;">Natashia Holmes</td>
+<td style="text-align: left;">Democratic</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">0.329</td>
+<td style="text-align: right;">-0.273</td>
+<td style="text-align: right;">1.122</td>
+<td style="text-align: right;">1.000</td>
+<td style="text-align: right;">1263.189</td>
+</tr>
+<tr class="odd">
 <td style="text-align: left;">Thomas Murphy</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">51</td>
+<td style="text-align: right;">0.365</td>
+<td style="text-align: right;">0.033</td>
+<td style="text-align: right;">0.779</td>
+<td style="text-align: right;">1.001</td>
+<td style="text-align: right;">507.294</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Peter Chico</td>
+<td style="text-align: left;">Democratic</td>
+<td style="text-align: right;">205</td>
 <td style="text-align: right;">0.366</td>
-<td style="text-align: right;">0.029</td>
-<td style="text-align: right;">0.757</td>
-<td style="text-align: right;">1.003</td>
-<td style="text-align: right;">542.241</td>
+<td style="text-align: right;">0.189</td>
+<td style="text-align: right;">0.565</td>
+<td style="text-align: right;">1.000</td>
+<td style="text-align: right;">162.169</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">William D. Burns</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">110</td>
-<td style="text-align: right;">0.375</td>
-<td style="text-align: right;">-0.133</td>
-<td style="text-align: right;">0.977</td>
-<td style="text-align: right;">1.000</td>
-<td style="text-align: right;">813.800</td>
+<td style="text-align: right;">0.395</td>
+<td style="text-align: right;">-0.120</td>
+<td style="text-align: right;">0.999</td>
+<td style="text-align: right;">1.004</td>
+<td style="text-align: right;">1365.723</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Nicholas Sposato</td>
 <td style="text-align: left;">Multiple / changing designations</td>
 <td style="text-align: right;">559</td>
-<td style="text-align: right;">0.412</td>
-<td style="text-align: right;">0.213</td>
-<td style="text-align: right;">0.607</td>
-<td style="text-align: right;">1.004</td>
-<td style="text-align: right;">203.602</td>
+<td style="text-align: right;">0.417</td>
+<td style="text-align: right;">0.233</td>
+<td style="text-align: right;">0.611</td>
+<td style="text-align: right;">1.002</td>
+<td style="text-align: right;">187.369</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Deborah L. Graham</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">100</td>
-<td style="text-align: right;">0.426</td>
-<td style="text-align: right;">-0.051</td>
-<td style="text-align: right;">0.950</td>
-<td style="text-align: right;">1.001</td>
-<td style="text-align: right;">1141.647</td>
+<td style="text-align: right;">0.424</td>
+<td style="text-align: right;">-0.057</td>
+<td style="text-align: right;">0.966</td>
+<td style="text-align: right;">1.003</td>
+<td style="text-align: right;">1370.203</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Felix Cardona Jr.</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">327</td>
-<td style="text-align: right;">0.433</td>
-<td style="text-align: right;">0.238</td>
-<td style="text-align: right;">0.621</td>
+<td style="text-align: right;">0.437</td>
+<td style="text-align: right;">0.256</td>
+<td style="text-align: right;">0.629</td>
 <td style="text-align: right;">1.001</td>
-<td style="text-align: right;">166.798</td>
+<td style="text-align: right;">147.166</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Willie B. Cochran</td>
-<td style="text-align: left;">Unknown</td>
+<td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">257</td>
-<td style="text-align: right;">0.447</td>
-<td style="text-align: right;">0.099</td>
-<td style="text-align: right;">0.810</td>
+<td style="text-align: right;">0.454</td>
+<td style="text-align: right;">0.086</td>
+<td style="text-align: right;">0.824</td>
 <td style="text-align: right;">1.001</td>
-<td style="text-align: right;">880.474</td>
+<td style="text-align: right;">689.550</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Timothy M. Cullerton</td>
-<td style="text-align: left;">Unknown</td>
-<td style="text-align: right;">85</td>
-<td style="text-align: right;">0.464</td>
-<td style="text-align: right;">-0.144</td>
-<td style="text-align: right;">1.242</td>
-<td style="text-align: right;">1.002</td>
-<td style="text-align: right;">1213.203</td>
-</tr>
-<tr class="odd">
 <td style="text-align: left;">Brendan Reilly</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">603</td>
-<td style="text-align: right;">0.484</td>
-<td style="text-align: right;">0.297</td>
-<td style="text-align: right;">0.664</td>
+<td style="text-align: right;">0.488</td>
+<td style="text-align: right;">0.306</td>
+<td style="text-align: right;">0.684</td>
 <td style="text-align: right;">1.001</td>
-<td style="text-align: right;">160.666</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">JoAnn Thompson</td>
-<td style="text-align: left;">Democratic</td>
-<td style="text-align: right;">130</td>
-<td style="text-align: right;">0.494</td>
-<td style="text-align: right;">0.063</td>
-<td style="text-align: right;">0.955</td>
-<td style="text-align: right;">1.001</td>
-<td style="text-align: right;">815.604</td>
+<td style="text-align: right;">150.370</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Brian Doherty</td>
 <td style="text-align: left;">Republican</td>
 <td style="text-align: right;">109</td>
-<td style="text-align: right;">0.496</td>
-<td style="text-align: right;">0.117</td>
-<td style="text-align: right;">1.102</td>
+<td style="text-align: right;">0.502</td>
+<td style="text-align: right;">0.113</td>
+<td style="text-align: right;">1.079</td>
 <td style="text-align: right;">1.000</td>
-<td style="text-align: right;">670.286</td>
+<td style="text-align: right;">1103.006</td>
 </tr>
 <tr class="even">
+<td style="text-align: left;">JoAnn Thompson</td>
+<td style="text-align: left;">Democratic</td>
+<td style="text-align: right;">130</td>
+<td style="text-align: right;">0.508</td>
+<td style="text-align: right;">0.072</td>
+<td style="text-align: right;">1.003</td>
+<td style="text-align: right;">1.002</td>
+<td style="text-align: right;">824.519</td>
+</tr>
+<tr class="odd">
 <td style="text-align: left;">Patrick Daley Thompson</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">225</td>
-<td style="text-align: right;">0.509</td>
-<td style="text-align: right;">0.208</td>
-<td style="text-align: right;">0.786</td>
-<td style="text-align: right;">1.000</td>
-<td style="text-align: right;">401.212</td>
+<td style="text-align: right;">0.514</td>
+<td style="text-align: right;">0.194</td>
+<td style="text-align: right;">0.817</td>
+<td style="text-align: right;">1.001</td>
+<td style="text-align: right;">327.315</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Timothy M. Cullerton</td>
+<td style="text-align: left;">Democratic</td>
+<td style="text-align: right;">87</td>
+<td style="text-align: right;">0.557</td>
+<td style="text-align: right;">-0.043</td>
+<td style="text-align: right;">1.285</td>
+<td style="text-align: right;">1.001</td>
+<td style="text-align: right;">1313.962</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Anthony Beale</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">639</td>
-<td style="text-align: right;">0.564</td>
-<td style="text-align: right;">0.368</td>
-<td style="text-align: right;">0.760</td>
+<td style="text-align: right;">0.569</td>
+<td style="text-align: right;">0.385</td>
+<td style="text-align: right;">0.767</td>
 <td style="text-align: right;">1.001</td>
-<td style="text-align: right;">162.001</td>
+<td style="text-align: right;">195.180</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Vi Daley</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">113</td>
-<td style="text-align: right;">0.606</td>
-<td style="text-align: right;">0.259</td>
-<td style="text-align: right;">1.042</td>
+<td style="text-align: right;">0.605</td>
+<td style="text-align: right;">0.224</td>
+<td style="text-align: right;">1.090</td>
 <td style="text-align: right;">1.000</td>
-<td style="text-align: right;">744.050</td>
+<td style="text-align: right;">749.990</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Daniel Solis</td>
-<td style="text-align: left;">Democratic</td>
-<td style="text-align: right;">332</td>
-<td style="text-align: right;">0.623</td>
-<td style="text-align: right;">0.325</td>
-<td style="text-align: right;">0.921</td>
-<td style="text-align: right;">1.000</td>
-<td style="text-align: right;">368.093</td>
-</tr>
-<tr class="even">
 <td style="text-align: left;">Margaret Laurino</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">354</td>
 <td style="text-align: right;">0.631</td>
-<td style="text-align: right;">0.342</td>
-<td style="text-align: right;">0.934</td>
+<td style="text-align: right;">0.347</td>
+<td style="text-align: right;">0.945</td>
+<td style="text-align: right;">1.002</td>
+<td style="text-align: right;">310.465</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Daniel Solis</td>
+<td style="text-align: left;">Democratic</td>
+<td style="text-align: right;">332</td>
+<td style="text-align: right;">0.633</td>
+<td style="text-align: right;">0.329</td>
+<td style="text-align: right;">0.941</td>
 <td style="text-align: right;">1.000</td>
-<td style="text-align: right;">338.778</td>
+<td style="text-align: right;">265.006</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Patrick O&#39;Connor</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">322</td>
-<td style="text-align: right;">0.632</td>
-<td style="text-align: right;">0.319</td>
-<td style="text-align: right;">0.946</td>
+<td style="text-align: right;">0.637</td>
+<td style="text-align: right;">0.332</td>
+<td style="text-align: right;">0.961</td>
 <td style="text-align: right;">1.000</td>
-<td style="text-align: right;">286.332</td>
+<td style="text-align: right;">446.159</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Lona Lane</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">144</td>
-<td style="text-align: right;">0.632</td>
-<td style="text-align: right;">0.173</td>
-<td style="text-align: right;">1.138</td>
-<td style="text-align: right;">1.001</td>
-<td style="text-align: right;">836.272</td>
+<td style="text-align: right;">0.641</td>
+<td style="text-align: right;">0.187</td>
+<td style="text-align: right;">1.136</td>
+<td style="text-align: right;">1.000</td>
+<td style="text-align: right;">732.937</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Michael Zalewski</td>
-<td style="text-align: left;">Democratic</td>
-<td style="text-align: right;">316</td>
-<td style="text-align: right;">0.678</td>
-<td style="text-align: right;">0.371</td>
-<td style="text-align: right;">1.011</td>
-<td style="text-align: right;">1.003</td>
-<td style="text-align: right;">340.078</td>
-</tr>
-<tr class="even">
 <td style="text-align: left;">Edward M. Burke</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">430</td>
-<td style="text-align: right;">0.681</td>
-<td style="text-align: right;">0.445</td>
-<td style="text-align: right;">0.907</td>
+<td style="text-align: right;">0.689</td>
+<td style="text-align: right;">0.464</td>
+<td style="text-align: right;">0.919</td>
+<td style="text-align: right;">1.003</td>
+<td style="text-align: right;">269.757</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Michael Zalewski</td>
+<td style="text-align: left;">Democratic</td>
+<td style="text-align: right;">316</td>
+<td style="text-align: right;">0.690</td>
+<td style="text-align: right;">0.393</td>
+<td style="text-align: right;">1.008</td>
 <td style="text-align: right;">1.001</td>
-<td style="text-align: right;">293.609</td>
+<td style="text-align: right;">423.782</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Thomas Allen</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">107</td>
-<td style="text-align: right;">0.705</td>
-<td style="text-align: right;">0.312</td>
-<td style="text-align: right;">1.184</td>
-<td style="text-align: right;">1.002</td>
-<td style="text-align: right;">677.325</td>
+<td style="text-align: right;">0.710</td>
+<td style="text-align: right;">0.304</td>
+<td style="text-align: right;">1.219</td>
+<td style="text-align: right;">1.000</td>
+<td style="text-align: right;">692.724</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">James Gardiner</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">333</td>
-<td style="text-align: right;">0.731</td>
-<td style="text-align: right;">0.530</td>
-<td style="text-align: right;">0.923</td>
-<td style="text-align: right;">1.007</td>
-<td style="text-align: right;">179.776</td>
+<td style="text-align: right;">0.735</td>
+<td style="text-align: right;">0.533</td>
+<td style="text-align: right;">0.935</td>
+<td style="text-align: right;">1.002</td>
+<td style="text-align: right;">162.295</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Richard Mell</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">150</td>
-<td style="text-align: right;">0.733</td>
-<td style="text-align: right;">0.353</td>
-<td style="text-align: right;">1.176</td>
-<td style="text-align: right;">1.001</td>
-<td style="text-align: right;">909.677</td>
+<td style="text-align: right;">0.745</td>
+<td style="text-align: right;">0.349</td>
+<td style="text-align: right;">1.188</td>
+<td style="text-align: right;">1.002</td>
+<td style="text-align: right;">648.214</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Silvana Tabares</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">357</td>
-<td style="text-align: right;">0.755</td>
-<td style="text-align: right;">0.558</td>
-<td style="text-align: right;">0.966</td>
-<td style="text-align: right;">1.002</td>
-<td style="text-align: right;">220.171</td>
+<td style="text-align: right;">0.760</td>
+<td style="text-align: right;">0.569</td>
+<td style="text-align: right;">0.964</td>
+<td style="text-align: right;">1.003</td>
+<td style="text-align: right;">201.763</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Mary O&#39;Connor</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">80</td>
-<td style="text-align: right;">0.784</td>
-<td style="text-align: right;">-0.001</td>
-<td style="text-align: right;">1.639</td>
-<td style="text-align: right;">1.002</td>
-<td style="text-align: right;">1013.115</td>
+<td style="text-align: right;">0.763</td>
+<td style="text-align: right;">-0.067</td>
+<td style="text-align: right;">1.633</td>
+<td style="text-align: right;">1.009</td>
+<td style="text-align: right;">1165.689</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">John Rice</td>
-<td style="text-align: left;">Unknown</td>
-<td style="text-align: right;">25</td>
-<td style="text-align: right;">0.798</td>
-<td style="text-align: right;">0.028</td>
-<td style="text-align: right;">1.645</td>
-<td style="text-align: right;">1.004</td>
-<td style="text-align: right;">1422.201</td>
-</tr>
-<tr class="odd">
 <td style="text-align: left;">Raymond A. Lopez</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">462</td>
-<td style="text-align: right;">0.799</td>
-<td style="text-align: right;">0.598</td>
-<td style="text-align: right;">1.013</td>
-<td style="text-align: right;">1.004</td>
-<td style="text-align: right;">198.764</td>
+<td style="text-align: right;">0.806</td>
+<td style="text-align: right;">0.610</td>
+<td style="text-align: right;">1.015</td>
+<td style="text-align: right;">1.000</td>
+<td style="text-align: right;">217.104</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">John Rice</td>
+<td style="text-align: left;">Democratic</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">0.816</td>
+<td style="text-align: right;">0.054</td>
+<td style="text-align: right;">1.648</td>
+<td style="text-align: right;">1.001</td>
+<td style="text-align: right;">1680.539</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Anthony V. Napolitano</td>
 <td style="text-align: left;">Multiple / changing designations</td>
 <td style="text-align: right;">478</td>
-<td style="text-align: right;">0.818</td>
-<td style="text-align: right;">0.618</td>
-<td style="text-align: right;">1.024</td>
-<td style="text-align: right;">1.005</td>
-<td style="text-align: right;">201.574</td>
+<td style="text-align: right;">0.825</td>
+<td style="text-align: right;">0.633</td>
+<td style="text-align: right;">1.029</td>
+<td style="text-align: right;">1.007</td>
+<td style="text-align: right;">167.706</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Frank Olivo</td>
-<td style="text-align: left;">Democratic</td>
-<td style="text-align: right;">111</td>
-<td style="text-align: right;">0.837</td>
-<td style="text-align: right;">0.381</td>
-<td style="text-align: right;">1.362</td>
-<td style="text-align: right;">1.000</td>
-<td style="text-align: right;">1076.691</td>
-</tr>
-<tr class="even">
 <td style="text-align: left;">Latasha R. Thomas</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">186</td>
-<td style="text-align: right;">0.841</td>
-<td style="text-align: right;">0.421</td>
-<td style="text-align: right;">1.324</td>
+<td style="text-align: right;">0.835</td>
+<td style="text-align: right;">0.418</td>
+<td style="text-align: right;">1.334</td>
+<td style="text-align: right;">1.001</td>
+<td style="text-align: right;">672.127</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Frank Olivo</td>
+<td style="text-align: left;">Democratic</td>
+<td style="text-align: right;">111</td>
+<td style="text-align: right;">0.846</td>
+<td style="text-align: right;">0.376</td>
+<td style="text-align: right;">1.433</td>
 <td style="text-align: right;">1.000</td>
-<td style="text-align: right;">677.104</td>
+<td style="text-align: right;">772.889</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Marty Quinn</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">573</td>
-<td style="text-align: right;">0.895</td>
-<td style="text-align: right;">0.685</td>
-<td style="text-align: right;">1.094</td>
+<td style="text-align: right;">0.902</td>
+<td style="text-align: right;">0.705</td>
+<td style="text-align: right;">1.109</td>
 <td style="text-align: right;">1.001</td>
-<td style="text-align: right;">193.331</td>
+<td style="text-align: right;">156.982</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">John Pope</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">202</td>
-<td style="text-align: right;">0.954</td>
-<td style="text-align: right;">0.546</td>
-<td style="text-align: right;">1.404</td>
-<td style="text-align: right;">1.000</td>
-<td style="text-align: right;">639.919</td>
+<td style="text-align: right;">0.951</td>
+<td style="text-align: right;">0.523</td>
+<td style="text-align: right;">1.415</td>
+<td style="text-align: right;">1.002</td>
+<td style="text-align: right;">582.907</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Patrick Levar</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">107</td>
-<td style="text-align: right;">0.993</td>
-<td style="text-align: right;">0.441</td>
-<td style="text-align: right;">1.577</td>
 <td style="text-align: right;">1.001</td>
-<td style="text-align: right;">946.392</td>
+<td style="text-align: right;">0.444</td>
+<td style="text-align: right;">1.635</td>
+<td style="text-align: right;">1.000</td>
+<td style="text-align: right;">1027.714</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Todd H. Stroger</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">51</td>
-<td style="text-align: right;">1.045</td>
-<td style="text-align: right;">0.383</td>
-<td style="text-align: right;">1.942</td>
+<td style="text-align: right;">1.032</td>
+<td style="text-align: right;">0.347</td>
+<td style="text-align: right;">1.869</td>
 <td style="text-align: right;">1.001</td>
-<td style="text-align: right;">894.311</td>
+<td style="text-align: right;">1228.656</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Mary Ann Smith</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">100</td>
 <td style="text-align: right;">1.062</td>
-<td style="text-align: right;">0.486</td>
-<td style="text-align: right;">1.657</td>
-<td style="text-align: right;">1.000</td>
-<td style="text-align: right;">772.465</td>
+<td style="text-align: right;">0.530</td>
+<td style="text-align: right;">1.717</td>
+<td style="text-align: right;">1.001</td>
+<td style="text-align: right;">755.768</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">William Banks</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">85</td>
-<td style="text-align: right;">1.068</td>
-<td style="text-align: right;">0.467</td>
-<td style="text-align: right;">1.757</td>
+<td style="text-align: right;">1.087</td>
+<td style="text-align: right;">0.498</td>
+<td style="text-align: right;">1.795</td>
 <td style="text-align: right;">1.000</td>
-<td style="text-align: right;">1392.753</td>
+<td style="text-align: right;">691.870</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Virginia Rugai</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">116</td>
-<td style="text-align: right;">1.097</td>
-<td style="text-align: right;">0.593</td>
-<td style="text-align: right;">1.663</td>
-<td style="text-align: right;">1.000</td>
-<td style="text-align: right;">967.172</td>
+<td style="text-align: right;">1.098</td>
+<td style="text-align: right;">0.573</td>
+<td style="text-align: right;">1.647</td>
+<td style="text-align: right;">1.001</td>
+<td style="text-align: right;">901.455</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Isaac Carothers</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">96</td>
-<td style="text-align: right;">1.127</td>
-<td style="text-align: right;">0.522</td>
-<td style="text-align: right;">1.771</td>
+<td style="text-align: right;">1.138</td>
+<td style="text-align: right;">0.538</td>
+<td style="text-align: right;">1.830</td>
 <td style="text-align: right;">1.000</td>
-<td style="text-align: right;">824.959</td>
+<td style="text-align: right;">888.828</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Ray Suarez</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">193</td>
-<td style="text-align: right;">1.174</td>
-<td style="text-align: right;">0.643</td>
-<td style="text-align: right;">1.688</td>
-<td style="text-align: right;">1.001</td>
-<td style="text-align: right;">743.766</td>
+<td style="text-align: right;">1.186</td>
+<td style="text-align: right;">0.623</td>
+<td style="text-align: right;">1.722</td>
+<td style="text-align: right;">1.000</td>
+<td style="text-align: right;">515.749</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Carrie Austin</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">419</td>
-<td style="text-align: right;">1.240</td>
-<td style="text-align: right;">1.006</td>
-<td style="text-align: right;">1.482</td>
-<td style="text-align: right;">1.005</td>
-<td style="text-align: right;">371.309</td>
+<td style="text-align: right;">1.243</td>
+<td style="text-align: right;">1.004</td>
+<td style="text-align: right;">1.487</td>
+<td style="text-align: right;">1.000</td>
+<td style="text-align: right;">197.980</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Bernard Stone</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">112</td>
-<td style="text-align: right;">1.655</td>
-<td style="text-align: right;">1.044</td>
-<td style="text-align: right;">2.264</td>
-<td style="text-align: right;">1.010</td>
-<td style="text-align: right;">680.927</td>
+<td style="text-align: right;">1.644</td>
+<td style="text-align: right;">1.019</td>
+<td style="text-align: right;">2.309</td>
+<td style="text-align: right;">1.005</td>
+<td style="text-align: right;">557.043</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Ted Matlak</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">58</td>
-<td style="text-align: right;">1.733</td>
-<td style="text-align: right;">0.832</td>
+<td style="text-align: right;">1.757</td>
+<td style="text-align: right;">0.888</td>
 <td style="text-align: right;">2.605</td>
 <td style="text-align: right;">1.000</td>
-<td style="text-align: right;">708.184</td>
+<td style="text-align: right;">695.762</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">William Beavers</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">53</td>
-<td style="text-align: right;">1.795</td>
-<td style="text-align: right;">0.774</td>
-<td style="text-align: right;">2.783</td>
-<td style="text-align: right;">1.000</td>
-<td style="text-align: right;">620.142</td>
+<td style="text-align: right;">1.796</td>
+<td style="text-align: right;">0.775</td>
+<td style="text-align: right;">2.794</td>
+<td style="text-align: right;">1.001</td>
+<td style="text-align: right;">514.652</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Burton Natarus</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">60</td>
-<td style="text-align: right;">1.872</td>
-<td style="text-align: right;">0.781</td>
-<td style="text-align: right;">2.903</td>
+<td style="text-align: right;">1.844</td>
+<td style="text-align: right;">0.793</td>
+<td style="text-align: right;">2.823</td>
+<td style="text-align: right;">1.000</td>
+<td style="text-align: right;">510.569</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Jesse Granato</td>
+<td style="text-align: left;">Democratic</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">1.882</td>
+<td style="text-align: right;">0.348</td>
+<td style="text-align: right;">4.927</td>
 <td style="text-align: right;">1.001</td>
-<td style="text-align: right;">519.074</td>
+<td style="text-align: right;">482.786</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Darcel A. Beavers</td>
+<td style="text-align: left;">Unknown</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">1.950</td>
+<td style="text-align: right;">0.093</td>
+<td style="text-align: right;">5.034</td>
+<td style="text-align: right;">1.001</td>
+<td style="text-align: right;">1490.618</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Leonard DeVille</td>
 <td style="text-align: left;">Unknown</td>
 <td style="text-align: right;">7</td>
-<td style="text-align: right;">1.899</td>
-<td style="text-align: right;">0.324</td>
-<td style="text-align: right;">4.794</td>
-<td style="text-align: right;">1.013</td>
-<td style="text-align: right;">435.688</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Jesse Granato</td>
-<td style="text-align: left;">Unknown</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">1.944</td>
-<td style="text-align: right;">0.358</td>
-<td style="text-align: right;">5.018</td>
-<td style="text-align: right;">1.002</td>
-<td style="text-align: right;">416.761</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Darcel A. Beavers</td>
-<td style="text-align: left;">Unknown</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">1.975</td>
-<td style="text-align: right;">0.082</td>
-<td style="text-align: right;">5.057</td>
-<td style="text-align: right;">1.000</td>
-<td style="text-align: right;">1408.886</td>
+<td style="text-align: right;">1.966</td>
+<td style="text-align: right;">0.374</td>
+<td style="text-align: right;">5.049</td>
+<td style="text-align: right;">1.001</td>
+<td style="text-align: right;">396.498</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Vilma Colom</td>
-<td style="text-align: left;">Unknown</td>
+<td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">7</td>
-<td style="text-align: right;">2.002</td>
-<td style="text-align: right;">0.383</td>
-<td style="text-align: right;">5.055</td>
-<td style="text-align: right;">1.001</td>
-<td style="text-align: right;">406.218</td>
+<td style="text-align: right;">1.983</td>
+<td style="text-align: right;">0.341</td>
+<td style="text-align: right;">5.131</td>
+<td style="text-align: right;">1.002</td>
+<td style="text-align: right;">337.688</td>
 </tr>
 <tr class="odd">
+<td style="text-align: left;">Michael Wojcik</td>
+<td style="text-align: left;">Democratic</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">2.007</td>
+<td style="text-align: right;">0.348</td>
+<td style="text-align: right;">4.844</td>
+<td style="text-align: right;">1.002</td>
+<td style="text-align: right;">488.755</td>
+</tr>
+<tr class="even">
 <td style="text-align: left;">James Balcer</td>
 <td style="text-align: left;">Democratic</td>
 <td style="text-align: right;">202</td>
-<td style="text-align: right;">2.052</td>
-<td style="text-align: right;">1.594</td>
-<td style="text-align: right;">2.621</td>
+<td style="text-align: right;">2.078</td>
+<td style="text-align: right;">1.567</td>
+<td style="text-align: right;">2.708</td>
 <td style="text-align: right;">1.000</td>
-<td style="text-align: right;">513.069</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Michael Wojcik</td>
-<td style="text-align: left;">Unknown</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">2.073</td>
-<td style="text-align: right;">0.394</td>
-<td style="text-align: right;">5.254</td>
-<td style="text-align: right;">1.016</td>
-<td style="text-align: right;">472.149</td>
+<td style="text-align: right;">438.964</td>
 </tr>
 </tbody>
 </table>
@@ -3917,7 +3920,7 @@ table { font-size: .88rem; }
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> Code/69_chicago_2003_report.r</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render chicago-report.qmd</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render chicago-technical-appendix.qmd</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The revised raw delivery is under <code>Jacob/2026-10-15-chicago/revised-316ed76/</code>; prepared data, chains, scores, audit tables and exact session information are in <code>Results/Chicago-2003/</code>. Research inputs are under <code>Data/Chicago/party_research_2003/</code> and <code>Data/Chicago/party_research_remaining_2026-10-15/</code>. Previous recent-only source/results remain in <code>Results/Chicago/</code>; its report and appendix were archived under <code>Results/chicago-recent-report-2026-10-15/</code>.</p>
+<p>The corrected raw delivery, replay inputs and checks are under <code>Jacob/2026-10-16-chicago/</code>; prepared data, chains, scores, audit tables and exact session information are in <code>Results/Chicago-2003-oct16/</code>. Research inputs are under <code>Data/Chicago/party_research_2003/</code>, <code>Data/Chicago/party_research_remaining_2026-10-15/</code>, <code>Data/Chicago/party_research_final15_2026-10-16/</code> and <code>Data/Chicago/party_research_final10_2026-10-18/</code>. Code/70 consolidates the last follow-up; Code/69 applies it to report outputs without changing the fitted draws. The preceding pooled fit remains in <code>Results/Chicago-2003/</code> and its pages in <code>Results/chicago-report-before-oct16/</code>. Recent-only results and archived pages are also preserved.</p>
 <p>Historical repeated-pattern sensitivity and alternative starts from the earlier recent-only appendix are not newly completed checks of this expanded input.</p>
 </section>
 
