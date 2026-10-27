@@ -24,6 +24,9 @@ Selected self-contained research reports published with GitHub Pages.
   - [Recent-only report, 2021–2026](https://bshor.github.io/reports/los-angeles-city-council/la-report.html)
   - [Recent-only technical appendix](https://bshor.github.io/reports/los-angeles-city-council/la-technical-appendix.html)
 
+- [Bellaire City Council ideal points, 2004–2026](https://bshor.github.io/reports/bellaire-city-council/bellaire-report.html) — 26 officials, four mayors, 784 divided roll calls.
+  - [Technical appendix](https://bshor.github.io/reports/bellaire-city-council/bellaire-technical-appendix.html)
+
 ## LLM
 
 - [LLM respondent-information arms (CCES extension)](https://bshor.github.io/reports/llm-cces-extension/paper-comparisons.html)
